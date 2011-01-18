@@ -1,11 +1,11 @@
 # The solution fields and parameters have the following units:
 #
-# Voltage: xV
-# Current: xa
-# Time: xs
-# Concentration: xM
-# Conductance: xS
-# Capacitance: xF
+# Voltage: mV
+# Current: pa
+# Time: s
+# Concentration: mM/l
+# Conductance: nS
+# Capacitance: nF
 
 clear all;
 
@@ -28,18 +28,21 @@ function xdot = f (x, t)
 
   # Background sodium
   g_Na_b_bar = 120;
-  g_Na_b = g_Na_b_bar;
   V_Na_b = -115;
-  I_Na_b = g_Na_b*(V - V_Na_b);
+  I_Na_b = g_Na_b_bar*(V - V_Na_b);
 
   # Background potassium
   g_K_b_bar = 36;
-  g_K_b = g_K_b_bar;
   V_K_b = 12;
-  I_K_b = g_K_b*(V - V_K_b);
+  I_K_b = g_K_b_bar*(V - V_K_b);
 
   # Sodium-potassium pump
-  I_NaK      = 0.0;
+  I_NaK_bar = 68.55;
+  K_c = 5.560224;
+  K_NaK_K = 1.0;
+  Na_i = 8.516766;
+  K_NaK_Na = 11.0;
+  I_NaK = I_NaK_bar*(K_c/(K_c + K_NaK_K))*(Na_i^1.5/(Na_i^1.5 + K_NaK_Na^1.5))*(V + 150.0)/(V + 200.0);
 
   # Sodium-Calcium exchanger
   I_NaCa     = 0.0;
@@ -84,7 +87,7 @@ endfunction
 
 % Time stepping information
 t_final = 4.0
-dt = 0.01
+dt = 0.005
 
 % Initial conditions
 V0 = -86
@@ -99,4 +102,4 @@ x = lsode("f", x0, t);
 clf
 figure(1)
 plot(t, x(:,1), "linewidth", 4)
-print -deps membrane_voltage.eps
+print -depsc2 "membrane_voltage.eps"
