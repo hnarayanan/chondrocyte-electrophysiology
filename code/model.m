@@ -7,6 +7,8 @@
 # Conductance: xS
 # Capacitance: xF
 
+clear all;
+
 function xdot = f (x, t)
 
   xdot = zeros (4, 1);
@@ -57,7 +59,11 @@ function xdot = f (x, t)
   # Trip channel(s)
   I_TRP      = 0.0;
 
-  I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH + I_K_ur + I_K_2pore + I_Ca_act_K + I_TRP;
+  # Total ionic contribution
+  I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH \
+      + I_K_ur + I_K_2pore + I_Ca_act_K + I_TRP;
+
+  # External stimulation
   I_stim = I_stim_bar*square(t*2*pi/t_cycle, t_stim/t_cycle);
 
   alpha_m = 0.1*(V + 25)/(exp((V + 25)/10) - 1);
@@ -77,7 +83,7 @@ function xdot = f (x, t)
 endfunction
 
 % Time stepping information
-t_final = 4
+t_final = 4.0
 dt = 0.01
 
 % Initial conditions
@@ -92,7 +98,5 @@ x = lsode("f", x0, t);
 
 clf
 figure(1)
-plot(t, x(:,1))
-%subplot(2,1,1), plot(t, x(:,1)), xlabel('time'), ylabel('Voltage')
-%hold on
-%subplot(2,1,2), plot(t, x(:,[2:4])), legend('m','h','n')
+plot(t, x(:,1), "linewidth", 4)
+print -deps membrane_voltage.eps
