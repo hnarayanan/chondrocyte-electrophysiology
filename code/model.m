@@ -45,7 +45,17 @@ function xdot = f (x, t)
   I_NaK = I_NaK_bar*(K_c/(K_c + K_NaK_K))*(Na_i^1.5/(Na_i^1.5 + K_NaK_Na^1.5))*(V + 150.0)/(V + 200.0);
 
   # Sodium-Calcium exchanger
-  I_NaCa     = 0.0;
+  K_NaCa = 0.0374842;
+  Ca_c = 1.815768;
+  gamma_Na = 0.45;
+  F = 96487.0;
+  R = 8314.0;
+  T = 306.15;
+  Na_c = 130.022096;
+  Ca_i = 6.5e-5;
+  d_NaCa = 0.0003;
+  I_NaCa = K_NaCa*(Na_i^3*Ca_c*exp(gamma_Na*V*F/(R*T)) - Na_c^3*Ca_i*exp((gamma_Na - 1.0)*V*F/(R*T))) \
+           / (1.0 + d_NaCa*(Na_c^3*Ca_i + Na_i^3*Ca_c));
 
   # Sodium-hydrogen exchanger
   I_NaH      = 0.0;
