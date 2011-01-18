@@ -1,0 +1,20 @@
+syntax: glob
+*~
+*.aux
+*.bbl
+*.blg
+*.brf
+*.dvi
+*.loa
+*.lof
+*.log
+*.lot
+*.out
+*.pdf
+*.ps
+*.tmp
+*.toc
+.DS_Store
+
+syntax: regexp
+.*\#.*\#$
