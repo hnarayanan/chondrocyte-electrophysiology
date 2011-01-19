@@ -9,9 +9,9 @@
 
 clear all;
 
-function xdot = f (x, t)
+function xdot = f(x, t)
 
-  xdot = zeros (4, 1);
+  xdot = zeros(4, 1);
 
   V = x(1);
   m = x(2);
@@ -112,4 +112,5 @@ x = lsode("f", x0, t);
 clf
 figure(1)
 plot(t, x(:,1), "linewidth", 4)
-print -depsc2 "membrane_voltage.eps"
+# print -depsc2 "membrane_voltage.eps"
+print -depslatexstandalone "membrane_voltage.tex"
