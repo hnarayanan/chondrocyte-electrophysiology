@@ -1,0 +1,57 @@
+\section{Mathematical model and numerical experiments}
+\label{model}
+
+A detailed formulation will be described here.
+
+\begin{displaymath}
+-C_{\rm m} \frac{dV_{\rm m}}{dt} = I_{\rm Na_b} + I_{\rm K_b}
+                               + I_{\rm NaK} + I_{\rm NaCa}
+                               + \textcolor{missing}{I_{\rm NaH}} + I_{\rm K_{ur}}
+                               + \textcolor{missing}{I_{\rm K_{2\, pore}}}
+                               + \textcolor{missing}{I_{\rm Ca_{act}K}}
+                               + I_{\rm TRP} + I_{\rm stim}
+\end{displaymath}
+\centering
+\input{images/examples/membrane_voltage}
+
+\begin{sidewaystable}[ht]
+
+
+\begin{tabular}{r c l l}
+\hline\hline
+Current description & Notation & Functional form & Parameter values \\ [0.5ex]
+\hline
+Background sodium & $I_{\rm Na_b}$ & $\bar{g}_{\rm Na_b} (V_{\rm m} - E_{\rm Na})$ \cite{UNKNOWN}
+                          & $\bar{g}_{\rm Na_b} = $ \cite{UNKNOWN}, $E_{\rm Na} = $ \cite{UNKNOWN}\\
+Background potassium & $I_{\rm K_b}$ & $\bar{g}_{\rm K_b} (V_{\rm m} - E_{\rm K})$ \cite{UNKNOWN}
+                          & $\bar{g}_{\rm K_b} = $ \cite{UNKNOWN}, $E_{\rm K} = $ \cite{UNKNOWN}\\
+Sodium-potassium pump & $I_{\rm NaK}$ & $\bar{I}_{\rm NaK}
+\frac{[\rm K^{+}]_{\rm c}}{[\rm K^{+}]_{\rm c} + k_{\rm NaK_{K}}}
+\frac{[\rm Na^{+}]^{1.5}_{\rm i}}{[\rm Na^{+}]^{1.5}_{\rm i} + k^{1.5}_{\rm
+    NaK_{Na}}}
+\frac{V + 150}{V + 200}$\cite{Nygrenetal1998} & \cite{Nygrenetal1998}\\
+Sodium-calcium exchanger & $I_{\rm NaCa}$ & $k_{\rm NaCa}
+\frac{[\rm Na^{+}]^{3}_{i}[\rm Ca^{2+}]_{c} \exp(\frac{\gamma V F}{R T}) -
+[\rm Na^{+}]^{3}_{c}[\rm Ca^{2+}]_{i} \exp(\frac{(\gamma - 1.0) V F}{R T})}
+{1.0 + d_{\rm NaCa}([\rm Na^{+}]^{3}_{c}[\rm Ca^{2+}]_{i} + [\rm
+  Na^{+}]^{3}_{i}[\rm Ca^{2+}]_{c})}$
+\cite{Nygrenetal1998} & \cite{Nygrenetal1998}\\
+Sodium-hydrogen exchanger & $I_{\rm NaH}$ & \cite{UNKNOWN} & \cite{UNKNOWN}\\
+Ultra-rapidly rectifying potassium & $I_{\rm K_{ur}}$ & $g_{\rm
+  K_{ur}}\, a_{\rm ur}\, i_{\rm ur}\, (V_{\rm m} - E_{\rm K})$ \cite{Maleckaretal2009} & \cite{Maleckaretal2009}\\
+Two-pore potassium channel & $I_{\rm K_{2\, pore}}$ & \cite{UNKNOWN} & \cite{UNKNOWN}\\
+Calcium-activated potassium & $I_{\rm Ca_{act}K}$ & \cite{UNKNOWN} & \cite{UNKNOWN}\\
+Trip channel(s) & $I_{\rm TRP}$ & $\bar{g}_{\rm NaCa_{TRP}}\, (V_{\rm
+  m} - E_{\rm NaCa})$ \cite{UNKNOWN} & \cite{UNKNOWN}\\
+Applied stimulus & $ I_{\rm stim}$ & Mirroring experiments \cite{Clarketal2011} &  --- \\ [1ex]
+\hline
+\end{tabular}
+\caption{Details of the model}
+\label{table:chondrocyte-model-details}
+\end{sidewaystable}
+
+% Local Variables:
+% TeX-master: "chondrocyte-model"
+% mode: latex
+% mode: flyspell
+% End:

@@ -112,5 +112,7 @@ x = lsode("f", x0, t);
 clf
 figure(1)
 plot(t, x(:,1), "linewidth", 4)
+xlabel("Time (s)")
+ylabel("Membrane voltage (mV)")
 # print -depsc2 "membrane_voltage.eps"
-print -depslatexstandalone "membrane_voltage.tex"
+print -depslatex "membrane_voltage.tex"
