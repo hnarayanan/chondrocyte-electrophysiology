@@ -24,16 +24,16 @@ function xdot = f(x, t)
   # External stimulation
   t_stim = 0.1;
   t_cycle = 0.5;
-  I_stim_bar = 100;
+  I_stim_bar = 100.0;
 
   # Background sodium
-  g_Na_b_bar = 120;
-  V_Na_b = -115;
+  g_Na_b_bar = 20;
+  V_Na_b = +55;
   I_Na_b = g_Na_b_bar*(V - V_Na_b);
 
   # Background potassium
-  g_K_b_bar = 36;
-  V_K_b = 12;
+  g_K_b_bar = 136;
+  V_K_b = -80;
   I_K_b = g_K_b_bar*(V - V_K_b);
 
   # Sodium-potassium pump
