@@ -16,7 +16,7 @@ function xdot = f(x, t)
   V    = x(1);
   Na_i = x(2);
   Na_c = x(3);
-  n     = x(4);
+  n    = x(4);
 
   # Membrane capacitance
   C_m = 15.0;
@@ -83,7 +83,7 @@ function xdot = f(x, t)
 
   # Changes in concentration
   tau_Na = 0.01;
-  Na_i_dot = - (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_i*F);
+  Na_i_dot =                      - (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_i*F);
   Na_c_dot = (Na_i - Na_c)/tau_Na + (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_c*F);
 
   alpha_n = 0.01*(V + 10)/(exp((V + 10)/10) - 1);
