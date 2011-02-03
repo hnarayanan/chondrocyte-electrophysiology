@@ -11,12 +11,13 @@ clear all;
 
 function xdot = f(x, t)
 
-  xdot = zeros(4, 1);
+  xdot = zeros(5, 1);
 
   V    = x(1);
   Na_i = x(2);
   Na_c = x(3);
-  n    = x(4);
+  a_ur = x(4);
+  I_ur = x(5);
 
   # Membrane capacitance
   C_m = 15.0;
@@ -27,8 +28,8 @@ function xdot = f(x, t)
 
   # External stimulation
   t_stim = 0.1;
-  t_cycle = 0.5;
-  I_stim_bar = 0.0;
+  t_cycle = 2.0;
+  I_stim_bar = 100.0;
 
   # Background sodium
   g_Na_b_bar = 20;
@@ -63,7 +64,13 @@ function xdot = f(x, t)
   I_NaH      = 0.0;
 
   # Ultra-rapidly rectifying potassium
-  I_K_ur     = 0.0;
+  g_K_ur     = 2.25;
+  a_ur_inf   = 1.0/(1.0 + exp(-(V + 6.0)/8.6));
+  I_ur_inf = 1.0/(1.0 + exp((V + 7.5)/10.0));
+  tau_a_ur   = 0.009/(1.0 + exp((V + 5.0)/12.0)) + 0.0005;
+  tau_I_ur   = 0.59/(1.0 + exp((V + 60.0)/10.0)) + 3.05;
+  V_K        = -83.042637;
+  I_K_ur     = g_K_ur*a_ur*I_ur*(V - V_K);
 
   # Two-pore potassium channel
   I_K_2pore  = 0.0;
@@ -85,6 +92,8 @@ function xdot = f(x, t)
   tau_Na = 0.01;
   Na_i_dot =                      - (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_i*F);
   Na_c_dot = (Na_i - Na_c)/tau_Na + (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_c*F);
+  a_ur_dot = (a_ur_inf - a_ur)/tau_a_ur;
+  I_ur_dot = (I_ur_inf - I_ur)/tau_I_ur;
 
   alpha_n = 0.01*(V + 10)/(exp((V + 10)/10) - 1);
   beta_n = 0.125*exp(V/80);
@@ -92,22 +101,25 @@ function xdot = f(x, t)
   xdot(1) = 1/C_m*(-I_i + I_stim);
   xdot(2) = Na_i_dot;
   xdot(3) = Na_c_dot;
-  xdot(4) = alpha_n*(1 - n) - beta_n*n;
+  xdot(4) = a_ur_dot;
+  xdot(5) = I_ur_dot;
+
 
 endfunction
 
 % Time stepping information
-t_final = 4.0
+t_final = 10.0
 dt = 0.005
 
 % Initial conditions
-V0 = -60
-Na_i_0 = 8.516766
+V0 = -64
+Na_i_0 = 0.516766
 Na_c_0 = 130.022096
-n0 =  1
+a_ur_0 = 0.000367
+I_ur_0 = 0.967290
 
 t = linspace(0, t_final, t_final/dt);
-x0 = [V0, Na_i_0, Na_c_0, n0];
+x0 = [V0, Na_i_0, Na_c_0, a_ur_0, I_ur_0];
 x = lsode("f", x0, t);
 
 clf
