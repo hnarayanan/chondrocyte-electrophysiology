@@ -27,9 +27,9 @@ function xdot = f(x, t)
   vol_c = 0.000800224;
 
   # External stimulation
-  t_stim = 0.1;
-  t_cycle = 2.0;
-  I_stim_bar = 100.0;
+  t_stim = 0.01;
+  t_cycle = 1.0;
+  I_stim_bar = 0.0;
 
   # Background sodium
   g_Na_b_bar = 20;
@@ -108,11 +108,11 @@ function xdot = f(x, t)
 endfunction
 
 % Time stepping information
-t_final = 10.0
+t_final = 100.0
 dt = 0.005
 
 % Initial conditions
-V0 = -64
+V0 = -62.3
 Na_i_0 = 0.516766
 Na_c_0 = 130.022096
 a_ur_0 = 0.000367
@@ -124,8 +124,13 @@ x = lsode("f", x0, t);
 
 clf
 figure(1)
-plot(t, x(:, 1), "linewidth", 4)
-xlabel("Time (s)")
-ylabel("Membrane voltage (mV)")
-print -depsc2 "membrane_voltage.eps"
-print -depslatex "membrane_voltage.tex"
+subplot(3, 2, 1), plot(t, x(:, 1)), legend('Membrane Voltage (mV)')
+subplot(3, 2, 2), plot(t, x(:, 2)), legend('[Na^{+}]_{i} (mM/l)')
+subplot(3, 2, 3), plot(t, x(:, 3)), legend('[Na^{+}]_{c} (mM/l)')
+subplot(3, 2, 4), plot(t, x(:, 4)), legend('a_{{ur}_{0}}')
+subplot(3, 2, 5), plot(t, x(:, 5)), legend('I_{{ur}_{0}} (pA)')
+xlabel('Time (s)')
+hold on
+
+print -depsc2 "output.eps"
+#print -depslatex "membrane_voltage.tex"
