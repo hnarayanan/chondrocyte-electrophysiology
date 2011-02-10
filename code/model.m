@@ -27,7 +27,7 @@ function xdot = f(x, t)
   vol_c = 0.000800224;
 
   # External stimulation
-  t_stim = 0.01;
+  t_stim = 1.0;
   t_cycle = 1.0;
   I_stim_bar = 0.0;
 
@@ -66,7 +66,7 @@ function xdot = f(x, t)
   # Ultra-rapidly rectifying potassium
   g_K_ur     = 2.25;
   a_ur_inf   = 1.0/(1.0 + exp(-(V + 6.0)/8.6));
-  I_ur_inf = 1.0/(1.0 + exp((V + 7.5)/10.0));
+  I_ur_inf   = 1.0/(1.0 + exp((V + 7.5)/10.0));
   tau_a_ur   = 0.009/(1.0 + exp((V + 5.0)/12.0)) + 0.0005;
   tau_I_ur   = 0.59/(1.0 + exp((V + 60.0)/10.0)) + 3.05;
   V_K        = -83.042637;
@@ -103,7 +103,6 @@ function xdot = f(x, t)
   xdot(3) = Na_c_dot;
   xdot(4) = a_ur_dot;
   xdot(5) = I_ur_dot;
-
 
 endfunction
 
