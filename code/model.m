@@ -5,7 +5,7 @@
 # Time: s
 # Concentration: mM/l
 # Conductance: nS
-# Capacitance: nF
+# Capacitance: nF (or pF)
 
 clear all;
 
@@ -73,17 +73,42 @@ function xdot = f(x, t)
   I_K_ur     = g_K_ur*a_ur*I_ur*(V - V_K);
 
   # Two-pore potassium channel
-  I_K_2pore  = 0.0;
+  g_2pore    = 1.0; #FIXME: This should be a sane value
+  I_K_2pore  = g_2pore*(V - V_K);
 
-  # Calcium-activated potassium channel
-  I_Ca_act_K = 0.0;
+  # Calcium-activated (maxi) potassium channel
+  L0  = 1.e-6; # Zero voltage value of L
+  Z_L = 0.3; # Corresponding partial charge
+  k = 1.3806504e-23; # CHECK THIS
+  kte = 23.54*(T/273);
+  L   = L0*exp(Z_L*V/kte);
+  K_D = 11.e-6; # Ca dissociation constant
+  K   = 1.e-6/K_D; # Calcium concentration should vary
+  C   = 8; # Allosteric factor, channel opening and Ca-2+ binding
+  Z_J = 0.58; # Corresponding partial charge
+  Vh_J = 150;
+  J0  = exp(-Z_J*Vh_J/kte);  # Zero voltage value of J
+  J_  = J0*exp(-Z_J*V/(k*t));
+  D   = 25; # Allosteric factor, channel opening and voltage sensor activation
+  E   = 2.4; # Allosteric factor, voltage sensor activation and Ca-2+ binding
+  P0_nr = L*(1 + K*C + J_*D + J_*K*C*D*E)^4;
+  P0  = P0_nr/(P0_nr + (1 + J_ + K + J_*K*E)^4); # Open probability
+  G_max = 1; # Maximum single channel conductance
+  N_channel = 1.e4;
+
+  V_Ca_act_K = 10;
+  I_Ca_act_K = N_channel*P0*G_max*(V - V_Ca_act_K);
+#  I_Ca_act_K = 0.0;
 
   # Trip channel(s)
-  I_TRP      = 0.0;
+  g_TRP      = 1.0; #FIXME: Should be a function of some external agent,
+		    #e.g. a steroid
+  I_TRP      = g_TRP*(V - V_Na_b);
 
   # Total ionic contribution
   I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH \
       + I_K_ur + I_K_2pore + I_Ca_act_K + I_TRP;
+  I_i = I_Ca_act_K;
 
   # External stimulation
   I_stim = I_stim_bar*square(t*2*pi/t_cycle, t_stim/t_cycle);
@@ -107,15 +132,15 @@ function xdot = f(x, t)
 endfunction
 
 % Time stepping information
-t_final = 100.0
-dt = 0.005
+t_final = 10.0
+dt = 0.05
 
 % Initial conditions
-V0 = -62.3
-Na_i_0 = 0.516766
-Na_c_0 = 130.022096
-a_ur_0 = 0.000367
-I_ur_0 = 0.967290
+V0 = -62.3;
+Na_i_0 = 0.516766;
+Na_c_0 = 130.022096;
+a_ur_0 = 0.000367;
+I_ur_0 = 0.967290;
 
 t = linspace(0, t_final, t_final/dt);
 x0 = [V0, Na_i_0, Na_c_0, a_ur_0, I_ur_0];
@@ -123,11 +148,12 @@ x = lsode("f", x0, t);
 
 clf
 figure(1)
-subplot(3, 2, 1), plot(t, x(:, 1)), legend('Membrane Voltage (mV)')
-subplot(3, 2, 2), plot(t, x(:, 2)), legend('[Na^{+}]_{i} (mM/l)')
-subplot(3, 2, 3), plot(t, x(:, 3)), legend('[Na^{+}]_{c} (mM/l)')
-subplot(3, 2, 4), plot(t, x(:, 4)), legend('a_{{ur}_{0}}')
-subplot(3, 2, 5), plot(t, x(:, 5)), legend('I_{{ur}_{0}} (pA)')
+plot(t, x(:, 1))
+#subplot(3, 2, 1), plot(t, x(:, 1)), legend('Membrane Voltage (mV)')
+#subplot(3, 2, 2), plot(t, x(:, 2)), legend('[Na^{+}]_{i} (mM/l)')
+#subplot(3, 2, 3), plot(t, x(:, 3)), legend('[Na^{+}]_{c} (mM/l)')
+#subplot(3, 2, 4), plot(t, x(:, 4)), legend('a_{{ur}_{0}}')
+#subplot(3, 2, 5), plot(t, x(:, 5)), legend('I_{{ur}_{0}} (pA)')
 xlabel('Time (s)')
 hold on
 
