@@ -77,28 +77,44 @@ function xdot = f(x, t)
   I_K_2pore  = g_2pore*(V - V_K);
 
   # Calcium-activated (maxi) potassium channel
-  L0  = 1.e-6; # Zero voltage value of L
-  Z_L = 0.3; # Corresponding partial charge
-  k = 1.3806504e-23; # CHECK THIS
-  kte = 23.54*(T/273);
-  L   = L0*exp(Z_L*V/kte);
-  K_D = 11.e-6; # Ca dissociation constant
-  K   = 1.e-6/K_D; # Calcium concentration should vary
-  C   = 8; # Allosteric factor, channel opening and Ca-2+ binding
-  Z_J = 0.58; # Corresponding partial charge
-  Vh_J = 150;
-  J0  = exp(-Z_J*Vh_J/kte);  # Zero voltage value of J
-  J_  = J0*exp(-Z_J*V/(k*t));
-  D   = 25; # Allosteric factor, channel opening and voltage sensor activation
-  E   = 2.4; # Allosteric factor, voltage sensor activation and Ca-2+ binding
-  P0_nr = L*(1 + K*C + J_*D + J_*K*C*D*E)^4;
-  P0  = P0_nr/(P0_nr + (1 + J_ + K + J_*K*E)^4); # Open probability
-  G_max = 1; # Maximum single channel conductance
-  N_channel = 1.e4;
+  # Constants taken straight from H-A's Igor code
 
-  V_Ca_act_K = 10;
+  Zj=0.58; Vhj=150; ZL=0.3; L0=1e-6; KDc=11e-6; C=8; D=25; E=2.4; Gmax=1;
+  W = [Zj, Vhj, ZL, L0, KDc, C, D, E, Gmax];
+  Ca = 11.e-6;
+  T = 20;
+  kTe = 23.54*((T + 273)/273);
+  Lv = W(4)*exp((V*W(3))/kTe);
+  Jv = exp(((V - W(2))*W(1))/kTe);
+  K = Ca/W(5);
+  C = W(6);
+  D = W(7);
+  E = W(8);
+  G_max=W(9);
+  N_channel = 1.0;
+  V_Ca_act_K = 10.0;
+
+  P0=(Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)/((Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)+((1+Jv+K+Jv*K*E)^4));
+
   I_Ca_act_K = N_channel*P0*G_max*(V - V_Ca_act_K);
-#  I_Ca_act_K = 0.0;
+
+#   L0  = 1.e-6; # Zero voltage value of L
+#   Z_L = 0.3; # Corresponding partial charge
+#   k = 1.3806504e-23; # CHECK THIS
+#   kte = 23.54*(T/273);
+#   L   = L0*exp(Z_L*V/kte);
+#   K_D = 11.e-6; # Ca dissociation constant
+#   K   = 1.e-6/K_D; # Calcium concentration should vary
+#   C   = 8; # Allosteric factor, channel opening and Ca-2+ binding
+#   Z_J = 0.58; # Corresponding partial charge
+#   Vh_J = 150;
+#   J0  = exp(-Z_J*Vh_J/kte);  # Zero voltage value of J
+#   J_  = J0*exp(-Z_J*V/(k*t));
+#   D   = 25; # Allosteric factor, channel opening and voltage sensor activation
+#   E   = 2.4; # Allosteric factor, voltage sensor activation and Ca-2+ binding
+#   P0_nr = L*(1 + K*C + J_*D + J_*K*C*D*E)^4;
+#   P0  = P0_nr/(P0_nr + (1 + J_ + K + J_*K*E)^4); # Open probability
+#  G_max = 1; # Maximum single channel conductance
 
   # Trip channel(s)
   g_TRP      = 1.0; #FIXME: Should be a function of some external agent,
@@ -108,7 +124,6 @@ function xdot = f(x, t)
   # Total ionic contribution
   I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH \
       + I_K_ur + I_K_2pore + I_Ca_act_K + I_TRP;
-  I_i = I_Ca_act_K;
 
   # External stimulation
   I_stim = I_stim_bar*square(t*2*pi/t_cycle, t_stim/t_cycle);
