@@ -11,7 +11,7 @@
 clear all;
 
 # Load model parameters
-model_parameters;
+parameters;
 
 # Load utility functions
 utility_functions;
