@@ -26,6 +26,7 @@ function xdot = f(x, t)
 
   global F, global R, global T;
   global C_m, global vol_i;
+  global t_cycle, global t_stim, global I_stim_bar;
 
   xdot = zeros(5, 1);
 
@@ -35,18 +36,11 @@ function xdot = f(x, t)
   a_ur = x(4);
   I_ur = x(5);
 
-  # External stimulation
-  t_stim = 1.0;
-  t_cycle = 1.0;
-  I_stim_bar = 0.0;
-
   # Background sodium
   I_Na_b = backgroundSodium(V, Na_i);
 
   # Background potassium
   I_K_b = backgroundPotassium(V, K_i);
-
-
 
   # Sodium-potassium pump
   I_NaK_bar = 68.55;
