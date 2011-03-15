@@ -15,6 +15,7 @@ syntax: glob
 *.tmp
 *.toc
 .DS_Store
+*.orig
 
 syntax: regexp
 .*\#.*\#$
