@@ -18,6 +18,9 @@ utility_functions;
 
 # Define different currents
 background_currents;
+# pumps_and_exchangers;
+# potassium_currents;
+# etc.
 
 function xdot = f(x, t)
 
