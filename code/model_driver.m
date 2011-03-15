@@ -10,47 +10,14 @@
 # Clear memory
 clear all;
 
-# Universal constants
-global R = 8.314472; # Universal gas constant (J K^-1 mol^-1)
-global T = 310.15;   # Normal body temperature (K)
-global F = 96485.34; # Faraday's constant (C mol^-1)
+# Load model parameters
+model_parameters;
 
-# Cell parameters
-global C_m = 15.0;       # Membrane capacitance
-global vol_i = 0.005884; # Internal volume
+# Load utility functions
+utility_functions;
 
-# Constants related to sodium
-global Na_i_0 = 0.516766;    # Initial internal sodium concentration (mM/l)
-global Na_o   = 130.022096;  # Clamped external sodium concentration (mM/l)
-global z_Na = 1;             # Charge on the sodium ion
-global g_Na_b_bar = 20;      # Background sodium leakage conductance (nS)
-
-# Constants related to potassium
-global K_i_0 = 129.485991;  # Initial internal potassium concentration (mM/l)
-global K_o   = 5.560224;    # Clamped external potassium concentration (mM/l)
-global z_K = 1;             # Charge on the potassium ion
-global g_K_b_bar = 20;      # Background potassium leakage conductance (nS)
-
-# Potential of an ion X across the membrane (mV).
-function E_X = nernstPotential(z, X_i, X_o)
-  global R, global T, global F;
-  E_X = 1000.0*(R*T)/(z*F)*log(X_o/X_i);
-endfunction
-
-# Background sodium current
-function I_Na_b = backgroundSodium(V, Na_i)
-  global z_Na, global g_Na_b_bar, global Na_o;
-  E_Na = nernstPotential(z_Na, Na_i, Na_o)
-  I_Na_b = g_Na_b_bar*(V - E_Na);
-endfunction
-
-# Background potassium current
-function I_K_b = backgroundPotassium(V, K_i)
-  global z_K, global g_K_b_bar, global K_o;
-  E_K = nernstPotential(z_K, K_i, K_o)
-  I_K_b = g_K_b_bar*(V - E_K);
-endfunction
-
+# Define different currents
+background_currents;
 
 function xdot = f(x, t)
 
