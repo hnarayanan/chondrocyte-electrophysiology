@@ -25,7 +25,7 @@ function I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i)
 
   I_NaCa = K_NaCa*(  Na_i^3*Ca_o*exp(gamma_Na*V*F/(R*T)) \
                    - Na_o^3*Ca_i*exp((gamma_Na - 1.0)*V*F/(R*T))) \
-      / (1.0 + d_NaCa*(Na_o^3*Ca_i + Na_i^3*Ca_o));
+                 /(1.0 + d_NaCa*(Na_o^3*Ca_i + Na_i^3*Ca_o));
 endfunction
 
 # FIXME: Implement the sodium-hydrogen antiport

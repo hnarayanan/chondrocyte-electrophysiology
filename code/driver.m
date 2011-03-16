@@ -131,22 +131,8 @@ len_t = size(t, 2);
 x0 = [V0, Na_i_0, K_i_0, Ca_i_0, a_ur_0, I_ur_0];
 x = lsode("f", x0, t);
 
-# Extract solution components
-V    = x(:, 1);
-Na_i = x(:, 2);
-K_i  = x(:, 3);
-Ca_i = x(:, 4);
-
-# Compute currents at all times
-I_Na_b = zeros(len_t, 1);
-for ii = [1:len_t]
-  I_Na_b(ii) = backgroundSodium(V(ii), Na_i(ii));
-  I_K_b(ii)  = backgroundPotassium(V(ii), K_i(ii));
-  I_NaK(ii)  = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii));
-  I_NaCa(ii) = sodiumCalciumExchanger(V(ii), Na_i(ii), Ca_i(ii));
-  I_NaH(ii) = sodiumHydrogenAntiport();
-  I_ASIC = voltageActivatedHydrogen();
-endfor
+# Extract and postprocess solutions
+postprocess_solutions;
 
 # Plot the computed solutions
 plot_solutions;
