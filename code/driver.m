@@ -45,6 +45,7 @@ function xdot = f(x, t)
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i);
   I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i);
   I_NaH = sodiumHydrogenAntiport();
+  I_K_ATP = potassiumPump();
 
   # Calculate other potassium currents
   I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, I_ur);
@@ -76,7 +77,6 @@ function xdot = f(x, t)
 
   I_Ca_act_K = N_channel*P0*G_max*(V - V_Ca_act_K);
 
-# FIXME:I_K_ATP
 
   # Trip channel(s)
   g_TRP      = 1.0; #FIXME: Should be a function of some external agent,
@@ -84,8 +84,9 @@ function xdot = f(x, t)
   I_TRP      = 0.0;#g_TRP*(V - V_Na_b);
 
   # Total ionic contribution
-  I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH + I_ASIC \
-      + I_K_ur + I_K_2pore;# + I_Ca_act_K + I_TRP;
+  I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH \
+      + I_K_ur + I_K_2pore + I_K_ATP \
+      + I_ASIC;# + I_Ca_act_K + I_TRP;
 
   # Changes in concentration (FIXME: Check these carefully)
   tau_Na = 0.01;

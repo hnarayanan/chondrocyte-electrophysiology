@@ -15,9 +15,14 @@ function I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, I_ur)
   I_K_ur     = g_K_ur*a_ur*I_ur*(V - E_K);
 endfunction
 
-# 2-pore potassium current
+# Two-pore potassium current
 function I_K_2pore = twoPorePotassium(V, K_i)
   global z_K, global g_K_2pore, global K_o;
   E_K = nernstPotential(z_K, K_i, K_o);
   I_K_2pore = g_K_2pore*(V - E_K);
+endfunction
+
+# FIXME: Implement the ATP-powered potassium pump
+function I_K_ATP = potassiumPump()
+  I_K_ATP = 0.0;
 endfunction
