@@ -19,7 +19,7 @@ utility_functions;
 # Define different currents
 background_currents;
 pumps_and_exchangers;
-# potassium_currents;
+potassium_currents;
 other_currents;
 
 function xdot = f(x, t)
@@ -41,10 +41,13 @@ function xdot = f(x, t)
   # Calculate different currents
   I_Na_b = backgroundSodium(V, Na_i);
   I_K_b = backgroundPotassium(V, K_i);
+
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i);
   I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i);
   I_NaH = sodiumHydrogenAntiport();
+
   I_ASIC = voltageActivatedHydrogen();
+  I_stim = externalStimulation(t);
 
   # Ultra-rapidly rectifying potassium
   g_K_ur     = 2.25;
@@ -91,8 +94,7 @@ function xdot = f(x, t)
   I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH + I_ASIC;
 #      + I_K_ur + I_K_2pore + I_Ca_act_K + I_TRP;
 
-  # External stimulation
-  I_stim = I_stim_bar*square(t*2*pi/t_cycle, t_stim/t_cycle);
+
 
   # Changes in concentration (FIXME: Check these carefully)
   tau_Na = 0.01;
