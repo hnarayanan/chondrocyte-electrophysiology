@@ -67,8 +67,8 @@ function xdot = f(x, t)
   Zj=0.58; Vhj=150; ZL=0.3; L0=1e-6; KDc=11e-6; C=8; D=25; E=2.4; Gmax=1;
   W = [Zj, Vhj, ZL, L0, KDc, C, D, E, Gmax];
   Ca = 11.e-6;
-  T = 20;
-  kTe = 23.54*((T + 273)/273);
+#  T = 20;
+  kTe = 23.54*((T)/273);
   Lv = W(4)*exp((V*W(3))/kTe);
   Jv = exp(((V - W(2))*W(1))/kTe);
   K = Ca/W(5);

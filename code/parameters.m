@@ -1,5 +1,5 @@
 # Universal constants
-global R = 8.314472; # Universal gas constant (J K^-1 mol^-1)
+global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
 global T = 310.15;   # Normal body temperature (K)
 global F = 96485.34; # Faraday's constant (C mol^-1)
 
