@@ -24,17 +24,20 @@ background_currents;
 
 function xdot = f(x, t)
 
+  # Load useful constants
   global F, global R, global T;
   global C_m, global vol_i;
   global t_cycle, global t_stim, global I_stim_bar;
 
+  # Initialize and populate vector of unknowns
   xdot = zeros(5, 1);
-
   V    = x(1);
   Na_i = x(2);
   K_i  = x(3);
   a_ur = x(4);
   I_ur = x(5);
+
+  # Calculate different currents
 
   # Background sodium
   I_Na_b = backgroundSodium(V, Na_i);
@@ -141,13 +144,28 @@ a_ur_0 = 0.000367;
 I_ur_0 = 0.967290;
 
 t = linspace(0, t_final, t_final/dt);
+len_t = size(t, 2);
 x0 = [V0, Na_i_0, K_i_0, a_ur_0, I_ur_0];
 x = lsode("f", x0, t);
 
+# Extract solution components
+V    = x(:, 1);
+Na_i = x(:, 2);
+K_i  = x(:, 3);
+
+# Compute currents at all times
+I_Na_b = zeros(len_t, 1);
+for ii = [1:len_t]
+  I_Na_b(ii) = backgroundSodium(V(ii), Na_i(ii));
+  I_K_b(ii)  = backgroundPotassium(V(ii), K_i(ii));
+endfor
+
 clf
 figure(1)
-plot(t, x(:, 1))
-#subplot(3, 2, 1), plot(t, x(:, 1)), legend('Membrane Voltage (mV)')
+#plot(t, x(:, 1))
+subplot(3, 2, 1), plot(t, V), legend('Membrane Voltage (mV)')
+subplot(3, 2, 2), plot(t, I_Na_b), legend('Background Sodium Current (nA)')
+subplot(3, 2, 3), plot(t, I_K_b), legend('Background Potassium Current (nA)')
 #subplot(3, 2, 2), plot(t, x(:, 2)), legend('[Na^{+}]_{i} (mM/l)')
 #subplot(3, 2, 3), plot(t, x(:, 3)), legend('[Na^{+}]_{c} (mM/l)')
 #subplot(3, 2, 4), plot(t, x(:, 4)), legend('a_{{ur}_{0}}')
