@@ -160,18 +160,27 @@ for ii = [1:len_t]
   I_K_b(ii)  = backgroundPotassium(V(ii), K_i(ii));
 endfor
 
-clf
-figure(1)
-#plot(t, x(:, 1))
-subplot(3, 2, 1), plot(t, V), legend('Membrane Voltage (mV)')
-subplot(3, 2, 2), plot(t, I_Na_b), legend('Background Sodium Current (nA)')
-subplot(3, 2, 3), plot(t, I_K_b), legend('Background Potassium Current (nA)')
-#subplot(3, 2, 2), plot(t, x(:, 2)), legend('[Na^{+}]_{i} (mM/l)')
-#subplot(3, 2, 3), plot(t, x(:, 3)), legend('[Na^{+}]_{c} (mM/l)')
-#subplot(3, 2, 4), plot(t, x(:, 4)), legend('a_{{ur}_{0}}')
-#subplot(3, 2, 5), plot(t, x(:, 5)), legend('I_{{ur}_{0}} (pA)')
-xlabel('Time (s)')
-hold on
+# Clear the screen and plot solutions
+clf;
+hold on;
 
-print -depsc2 "output.eps"
+# Just the membrane voltage
+figure(1);
+plot(t, V); xlabel('t (s)'); ylabel('V_{m} (mV)');
+print -depsc2 "output/voltage.eps"
+
+# The different current components
+figure(2);
+subplot(2, 2, 1), plot(t, I_Na_b), legend('I_{Na_{b}} (nA)'), xlabel('t (s)');
+subplot(2, 2, 2), plot(t, I_K_b), legend('I_{K_{b}} (nA)'), xlabel('t (s)');
+xlabel('t (s)');
+print -depsc2 "output/background_currents.eps"
+
+# The different concentrations
+figure(3);
+subplot(2, 2, 1), plot(t, Na_i), legend('[Na^{+}]_{i} (mM/l)'), xlabel('t (s)');
+subplot(2, 2, 2), plot(t, K_i),  legend('[K^{+}]_{i} (mM/l)'), xlabel('t (s)');
+xlabel('t (s)');
+print -depsc2 "output/concentrations.eps"
+
 #print -depslatex "membrane_voltage.tex"
