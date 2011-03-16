@@ -49,3 +49,16 @@ global I_ur_0 = 0.967290;
 # Constants related to the two-pore potassium channel
 # FIXME: Find out the value of the conductance
 global g_K_2pore = 0.0;
+
+# Constants related to the calcium-activated potassium channel
+global Zj = 0.58;
+global Vhj = 150;
+global ZL = 0.3;
+global L0 = 1e-6;
+global KDc = 11e-6;
+global C = 8;
+global D = 25;
+global E = 2.4;
+global Gmax=1;
+global N_channel = 1.0;
+global V_K_Ca_act = 10.0;
