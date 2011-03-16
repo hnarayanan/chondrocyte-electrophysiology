@@ -20,6 +20,7 @@ print -depsc2 "output/background_currents.eps"
 figure(3);
 subplot(2, 2, 1), plot(t, I_NaK), legend('I_{NaK} (nA)'), xlabel('t (s)');
 subplot(2, 2, 2), plot(t, I_NaCa), legend('I_{NaCa} (nA)'), xlabel('t (s)');
+subplot(2, 2, 3), plot(t, I_NaH), legend('I_{NaH} (nA)'), xlabel('t (s)');
 xlabel('t (s)');
 print -depsc2 "output/pumps_and_exchangers.eps"
 
