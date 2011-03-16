@@ -13,6 +13,7 @@ I_NaK  = zeros(len_t, 1);
 I_NaCa = zeros(len_t, 1);
 I_NaH  = zeros(len_t, 1);
 I_ASIC = zeros(len_t, 1);
+I_stim = zeros(len_t, 1);
 
 for ii = [1:len_t]
   I_Na_b(ii) = backgroundSodium(V(ii), Na_i(ii));
@@ -21,4 +22,5 @@ for ii = [1:len_t]
   I_NaCa(ii) = sodiumCalciumExchanger(V(ii), Na_i(ii), Ca_i(ii));
   I_NaH(ii)  = sodiumHydrogenAntiport();
   I_ASIC(ii) = voltageActivatedHydrogen();
+  I_stim(ii) = externalStimulation(t(ii));
 endfor

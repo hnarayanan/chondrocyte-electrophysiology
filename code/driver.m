@@ -85,6 +85,8 @@ function xdot = f(x, t)
 
   I_Ca_act_K = N_channel*P0*G_max*(V - V_Ca_act_K);
 
+# FIXME:I_K_ATP
+
   # Trip channel(s)
   g_TRP      = 1.0; #FIXME: Should be a function of some external agent,
 		    #e.g. a steroid or stretch

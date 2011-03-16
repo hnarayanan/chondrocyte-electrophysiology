@@ -26,7 +26,8 @@ print -depsc2 "output/pumps_and_exchangers.eps"
 
 # The other currents
 figure(4);
-subplot(2, 2, 1), plot(t, I_ASIC), legend('I_{ASIC} (nA)'), xlabel('t (s)');
+subplot(2, 2, 1), plot(t, I_stim), legend('I_{stim} (nA)'), xlabel('t (s)');
+subplot(2, 2, 2), plot(t, I_ASIC), legend('I_{ASIC} (nA)'), xlabel('t (s)');
 xlabel('t (s)');
 print -depsc2 "output/other_currents.eps"
 

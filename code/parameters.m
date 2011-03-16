@@ -40,3 +40,5 @@ global K_NaK_Na = 11.0;
 global K_NaCa = 0.0374842;
 global gamma_Na = 0.45;
 global d_NaCa = 0.0003;
+
+# Constants related to the ultra-rapidly rectifying potassium channel
