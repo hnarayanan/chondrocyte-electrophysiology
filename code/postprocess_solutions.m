@@ -8,8 +8,8 @@ Ca_i = x(:, 4);
 a_ur = x(:, 5);
 I_ur = x(:, 6);
 
-
 # Compute currents at all times
+len_t = size(t, 2);
 I_Na_b     = zeros(len_t, 1);
 I_K_b      = zeros(len_t, 1);
 I_NaK      = zeros(len_t, 1);

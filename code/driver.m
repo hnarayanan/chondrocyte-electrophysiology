@@ -22,6 +22,7 @@ pumps_and_exchangers;
 potassium_currents;
 other_currents;
 
+# Define the ODE system
 function xdot = f(x, t)
 
   # Load useful constants
@@ -92,15 +93,8 @@ function xdot = f(x, t)
 
 endfunction
 
-% Time stepping information
-t_final = 10.0
-dt = 0.05
-
-% Initial conditions
-V0 = -62.3;
-
+# Solve the ODE system for all time t
 t = linspace(0, t_final, t_final/dt);
-len_t = size(t, 2);
 x0 = [V0, Na_i_0, K_i_0, Ca_i_0, a_ur_0, I_ur_0];
 x = lsode("f", x0, t);
 
