@@ -8,7 +8,7 @@ global C_m = 15.0;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
-t_final = 600.0;         # Final time(s)
+t_final = 200.0;         # Final time(s)
 dt = 5;                  # Time increment(s)
 
 # Initial conditions
