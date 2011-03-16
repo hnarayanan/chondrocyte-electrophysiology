@@ -20,8 +20,7 @@ utility_functions;
 background_currents;
 pumps_and_exchangers;
 # potassium_currents;
-other_channels;
-# etc.
+other_currents;
 
 function xdot = f(x, t)
 
