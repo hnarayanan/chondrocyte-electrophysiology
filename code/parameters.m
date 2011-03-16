@@ -23,3 +23,8 @@ global K_i_0 = 129.485991; # Initial internal potassium concentration (mM/l)
 global K_o   = 5.560224;   # Clamped external potassium concentration (mM/l)
 global z_K   = 1;          # Charge on the potassium ion
 global g_K_b_bar = 20;     # Background potassium leakage conductance (nS)
+
+# Constants related to the sodium-potassium pump
+global I_NaK_bar = 68.55;
+global K_NaK_K = 1.0;
+global K_NaK_Na = 11.0;

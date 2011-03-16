@@ -18,7 +18,7 @@ utility_functions;
 
 # Define different currents
 background_currents;
-# pumps_and_exchangers;
+pumps_and_exchangers;
 # potassium_currents;
 # etc.
 
@@ -38,19 +38,9 @@ function xdot = f(x, t)
   I_ur = x(5);
 
   # Calculate different currents
-
-  # Background sodium
   I_Na_b = backgroundSodium(V, Na_i);
-
-  # Background potassium
   I_K_b = backgroundPotassium(V, K_i);
-
-  # Sodium-potassium pump
-  I_NaK_bar = 68.55;
-  K_c = 5.560224;
-  K_NaK_K = 1.0;
-  K_NaK_Na = 11.0;
-  I_NaK = I_NaK_bar*(K_c/(K_c + K_NaK_K))*(Na_i^1.5/(Na_i^1.5 + K_NaK_Na^1.5))*(V + 150.0)/(V + 200.0);
+  I_NaK = sodiumPotassiumPump(V, Na_i, K_i);
 
   # Sodium-Calcium exchanger
   K_NaCa = 0.0374842;
