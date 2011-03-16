@@ -47,3 +47,5 @@ global a_ur_0 = 0.000367;
 global I_ur_0 = 0.967290;
 
 # Constants related to the two-pore potassium channel
+# FIXME: Find out the value of the conductance
+global g_K_2pore = 0.0;

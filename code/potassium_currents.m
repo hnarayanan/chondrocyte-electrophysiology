@@ -13,3 +13,11 @@ function I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, I_ur)
   [a_ur_inf, I_ur_inf, tau_a_ur, tau_I_ur] = ultraRapidlyRectifyingPotassiumHelper(V);
   E_K        = nernstPotential(z_K, K_i, K_o);
   I_K_ur     = g_K_ur*a_ur*I_ur*(V - E_K);
+endfunction
+
+# 2-pore potassium current
+function I_K_2pore = twoPorePotassium(V, K_i)
+  global z_K, global g_K_2pore, global K_o;
+  E_K = nernstPotential(z_K, K_i, K_o);
+  I_K_2pore = g_K_2pore*(V - E_K);
+endfunction

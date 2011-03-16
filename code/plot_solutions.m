@@ -27,6 +27,7 @@ print -depsc2 "output/pumps_and_exchangers.eps"
 # The other potassium currents
 figure(4);
 subplot(2, 2, 1), plot(t, I_K_ur), legend('I_{K_{ur}} (nA)'), xlabel('t (s)');
+subplot(2, 2, 2), plot(t, I_K_2pore), legend('I_{K_{2pore}} (nA)'), xlabel('t (s)');
 xlabel('t (s)');
 print -depsc2 "output/potassium_currents.eps"
 

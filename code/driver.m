@@ -30,7 +30,6 @@ function xdot = f(x, t)
   global t_cycle, global t_stim, global I_stim_bar;
 
   # Initialize and populate vector of unknowns
-  xdot = zeros(6, 1);
   V    = x(1);
   Na_i = x(2);
   K_i  = x(3);
@@ -49,14 +48,11 @@ function xdot = f(x, t)
 
   # Calculate other potassium currents
   I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, I_ur);
+  I_K_2pore = twoPorePotassium(V, K_i);
 
   # Calculate other currents
   I_ASIC = voltageActivatedHydrogen();
   I_stim = externalStimulation(t);
-
-  # Two-pore potassium channel
-  g_2pore    = 1.0; #FIXME: This should be a sane value
-  I_K_2pore  = 0.0;#;g_2pore*(V - V_K);
 
   # Calcium-activated (maxi) potassium channel
   # Constants taken straight from H-A's Igor code
@@ -89,9 +85,7 @@ function xdot = f(x, t)
 
   # Total ionic contribution
   I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH + I_ASIC \
-      + I_K_ur;# + I_K_2pore + I_Ca_act_K + I_TRP;
-
-
+      + I_K_ur + I_K_2pore;# + I_Ca_act_K + I_TRP;
 
   # Changes in concentration (FIXME: Check these carefully)
   tau_Na = 0.01;
@@ -110,6 +104,7 @@ function xdot = f(x, t)
   alpha_n = 0.01*(V + 10)/(exp((V + 10)/10) - 1);
   beta_n = 0.125*exp(V/80);
 
+  xdot = zeros(6, 1);
   xdot(1) = 1/C_m*(-I_i + I_stim);
   xdot(2) = Na_i_dot;
   xdot(3) = K_i_dot;
