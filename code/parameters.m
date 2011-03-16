@@ -42,3 +42,8 @@ global gamma_Na = 0.45;
 global d_NaCa = 0.0003;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
+global g_K_ur = 2.25;
+global a_ur_0 = 0.000367;
+global I_ur_0 = 0.967290;
+
+# Constants related to the two-pore potassium channel

@@ -38,30 +38,25 @@ function xdot = f(x, t)
   a_ur = x(5);
   I_ur = x(6);
 
-  # Calculate different currents
+  # Calculate background currents
   I_Na_b = backgroundSodium(V, Na_i);
   I_K_b = backgroundPotassium(V, K_i);
 
+  # Calculate pump and exchanger currents
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i);
   I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i);
   I_NaH = sodiumHydrogenAntiport();
 
+  # Calculate other potassium currents
+  I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, I_ur);
+
+  # Calculate other currents
   I_ASIC = voltageActivatedHydrogen();
   I_stim = externalStimulation(t);
 
-  # Ultra-rapidly rectifying potassium
-  g_K_ur     = 2.25;
-  a_ur_inf   = 1.0/(1.0 + exp(-(V + 6.0)/8.6));
-  I_ur_inf   = 1.0/(1.0 + exp((V + 7.5)/10.0));
-  tau_a_ur   = 0.009/(1.0 + exp((V + 5.0)/12.0)) + 0.0005;
-  tau_I_ur   = 0.59/(1.0 + exp((V + 60.0)/10.0)) + 3.05;
-  V_K        = -83.042637;
-  a_ur  = 0.000367; #FIXME: Should be varying!
-  I_K_ur     = g_K_ur*a_ur*I_ur*(V - V_K);
-
   # Two-pore potassium channel
   g_2pore    = 1.0; #FIXME: This should be a sane value
-  I_K_2pore  = g_2pore*(V - V_K);
+  I_K_2pore  = 0.0;#;g_2pore*(V - V_K);
 
   # Calcium-activated (maxi) potassium channel
   # Constants taken straight from H-A's Igor code
@@ -93,8 +88,8 @@ function xdot = f(x, t)
   I_TRP      = 0.0;#g_TRP*(V - V_Na_b);
 
   # Total ionic contribution
-  I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH + I_ASIC;
-#      + I_K_ur + I_K_2pore + I_Ca_act_K + I_TRP;
+  I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH + I_ASIC \
+      + I_K_ur;# + I_K_2pore + I_Ca_act_K + I_TRP;
 
 
 
@@ -102,9 +97,13 @@ function xdot = f(x, t)
   tau_Na = 0.01;
 #  Na_i_dot =                      - (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_i*F);
 #  Na_c_dot = 0.0;(Na_i - Na_o)/tau_Na + (I_Na_b + 3*I_NaK + 3*I_NaCa +  I_NaH)/(vol_c*F);
+
   Na_i_dot = -(I_Na_b)/(vol_i*F);
   K_i_dot  = -(I_K_b)/(vol_i*F);
   Ca_i_dot = -(0.0)/(vol_i*F);
+
+  [a_ur_inf, I_ur_inf, tau_a_ur, tau_I_ur] = ultraRapidlyRectifyingPotassiumHelper(V);
+
   a_ur_dot = (a_ur_inf - a_ur)/tau_a_ur;
   I_ur_dot = (I_ur_inf - I_ur)/tau_I_ur;
 
@@ -126,8 +125,6 @@ dt = 0.05
 
 % Initial conditions
 V0 = -62.3;
-a_ur_0 = 0.000367;
-I_ur_0 = 0.967290;
 
 t = linspace(0, t_final, t_final/dt);
 len_t = size(t, 2);
