@@ -148,6 +148,7 @@ I_Na_b = zeros(len_t, 1);
 for ii = [1:len_t]
   I_Na_b(ii) = backgroundSodium(V(ii), Na_i(ii));
   I_K_b(ii)  = backgroundPotassium(V(ii), K_i(ii));
+  I_NaK(ii) = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii));
 endfor
 
 # Clear the screen and plot solutions
@@ -166,8 +167,14 @@ subplot(2, 2, 2), plot(t, I_K_b), legend('I_{K_{b}} (nA)'), xlabel('t (s)');
 xlabel('t (s)');
 print -depsc2 "output/background_currents.eps"
 
-# The different concentrations
+# The different current components
 figure(3);
+subplot(2, 2, 1), plot(t, I_NaK), legend('I_{NaK} (nA)'), xlabel('t (s)');
+xlabel('t (s)');
+print -depsc2 "output/pumps_and_exchangers.eps"
+
+# The different concentrations
+figure(4);
 subplot(2, 2, 1), plot(t, Na_i), legend('[Na^{+}]_{i} (mM/l)'), xlabel('t (s)');
 subplot(2, 2, 2), plot(t, K_i),  legend('[K^{+}]_{i} (mM/l)'), xlabel('t (s)');
 xlabel('t (s)');
