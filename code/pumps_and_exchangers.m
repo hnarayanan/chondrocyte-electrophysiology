@@ -27,3 +27,15 @@ function I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i)
                    - Na_o^3*Ca_i*exp((gamma_Na - 1.0)*V*F/(R*T))) \
       / (1.0 + d_NaCa*(Na_o^3*Ca_i + Na_i^3*Ca_o));
 endfunction
+
+# FIXME: Implement the sodium-hydrogen antiport
+
+function I_NaH = sodiumHydrogenAntiport()
+  I_NaH = 0.0;
+endfunction
+
+# FIXME: Implement the voltage-activated hydrogen channel
+
+function I_ASIC = voltageActivatedHydrogen()
+  I_ASIC = 0.0;
+endfunction

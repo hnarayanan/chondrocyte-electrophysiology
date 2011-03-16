@@ -41,8 +41,11 @@ function xdot = f(x, t)
   # Calculate different currents
   I_Na_b = backgroundSodium(V, Na_i);
   I_K_b = backgroundPotassium(V, K_i);
+
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i);
   I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i);
+  I_NaH = sodiumHydrogenAntiport();
+  I_ASIC = voltageActivatedHydrogen();
 
   # Sodium-hydrogen exchanger
   I_NaH      = 0.0;
