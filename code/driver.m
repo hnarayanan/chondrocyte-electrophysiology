@@ -30,27 +30,19 @@ function xdot = f(x, t)
   global t_cycle, global t_stim, global I_stim_bar;
 
   # Initialize and populate vector of unknowns
-  xdot = zeros(5, 1);
+  xdot = zeros(6, 1);
   V    = x(1);
   Na_i = x(2);
   K_i  = x(3);
-  a_ur = x(4);
-  I_ur = x(5);
+  Ca_i = x(4);
+  a_ur = x(5);
+  I_ur = x(6);
 
   # Calculate different currents
   I_Na_b = backgroundSodium(V, Na_i);
   I_K_b = backgroundPotassium(V, K_i);
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i);
-
-  # Sodium-Calcium exchanger
-  K_NaCa = 0.0374842;
-  Ca_c = 1.815768;
-  gamma_Na = 0.45;
-  Ca_i = 6.5e-5;
-  d_NaCa = 0.0003;
-  I_NaCa = 0.0;
-#  I_NaCa = K_NaCa*(Na_i^3*Ca_c*exp(gamma_Na*V*F/(R*T)) - Na_c^3*Ca_i*exp((gamma_Na - 1.0)*V*F/(R*T))) \
-#           / (1.0 + d_NaCa*(Na_c^3*Ca_i + Na_i^3*Ca_c));
+  I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i);
 
   # Sodium-hydrogen exchanger
   I_NaH      = 0.0;
@@ -62,6 +54,7 @@ function xdot = f(x, t)
   tau_a_ur   = 0.009/(1.0 + exp((V + 5.0)/12.0)) + 0.0005;
   tau_I_ur   = 0.59/(1.0 + exp((V + 60.0)/10.0)) + 3.05;
   V_K        = -83.042637;
+  a_ur  = 0.000367; #FIXME: Should be varying!
   I_K_ur     = g_K_ur*a_ur*I_ur*(V - V_K);
 
   # Two-pore potassium channel
@@ -102,12 +95,13 @@ function xdot = f(x, t)
   # External stimulation
   I_stim = I_stim_bar*square(t*2*pi/t_cycle, t_stim/t_cycle);
 
-  # Changes in concentration
+  # Changes in concentration (FIXME: Check these carefully)
   tau_Na = 0.01;
 #  Na_i_dot =                      - (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_i*F);
 #  Na_c_dot = 0.0;(Na_i - Na_o)/tau_Na + (I_Na_b + 3*I_NaK + 3*I_NaCa +  I_NaH)/(vol_c*F);
   Na_i_dot = -(I_Na_b)/(vol_i*F);
   K_i_dot  = -(I_K_b)/(vol_i*F);
+  Ca_i_dot = -(0.0)/(vol_i*F);
   a_ur_dot = (a_ur_inf - a_ur)/tau_a_ur;
   I_ur_dot = (I_ur_inf - I_ur)/tau_I_ur;
 
@@ -117,8 +111,9 @@ function xdot = f(x, t)
   xdot(1) = 1/C_m*(-I_i + I_stim);
   xdot(2) = Na_i_dot;
   xdot(3) = K_i_dot;
-  xdot(4) = a_ur_dot;
-  xdot(5) = I_ur_dot;
+  xdot(4) = Ca_i_dot;
+  xdot(5) = a_ur_dot;
+  xdot(6) = I_ur_dot;
 
 endfunction
 
@@ -133,20 +128,23 @@ I_ur_0 = 0.967290;
 
 t = linspace(0, t_final, t_final/dt);
 len_t = size(t, 2);
-x0 = [V0, Na_i_0, K_i_0, a_ur_0, I_ur_0];
+x0 = [V0, Na_i_0, K_i_0, Ca_i_0, a_ur_0, I_ur_0];
 x = lsode("f", x0, t);
 
 # Extract solution components
 V    = x(:, 1);
 Na_i = x(:, 2);
 K_i  = x(:, 3);
+Ca_i = x(:, 4);
 
 # Compute currents at all times
 I_Na_b = zeros(len_t, 1);
 for ii = [1:len_t]
   I_Na_b(ii) = backgroundSodium(V(ii), Na_i(ii));
   I_K_b(ii)  = backgroundPotassium(V(ii), K_i(ii));
-  I_NaK(ii) = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii));
+  I_NaK(ii)  = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii));
+  I_NaCa(ii) = sodiumCalciumExchanger(V(ii), Na_i(ii), Ca_i(ii));
 endfor
 
+# Plot the computed solutions
 plot_solutions;
