@@ -128,8 +128,6 @@ dt = 0.05
 
 % Initial conditions
 V0 = -62.3;
-#Na_i_0 = 0.516766;
-#Na_c_0 = 130.022096;
 a_ur_0 = 0.000367;
 I_ur_0 = 0.967290;
 
@@ -151,33 +149,4 @@ for ii = [1:len_t]
   I_NaK(ii) = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii));
 endfor
 
-# Clear the screen and plot solutions
-clf;
-hold on;
-
-# Just the membrane voltage
-figure(1);
-plot(t, V); xlabel('t (s)'); ylabel('V_{m} (mV)');
-print -depsc2 "output/voltage.eps"
-
-# The different current components
-figure(2);
-subplot(2, 2, 1), plot(t, I_Na_b), legend('I_{Na_{b}} (nA)'), xlabel('t (s)');
-subplot(2, 2, 2), plot(t, I_K_b), legend('I_{K_{b}} (nA)'), xlabel('t (s)');
-xlabel('t (s)');
-print -depsc2 "output/background_currents.eps"
-
-# The different current components
-figure(3);
-subplot(2, 2, 1), plot(t, I_NaK), legend('I_{NaK} (nA)'), xlabel('t (s)');
-xlabel('t (s)');
-print -depsc2 "output/pumps_and_exchangers.eps"
-
-# The different concentrations
-figure(4);
-subplot(2, 2, 1), plot(t, Na_i), legend('[Na^{+}]_{i} (mM/l)'), xlabel('t (s)');
-subplot(2, 2, 2), plot(t, K_i),  legend('[K^{+}]_{i} (mM/l)'), xlabel('t (s)');
-xlabel('t (s)');
-print -depsc2 "output/concentrations.eps"
-
-#print -depslatex "membrane_voltage.tex"
+plot_solutions;
