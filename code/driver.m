@@ -25,10 +25,6 @@ other_currents;
 # Define the ODE system
 function xdot = f(x, t)
 
-  # Load useful constants
-  global F, global R, global T;
-  global C_m, global vol_i;
-
   # Initialize and populate vector of unknowns
   V    = x(1);
   Na_i = x(2);
@@ -58,23 +54,20 @@ function xdot = f(x, t)
   I_TRP2 = osteoArthriticTrip();
   I_stim = externalStimulation(t);
 
-  # Trip channel(s)
-  g_TRP      = 1.0; #FIXME: Should be a function of some external agent,
-		    #e.g. a steroid or stretch
-  I_TRP      = 0.0;#g_TRP*(V - V_Na_b);
-
   # Total ionic contribution
   I_i = I_Na_b + I_K_b \
       + I_NaK + I_NaCa + I_NaH \
       + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP \
       + I_ASIC + I_TRP1 + I_TRP2;
 
-  # Changes in concentration (FIXME: Check these carefully)
-#  Na_i_dot =                      - (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_i*F);
+  # Determine incremental changes in evolving quantities
+  global F, global vol_i;
+  global C_m;
 
-  Na_i_dot = -(I_Na_b)/(vol_i*F);
-  K_i_dot  = -(I_K_b)/(vol_i*F);
-  Ca_i_dot = -(0.0)/(vol_i*F);
+  # FIXME: Check signs on the following carefully
+  Na_i_dot = - (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_i*F);
+  K_i_dot  = - (I_K_b  - 2*I_NaK + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP)/(vol_i*F);
+  Ca_i_dot =   (I_NaCa)/(vol_i*F);
 
   [a_ur_inf, I_ur_inf, tau_a_ur, tau_I_ur] = ultraRapidlyRectifyingPotassiumHelper(V);
 
