@@ -8,8 +8,8 @@ global C_m = 15.0;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
-t_final = 10.0           # Final time(s)
-dt = 0.05                # Time increment(s)
+t_final = 1000.0;        # Final time(s)
+dt = 5;                  # Time increment(s)
 
 # Initial conditions
 global V0 = -62.3;          # Initial membrane potential (mV)

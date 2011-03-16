@@ -10,3 +10,13 @@ endfunction
 function I_ASIC = voltageActivatedHydrogen()
   I_ASIC = 0.0;
 endfunction
+
+# FIXME: Implement the stretch-activated trip channel
+function I_TRP1 = stretchActivatedTrip()
+  I_TRP1 = 0.0;
+endfunction
+
+# FIXME: Implement the osteo-arthritic trip channel
+function I_TRP2 = osteoArthriticTrip()
+  I_TRP2 = 0.0;
+endfunction

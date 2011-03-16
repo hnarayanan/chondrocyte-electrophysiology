@@ -20,6 +20,8 @@ I_K_2pore  = zeros(len_t, 1);
 I_K_Ca_act = zeros(len_t, 1);
 I_K_ATP    = zeros(len_t, 1);
 I_ASIC     = zeros(len_t, 1);
+I_TRP1     = zeros(len_t, 1);
+I_TRP2     = zeros(len_t, 1);
 I_stim     = zeros(len_t, 1);
 
 for ii = [1:len_t]
@@ -33,5 +35,7 @@ for ii = [1:len_t]
   I_K_Ca_act(ii) = calciumActivatedPotassium(V(ii), Ca_i(ii));
   I_K_ATP(ii)    = potassiumPump();
   I_ASIC(ii)     = voltageActivatedHydrogen();
+  I_TRP1(ii)     = stretchActivatedTrip();
+  I_TRP2(ii)     = osteoArthriticTrip();
   I_stim(ii)     = externalStimulation(t(ii));
 endfor

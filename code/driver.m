@@ -54,6 +54,8 @@ function xdot = f(x, t)
 
   # Calculate other currents
   I_ASIC = voltageActivatedHydrogen();
+  I_TRP1 = stretchActivatedTrip();
+  I_TRP2 = osteoArthriticTrip();
   I_stim = externalStimulation(t);
 
   # Trip channel(s)
@@ -62,14 +64,13 @@ function xdot = f(x, t)
   I_TRP      = 0.0;#g_TRP*(V - V_Na_b);
 
   # Total ionic contribution
-  I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH \
-      + I_K_ur + I_K_2pore + I_K_ATP \
-      + I_ASIC + I_K_Ca_act;# + I_TRP;
+  I_i = I_Na_b + I_K_b \
+      + I_NaK + I_NaCa + I_NaH \
+      + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP \
+      + I_ASIC + I_TRP1 + I_TRP2;
 
   # Changes in concentration (FIXME: Check these carefully)
-  tau_Na = 0.01;
 #  Na_i_dot =                      - (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_i*F);
-#  Na_c_dot = 0.0;(Na_i - Na_o)/tau_Na + (I_Na_b + 3*I_NaK + 3*I_NaCa +  I_NaH)/(vol_c*F);
 
   Na_i_dot = -(I_Na_b)/(vol_i*F);
   K_i_dot  = -(I_K_b)/(vol_i*F);
@@ -79,9 +80,6 @@ function xdot = f(x, t)
 
   a_ur_dot = (a_ur_inf - a_ur)/tau_a_ur;
   I_ur_dot = (I_ur_inf - I_ur)/tau_I_ur;
-
-  alpha_n = 0.01*(V + 10)/(exp((V + 10)/10) - 1);
-  beta_n = 0.125*exp(V/80);
 
   xdot = zeros(6, 1);
   xdot(1) = 1/C_m*(-I_i + I_stim);

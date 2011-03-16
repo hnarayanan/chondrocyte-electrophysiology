@@ -37,6 +37,8 @@ print -depsc2 "output/potassium_currents.eps"
 figure(5);
 subplot(2, 2, 1), plot(t, I_stim), legend('I_{stim} (nA)'), xlabel('t (s)');
 subplot(2, 2, 2), plot(t, I_ASIC), legend('I_{ASIC} (nA)'), xlabel('t (s)');
+subplot(2, 2, 3), plot(t, I_TRP1), legend('I_{TRP1} (nA)'), xlabel('t (s)');
+subplot(2, 2, 4), plot(t, I_TRP2), legend('I_{TRP2} (nA)'), xlabel('t (s)');
 xlabel('t (s)');
 print -depsc2 "output/other_currents.eps"
 
