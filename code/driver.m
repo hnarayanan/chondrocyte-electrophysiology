@@ -20,6 +20,7 @@ utility_functions;
 background_currents;
 pumps_and_exchangers;
 # potassium_currents;
+other_channels;
 # etc.
 
 function xdot = f(x, t)
@@ -41,14 +42,10 @@ function xdot = f(x, t)
   # Calculate different currents
   I_Na_b = backgroundSodium(V, Na_i);
   I_K_b = backgroundPotassium(V, K_i);
-
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i);
   I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i);
   I_NaH = sodiumHydrogenAntiport();
   I_ASIC = voltageActivatedHydrogen();
-
-  # Sodium-hydrogen exchanger
-  I_NaH      = 0.0;
 
   # Ultra-rapidly rectifying potassium
   g_K_ur     = 2.25;
@@ -92,7 +89,7 @@ function xdot = f(x, t)
   I_TRP      = 0.0;#g_TRP*(V - V_Na_b);
 
   # Total ionic contribution
-  I_i = I_Na_b + I_K_b;# + I_NaK + I_NaCa + I_NaH \
+  I_i = I_Na_b + I_K_b + I_NaK + I_NaCa + I_NaH + I_ASIC;
 #      + I_K_ur + I_K_2pore + I_Ca_act_K + I_TRP;
 
   # External stimulation
@@ -147,6 +144,8 @@ for ii = [1:len_t]
   I_K_b(ii)  = backgroundPotassium(V(ii), K_i(ii));
   I_NaK(ii)  = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii));
   I_NaCa(ii) = sodiumCalciumExchanger(V(ii), Na_i(ii), Ca_i(ii));
+  I_NaH(ii) = sodiumHydrogenAntiport();
+  I_ASIC = voltageActivatedHydrogen();
 endfor
 
 # Plot the computed solutions
