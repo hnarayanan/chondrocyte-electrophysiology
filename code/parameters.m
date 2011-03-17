@@ -24,6 +24,21 @@ global t_cycle = 1.0;    # Total cycle time (s)
 global t_stim = 0.1;     # Stimulation time/cycle (s)
 global I_stim_bar = 0.0; # Stimulation current magnitude ()
 
+# Toggle individual currents
+global enable_I_Na_b = false;
+global enable_I_K_b = false;
+global enable_I_NaK = false;
+global enable_I_NaCa = false;
+global enable_I_NaH = false;
+global enable_I_K_ur = false;
+global enable_I_K_2pore = false;
+global enable_I_K_Ca_act = false;
+global enable_I_K_ATP = false;
+global enable_I_ASIC = false;
+global enable_I_TRP1 = false;
+global enable_I_TRP2 = false;
+global enable_I_stim = false;
+
 # Constants related to sodium
 global Na_o = 130.022096;   # Clamped external sodium concentration (mM/l)
 global z_Na = 1;            # Charge on the sodium ion
