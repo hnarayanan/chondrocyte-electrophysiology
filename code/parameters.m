@@ -12,12 +12,14 @@ global t_final = 40.0;  # Final time (s)
 global dt = 0.5;         # Time increment (s)
 
 # Initial conditions
-global V0 = -62.3;          # Initial membrane potential (mV)
+global V0 = -100;          # Initial membrane potential (mV)
 global Na_i_0 = 0.516766;   # Initial internal sodium concentration (mM/l)
 global K_i_0 = 129.485991;  # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 6.5e-5;     # Initial internal calcium concentration (mM/l)
 global a_ur_0 = 0.000367;
 global I_ur_0 = 0.967290;
+
+global VF = 150;
 
 # Constants related to external stimulation
 global t_cycle = 1.0;    # Total cycle time (s)
@@ -25,19 +27,22 @@ global t_stim = 0.1;     # Stimulation time/cycle (s)
 global I_stim_bar = 0.0; # Stimulation current magnitude ()
 
 # Toggle individual currents
-global enable_I_Na_b = true;
-global enable_I_K_b = true;
-global enable_I_NaK = true;
-global enable_I_NaCa = true;
-global enable_I_NaH = true;
-global enable_I_K_ur = true;
-global enable_I_K_2pore = true;
+global enable_I_Na_b = false;
+global enable_I_K_b = false;
+global enable_I_NaK = false;
+global enable_I_NaCa = false;
+global enable_I_NaH = false;
+global enable_I_K_ur = false;
+global enable_I_K_2pore = false;
 global enable_I_K_Ca_act = true;
-global enable_I_K_ATP = true;
-global enable_I_ASIC = true;
-global enable_I_TRP1 = true;
-global enable_I_TRP2 = true;
-global enable_I_stim = true;
+global enable_I_K_ATP = false;
+global enable_I_ASIC = false;
+global enable_I_TRP1 = false;
+global enable_I_TRP2 = false;
+global enable_I_stim = false;
+
+# Toggle clamping of membrane voltage
+global clamp_Vm = true;
 
 # Constants related to sodium
 global Na_o = 130.022096;   # Clamped external sodium concentration (mM/l)

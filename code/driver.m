@@ -75,7 +75,13 @@ function xdot = f(x, t)
   I_ur_dot = (I_ur_inf - I_ur)/tau_I_ur;
 
   xdot = zeros(6, 1);
-  xdot(1) = 1/C_m*(-I_i + I_stim);
+  global clamp_Vm;
+  if (clamp_Vm == true)
+    global VF, global V0, global t_final;
+    xdot(1) = (VF - V0)/(t_final - 0.0);
+  else
+    xdot(1) = 1/C_m*(-I_i + I_stim);
+  endif
   xdot(2) = Na_i_dot;
   xdot(3) = K_i_dot;
   xdot(4) = Ca_i_dot;
