@@ -4,10 +4,12 @@
 clf;
 hold on;
 
-# Just the membrane voltage
+# The membrane voltage and total currents
 figure(1);
-plot(t, V); xlabel('t (s)'); ylabel('V_{m} (mV)');
-print -depsc2 "output/voltage.eps"
+subplot(2, 2, 1), plot(t, V), legend('V_{m} (mV)'); xlabel('t (s)');
+subplot(2, 2, 2), plot(t, I_i), legend('I_i (nA)'); xlabel('t (s)');
+subplot(2, 2, 3), plot(V, I_i), legend('I_i (nA)'); xlabel('V_{m} (mV)');
+print -depsc2 "output/membrane_behaviour.eps"
 
 # The different concentrations
 figure(2);
