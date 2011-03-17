@@ -8,7 +8,7 @@ global C_m = 15.0;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
-global t_final = 200.0;  # Final time (s)
+global t_final = 40.0;  # Final time (s)
 global dt = 0.5;         # Time increment (s)
 
 # Initial conditions
@@ -26,7 +26,7 @@ global I_stim_bar = 0.0; # Stimulation current magnitude ()
 
 # Toggle individual currents
 global enable_I_Na_b = false;
-global enable_I_K_b = false;
+global enable_I_K_b = true;
 global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
