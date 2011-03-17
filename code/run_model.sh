@@ -8,7 +8,6 @@ for i in $( ls *.tex ); do
 done
 mkdir eps
 mv *.eps eps
-
 for i in $( ls *.tex ); do
     pdflatex ${i}
 done
