@@ -21,5 +21,5 @@ function I_K_b = backgroundPotassium(V, K_i)
     I_K_b = g_K_b_bar*(V - E_K);
   else
     I_K_b = 0.0;
-  endif;
+  endif
 endfunction
