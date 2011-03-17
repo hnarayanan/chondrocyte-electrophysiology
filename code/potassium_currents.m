@@ -36,13 +36,14 @@ endfunction
 # Calcium-activated potassium current
 # FIXME: Clean up the following
 # FIXME: Check the following carefully
-function I_K_Ca_act = calciumActivatedPotassium(V, Ca_i)
+function I_K_Ca_act = calciumActivatedPotassium(V, K_i, Ca_i)
   global enable_I_K_Ca_act;
   if (enable_I_K_Ca_act == true)
     global T;
     global Zj, global Vhj, global ZL, global L0, global KDc;
     global C, global D, global E;
     global Gmax, global N_channel, global V_K_Ca_act;
+    global z_K, global g_K_b_bar, global K_o;
     W = [Zj, Vhj, ZL, L0, KDc, C, D, E, Gmax];
     kTe = 23.54*(T/273);
     Lv = W(4)*exp((V*W(3))/kTe);
@@ -53,7 +54,8 @@ function I_K_Ca_act = calciumActivatedPotassium(V, Ca_i)
     E = W(8);
     G_max = W(9);
     P0=(Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)/((Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)+((1+Jv+K+Jv*K*E)^4));
-    I_K_Ca_act = N_channel*P0*G_max*(V - V_K_Ca_act);
+    E_K = nernstPotential(z_K, K_i, K_o);
+    I_K_Ca_act = N_channel*P0*G_max*(V - E_K);
   else
     I_K_Ca_act = 0.0;
   endif

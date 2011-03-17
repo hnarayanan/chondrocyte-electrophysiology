@@ -45,7 +45,7 @@ function xdot = f(x, t)
   # Calculate other potassium currents
   I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, I_ur);
   I_K_2pore = twoPorePotassium(V, K_i);
-  I_K_Ca_act = calciumActivatedPotassium(V, Ca_i);
+  I_K_Ca_act = calciumActivatedPotassium(V, K_i, Ca_i);
   I_K_ATP = potassiumPump();
 
   # Calculate other currents

@@ -81,6 +81,5 @@ global KDc = 11e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 1;
+global Gmax = 2.6;
 global N_channel = 1.0;
-global V_K_Ca_act = 10.0;
