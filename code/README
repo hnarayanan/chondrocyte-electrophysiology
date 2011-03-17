@@ -1,7 +1,3 @@
-Run the model code by typing the following:
+Edit parameters.m and run the model code by typing the following:
 
-octave driver.m
-
-View the results of the calculations by typing the following:
-
-open output/*.eps
+./run_model.sh
