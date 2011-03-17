@@ -25,19 +25,19 @@ global t_stim = 0.1;     # Stimulation time/cycle (s)
 global I_stim_bar = 0.0; # Stimulation current magnitude ()
 
 # Toggle individual currents
-global enable_I_Na_b = false;
+global enable_I_Na_b = true;
 global enable_I_K_b = true;
-global enable_I_NaK = false;
-global enable_I_NaCa = false;
-global enable_I_NaH = false;
-global enable_I_K_ur = false;
-global enable_I_K_2pore = false;
-global enable_I_K_Ca_act = false;
-global enable_I_K_ATP = false;
-global enable_I_ASIC = false;
-global enable_I_TRP1 = false;
-global enable_I_TRP2 = false;
-global enable_I_stim = false;
+global enable_I_NaK = true;
+global enable_I_NaCa = true;
+global enable_I_NaH = true;
+global enable_I_K_ur = true;
+global enable_I_K_2pore = true;
+global enable_I_K_Ca_act = true;
+global enable_I_K_ATP = true;
+global enable_I_ASIC = true;
+global enable_I_TRP1 = true;
+global enable_I_TRP2 = true;
+global enable_I_stim = true;
 
 # Constants related to sodium
 global Na_o = 130.022096;   # Clamped external sodium concentration (mM/l)
@@ -52,8 +52,8 @@ global Ca_o = 1.815768;     # Clamped external calcium concentration (mM/l)
 global z_Ca = 2;            # Charge on the calcium ion
 
 # Background conductances
-global g_Na_b_bar = 20;    # Background sodium leakage conductance (nS)
-global g_K_b_bar = 20;     # Background potassium leakage conductance (nS)
+global g_Na_b_bar = 20;    # Background sodium leakage conductance (pS)
+global g_K_b_bar = 20;     # Background potassium leakage conductance (pS)
 
 # Constants related to the sodium-potassium pump
 global I_NaK_bar = 68.55;

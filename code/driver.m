@@ -4,8 +4,8 @@
 # Current: pa
 # Time: s
 # Concentration: mM/l
-# Conductance: nS
-# Capacitance: nF (or pF)
+# Conductance: pS
+# Capacitance: pF
 
 # Clear memory
 clear all;
