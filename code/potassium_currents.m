@@ -53,7 +53,7 @@ function I_K_Ca_act = calciumActivatedPotassium(V, K_i, Ca_i)
     D = W(7);
     E = W(8);
     G_max = W(9);
-    P0=(Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)/((Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)+((1+Jv+K+Jv*K*E)^4));
+    P0 = (Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)/((Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)+((1+Jv+K+Jv*K*E)^4));
     E_K = nernstPotential(z_K, K_i, K_o);
     I_K_Ca_act = N_channel*P0*G_max*(V - E_K);
   else

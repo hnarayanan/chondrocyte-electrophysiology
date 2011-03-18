@@ -15,7 +15,7 @@ global dt = 0.5;         # Time increment (s)
 global V0 = -150.0;         # Initial membrane potential (mV)
 global Na_i_0 = 0.516766;   # Initial internal sodium concentration (mM/l)
 global K_i_0 = 129.485991;  # Initial internal potassium concentration (mM/l)
-global Ca_i_0 = 6.5e-5;     # Initial internal calcium concentration (mM/l)
+global Ca_i_0 = 6.5e-3;     # Initial internal calcium concentration (mM/l)
 global a_ur_0 = 0.000367;
 global I_ur_0 = 0.967290;
 
@@ -86,5 +86,5 @@ global KDc = 11e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 2.6;
+global Gmax = 2.0;
 global N_channel = 1.0;
