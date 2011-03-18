@@ -12,14 +12,14 @@ global t_final = 40.0;  # Final time (s)
 global dt = 0.5;         # Time increment (s)
 
 # Initial conditions
-global V0 = -100;          # Initial membrane potential (mV)
+global V0 = -150.0;         # Initial membrane potential (mV)
 global Na_i_0 = 0.516766;   # Initial internal sodium concentration (mM/l)
 global K_i_0 = 129.485991;  # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 6.5e-5;     # Initial internal calcium concentration (mM/l)
 global a_ur_0 = 0.000367;
 global I_ur_0 = 0.967290;
 
-global VF = 150;
+global VF = 100;
 
 # Constants related to external stimulation
 global t_cycle = 1.0;    # Total cycle time (s)
@@ -28,7 +28,7 @@ global I_stim_bar = 0.0; # Stimulation current magnitude ()
 
 # Toggle individual currents
 global enable_I_Na_b = false;
-global enable_I_K_b = false;
+global enable_I_K_b = true;
 global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
@@ -58,7 +58,7 @@ global z_Ca = 2;            # Charge on the calcium ion
 
 # Background conductances
 global g_Na_b_bar = 20;    # Background sodium leakage conductance (pS)
-global g_K_b_bar = 20;     # Background potassium leakage conductance (pS)
+global g_K_b_bar = 0.5;     # Background potassium leakage conductance (pS)
 
 # Constants related to the sodium-potassium pump
 global I_NaK_bar = 68.55;

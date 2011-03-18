@@ -9,7 +9,7 @@ line_width = 3;
 figure(1, 'visible', 'off');
 subplot(2, 2, 1), plot(t, V, 'linewidth', line_width), xlabel('$t (s)$'), legend('$V_{m} (mV)$');
 subplot(2, 2, 2), plot(t, I_i, 'linewidth', line_width), xlabel('$t (s)$'), legend('$I_i (pA)$');
-subplot(2, 2, 3), plot(V, I_i, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_i (pA)$');
+subplot(2, 2, 3), plot(V, I_i/C_m, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_i/C_{m} (pA/pF)$');
 print -depslatexstandalone "output/membrane_behaviour.tex"
 
 # The different concentrations
