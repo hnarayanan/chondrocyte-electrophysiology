@@ -2,14 +2,19 @@
 
 # Clear the screen and plot solutions
 clf;
-hold on;
 line_width = 3;
+
+# Load reference solution
+V_ref = csvread('references/Total_Current_Density_vs_Membrane_Voltage.data')(:, 1);
+I_i_by_C_m_ref = csvread('references/Total_Current_Density_vs_Membrane_Voltage.data')(:, 2);
 
 # The membrane voltage and total currents
 figure(1, 'visible', 'off');
 subplot(2, 2, 1), plot(t, V, 'linewidth', line_width), xlabel('$t (s)$'), legend('$V_{m} (mV)$');
 subplot(2, 2, 2), plot(t, I_i, 'linewidth', line_width), xlabel('$t (s)$'), legend('$I_i (pA)$');
 subplot(2, 2, 3), plot(V, I_i/C_m, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_i/C_{m} (pA/pF)$');
+hold on;
+plot(V_ref, I_i_by_C_m_ref, '1', 'linewidth', line_width);
 print -depslatexstandalone "output/membrane_behaviour.tex"
 
 # The different concentrations
