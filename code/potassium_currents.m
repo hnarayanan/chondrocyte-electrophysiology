@@ -25,9 +25,9 @@ endfunction
 function I_K_2pore = twoPorePotassium(V, K_i)
   global enable_I_K_2pore;
   if (enable_I_K_2pore == true)
-    global z_K, global g_K_2pore, global K_o;
-    E_K = nernstPotential(z_K, K_i, K_o);
-    I_K_2pore = g_K_2pore*(V - E_K);
+    global F, global R, global T;
+    global z_K, global P_K, global K_o;
+    I_K_2pore = P_K*z_K^2*V*F^2/(R*T)*(K_i - K_o*exp(-z_K*V*F/(R*T)))/(1 - exp(-z_K*V*F/(R*T)));
   else
     I_K_2pore = 0.0;
   endif

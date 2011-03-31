@@ -19,8 +19,6 @@ global Ca_i_0 = 6.5e-5;     # Initial internal calcium concentration (mM/l)
 global a_ur_0 = 0.000367;
 global I_ur_0 = 0.967290;
 
-global VF = 100;
-
 # Constants related to external stimulation
 global t_cycle = 1.0;    # Total cycle time (s)
 global t_stim = 0.1;     # Stimulation time/cycle (s)
@@ -32,8 +30,8 @@ global enable_I_K_b = true;
 global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
-global enable_I_K_ur = true;
-global enable_I_K_2pore = false;
+global enable_I_K_ur = false;
+global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
 global enable_I_K_ATP = false;
 global enable_I_ASIC = false;
@@ -43,6 +41,7 @@ global enable_I_stim = false;
 
 # Toggle clamping of membrane voltage
 global clamp_Vm = true;
+global VF = 100;
 
 # Constants related to sodium
 global Na_o = 130.022096;   # Clamped external sodium concentration (mM/l)
@@ -74,15 +73,14 @@ global d_NaCa = 0.0003;
 global g_K_ur = 2.6;
 
 # Constants related to the two-pore potassium channel
-# FIXME: Find out the value of the conductance
-global g_K_2pore = 0.0;
+global P_K = 1.e-6;
 
 # Constants related to the calcium-activated potassium channel
 global Zj = 0.58;
 global Vhj = 150;
 global ZL = 0.3;
-global L0 = 50e-6;
-global KDc = 33e-6;
+global L0 = 1e-6;
+global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
