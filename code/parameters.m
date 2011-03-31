@@ -8,8 +8,12 @@ global C_m = 15.0;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
-global t_final = 40.0;  # Final time (s)
+global t_final = 40.0;   # Final time (s)
 global dt = 0.5;         # Time increment (s)
+
+# Toggle clamping of membrane voltage
+global clamp_Vm = true;
+global VF = 100;
 
 # Initial conditions
 global V0 = -150.0;         # Initial membrane potential (mV)
@@ -30,18 +34,14 @@ global enable_I_K_b = true;
 global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
-global enable_I_K_ur = false;
-global enable_I_K_2pore = true;
+global enable_I_K_ur = true;
+global enable_I_K_2pore = false;
 global enable_I_K_Ca_act = true;
 global enable_I_K_ATP = false;
 global enable_I_ASIC = false;
 global enable_I_TRP1 = false;
 global enable_I_TRP2 = false;
 global enable_I_stim = false;
-
-# Toggle clamping of membrane voltage
-global clamp_Vm = true;
-global VF = 100;
 
 # Constants related to sodium
 global Na_o = 130.022096;   # Clamped external sodium concentration (mM/l)
@@ -79,8 +79,8 @@ global P_K = 1.e-6;
 global Zj = 0.58;
 global Vhj = 150;
 global ZL = 0.3;
-global L0 = 1e-6;
-global KDc = 3e-6;
+global L0 = 50e-6;
+global KDc = 33e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
