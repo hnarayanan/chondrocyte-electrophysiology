@@ -31,7 +31,7 @@ function xdot = f(x, t)
   K_i  = x(3);
   Ca_i = x(4);
   a_ur = x(5);
-  I_ur = x(6);
+  i_ur = x(6);
 
   # Calculate background currents
   I_Na_b = backgroundSodium(V, Na_i);
@@ -43,7 +43,7 @@ function xdot = f(x, t)
   I_NaH = sodiumHydrogenAntiport();
 
   # Calculate other potassium currents
-  I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, I_ur);
+  I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, i_ur);
   I_K_2pore = twoPorePotassium(V, K_i);
   I_K_Ca_act = calciumActivatedPotassium(V, K_i, Ca_i);
   I_K_ATP = potassiumPump();
@@ -69,10 +69,10 @@ function xdot = f(x, t)
   K_i_dot  = - (I_K_b  - 2*I_NaK + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP)/(vol_i*F);
   Ca_i_dot =   (I_NaCa)/(vol_i*F);
 
-  [a_ur_inf, I_ur_inf, tau_a_ur, tau_I_ur] = ultraRapidlyRectifyingPotassiumHelper(V);
+  [a_ur_inf, i_ur_inf, tau_a_ur, tau_i_ur] = ultraRapidlyRectifyingPotassiumHelper(V);
 
   a_ur_dot = (a_ur_inf - a_ur)/tau_a_ur;
-  I_ur_dot = (I_ur_inf - I_ur)/tau_I_ur;
+  i_ur_dot = (i_ur_inf - i_ur)/tau_i_ur;
 
   xdot = zeros(6, 1);
   global clamp_Vm;
@@ -86,13 +86,13 @@ function xdot = f(x, t)
   xdot(3) = K_i_dot;
   xdot(4) = Ca_i_dot;
   xdot(5) = a_ur_dot;
-  xdot(6) = I_ur_dot;
+  xdot(6) = i_ur_dot;
 
 endfunction
 
 # Solve the ODE system for all time t
 t = linspace(0, t_final, t_final/dt);
-x0 = [V0, Na_i_0, K_i_0, Ca_i_0, a_ur_0, I_ur_0];
+x0 = [V0, Na_i_0, K_i_0, Ca_i_0, a_ur_0, i_ur_0];
 x = lsode("f", x0, t);
 
 # Extract and postprocess solutions

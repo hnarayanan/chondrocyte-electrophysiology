@@ -21,7 +21,7 @@ global Na_i_0 = 0.516766;   # Initial internal sodium concentration (mM/l)
 global K_i_0 = 129.485991;  # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 6.5e-5;     # Initial internal calcium concentration (mM/l)
 global a_ur_0 = 0.000367;
-global I_ur_0 = 0.967290;
+global i_ur_0 = 0.967290;
 
 # Constants related to external stimulation
 global t_cycle = 1.0;    # Total cycle time (s)
@@ -35,7 +35,7 @@ global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
 global enable_I_K_ur = true;
-global enable_I_K_2pore = false;
+global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
 global enable_I_K_ATP = false;
 global enable_I_ASIC = false;
@@ -57,7 +57,7 @@ global z_Ca = 2;            # Charge on the calcium ion
 
 # Background conductances
 global g_Na_b_bar = 20;    # Background sodium leakage conductance (pS)
-global g_K_b_bar = 0.3;     # Background potassium leakage conductance (pS)
+global g_K_b_bar = 0.2;    # Background potassium leakage conductance (pS)
 
 # Constants related to the sodium-potassium pump
 global I_NaK_bar = 68.55;
@@ -70,7 +70,7 @@ global gamma_Na = 0.45;
 global d_NaCa = 0.0003;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
-global g_K_ur = 2.6;
+global g_K_ur = 0.5;
 
 # Constants related to the two-pore potassium channel
 global P_K = 1.e-6;
@@ -84,5 +84,5 @@ global KDc = 33e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 1.2;
+global Gmax = 2.6;
 global N_channel = 1.0;
