@@ -16,7 +16,7 @@ global clamp_Vm = true;
 global VF = 100;
 
 # Initial conditions
-global V0 = -150.0;         # Initial membrane potential (mV)
+global V_0 = -130.0;         # Initial membrane potential (mV)
 global Na_i_0 = 0.516766;   # Initial internal sodium concentration (mM/l)
 global K_i_0 = 129.485991;  # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 6.5e-5;     # Initial internal calcium concentration (mM/l)
@@ -70,7 +70,7 @@ global gamma_Na = 0.45;
 global d_NaCa = 0.0003;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
-global g_K_ur = 0.5;
+global g_K_ur = 0.3;
 
 # Constants related to the two-pore potassium channel
 global P_K = 1.e-6;
@@ -79,10 +79,10 @@ global P_K = 1.e-6;
 global Zj = 0.58;
 global Vhj = 150;
 global ZL = 0.3;
-global L0 = 50e-6;
-global KDc = 33e-6;
+global L0 = 5e-6;
+global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 2.6;
+global Gmax = 1.5;
 global N_channel = 1.0;

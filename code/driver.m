@@ -77,8 +77,8 @@ function xdot = f(x, t)
   xdot = zeros(6, 1);
   global clamp_Vm;
   if (clamp_Vm == true)
-    global VF, global V0, global t_final;
-    xdot(1) = (VF - V0)/(t_final - 0.0);
+    global VF, global V_0, global t_final;
+    xdot(1) = (VF - V_0)/(t_final - 0.0);
   else
     xdot(1) = 1/C_m*(-I_i + I_stim);
   endif
@@ -92,7 +92,7 @@ endfunction
 
 # Solve the ODE system for all time t
 t = linspace(0, t_final, t_final/dt);
-x0 = [V0, Na_i_0, K_i_0, Ca_i_0, a_ur_0, i_ur_0];
+x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, a_ur_0, i_ur_0];
 x = lsode("f", x0, t);
 
 # Extract and postprocess solutions
