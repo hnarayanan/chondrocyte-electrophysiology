@@ -16,7 +16,9 @@ syntax: glob
 *.toc
 .DS_Store
 *.orig
-code/output*
+code/output/eps*
+code/output/pdf*
+code/output/tex*
 
 syntax: regexp
 .*\#.*\#$
