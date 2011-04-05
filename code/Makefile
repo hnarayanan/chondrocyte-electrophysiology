@@ -1,4 +1,4 @@
-all:	plot
+all:	plots
 
 prep:
 	@echo "Preparing calculation"
@@ -11,9 +11,9 @@ calc: prep *.m
 	@echo "Running calculation"
 	octave driver.m
 
-plot: calc
-	@echo "Creating pretty plots"
-	(cd results; make plot)
+plots: calc
+	@echo "Creating pretty plotss"
+	(cd results; make plots)
 
 clean:
 	@echo "Cleaning cruft"

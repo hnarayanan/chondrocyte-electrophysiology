@@ -1,7 +1,7 @@
 TEX_PLOTS = $(wildcard *.tex)
 PDF_PLOTS = ${TEX_PLOTS:.tex=.pdf}
 
-plot: prep $(PDF_PLOTS) post
+plots: prep $(PDF_PLOTS) post
 
 .SUFFIXES:
 
