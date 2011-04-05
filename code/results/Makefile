@@ -11,15 +11,14 @@ plot: prep $(PDF_PLOTS) post
 	pdflatex $<
 
 prep:
-	mkdir -p results
-	mv *.eps results
+	mv *.eps eps
+	perl -pi -e 's/results\//eps\//' *.tex
 
 post:
+	rm eps/*-converted-to.pdf
 	rm *.log *.aux
-	mv results/*.eps eps
-	rm -fr results
-	mv *.pdf pdf
 	mv *.tex tex
+	mv *.pdf pdf
 
 clean:
 	rm -fr *~ eps/*.eps pdf/*.pdf tex/*.tex

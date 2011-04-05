@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-rm -fr output/*
+rm -fr results/*
 octave driver.m
-cd output
+cd results
 for i in $( ls *.tex ); do
-    perl -pi -e 's/output\//eps\//' ${i}
+    perl -pi -e 's/results\//eps\//' ${i}
 done
 mkdir eps
 mv *.eps eps
@@ -17,4 +17,4 @@ mv *.tex tex
 mkdir pdf
 mv *.pdf pdf
 cd ..
-open output/pdf/*.pdf
+open results/pdf/*.pdf
