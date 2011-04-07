@@ -4,7 +4,7 @@ global T = 310.15;   # Normal body temperature (K)
 global F = 96485.34; # Faraday's constant (C mol^-1)
 
 # Cell parameters
-global C_m = 15.0;       # Membrane capacitance
+global C_m = 10.0;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
