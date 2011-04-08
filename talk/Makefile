@@ -1,4 +1,4 @@
-file = chondrocyte-201104
+file = chondrocyte-model-201104
 
 all: ${file}.pdf clean
 

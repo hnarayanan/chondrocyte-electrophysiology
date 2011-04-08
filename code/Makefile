@@ -14,7 +14,7 @@ prep:
 	mkdir -p results/eps
 	mkdir -p results/pdf
 
-calc: prep *.m
+calc: prep *.m ../data/reference_values/*.data
 	@echo "Running calculation"
 	octave driver.m
 
