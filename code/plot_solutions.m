@@ -12,8 +12,8 @@ clf;
 line_width = 3;
 
 # Load reference solution
-V_ref = csvread('reference_data/Total_Current_Density_vs_Membrane_Voltage.data')(:, 1);
-I_i_by_C_m_ref = csvread('reference_data/Total_Current_Density_vs_Membrane_Voltage.data')(:, 2);
+V_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 1);
+I_i_by_C_m_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 2);
 
 # Hide plots
 figure(1, 'visible', 'off')
