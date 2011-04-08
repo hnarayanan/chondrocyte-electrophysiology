@@ -27,3 +27,7 @@ post:
 
 clean:
 	rm -f *~
+
+pristine:
+	rm -f *.eps
+	rm -f *.tex

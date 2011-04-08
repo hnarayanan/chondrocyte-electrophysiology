@@ -25,3 +25,8 @@ clean:
 	@echo "Cleaning cruft"
 	rm -f *~
 	(cd ../results; make clean)
+
+pristine: clean
+	@echo "Removing older output files"
+	(cd ../results; make pristine)
+

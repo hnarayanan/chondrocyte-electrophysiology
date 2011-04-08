@@ -12,3 +12,7 @@ clean:
 	rm -f *~
 	(cd epslatex; make clean)
 	(cd pdf; make clean)
+
+pristine:
+	(cd epslatex; make pristine)
+	(cd pdf; make pristine)
