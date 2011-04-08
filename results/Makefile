@@ -5,25 +5,8 @@
 # Copyright (C) 2010--2011  Harish Narayanan
 # Licensed under the GNU GPL Version 3
 
-TEX_PLOTS = $(wildcard *.tex)
-PDF_PLOTS = ${TEX_PLOTS:.tex=.pdf}
-
-plots: prep $(PDF_PLOTS) post
-
-.SUFFIXES:
-
-.SUFFIXES: .tex .pdf
-
-.tex.pdf:
-	pdflatex $<
-
-prep:
-	perl -pi -e 's/..\/results\/epslatex\///g' *.tex
-
-post:
-#	rm eps/*-converted-to.pdf
-	rm -f *.log *.aux
-	mv *.pdf ../pdf
+plots:
+	(cd epslatex; make plots)
 
 clean:
 	rm -f *~

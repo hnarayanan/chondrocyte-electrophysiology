@@ -21,11 +21,9 @@ prep:
 	perl -pi -e 's/..\/results\/epslatex\///g' *.tex
 
 post:
-#	rm eps/*-converted-to.pdf
 	rm -f *.log *.aux
+	rm *-converted-to.pdf
 	mv *.pdf ../pdf
 
 clean:
 	rm -f *~
-	(cd epslatex; make clean)
-	(cd pdf; make clean)

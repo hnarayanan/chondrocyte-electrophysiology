@@ -9,22 +9,18 @@ VERSION = 0.0.1
 BASENAME = chondrocyte-model
 
 # Change these to your heart's content.
-LATEX   = latex
-BIBTEX  = bibtex
-DVIPS   = dvips
-PS2PDF  = ps2pdf14 #On Mac OS X, you might need to use pstopdf instead.
+LATEX  = pdflatex
+BIBTEX = bibtex
 
 SOURCES = Makefile ${BASENAME}.tex ${BASENAME}.bib ${BASENAME}.bst \
 	  auxiliary/*.tex sections/*.tex \
-          images/*/*.eps images/*/*.tex
+          ../images/pdf/*.pdf ../results/pdf/*.pdf
 
 # Subtle changes to the command-line flags below can have significant
 # impact on the quality of generated documents. Comment-out the ps2pdf
 # flags below if on Mac OS X.
-LFLAGS  = 					#latex flags
-BFLAGS  = -terse				#bibtex flags
-DFLAGS  = -q -z -Z -t letter -Ppdf -G0 -o ${BASENAME}.ps  #dvips flags
-PFLAGS  = -dPDFSETTINGS=/prepress		#ps2pdf flags
+LFLAGS  = 					# pdflatex flags
+BFLAGS  = -terse				# bibtex flags
 
 # Human-readable targets:
 
@@ -34,12 +30,7 @@ PFLAGS  = -dPDFSETTINGS=/prepress		#ps2pdf flags
 
 all:	  ${BASENAME}
 
-compose:  ${BASENAME}.dvi
-
 polish:   ${BASENAME}.pdf
-
-preview:  ${BASENAME}.dvi
-	  xdvi ${BASENAME}.dvi&
 
 ${BASENAME}:   pristine polish
 	  make clean
@@ -57,24 +48,15 @@ clean:
 	*.ps *.toc *.tmp *.spl
 	(cd auxiliary; make clean)
 	(cd sections; make clean)
-	(cd images; make clean)
+	(cd ../images; make clean)
+	(cd ../results; make clean)
 
 pristine: clean
 	@echo "Removing older output files:"
 	rm -f *.pdf
 
-${BASENAME}.dvi: ${SOURCES}
-	@echo "Creating the dvi file:"
+${BASENAME}.pdf: ${SOURCES}
+	@echo "Creating the PDF file:"
 	${LATEX}   ${LFLAGS} ${BASENAME} && ${BIBTEX}  ${BFLAGS} ${BASENAME} && \
 	${LATEX}   ${LFLAGS} ${BASENAME} && ${LATEX}   ${LFLAGS} ${BASENAME}
 	egrep --color=auto -i '(warn|error|full)' ${BASENAME}.log
-
-${BASENAME}.ps: ${BASENAME}.dvi
-	@echo "Creating the postscript file:"
-	${DVIPS}   ${DFLAGS} ${BASENAME}.dvi
-	@echo "Fix capitalisation to allow creation of elegant PDF bookmarks:"
-	perl -pi -e 's/Title \(([A-Z])([A-Z].*)\)/Title (\1\L\2)/' ${BASENAME}.ps
-
-${BASENAME}.pdf: ${BASENAME}.ps
-	@echo   "Creating the PDF file:"
-	${PS2PDF}  ${PFLAGS} ${BASENAME}.ps

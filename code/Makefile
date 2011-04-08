@@ -9,20 +9,19 @@ all:	plots
 
 prep:
 	@echo "Preparing calculation"
-	mkdir -p results
-	mkdir -p results/tex
-	mkdir -p results/eps
-	mkdir -p results/pdf
+	mkdir -p ../results
+	mkdir -p ../results/epslatex
+	mkdir -p ../results/pdf
 
 calc: prep *.m ../data/reference_values/*.data
 	@echo "Running calculation"
 	octave driver.m
 
 plots: calc
-	@echo "Creating pretty plotss"
-	(cd results; make plots)
+	@echo "Creating pretty plots"
+	(cd ../results; make plots)
 
 clean:
 	@echo "Cleaning cruft"
 	rm -f *~
-	(cd results; make clean)
+	(cd ../results; make clean)

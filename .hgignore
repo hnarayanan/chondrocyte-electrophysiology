@@ -18,9 +18,9 @@ syntax: glob
 *.synctex.gz
 .DS_Store
 *.orig
-code/results/eps*
-code/results/pdf*
-code/results/tex*
+results/epslatex/*.eps
+results/epslatex/*.tex
+results/pdf/*.pdf
 
 syntax: regexp
 .*\#.*\#$
