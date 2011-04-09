@@ -26,15 +26,18 @@ clean:
 	@echo "Cleaning cruft:"
 	rm -f *~
 	(cd code; make clean)
-#	(cd data; make clean)
+	(cd data; make clean)
 	(cd images; make clean)
 	(cd paper; make clean)
 	(cd results; make clean)
 	(cd talk; make clean)
 
 
-pristine: clean
+pristine:
 	@echo "Removing older output files:"
+	(cd code; make clean)
+	(cd data; make clean)
+	(cd images; make clean)
 	(cd paper; make pristine)
 	(cd results; make pristine)
 	(cd talk; make pristine)
