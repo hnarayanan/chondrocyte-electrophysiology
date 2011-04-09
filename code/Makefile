@@ -5,28 +5,25 @@
 # Copyright (C) 2010--2011  Harish Narayanan
 # Licensed under the GNU GPL Version 3
 
-all:	plots
+SOURCES = *.m ../data/reference_values/*.data
 
-prep:
-	@echo "Preparing calculation"
-	mkdir -p ../results
-	mkdir -p ../results/epslatex
-	mkdir -p ../results/pdf
+all: plots
+	make clean
 
-calc: prep *.m ../data/reference_values/*.data
-	@echo "Running calculation"
+calc: ${SOURCES}
+	@echo "Running calculation:"
 	octave driver.m
 
 plots: calc
-	@echo "Creating pretty plots"
+	@echo "Creating pretty plots:"
 	(cd ../results; make plots)
 
 clean:
-	@echo "Cleaning cruft"
+	@echo "Cleaning cruft:"
 	rm -f *~
 	(cd ../results; make clean)
 
 pristine: clean
-	@echo "Removing older output files"
+	@echo "Removing older output files:"
 	(cd ../results; make pristine)
 

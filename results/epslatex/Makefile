@@ -21,12 +21,11 @@ prep:
 	perl -pi -e 's/..\/results\/epslatex\///g' *.tex
 
 post:
-	rm -f *.log *.aux
-	rm *-converted-to.pdf
 	mv *.pdf ../pdf
 
 clean:
 	rm -f *~
+	rm -f *.log *.aux
 
 pristine:
 	rm -f *.eps
