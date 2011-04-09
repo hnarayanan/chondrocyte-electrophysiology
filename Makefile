@@ -5,8 +5,6 @@
 # Copyright (C) 2010--2011  Harish Narayanan
 # Licensed under the GNU GPL Version 3
 
-SOURCES = *.m ../data/reference_values/*.data
-
 all: plots paper talk
 	make clean
 
