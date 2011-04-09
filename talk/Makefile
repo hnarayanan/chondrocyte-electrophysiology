@@ -1,3 +1,8 @@
+# Modified from the simple build system I used for managing my
+# doctoral dissertation.
+#
+# Copyright (C) 2007--2011  Harish Narayanan
+
 BASENAME = chondrocyte-model-201104
 
 SOURCES = Makefile ${BASENAME}.tex \
@@ -21,7 +26,7 @@ pristine: clean
 	@echo "Removing older output files:"
 	rm -f ${BASENAME}.pdf
 
-${BASENAME}.pdf: ${BASENAME}.tex
+${BASENAME}.pdf: ${SOURCES}
 	@echo "Creating the PDF file:"
 	pdflatex ${BASENAME}
 	egrep --color=auto -i '(warn|error|full)' ${BASENAME}.log
