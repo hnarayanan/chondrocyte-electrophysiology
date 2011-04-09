@@ -10,17 +10,18 @@ syntax: glob
 *.log
 *.lot
 *.out
-*.pdf
 *.ps
-*.tmp
-*.toc
 *.spl
 *.synctex.gz
+*.tmp
+*.toc
 .DS_Store
 *.orig
 results/epslatex/*.eps
 results/epslatex/*.tex
 results/pdf/*.pdf
+paper/*.pdf
+talk/*.pdf
 
 syntax: regexp
 .*\#.*\#$
