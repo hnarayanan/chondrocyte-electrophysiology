@@ -1,19 +1,27 @@
-file = chondrocyte-model-201104
+BASENAME = chondrocyte-model-201104
 
-all: ${file}.pdf clean
+SOURCES = Makefile ${BASENAME}.tex \
+	  ../images/pdf/*.pdf ../results/pdf/*.pdf
+
+all: pristine ${BASENAME}.pdf
+	make clean
 
 clean:
+	@echo "Cleaning cruft:"
 	rm -f *~
-	rm -f ${file}.aux
-	rm -f ${file}.log
-	rm -f ${file}.nav
-	rm -f ${file}.out
-	rm -f ${file}.snm
-	rm -f ${file}.toc
-	rm -f ${file}.vrb
+	rm -f ${BASENAME}.aux
+	rm -f ${BASENAME}.log
+	rm -f ${BASENAME}.nav
+	rm -f ${BASENAME}.out
+	rm -f ${BASENAME}.snm
+	rm -f ${BASENAME}.toc
+	rm -f ${BASENAME}.vrb
 
-pristine:
-	rm -f ${file}.pdf
+pristine: clean
+	@echo "Removing older output files:"
+	rm -f ${BASENAME}.pdf
 
-${file}.pdf: ${file}.tex pristine
-	pdflatex ${file}
+${BASENAME}.pdf: ${BASENAME}.tex
+	@echo "Creating the PDF file:"
+	pdflatex ${BASENAME}
+	egrep --color=auto -i '(warn|error|full)' ${BASENAME}.log
