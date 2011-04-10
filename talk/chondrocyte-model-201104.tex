@@ -249,22 +249,44 @@
 % 4. The computational model
 
 \begin{frame}{\ldots{} simplified things a little, and arrived at our
-    electrphysiological model of a single chondrocyte}
+    electrophysiological model of a single chondrocyte}
 
-  \begin{itemize}
-  \item All channels we have decided to consider \addfigure %CellML
-  \item Return to one specific hypothesis and point out the channels
-    that seem important % Modify figure?
-  \item Discuss some functional forms, including rationale
-  \item Talk about the programming ideas
-    \begin{itemize}
-      \item ODE Solver
-      \item Code layout
-      \item Parameter estimation; genetic algorithm idea?
-    \end{itemize}
-  \end{itemize}
+  \begin{center}
+    \includegraphics[width=\textwidth]{../images/pdf/chondrocyte-model-cellml}
+    {\\[-0.1cm] \scriptsize Our ion channel model of a single chondrocyte \fixme}
+  \end{center}
 
-  \references{functional forms, Clark et. al, parameter estimation}
+\end{frame}
+
+
+\begin{frame}{\ldots{} simplified things a little, and arrived at our
+    electrophysiological model of a single chondrocyte}
+
+  \begin{equation*}
+    \begin{split}
+      -C_{\rm m} \frac{dV_{\rm m}}{dt} = & \underbrace{I_{\rm Na_b} + I_{\rm K_b}}_{\rm Background} +
+      \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaK}}_{\rm Pumps\, and\, exchangers}\\
+      & \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
+      & \underbrace{I_{\rm ASIC} + I_{\rm TRP1} + I_{\rm TRP2} + I_{\rm stim}}_{\rm Other\, currents}
+    \end{split}
+  \end{equation*}
+
+\end{frame}
+
+\begin{frame}{Let us pause for a moment and see how some of this stuff is implemented}
+
+
+% Return to one specific hypothesis and point out the channels that seem important
+% Discuss some functional forms, including rationale
+%   \item Talk about the programming ideas
+%     \begin{itemize}
+%       \item ODE Solver
+%       \item Code layout
+%       \item Parameter estimation; genetic algorithm idea?
+%     \end{itemize}
+%   \end{itemize}
+
+%  \references{functional forms, Clark et. al, parameter estimation}
 
 \end{frame}
 
