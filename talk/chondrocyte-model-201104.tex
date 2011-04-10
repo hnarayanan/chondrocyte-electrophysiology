@@ -84,38 +84,40 @@
     cartilage}
   \begin{columns}
     \begin{column}{3cm}
-      \includegraphics[width=2.5cm]{../images/pdf/chondrocyte-micrograph}
+      \includegraphics[width=3cm]{../images/pdf/chondrocyte-micrograph}
     \end{column}
     \begin{column}{9cm}
       What is the chondrocyte, and why is it interesting?
     \end{column}
   \end{columns}
-  \vspace{0.2cm}
+  \vspace{0.3cm}
   \begin{columns}
-    \begin{column}{0.5cm}
+    \begin{column}{1cm}
       % Empty
     \end{column}
-    \begin{column}{4.5cm}
-      \includegraphics[width=2.5cm]{../images/pdf/joint}
+    \begin{column}{2.5cm}
+      \includegraphics[width=2.5cm]{../images/pdf/frozen-shoulder}
     \end{column}
-    \begin{column}{7cm}
+    \begin{column}{0.1cm}
+      % Empty
+    \end{column}
+    \begin{column}{8.5cm}
       What are the specific questions we aim to answer?
     \end{column}
   \end{columns}
-  \vspace{0.2cm}
+  \vspace{0.3cm}
   \begin{columns}
-    \begin{column}{3.5cm}
+    \begin{column}{2cm}
       % Empty
     \end{column}
-    \begin{column}{3cm}
+    \begin{column}{2cm}
       \includegraphics[width=2.5cm]{../results/pdf/membrane_behaviour}
     \end{column}
     \begin{column}{0.5cm}
       % Empty
     \end{column}
-    \begin{column}{5cm}
-      How we about modelling to do so?
-
+    \begin{column}{8cm}
+      \fixme
     \end{column}
   \end{columns}
 \end{frame}
@@ -187,15 +189,26 @@
 \begin{frame}{We narrow our focus to a few specific questions to
     motivate our initial modelling efforts}
 
+  \begin{columns}
+    \begin{column}{6cm}
+      \begin{center}
+        \includegraphics[width=5cm]{../images/pdf/frozen-shoulder}
+      \end{center}
+    \end{column}
+    \begin{column}{6cm}
+      What causes the ``frozen shoulder syndrome''
+      when tissue is exposed to the local an\ae{}sthetic
+      bupivacaine?
+    \end{column}
+  \end{columns}
+
+  \vspace{0.5cm}
+
   \begin{itemize}
-  \item<1->[$\bigstar$] What causes the ``frozen shoulder syndrome''
-    when tissue is exposed to the local an\ae{}sthetic
-    bupivacaine?\addfigure\\[0.5cm]
     \pause
-  \item<2-> Hypothesis 2: pH and volume regulation (via ASIC)
-    \fixme\\[0.5cm]
+  \item<2-> Hypothesis 2: pH and volume regulation (via ASIC) \fixme
   \item<2-> Hypothesis 3: Apoptosis and osteoarthritis?
-    \fixme\\[0.5cm]
+    \fixme
   \end{itemize}
   \references{Webb, 2009; Lewis et al., 2011; citation 3}
 
@@ -292,14 +305,14 @@
 %
 % 5. Some numerical simulations and their implications
 
-\begin{frame}{Completing the implementation and initial tuning of parameters}
+\begin{frame}{At the moment, I am completing the implementation and
+    starting to tune parameters}
 
-  \includegraphics[width=0.8\textwidth]{../results/pdf/membrane_behaviour}
+  \vspace{-0.4cm}
 
-  \begin{itemize}
-  \item Attempts at determining parameters; tie with experimental data
-  \item Basic benchmarking of the model; Testing our hypothesis?
-  \end{itemize}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{../results/pdf/membrane_behaviour}
+  \end{center}
 
   \references{parameter estimation, benchmarking, hypothesis}
 
