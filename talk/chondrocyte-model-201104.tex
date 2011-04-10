@@ -34,6 +34,12 @@
   \normalsize
 }
 
+\newcommand{\fixme} {
+  \scriptsize
+  \textcolor{red}{[fix me]}
+  \normalsize
+}
+
 % All sorts of things pertinent to styling beamer
 \usetheme{boxes}
 \setbeamertemplate{navigation symbols}{}
@@ -81,7 +87,7 @@
       \includegraphics[width=2.5cm]{../images/pdf/chondrocyte}
     \end{column}
     \begin{column}{9cm}
-      What is the chondrocyte and why is it interesting?
+      What is the chondrocyte, and why is it interesting?
     \end{column}
   \end{columns}
   \vspace{0.2cm}
@@ -102,7 +108,7 @@
       % Empty
     \end{column}
     \begin{column}{3cm}
-      \includegraphics[width=2.5cm]{../images/pdf/joint}
+      \includegraphics[width=2.5cm]{../results/pdf/membrane_behaviour}
     \end{column}
     \begin{column}{0.5cm}
       % Empty
@@ -122,16 +128,17 @@
   \begin{columns}
 
     \begin{column}{6cm}
-      \includegraphics[width=6cm]{../images/pdf/joint2}
+      \includegraphics[width=6cm]{../images/pdf/joint}
     \end{column}
 
     \begin{column}{6cm}
       \begin{itemize}
-      \item<1-> Cartilage is composed of chondrocytes, an ECM (collagen
-        and elastin) and proteoglycans\\[0.5cm]
+      \item <1-> Cartilage is composed of {\em chondrocytes}, an ECM
+        (collagen and elastin) and proteoglycans\\[0.5cm]
         \pause
-      \item<2-> Cartilage is aneural, avascular and alymphatic and is thus
-        slow to grow and heal % and relatively easy to study mathematically?
+      \item<2-> The tissue is aneural, avascular and alymphatic and is
+        thus slow to grow and heal
+        % and relatively easy to study mathematically?
       \end{itemize}
     \end{column}
 
@@ -148,7 +155,10 @@
  \begin{columns}
 
     \begin{column}{6cm}
+      \begin{center}
       \includegraphics[width=6cm]{../images/pdf/chondrocyte}
+      {\\[-0.1cm] \scriptsize Electron micrograph of typical chondrocyte}
+      \end{center}
     \end{column}
 
     \begin{column}{6cm}
@@ -158,9 +168,9 @@
       \item<1-> Relies on diffusion from the articular surface for
         nutrient and metabolite exchange\\[0.5cm]
         \pause
-      \item<2-> Signalling (pH sensitivity, ionic content, mechano-sensing
-        (stress))---causes matrix synthesis/degradation
-      \item Something in general about disruption?
+      \item<2-> Sensitive to extra-cellular pH, ionic environment,
+        stress state
+      \item<2-> Arthritis is the associated degenerative pathology
       \end{itemize}
     \end{column}
 
@@ -174,25 +184,37 @@
 %
 % 2. The specific question(s) we want to answer
 
-\begin{frame}{We narrow our focus to specific questions to motivate
-    our initial modelling efforts}
+\begin{frame}{We narrow our focus to a few specific questions to
+    motivate our initial modelling efforts}
 
   \begin{itemize}
-  \item Hypothesis 1: ``Frozen shoulder syndrome'' when tissue is
-    exposed to buvipicane (and its links to $I_{K_{2-pore}}$)
-  \item Hypothesis 2: pH and volume regulation (via ASIC)
-  \item Hypothesis 3: Apoptosis and osteoarthritis?
+  \item<1->[$\bigstar$] What causes the ``frozen shoulder syndrome''
+    when tissue is exposed to the local an\ae{}sthetic
+    bupivacaine?\\[0.5cm]
+    \pause
+  \item<2-> Hypothesis 2: pH and volume regulation (via ASIC)
+    \fixme\\[0.5cm]
+  \item<2-> Hypothesis 3: Apoptosis and osteoarthritis?
+    \fixme\\[0.5cm]
   \end{itemize}
-
-\references{citation 1; Lewis et al., 2011; citation 3}
+  \references{Webb, 2009; Lewis et al., 2011; citation 3}
 
 \end{frame}
 
-% All of these need a good understanding of important channels
-% => basis of resting membrane potential => volume regulation etc.
-%
+\begin{frame}{In order to answer such questions, we need a model that
+    helps us understand some fundamental things}
+  \begin{itemize}
+  \item Important ion channels\\[0.5cm]
+  \item Basis of the resting membrane potential\\[0.5cm]
+  \item How this potential relates to cellular volume regulation\\[0.5cm]
+  \end{itemize}
+\end{frame}
+
 % There is a dearth of good biophysical models for this cell type and
 % so we construct our own.
+%
+% But this is not so easy because in physiology literature, the cell
+% channelome is quite complex
 %
 % Return to review papers. As of 1996, it looked like [figure], and as
 % of 2011 people feel it looks like [figure], so on the whiteboard in
@@ -200,8 +222,10 @@
 %
 % 3. Modelling the electrophysiology of a single cell
 
-\begin{frame}{What physiology literature tells us about the channels\\
-    in chondrocytes}
+\begin{frame}{Physiology literature gives us a broad overview of the
+    ion channels present in chondrocytes}
+
+
 
   \begin{itemize}
   \item A superset of what is known thus far about the channels in the
