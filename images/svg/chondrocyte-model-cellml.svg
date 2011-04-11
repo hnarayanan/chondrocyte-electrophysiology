@@ -16,8 +16,8 @@
    viewBox="0 0 966.875 501.1875"
    id="Layer_1"
    xml:space="preserve"
-   inkscape:version="0.48.0 r9654"
-   sodipodi:docname="chondrocyte.pdf"><sodipodi:namedview
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="chondrocyte-model-cellml.svg"><sodipodi:namedview
    pagecolor="#ffffff"
    bordercolor="#666666"
    borderopacity="1"
@@ -26,13 +26,13 @@
    guidetolerance="10"
    inkscape:pageopacity="0"
    inkscape:pageshadow="2"
-   inkscape:window-width="1440"
-   inkscape:window-height="852"
+   inkscape:window-width="1680"
+   inkscape:window-height="1002"
    id="namedview13585"
    showgrid="false"
-   inkscape:zoom="0.70430107"
-   inkscape:cx="399.53231"
-   inkscape:cy="259.72687"
+   inkscape:zoom="1.4086021"
+   inkscape:cx="564.03436"
+   inkscape:cy="208.69895"
    inkscape:window-x="0"
    inkscape:window-y="0"
    inkscape:window-maximized="0"
@@ -40,120 +40,209 @@
    fit-margin-top="0"
    fit-margin-left="0"
    fit-margin-right="0"
-   fit-margin-bottom="0" /><metadata
+   fit-margin-bottom="0"
+   showguides="true"
+   inkscape:guide-bbox="true" /><metadata
    id="metadata14477"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
    id="defs14475"><radialGradient
-     inkscape:collect="always"
-     xlink:href="#path21961_2_"
-     id="radialGradient19136"
-     gradientUnits="userSpaceOnUse"
-     cx="1537.813"
-     cy="386.53519"
-     r="17.8347" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#SVGID_6_"
-     id="radialGradient19172"
-     gradientUnits="userSpaceOnUse"
-     cx="1694.657"
-     cy="310.56689"
-     r="18.219299" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#path21961_4_"
-     id="radialGradient19269"
-     gradientUnits="userSpaceOnUse"
-     gradientTransform="matrix(0,1,-1,0,1961.6592,-134.2666)"
-     cx="520.80182"
-     cy="358.51321"
-     r="17.834499" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#path21961_2_"
-     id="radialGradient19407"
-     gradientUnits="userSpaceOnUse"
-     cx="1537.813"
-     cy="386.53519"
-     r="17.8347" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#SVGID_8_"
-     id="radialGradient19524"
-     gradientUnits="userSpaceOnUse"
-     cx="1759.8611"
-     cy="256.06689"
-     r="18.219299" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#SVGID_8_"
-     id="radialGradient19612"
-     gradientUnits="userSpaceOnUse"
-     cx="1759.8611"
-     cy="256.06689"
-     r="18.219299" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#path20137_8_"
-     id="radialGradient19734"
-     gradientUnits="userSpaceOnUse"
-     gradientTransform="matrix(0,1,-1,0,2081.4609,-188.0741)"
-     cx="647.45398"
-     cy="426.13181"
-     r="17.835199" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#SVGID_8_"
-     id="radialGradient19776"
-     gradientUnits="userSpaceOnUse"
-     cx="1759.8611"
-     cy="256.06689"
-     r="18.219299" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#SVGID_9_"
-     id="radialGradient19812"
-     gradientUnits="userSpaceOnUse"
-     cx="1803.1599"
-     cy="322.56689"
-     r="18.219299" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#path20137_8_"
-     id="radialGradient20537"
-     gradientUnits="userSpaceOnUse"
-     gradientTransform="matrix(0,1,-1,0,2081.4609,-188.0741)"
-     cx="647.45398"
-     cy="426.13181"
-     r="17.835199" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#path21961_2_"
-     id="radialGradient20539"
-     gradientUnits="userSpaceOnUse"
-     cx="1537.813"
-     cy="386.53519"
-     r="17.8347" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#path21961_4_"
-     id="radialGradient20541"
-     gradientUnits="userSpaceOnUse"
-     gradientTransform="matrix(0,1,-1,0,1961.6592,-134.2666)"
-     cx="520.80182"
-     cy="358.51321"
-     r="17.834499" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#SVGID_6_"
-     id="radialGradient20543"
-     gradientUnits="userSpaceOnUse"
-     cx="1694.657"
-     cy="310.56689"
-     r="18.219299" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#SVGID_8_"
-     id="radialGradient20545"
-     gradientUnits="userSpaceOnUse"
-     cx="1759.8611"
-     cy="256.06689"
-     r="18.219299" /><radialGradient
-     inkscape:collect="always"
-     xlink:href="#SVGID_9_"
-     id="radialGradient20547"
-     gradientUnits="userSpaceOnUse"
-     cx="1803.1599"
-     cy="322.56689"
-     r="18.219299" /></defs>
+   inkscape:collect="always"
+   xlink:href="#path21961_2_"
+   id="radialGradient19136"
+   gradientUnits="userSpaceOnUse"
+   cx="1537.813"
+   cy="386.53519"
+   r="17.8347" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#path21961_4_"
+   id="radialGradient19269"
+   gradientUnits="userSpaceOnUse"
+   gradientTransform="matrix(0,1,-1,0,1961.6592,-134.2666)"
+   cx="520.80182"
+   cy="358.51321"
+   r="17.834499" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#path21961_2_"
+   id="radialGradient19407"
+   gradientUnits="userSpaceOnUse"
+   cx="1537.813"
+   cy="386.53519"
+   r="17.8347" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#SVGID_8_"
+   id="radialGradient19524"
+   gradientUnits="userSpaceOnUse"
+   cx="1759.8611"
+   cy="256.06689"
+   r="18.219299" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#path20137_8_"
+   id="radialGradient19734"
+   gradientUnits="userSpaceOnUse"
+   gradientTransform="matrix(0,1,-1,0,2081.4609,-188.0741)"
+   cx="647.45398"
+   cy="426.13181"
+   r="17.835199" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#SVGID_8_"
+   id="radialGradient19776"
+   gradientUnits="userSpaceOnUse"
+   cx="1759.8611"
+   cy="256.06689"
+   r="18.219299" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#SVGID_9_"
+   id="radialGradient19812"
+   gradientUnits="userSpaceOnUse"
+   cx="1803.1599"
+   cy="322.56689"
+   r="18.219299" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#path20137_8_"
+   id="radialGradient20537"
+   gradientUnits="userSpaceOnUse"
+   gradientTransform="matrix(0,1,-1,0,2081.4609,-188.0741)"
+   cx="647.45398"
+   cy="426.13181"
+   r="17.835199" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#path21961_2_"
+   id="radialGradient20539"
+   gradientUnits="userSpaceOnUse"
+   cx="1537.813"
+   cy="386.53519"
+   r="17.8347" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#path21961_4_"
+   id="radialGradient20541"
+   gradientUnits="userSpaceOnUse"
+   gradientTransform="matrix(0,1,-1,0,1961.6592,-134.2666)"
+   cx="520.80182"
+   cy="358.51321"
+   r="17.834499" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#SVGID_6_"
+   id="radialGradient20543"
+   gradientUnits="userSpaceOnUse"
+   cx="1694.657"
+   cy="310.56689"
+   r="18.219299" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#SVGID_8_"
+   id="radialGradient20545"
+   gradientUnits="userSpaceOnUse"
+   cx="1759.8611"
+   cy="256.06689"
+   r="18.219299" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#SVGID_9_"
+   id="radialGradient20547"
+   gradientUnits="userSpaceOnUse"
+   cx="1803.1599"
+   cy="322.56689"
+   r="18.219299" />
+	
+	
+
+
+	
+
+
+
+	
+	<radialGradient
+   cx="1694.657"
+   cy="310.56689"
+   r="18.219299"
+   id="radialGradient19148"
+   gradientUnits="userSpaceOnUse">
+		<stop
+   id="stop19150"
+   style="stop-color:#fdfbe1;stop-opacity:1"
+   offset="0" />
+		<stop
+   id="stop19152"
+   style="stop-color:#fdfadd;stop-opacity:1"
+   offset="0.1227" />
+		<stop
+   id="stop19154"
+   style="stop-color:#fef8d2;stop-opacity:1"
+   offset="0.2615" />
+		<stop
+   id="stop19156"
+   style="stop-color:#fef4c0;stop-opacity:1"
+   offset="0.4084" />
+		<stop
+   id="stop19158"
+   style="stop-color:#feefa6;stop-opacity:1"
+   offset="0.56059998" />
+		<stop
+   id="stop19160"
+   style="stop-color:#feea86;stop-opacity:1"
+   offset="0.71719998" />
+		<stop
+   id="stop19162"
+   style="stop-color:#fee458;stop-opacity:1"
+   offset="0.875" />
+		<stop
+   id="stop19164"
+   style="stop-color:#fee01b;stop-opacity:1"
+   offset="1" />
+	</radialGradient>
+	
+	
+
+
+	
+
+
+<radialGradient
+   inkscape:collect="always"
+   xlink:href="#SVGID_8_"
+   id="radialGradient8882"
+   gradientUnits="userSpaceOnUse"
+   cx="1759.8611"
+   cy="256.06689"
+   r="18.219299" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#SVGID_8_"
+   id="radialGradient8884"
+   gradientUnits="userSpaceOnUse"
+   cx="1759.8611"
+   cy="256.06689"
+   r="18.219299" />
+	
+	
+
+
+	
+
+
+<radialGradient
+   inkscape:collect="always"
+   xlink:href="#SVGID_9_"
+   id="radialGradient8979"
+   gradientUnits="userSpaceOnUse"
+   cx="1803.1599"
+   cy="322.56689"
+   r="18.219299" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#path20137_8_"
+   id="radialGradient9025"
+   gradientUnits="userSpaceOnUse"
+   gradientTransform="matrix(0,1,-1,0,2081.4609,-188.0741)"
+   cx="647.45398"
+   cy="426.13181"
+   r="17.835199" /><radialGradient
+   inkscape:collect="always"
+   xlink:href="#path20137_8_"
+   id="radialGradient9089"
+   gradientUnits="userSpaceOnUse"
+   gradientTransform="matrix(0,1,-1,0,2081.4609,-188.0741)"
+   cx="647.45398"
+   cy="426.13181"
+   r="17.835199" /></defs>
 
 
 
@@ -8808,24 +8897,28 @@
    id="g19833"
    style="display:none"
    transform="translate(-1258.7188,-669.46875)"><text
-     style="font-size:12px;fill:#010101;font-family:ArialMT"
-     id="text2289"
-     transform="translate(1453.4004,129.6934)">Membrane</text>
+   style="font-size:12px;fill:#010101;font-family:ArialMT"
+   id="text2289"
+   transform="translate(1453.4004,129.6934)">Membrane</text>
+
 <text
-     style="font-size:12px;fill:#010101;font-family:ArialMT"
-     id="text2291"
-     transform="translate(1460.0752,221.1914)">Ion Channels</text>
+   style="font-size:12px;fill:#010101;font-family:ArialMT"
+   id="text2291"
+   transform="translate(1460.0752,221.1914)">Ion Channels</text>
+
 <text
-     style="font-size:12px;fill:#010101;font-family:ArialMT"
-     id="text2293"
-     transform="translate(1455.959,334.7305)">Pumps/Cotransporters</text>
+   style="font-size:12px;fill:#010101;font-family:ArialMT"
+   id="text2293"
+   transform="translate(1455.959,334.7305)">Pumps/Cotransporters</text>
+
 <text
-     style="font-size:12px;fill:#010101;font-family:ArialMT"
-     id="text2295"
-     transform="translate(1466.3994,447.957)">Ions</text>
+   style="font-size:12px;fill:#010101;font-family:ArialMT"
+   id="text2295"
+   transform="translate(1466.3994,447.957)">Ions</text>
+
 <g
-     id="g6657"
-     transform="translate(-212.1551,33.77973)">
+   id="g6657"
+   transform="translate(-212.1551,33.77973)">
 	<path
    style="fill:#6cbe45"
    id="path5153"
@@ -8857,12 +8950,13 @@
    d="m 1916.011,427.022 h 83.896 0.649 l 8.455,7.667 v 0.669 l -8.453,7.667 h -0.651"
    inkscape:connector-curvature="0" />
 </g><text
-     style="font-size:12px;fill:#010101;font-family:ArialMT"
-     id="text2340"
-     transform="translate(1616.1396,447.957)">Myofilament</text>
+   style="font-size:12px;fill:#010101;font-family:ArialMT"
+   id="text2340"
+   transform="translate(1616.1396,447.957)">Myofilament</text>
+
 <g
-     id="g6849"
-     transform="translate(19.9003,-35.04058)">
+   id="g6849"
+   transform="translate(19.9003,-35.04058)">
 	<g
    id="g6851">
 		<path
@@ -9020,8 +9114,8 @@
    inkscape:connector-curvature="0" />
 	</g>
 </g><g
-     id="g59398"
-     transform="translate(21.16987,-31.23187)">
+   id="g59398"
+   transform="translate(21.16987,-31.23187)">
 	<g
    id="g7045">
 		<g
@@ -9977,47 +10071,55 @@
 		</g>
 	</g>
 </g><path
-     style="fill:#010101"
-     id="path87172"
-     d="M 1519.183,79.448"
-     inkscape:connector-curvature="0" /><path
-     style="fill:#010101"
-     id="path11786"
-     d="M 1466.088,57.235"
-     inkscape:connector-curvature="0" /><text
-     style="font-size:12px;fill:#010101;font-family:Myriad-Roman"
-     id="text2888"
-     transform="translate(1456.6587,495.7471)">I</text>
+   style="fill:#010101"
+   id="path87172"
+   d="M 1519.183,79.448"
+   inkscape:connector-curvature="0" /><path
+   style="fill:#010101"
+   id="path11786"
+   d="M 1466.088,57.235"
+   inkscape:connector-curvature="0" /><text
+   style="font-size:12px;fill:#010101;font-family:Myriad-Roman"
+   id="text2888"
+   transform="translate(1456.6587,495.7471)">I</text>
+
 <text
-     style="font-size:12px;fill:#010101;font-family:Myriad-Roman"
-     id="text2890"
-     transform="matrix(0.7,0,0,0.7,1459.5269,499.7432)">Na, K</text>
+   style="font-size:12px;fill:#010101;font-family:Myriad-Roman"
+   id="text2890"
+   transform="matrix(0.7,0,0,0.7,1459.5269,499.7432)">Na, K</text>
+
 <text
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text2892"
-     transform="translate(1489.0811,498.8232)">Ca</text>
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text2892"
+   transform="translate(1489.0811,498.8232)">Ca</text>
+
 <text
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text2894"
-     transform="matrix(0.7,0,0,0.7,1499.7012,495.4932)">2+</text>
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text2894"
+   transform="matrix(0.7,0,0,0.7,1499.7012,495.4932)">2+</text>
+
 <text
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text2896"
-     transform="translate(1518.3096,498.8232)">Na</text>
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text2896"
+   transform="translate(1518.3096,498.8232)">Na</text>
+
 <text
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text2898"
-     transform="matrix(0.7,0,0,0.7,1529.709,495.4932)">+</text>
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text2898"
+   transform="matrix(0.7,0,0,0.7,1529.709,495.4932)">+</text>
+
 <text
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text2900"
-     transform="translate(1545.7314,498.8232)">K</text>
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text2900"
+   transform="translate(1545.7314,498.8232)">K</text>
+
 <text
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text2902"
-     transform="matrix(0.7,0,0,0.7,1551.1514,495.4932)">+</text>
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text2902"
+   transform="matrix(0.7,0,0,0.7,1551.1514,495.4932)">+</text>
+
 <g
-     id="g2904">
+   id="g2904">
 	
 		<radialGradient
    gradientTransform="matrix(0.3664,0,0,0.3664,884.4213,1028.6748)"
@@ -10070,14 +10172,16 @@
    transform="translate(1471.3823,471.8623)">Ca</text>
 
 
+
 	<text
    style="font-size:8px;fill:#010101;font-family:Myriad-Roman"
    id="text2926"
    transform="matrix(0.7,0,0,0.7,1479.8784,469.1982)">2+</text>
 
 
+
 </g><g
-     id="g2943">
+   id="g2943">
 	<radialGradient
    gradientUnits="userSpaceOnUse"
    id="path21243_1_"
@@ -10141,7 +10245,7 @@
 		</g>
 	</g>
 </g><g
-     id="g2973">
+   id="g2973">
 	<g
    id="g2975">
 		<g
@@ -10224,7 +10328,7 @@
 		</g>
 	</g>
 </g><g
-     id="g3012">
+   id="g3012">
 	<g
    id="g3014">
 		<g
@@ -10344,7 +10448,7 @@
 		</g>
 	</g>
 </g><g
-     id="g3071">
+   id="g3071">
 	<g
    id="g3073">
 		<radialGradient
@@ -10433,23 +10537,27 @@
 		</g>
 	</g>
 </g><text
-     transform="translate(1511.0532,355.8613)"
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text3115">Ca</text>
+   transform="translate(1511.0532,355.8613)"
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text3115">Ca</text>
+
 <text
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text3117"
-     transform="matrix(0.7,0,0,0.7,1521.6733,352.5313)">2+</text>
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text3117"
+   transform="matrix(0.7,0,0,0.7,1521.6733,352.5313)">2+</text>
+
 <text
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text3119"
-     transform="translate(1545.373,423.5088)">3Na</text>
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text3119"
+   transform="translate(1545.373,423.5088)">3Na</text>
+
 <text
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text3121"
-     transform="matrix(0.7,0,0,0.7,1561.9023,420.1787)">+</text>
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text3121"
+   transform="matrix(0.7,0,0,0.7,1561.9023,420.1787)">+</text>
+
 <g
-     id="g3123">
+   id="g3123">
 	<g
    id="g3125">
 		
@@ -10544,7 +10652,7 @@
 		</g>
 	</g>
 </g><g
-     id="g3169">
+   id="g3169">
 	<g
    id="g3171">
 		<g
@@ -10612,14 +10720,16 @@
    transform="matrix(0.0053,1,-1,0.0053,1550.1841,258.1982)">K</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text3200"
    transform="matrix(0.0037,0.7,-0.7,0.0037,1553.543,263.6001)">+</text>
 
 
+
 </g><g
-     id="g3202">
+   id="g3202">
 	<g
    id="g3204">
 		<g
@@ -10687,14 +10797,16 @@
    transform="matrix(0.0053,1,-1,0.0053,1512.5122,252.3496)">Ca</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text3233"
    transform="matrix(0.0037,0.7,-0.7,0.0037,1515.8989,262.9517)">2+</text>
 
 
+
 </g><g
-     id="g3235">
+   id="g3235">
 	<g
    id="g3237">
 		<g
@@ -10766,14 +10878,16 @@
    transform="matrix(0.0053,1,-1,0.0053,1587.7598,252.3496)">Ca</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text3268"
    transform="matrix(0.0037,0.7,-0.7,0.0037,1591.1475,262.9517)">2+</text>
 
 
+
 </g><g
-     id="g3270">
+   id="g3270">
 	<g
    id="g3272">
 		<g
@@ -10845,10 +10959,12 @@
    transform="matrix(0.0053,1,-1,0.0053,1625.3848,248.7451)">Ca</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text3303"
    transform="matrix(0.0037,0.7,-0.7,0.0037,1628.7725,259.3472)">2+</text>
+
 
 
 	<text
@@ -10857,14 +10973,16 @@
    transform="matrix(0.0053,1,-1,0.0053,1625.4063,270.252)">K</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text3307"
    transform="matrix(0.0037,0.7,-0.7,0.0037,1628.7656,275.6538)">+</text>
 
 
+
 </g><g
-     id="g3309">
+   id="g3309">
 	<g
    id="g3311">
 		<g
@@ -10932,18 +11050,21 @@
    transform="matrix(1,-0.0053,0.0053,1,1676.9912,264.7661)">Ca</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text3340"
    transform="matrix(0.7,-0.0037,0.0037,0.7,1687.5938,261.3794)">2+</text>
 
 
+
 </g><g
-     id="g3342">
+   id="g3342">
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text3344"
    transform="translate(1578.1348,355.8613)">2K</text>
+
 
 
 	<text
@@ -10952,10 +11073,12 @@
    transform="matrix(0.7,0,0,0.7,1588.6855,352.5313)">+</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text3348"
    transform="translate(1611.625,423.5088)">3Na</text>
+
 
 
 	<text
@@ -10964,8 +11087,9 @@
    transform="matrix(0.7,0,0,0.7,1628.1543,420.1787)">+</text>
 
 
+
 </g><g
-     id="g5734">
+   id="g5734">
 	<g
    id="g5736">
 		<g
@@ -11033,14 +11157,16 @@
    transform="matrix(1,-0.0053,0.0053,1,1686.8953,315.2505)">Na</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text5765"
    transform="matrix(0.7,-0.0037,0.0037,0.7,1698.2771,311.8594)">+</text>
 
 
+
 </g><g
-     id="g5767">
+   id="g5767">
 	<g
    id="g5769">
 		<g
@@ -11108,14 +11234,16 @@
    transform="matrix(1,-0.0053,0.0053,1,1738.3953,296.2505)">Na</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text5798"
    transform="matrix(0.7,-0.0037,0.0037,0.7,1749.7771,292.8594)">+</text>
 
 
+
 </g><g
-     id="g5800">
+   id="g5800">
 	<g
    id="g5802">
 		<g
@@ -11186,14 +11314,16 @@
    transform="matrix(1,-0.0053,0.0053,1,1755.0896,260.7344)">K</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text5833"
    transform="matrix(0.7,-0.0037,0.0037,0.7,1760.491,257.3755)">+</text>
 
 
+
 </g><g
-     id="g5835">
+   id="g5835">
 	<g
    id="g5837">
 		<g
@@ -11261,15 +11391,17 @@
    transform="matrix(1,-0.0053,0.0053,1,1798.3884,327.2344)">K</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text5866"
    transform="matrix(0.7,-0.0037,0.0037,0.7,1803.7908,323.8755)">+</text>
 
 
+
 </g><g
-     transform="translate(-15.618321,163.28244)"
-     id="g5868">
+   transform="translate(-15.618321,163.28244)"
+   id="g5868">
 	<g
    id="g5870">
 		<path
@@ -11283,7 +11415,7 @@
    points="1398.29,204.257 1398.927,194.751 1405.292,201.84 1401.279,201.562 " />
 	</g>
 </g><g
-     id="g5876">
+   id="g5876">
 	<g
    id="g5878">
 		<path
@@ -11297,7 +11429,7 @@
    points="1358.734,254.106 1361.428,251.117 1361.774,260.638 1354.713,254.243 " />
 	</g>
 </g><g
-     id="g5884">
+   id="g5884">
 	<g
    id="g5886">
 		<path
@@ -11315,7 +11447,7 @@
    points="1123.704,448.35 1126.873,450.83 1117.399,451.838 1123.287,444.348 " />
 	</g>
 </g><g
-     id="g5894">
+   id="g5894">
 	<g
    id="g5896">
 		<line
@@ -11331,7 +11463,7 @@
    points="1130.025,317.763 1131.598,321.467 1122.82,317.763 1131.598,314.06 " />
 	</g>
 </g><g
-     id="g5902">
+   id="g5902">
 	<g
    id="g5904">
 		<line
@@ -11351,7 +11483,7 @@
    points="1130.025,304.724 1131.598,308.428 1122.82,304.724 1131.598,301.021 " />
 	</g>
 </g><g
-     id="g5912">
+   id="g5912">
 	<g
    id="g5914">
 		<g
@@ -11375,7 +11507,7 @@
    d="m 1266.799,352.116 c 0,-6.721 10.784,-40.333 61.833,-40.333"
    inkscape:connector-curvature="0" />
 </g><g
-     id="g5924">
+   id="g5924">
 	<g
    id="g5926">
 		<path
@@ -11389,7 +11521,7 @@
    points="1233.417,420.277 1235.695,416.959 1237.29,426.352 1229.449,420.941 " />
 	</g>
 </g><g
-     id="g5932">
+   id="g5932">
 	<g
    id="g5934">
 		<g
@@ -11427,7 +11559,7 @@
 		</g>
 	</g>
 </g><g
-     id="g5952">
+   id="g5952">
 	<g
    id="g5954">
 		<line
@@ -11443,7 +11575,7 @@
    points="1175.553,328.724 1173.981,325.02 1182.759,328.724 1173.981,332.427 " />
 	</g>
 </g><g
-     id="g5960">
+   id="g5960">
 	<g
    id="g5962">
 		<line
@@ -11459,7 +11591,7 @@
    points="1269.752,414.266 1266.048,415.838 1269.752,407.061 1273.455,415.838 " />
 	</g>
 </g><g
-     id="g5968">
+   id="g5968">
 	<g
    id="g5970">
 		<g
@@ -11487,7 +11619,7 @@
    d="m 1171.182,198.849 c -6.722,0 -40.334,-6.86 -40.334,-39.333"
    inkscape:connector-curvature="0" />
 </g><g
-     id="g5982">
+   id="g5982">
 	<g
    id="g5984">
 		<line
@@ -11507,7 +11639,7 @@
    points="1287.466,459.794 1291.17,458.221 1287.466,466.999 1283.763,458.221 " />
 	</g>
 </g><g
-     id="g5992">
+   id="g5992">
 	<g
    id="g5994">
 		<path
@@ -11525,7 +11657,7 @@
    points="1072.169,466.079 1076.133,466.771 1068.254,472.127 1069.915,462.746 " />
 	</g>
 </g><g
-     id="g6002">
+   id="g6002">
 	<g
    id="g6004">
 		<g
@@ -11559,11 +11691,11 @@
 		</g>
 	</g>
 </g><path
-     style="fill:none;stroke:#010101"
-     id="path6020"
-     d="m 1352.668,383.783 c 0,-45 26.666,-72 71.666,-72"
-     inkscape:connector-curvature="0" /><g
-     id="g6022">
+   style="fill:none;stroke:#010101"
+   id="path6020"
+   d="m 1352.668,383.783 c 0,-45 26.666,-72 71.666,-72"
+   inkscape:connector-curvature="0" /><g
+   id="g6022">
 	<g
    id="g6024">
 		<line
@@ -11579,7 +11711,7 @@
    points="1305.773,459.794 1309.477,458.221 1305.773,466.999 1302.07,458.221 " />
 	</g>
 </g><g
-     id="g13859">
+   id="g13859">
 	
 		<radialGradient
    gradientTransform="matrix(0.3664,0,0,0.3664,884.4205,1028.6726)"
@@ -11632,14 +11764,16 @@
    transform="translate(1510.2249,468.5796)">Ca</text>
 
 
+
 	<text
    style="font-size:10.8998003px;fill:#010101;font-family:Myriad-Roman"
    id="text13881"
    transform="matrix(0.7,0,0,0.7,1521.8,464.9497)">2+</text>
 
 
+
 </g><g
-     id="g13883">
+   id="g13883">
 	<g
    id="g13885">
 		<g
@@ -11675,9 +11809,10 @@
 		</g>
 	</g>
 </g><text
-     style="font-size:12px;fill:#010101;font-family:Myriad-Roman"
-     id="text14193"
-     transform="translate(1229.7605,90.6099)">Assorted Arrows</text>
+   style="font-size:12px;fill:#010101;font-family:Myriad-Roman"
+   id="text14193"
+   transform="translate(1229.7605,90.6099)">Assorted Arrows</text>
+
 </g>
 
 
@@ -11699,6 +11834,7 @@
    inkscape:export-ydpi="90"><tspan
      style="font-size:24px"
      id="tspan18981">Chondrocyte</tspan></text>
+
 
 
 <radialGradient
@@ -11745,63 +11881,58 @@
 
 
 <g
-   id="g19105"
-   transform="translate(-1257.5816,-670.47273)"
-   inkscape:export-filename="/Users/harish/Desktop/text19271.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90"><g
-     transform="translate(65.258939,688.7328)"
-     id="g19039">
+   id="g19039"
+   transform="translate(-1252.0597,17.75808)">
 	<g
    id="g19041">
 		<radialGradient
-   cx="1537.813"
-   cy="386.53519"
-   r="17.8347"
+   gradientUnits="userSpaceOnUse"
    id="radialGradient19043"
-   gradientUnits="userSpaceOnUse">
+   r="17.8347"
+   cy="386.53519"
+   cx="1537.813">
 			<stop
-   id="stop19045"
+   offset="0"
    style="stop-color:#d1c5e2;stop-opacity:1"
-   offset="0" />
+   id="stop19045" />
 			<stop
-   id="stop19047"
+   offset="0.2845"
    style="stop-color:#c9c8e5;stop-opacity:1"
-   offset="0.2845" />
+   id="stop19047" />
 			<stop
-   id="stop19049"
+   offset="0.57959998"
    style="stop-color:#bacdea;stop-opacity:1"
-   offset="0.57959998" />
+   id="stop19049" />
 			<stop
-   id="stop19051"
+   offset="0.64740002"
    style="stop-color:#b6c9e8;stop-opacity:1"
-   offset="0.64740002" />
+   id="stop19051" />
 			<stop
-   id="stop19053"
+   offset="0.7177"
    style="stop-color:#abbee2;stop-opacity:1"
-   offset="0.7177" />
+   id="stop19053" />
 			<stop
-   id="stop19055"
+   offset="0.78920001"
    style="stop-color:#98acd9;stop-opacity:1"
-   offset="0.78920001" />
+   id="stop19055" />
 			<stop
-   id="stop19057"
+   offset="0.86150002"
    style="stop-color:#8096cc;stop-opacity:1"
-   offset="0.86150002" />
+   id="stop19057" />
 			<stop
-   id="stop19059"
+   offset="0.93360001"
    style="stop-color:#637dbe;stop-opacity:1"
-   offset="0.93360001" />
+   id="stop19059" />
 			<stop
-   id="stop19061"
+   offset="1"
    style="stop-color:#4165b0;stop-opacity:1"
-   offset="1" />
+   id="stop19061" />
 		</radialGradient>
 		<path
-   inkscape:connector-curvature="0"
-   d="m 1537.813,404.37 c -9.85,0 -17.834,-7.984 -17.834,-17.833 0,-9.851 7.984,-17.836 17.834,-17.836 9.849,0 17.834,7.985 17.834,17.836 0,9.849 -7.984,17.833 -17.834,17.833 z"
+   style="fill:url(#radialGradient19136);stroke:#010101"
    id="path19063"
-   style="fill:url(#radialGradient19136);stroke:#010101" />
+   d="m 1537.813,404.37 c -9.85,0 -17.834,-7.984 -17.834,-17.833 0,-9.851 7.984,-17.836 17.834,-17.836 9.849,0 17.834,7.985 17.834,17.836 0,9.849 -7.984,17.833 -17.834,17.833 z"
+   inkscape:connector-curvature="0" />
 		<g
    id="g19065">
 			<g
@@ -11809,14 +11940,14 @@
 				<g
    id="g19069">
 					<path
-   inkscape:connector-curvature="0"
-   d="M 1555.647,407.331 V 365.742"
+   style="fill:none;stroke:#010101"
    id="path19071"
-   style="fill:none;stroke:#010101" />
+   d="M 1555.647,407.331 V 365.742"
+   inkscape:connector-curvature="0" />
 					<polygon
-   points="1555.647,406.095 1559.352,404.522 1555.647,413.3 1551.944,404.522 "
+   style="fill:#010101"
    id="polygon19073"
-   style="fill:#010101" />
+   points="1551.944,404.522 1555.647,406.095 1559.352,404.522 1555.647,413.3 " />
 				</g>
 			</g>
 		</g>
@@ -11828,129 +11959,131 @@
 			<g
    id="g19079">
 				<path
-   inkscape:connector-curvature="0"
-   d="M 1519.979,407.331 V 365.742"
+   style="fill:none;stroke:#010101"
    id="path19081"
-   style="fill:none;stroke:#010101" />
+   d="M 1519.979,407.331 V 365.742"
+   inkscape:connector-curvature="0" />
 				<polygon
-   points="1519.979,366.978 1516.274,368.55 1519.979,359.772 1523.682,368.55 "
+   style="fill:#010101"
    id="polygon19083"
-   style="fill:#010101" />
+   points="1523.682,368.55 1519.979,366.978 1516.274,368.55 1519.979,359.772 " />
 			</g>
 		</g>
 	</g>
 </g><g
-     transform="translate(34.135445,68.27089)"
-     id="g19099"><text
-       style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-       id="text19085"
-       x="1576.3121"
-       y="1044.5941">Ca</text>
+   id="g19099"
+   transform="translate(-1283.1832,-602.70383)"><text
+   y="1044.5941"
+   x="1576.3121"
+   id="text19085"
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman">Ca</text>
+
 <text
-       style="font-size:7px;fill:#010101;font-family:Myriad-Roman"
-       id="text19087"
-       x="1586.9323"
-       y="1041.2642">2+</text>
+   y="1041.2642"
+   x="1586.9323"
+   id="text19087"
+   style="font-size:7px;fill:#010101;font-family:Myriad-Roman">2+</text>
+
 </g><g
-     transform="translate(-37.147396,-67.266906)"
-     id="g19095"><text
-       style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-       id="text19089"
-       x="1610.632"
-       y="1112.2416">3Na</text>
+   id="g19095"
+   transform="translate(-1354.466,-738.24163)"><text
+   y="1112.2416"
+   x="1610.632"
+   id="text19089"
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman">3Na</text>
+
 <text
-       style="font-size:7px;fill:#010101;font-family:Myriad-Roman"
-       id="text19091"
-       x="1627.1613"
-       y="1108.9115">+</text>
-</g></g><text
+   y="1108.9115"
+   x="1627.1613"
+   id="text19091"
+   style="font-size:7px;fill:#010101;font-family:Myriad-Roman">+</text>
+
+</g><text
    id="text19103"
    style="font-size:12px;fill:#010101;font-family:ArialMT"
-   x="262.02295"
-   y="456.00012"
+   x="202.28592"
+   y="453.49814"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">Sodium-Calcium Exchanger</text>
+
 <g
-   id="g19138"
-   transform="translate(-1489.8533,-111.82686)"
-   inkscape:export-filename="/Users/harish/Desktop/text19271.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
-	<g
-   id="g19140">
+   transform="translate(-1555.2765,-56.69717)"
+   id="g8834">
 		<g
-   id="g19142">
-			<line
-   style="fill:none;stroke:#010101"
-   id="line19144"
-   y2="310.56699"
-   x2="1725.3149"
-   y1="310.56699"
-   x1="1663.999" />
-			<polygon
-   style="fill:#010101"
-   id="polygon19146"
-   points="1658.029,310.567 1666.807,306.863 1665.234,310.567 1666.807,314.271 " />
+   id="g8836">
+			<g
+   id="g8838">
+				<line
+   x1="1790.519"
+   y1="256.06699"
+   x2="1729.203"
+   y2="256.06699"
+   id="line8840"
+   style="fill:none;stroke:#010101" />
+				<polygon
+   points="1789.284,256.067 1787.711,252.363 1796.489,256.067 1787.711,259.771 "
+   id="polygon8842"
+   style="fill:#010101" />
+			</g>
 		</g>
-	</g>
-	<radialGradient
-   gradientUnits="userSpaceOnUse"
-   id="radialGradient19148"
+		<radialGradient
+   cx="1759.8611"
+   cy="256.06689"
    r="18.219299"
-   cy="310.56689"
-   cx="1694.657">
-		<stop
-   offset="0"
+   id="radialGradient8844"
+   gradientUnits="userSpaceOnUse">
+			<stop
+   id="stop8846"
    style="stop-color:#fdfbe1;stop-opacity:1"
-   id="stop19150" />
-		<stop
-   offset="0.1227"
+   offset="0" />
+			<stop
+   id="stop8848"
    style="stop-color:#fdfadd;stop-opacity:1"
-   id="stop19152" />
-		<stop
-   offset="0.2615"
+   offset="0.1227" />
+			<stop
+   id="stop8850"
    style="stop-color:#fef8d2;stop-opacity:1"
-   id="stop19154" />
-		<stop
-   offset="0.4084"
+   offset="0.2615" />
+			<stop
+   id="stop8852"
    style="stop-color:#fef4c0;stop-opacity:1"
-   id="stop19156" />
-		<stop
-   offset="0.56059998"
+   offset="0.4084" />
+			<stop
+   id="stop8854"
    style="stop-color:#feefa6;stop-opacity:1"
-   id="stop19158" />
-		<stop
-   offset="0.71719998"
+   offset="0.56059998" />
+			<stop
+   id="stop8856"
    style="stop-color:#feea86;stop-opacity:1"
-   id="stop19160" />
-		<stop
-   offset="0.875"
+   offset="0.71719998" />
+			<stop
+   id="stop8858"
    style="stop-color:#fee458;stop-opacity:1"
-   id="stop19162" />
-		<stop
-   offset="1"
+   offset="0.875" />
+			<stop
+   id="stop8860"
    style="stop-color:#fee01b;stop-opacity:1"
-   id="stop19164" />
-	</radialGradient>
-	<path
-   style="fill:url(#radialGradient19172);stroke:#010101"
-   id="path19166"
-   d="m 1713.295,310.567 c 2.82,-0.925 4.778,-2.856 4.778,-5.083 0,-3.117 -3.826,-5.668 -8.504,-5.668 h -29.824 c -4.678,0 -8.504,2.551 -8.504,5.668 0,2.226 1.958,4.158 4.778,5.083 -2.82,0.925 -4.778,2.857 -4.778,5.083 0,3.116 3.826,5.668 8.504,5.668 h 29.824 c 4.678,0 8.504,-2.552 8.504,-5.668 0,-2.226 -1.958,-4.158 -4.778,-5.083 z"
-   inkscape:connector-curvature="0" />
-	<text
-   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   offset="1" />
+		</radialGradient>
+		<path
+   inkscape:connector-curvature="0"
+   d="m 1778.499,256.067 c 2.82,-0.925 4.778,-2.856 4.778,-5.083 0,-3.117 -3.826,-5.668 -8.504,-5.668 h -29.824 c -4.678,0 -8.504,2.551 -8.504,5.668 0,2.226 1.958,4.158 4.778,5.083 -2.82,0.925 -4.778,2.857 -4.778,5.083 0,3.116 3.826,5.668 8.504,5.668 h 29.824 c 4.678,0 8.504,-2.552 8.504,-5.668 0,-2.226 -1.958,-4.158 -4.778,-5.083 z"
+   id="path8862"
+   style="fill:url(#radialGradient8882);stroke:#010101" />
+	</g><text
+   transform="matrix(0.99998596,-0.00529993,0.00529993,0.99998596,0,0)"
    id="text19168"
-   transform="matrix(1,-0.0053,0.0053,1,1686.8953,315.2505)">Na</text>
-
-
-	<text
-   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   style="font-size:10.00014019px;fill:#010101;font-family:Myriad-Roman"
+   x="195.96111"
+   y="204.46509">Na</text>
+<text
+   transform="matrix(0.99998603,-0.00528564,0.00528564,0.99998603,0,0)"
    id="text19170"
-   transform="matrix(0.7,-0.0037,0.0037,0.7,1698.2771,311.8594)">+</text>
-
-
-</g><text
+   style="font-size:7.00009775px;fill:#010101;font-family:Myriad-Roman"
+   x="207.36359"
+   y="201.13139">+</text>
+<text
    id="text19174"
    style="font-size:12px;fill:#010101;font-family:ArialMT"
    x="41.609741"
@@ -11958,9 +12091,10 @@
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">Background Sodium</text>
+
 <g
    id="g19238"
-   transform="translate(-1169.7227,-666.4568)"
+   transform="translate(-1084.8861,-670.47273)"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"><g
@@ -12034,7 +12168,7 @@
    id="path19212"
    style="fill:none;stroke:#010101" />
 					<polygon
-   points="1620.98,413.3 1617.277,404.522 1620.98,406.095 1624.685,404.522 "
+   points="1620.98,406.095 1624.685,404.522 1620.98,413.3 1617.277,404.522 "
    id="polygon19214"
    style="fill:#010101" />
 				</g>
@@ -12053,7 +12187,7 @@
    id="path19222"
    style="fill:none;stroke:#010101" />
 				<polygon
-   points="1585.312,359.773 1589.015,368.551 1585.312,366.978 1581.607,368.551 "
+   points="1585.312,366.978 1581.607,368.551 1585.312,359.773 1589.015,368.551 "
    id="polygon19224"
    style="fill:#010101" />
 			</g>
@@ -12068,10 +12202,12 @@
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman">2K</text>
 
 
+
 	<text
    transform="matrix(0.7,0,0,0.7,1588.6855,352.5313)"
    id="text19230"
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman">+</text>
+
 
 
 	<text
@@ -12080,29 +12216,33 @@
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman">3Na</text>
 
 
+
 	<text
    transform="matrix(0.7,0,0,0.7,1628.1543,420.1787)"
    id="text19234"
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman">+</text>
 
 
+
 </g></g><text
    id="text19271"
    style="font-size:12px;fill:#010101;font-family:ArialMT"
-   x="487.85559"
-   y="457.00415"
+   x="572.69226"
+   y="454.98822"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">Sodium-Potassium Pump</text>
+
 <text
    inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
-   y="411.83289"
-   x="547.09058"
+   y="407.81696"
+   x="631.92725"
    style="font-size:12px;fill:#010101;font-family:ArialMT"
    id="text19345"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png">ATP</text>
+
 <g
-   transform="translate(-1189.239,-290.9669)"
+   transform="translate(-1067.361,18.767752)"
    id="g19349"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
@@ -12169,7 +12309,7 @@
    id="path19381"
    style="fill:none;stroke:#010101" />
 					<polygon
-   points="1551.944,404.522 1555.647,406.095 1559.352,404.522 1555.647,413.3 "
+   points="1559.352,404.522 1555.647,413.3 1551.944,404.522 1555.647,406.095 "
    id="polygon19383"
    style="fill:#010101" />
 				</g>
@@ -12188,7 +12328,7 @@
    id="path19391"
    style="fill:none;stroke:#010101" />
 				<polygon
-   points="1523.682,368.55 1519.979,366.978 1516.274,368.55 1519.979,359.772 "
+   points="1516.274,368.55 1519.979,359.772 1523.682,368.55 1519.979,366.978 "
    id="polygon19393"
    style="fill:#010101" />
 			</g>
@@ -12196,46 +12336,51 @@
 	</g>
 </g><g
    id="g19440"
-   transform="translate(-1197.3943,-668.40386)"
+   transform="translate(-1075.5163,-358.66921)"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"><text
-     style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
-     id="text19403"
-     x="1521.7054"
-     y="734.74371">H</text>
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
+   id="text19403"
+   x="1521.7054"
+   y="734.74371">H</text>
+
 <text
-     style="font-size:7px;fill:#010101;font-family:Myriad-Roman"
-     id="text19405"
-     x="1527.9408"
-     y="728.57391">+</text>
+   style="font-size:7px;fill:#010101;font-family:Myriad-Roman"
+   id="text19405"
+   x="1527.9408"
+   y="728.57391">+</text>
+
 </g><text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text19444"
-   x="359.91309"
-   y="132.05554"
+   x="481.79114"
+   y="441.79019"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">Na</text>
+
 <text
    style="font-size:7px;fill:#010101;font-family:Myriad-Roman"
    id="text19446"
-   x="371.38147"
-   y="127.35858"
+   x="493.25952"
+   y="437.09323"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">+</text>
+
 <text
    inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
-   y="49.923767"
-   x="259.64124"
+   y="454.0329"
+   x="386.53922"
    style="font-size:12px;fill:#010101;font-family:ArialMT"
-   id="text19448">Sodium-Hydrogen Exchanger</text>
+   id="text19448">Sodium-Hydrogen Antiport</text>
+
 <g
    id="g19488"
-   transform="translate(-1053.9061,-7.76383)"
+   transform="translate(-1053.9061,-47.76383)"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -12309,110 +12454,108 @@
    transform="matrix(1,-0.0053,0.0053,1,1755.0896,260.7344)">K</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text19522"
    transform="matrix(0.7,-0.0037,0.0037,0.7,1760.491,257.3755)">+</text>
 
 
+
 </g><text
    inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
-   y="251.26715"
+   y="211.26715"
    x="747.24182"
    style="font-size:12px;fill:#010101;font-family:ArialMT"
    id="text19526">Ultra-rapidly Rectifying Potassium</text>
+
 <g
-   transform="translate(-1054.9101,-75.99488)"
-   id="g19574"
-   inkscape:export-filename="/Users/harish/Desktop/text19271.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
-	<g
-   id="g19576">
+   id="g19576"
+   transform="translate(-1054.9101,-103.99488)">
 		<g
    id="g19578">
 			<g
    id="g19580">
 				<line
-   x1="1790.519"
-   y1="256.06699"
-   x2="1729.203"
-   y2="256.06699"
+   style="fill:none;stroke:#010101"
    id="line19582"
-   style="fill:none;stroke:#010101" />
+   y2="256.06699"
+   x2="1729.203"
+   y1="256.06699"
+   x1="1790.519" />
 				<polygon
-   points="1796.489,256.067 1787.711,259.771 1789.284,256.067 1787.711,252.363 "
+   style="fill:#010101"
    id="polygon19584"
-   style="fill:#010101" />
+   points="1796.489,256.067 1787.711,259.771 1789.284,256.067 1787.711,252.363 " />
 			</g>
 		</g>
 		<radialGradient
-   cx="1759.8611"
-   cy="256.06689"
-   r="18.219299"
+   gradientUnits="userSpaceOnUse"
    id="radialGradient19586"
-   gradientUnits="userSpaceOnUse">
+   r="18.219299"
+   cy="256.06689"
+   cx="1759.8611">
 			<stop
-   id="stop19588"
+   offset="0"
    style="stop-color:#fdfbe1;stop-opacity:1"
-   offset="0" />
+   id="stop19588" />
 			<stop
-   id="stop19590"
+   offset="0.1227"
    style="stop-color:#fdfadd;stop-opacity:1"
-   offset="0.1227" />
+   id="stop19590" />
 			<stop
-   id="stop19592"
+   offset="0.2615"
    style="stop-color:#fef8d2;stop-opacity:1"
-   offset="0.2615" />
+   id="stop19592" />
 			<stop
-   id="stop19594"
+   offset="0.4084"
    style="stop-color:#fef4c0;stop-opacity:1"
-   offset="0.4084" />
+   id="stop19594" />
 			<stop
-   id="stop19596"
+   offset="0.56059998"
    style="stop-color:#feefa6;stop-opacity:1"
-   offset="0.56059998" />
+   id="stop19596" />
 			<stop
-   id="stop19598"
+   offset="0.71719998"
    style="stop-color:#feea86;stop-opacity:1"
-   offset="0.71719998" />
+   id="stop19598" />
 			<stop
-   id="stop19600"
+   offset="0.875"
    style="stop-color:#fee458;stop-opacity:1"
-   offset="0.875" />
+   id="stop19600" />
 			<stop
-   id="stop19602"
+   offset="1"
    style="stop-color:#fee01b;stop-opacity:1"
-   offset="1" />
+   id="stop19602" />
 		</radialGradient>
 		<path
-   inkscape:connector-curvature="0"
-   d="m 1778.499,256.067 c 2.82,-0.925 4.778,-2.856 4.778,-5.083 0,-3.117 -3.826,-5.668 -8.504,-5.668 h -29.824 c -4.678,0 -8.504,2.551 -8.504,5.668 0,2.226 1.958,4.158 4.778,5.083 -2.82,0.925 -4.778,2.857 -4.778,5.083 0,3.116 3.826,5.668 8.504,5.668 h 29.824 c 4.678,0 8.504,-2.552 8.504,-5.668 0,-2.226 -1.958,-4.158 -4.778,-5.083 z"
+   style="fill:url(#radialGradient8884);stroke:#010101"
    id="path19604"
-   style="fill:url(#radialGradient19612);stroke:#010101" />
-	</g>
-	<text
-   transform="matrix(1,-0.0053,0.0053,1,1755.0896,260.7344)"
+   d="m 1778.499,256.067 c 2.82,-0.925 4.778,-2.856 4.778,-5.083 0,-3.117 -3.826,-5.668 -8.504,-5.668 h -29.824 c -4.678,0 -8.504,2.551 -8.504,5.668 0,2.226 1.958,4.158 4.778,5.083 -2.82,0.925 -4.778,2.857 -4.778,5.083 0,3.116 3.826,5.668 8.504,5.668 h 29.824 c 4.678,0 8.504,-2.552 8.504,-5.668 0,-2.226 -1.958,-4.158 -4.778,-5.083 z"
+   inkscape:connector-curvature="0" />
+	</g><text
+   style="font-size:10.00014019px;fill:#010101;font-family:Myriad-Roman"
    id="text19606"
-   style="font-size:10px;fill:#010101;font-family:Myriad-Roman">K</text>
-
-
-	<text
-   transform="matrix(0.7,-0.0037,0.0037,0.7,1760.491,257.3755)"
+   transform="matrix(0.99998596,-0.00529993,0.00529993,0.99998596,0,0)"
+   x="699.33923"
+   y="160.44826">K</text>
+<text
+   style="font-size:7.00009775px;fill:#010101;font-family:Myriad-Roman"
    id="text19608"
-   style="font-size:10px;fill:#010101;font-family:Myriad-Roman">+</text>
-
-
-</g><text
+   transform="matrix(0.99998603,-0.00528564,0.00528564,0.99998603,0,0)"
+   x="704.76013"
+   y="157.10796">+</text>
+<text
    id="text19610"
    style="font-size:12px;fill:#010101;font-family:ArialMT"
    x="746.23779"
-   y="183.03607"
+   y="155.03607"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">Two-pore Potassium</text>
+
 <text
    id="text19650"
    style="font-size:12px;fill:#010101;font-family:ArialMT"
@@ -12421,17 +12564,19 @@
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">Background Potassium</text>
+
 <text
    id="text19690"
    style="font-size:12px;fill:#010101;font-family:ArialMT"
    x="749.62354"
-   y="319.99994"
+   y="269.99994"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">Calcium-activated Potassium</text>
+
 <g
    id="g19692"
-   transform="matrix(1,0,0,-1,-1111.8485,483.14015)"
+   transform="matrix(1,0,0,-1,-1206.2683,483.14015)"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -12449,7 +12594,7 @@
 				<polygon
    style="fill:#010101"
    id="polygon19702"
-   points="1693.867,370.084 1690.164,368.511 1686.46,370.084 1690.164,361.306 " />
+   points="1690.164,368.511 1686.46,370.084 1690.164,361.306 1693.867,370.084 " />
 			</g>
 		</g>
 	</g>
@@ -12511,7 +12656,7 @@
 					<polygon
    style="fill:#010101"
    id="polygon19732"
-   points="1658.197,370.084 1654.494,368.511 1650.79,370.084 1654.494,361.306 " />
+   points="1654.494,368.511 1650.79,370.084 1654.494,361.306 1658.197,370.084 " />
 				</g>
 			</g>
 		</g>
@@ -12519,13 +12664,14 @@
 </g><text
    id="text19736"
    style="font-size:12px;fill:#010101;font-family:ArialMT"
-   x="526.57263"
-   y="53.923767"
+   x="408.01538"
+   y="62.442852"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">Trip Channel</text>
+   inkscape:export-ydpi="90">Arthritic trip channel</text>
+
 <g
-   transform="translate(-1053.9061,60.23617)"
+   transform="translate(-1053.9061,10.23617)"
    id="g19738"
    inkscape:export-filename="/Users/harish/Desktop/text19271.png"
    inkscape:export-xdpi="90"
@@ -12544,7 +12690,7 @@
    id="line19746"
    style="fill:none;stroke:#010101" />
 				<polygon
-   points="1796.489,256.067 1787.711,259.771 1789.284,256.067 1787.711,252.363 "
+   points="1787.711,259.771 1789.284,256.067 1787.711,252.363 1796.489,256.067 "
    id="polygon19748"
    style="fill:#010101" />
 			</g>
@@ -12600,10 +12746,12 @@
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman">K</text>
 
 
+
 	<text
    transform="matrix(0.7,-0.0037,0.0037,0.7,1760.491,257.3755)"
    id="text19772"
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman">+</text>
+
 
 
 </g><g
@@ -12679,10 +12827,324 @@
    transform="matrix(1,-0.0053,0.0053,1,1798.3884,327.2344)">K</text>
 
 
+
 	<text
    style="font-size:10px;fill:#010101;font-family:Myriad-Roman"
    id="text19810"
    transform="matrix(0.7,-0.0037,0.0037,0.7,1803.7908,323.8755)">+</text>
 
 
-</g></svg>
+
+</g><text
+   inkscape:export-ydpi="90"
+   inkscape:export-xdpi="90"
+   inkscape:export-filename="/Users/harish/Desktop/text19271.png"
+   y="327.99994"
+   x="749.62354"
+   style="font-size:12px;fill:#010101;font-family:ArialMT"
+   id="text8886">Potassium pump</text>
+<g
+   inkscape:export-ydpi="90"
+   inkscape:export-xdpi="90"
+   inkscape:export-filename="/Users/harish/Desktop/text19271.png"
+   transform="translate(-1095.4363,1.9205615)"
+   id="g8945">
+	<g
+   id="g8947">
+		<g
+   id="g8949">
+			<line
+   x1="1772.502"
+   y1="322.56699"
+   x2="1833.818"
+   y2="322.56699"
+   id="line8951"
+   style="fill:none;stroke:#010101" />
+			<polygon
+   points="1773.737,322.567 1775.31,326.271 1766.532,322.567 1775.31,318.863 "
+   id="polygon8953"
+   style="fill:#010101" />
+		</g>
+	</g>
+	<radialGradient
+   cx="1803.1599"
+   cy="322.56689"
+   r="18.219299"
+   id="radialGradient8955"
+   gradientUnits="userSpaceOnUse">
+		<stop
+   id="stop8957"
+   style="stop-color:#fdfbe1;stop-opacity:1"
+   offset="0" />
+		<stop
+   id="stop8959"
+   style="stop-color:#fdfadd;stop-opacity:1"
+   offset="0.1227" />
+		<stop
+   id="stop8961"
+   style="stop-color:#fef8d2;stop-opacity:1"
+   offset="0.2615" />
+		<stop
+   id="stop8963"
+   style="stop-color:#fef4c0;stop-opacity:1"
+   offset="0.4084" />
+		<stop
+   id="stop8965"
+   style="stop-color:#feefa6;stop-opacity:1"
+   offset="0.56059998" />
+		<stop
+   id="stop8967"
+   style="stop-color:#feea86;stop-opacity:1"
+   offset="0.71719998" />
+		<stop
+   id="stop8969"
+   style="stop-color:#fee458;stop-opacity:1"
+   offset="0.875" />
+		<stop
+   id="stop8971"
+   style="stop-color:#fee01b;stop-opacity:1"
+   offset="1" />
+	</radialGradient>
+	<path
+   inkscape:connector-curvature="0"
+   d="m 1821.798,322.567 c 2.82,-0.925 4.778,-2.856 4.778,-5.083 0,-3.117 -3.826,-5.668 -8.504,-5.668 h -29.824 c -4.678,0 -8.504,2.551 -8.504,5.668 0,2.226 1.958,4.158 4.778,5.083 -2.82,0.925 -4.778,2.857 -4.778,5.083 0,3.116 3.826,5.668 8.504,5.668 h 29.824 c 4.678,0 8.504,-2.552 8.504,-5.668 0,-2.226 -1.958,-4.158 -4.778,-5.083 z"
+   id="path8973"
+   style="fill:url(#radialGradient8979);stroke:#010101" />
+	<text
+   transform="matrix(1,-0.0053,0.0053,1,1798.3884,327.2344)"
+   id="text8975"
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman">K</text>
+
+
+
+	<text
+   transform="matrix(0.7,-0.0037,0.0037,0.7,1803.7908,323.8755)"
+   id="text8977"
+   style="font-size:10px;fill:#010101;font-family:Myriad-Roman">+</text>
+
+
+
+</g><g
+   inkscape:export-ydpi="90"
+   inkscape:export-xdpi="90"
+   inkscape:export-filename="/Users/harish/Desktop/text19271.png"
+   transform="matrix(1,0,0,-1,-1378.7798,481.7203)"
+   id="g8981">
+	<g
+   id="g8983">
+		<g
+   id="g8985">
+			<g
+   id="g8987">
+				<path
+   inkscape:connector-curvature="0"
+   d="M 1690.164,408.864 V 367.275"
+   id="path8989"
+   style="fill:none;stroke:#010101" />
+				<polygon
+   points="1690.164,368.511 1686.46,370.084 1690.164,361.306 1693.867,370.084 "
+   id="polygon8991"
+   style="fill:#010101" />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g8993">
+		<g
+   transform="translate(17.00007,-71.31057)"
+   id="g8995">
+			
+				<radialGradient
+   cx="647.45398"
+   cy="426.13181"
+   r="17.835199"
+   id="radialGradient8997"
+   gradientUnits="userSpaceOnUse"
+   gradientTransform="matrix(0,1,-1,0,2081.4609,-188.0741)">
+				<stop
+   id="stop8999"
+   style="stop-color:#add252;stop-opacity:1"
+   offset="0" />
+				<stop
+   id="stop9001"
+   style="stop-color:#aad152;stop-opacity:1"
+   offset="0.25909999" />
+				<stop
+   id="stop9003"
+   style="stop-color:#a0cd52;stop-opacity:1"
+   offset="0.47130001" />
+				<stop
+   id="stop9005"
+   style="stop-color:#90c853;stop-opacity:1"
+   offset="0.667" />
+				<stop
+   id="stop9007"
+   style="stop-color:#77c153;stop-opacity:1"
+   offset="0.85159999" />
+				<stop
+   id="stop9009"
+   style="stop-color:#57ba53;stop-opacity:1"
+   offset="1" />
+			</radialGradient>
+			<path
+   inkscape:connector-curvature="0"
+   d="m 1655.328,477.216 c -9.851,0 -17.834,-7.986 -17.834,-17.835 0,-9.851 7.983,-17.836 17.834,-17.836 9.851,0 17.836,7.985 17.836,17.836 0,9.848 -7.986,17.835 -17.836,17.835 z"
+   id="path9011"
+   style="fill:url(#radialGradient9025);stroke:#010101" />
+		</g>
+		<g
+   id="g9013">
+			<g
+   id="g9015">
+				<g
+   id="g9017">
+					<path
+   inkscape:connector-curvature="0"
+   d="M 1654.494,408.864 V 367.275"
+   id="path9019"
+   style="fill:none;stroke:#010101" />
+					<polygon
+   points="1654.494,368.511 1650.79,370.084 1654.494,361.306 1658.197,370.084 "
+   id="polygon9021"
+   style="fill:#010101" />
+				</g>
+			</g>
+		</g>
+	</g>
+</g><text
+   inkscape:export-ydpi="90"
+   inkscape:export-xdpi="90"
+   inkscape:export-filename="/Users/harish/Desktop/text19271.png"
+   y="62.442852"
+   x="237.6337"
+   style="font-size:12px;fill:#010101;font-family:ArialMT"
+   id="text9023">Stretch trip channel</text>
+<text
+   xml:space="preserve"
+   style="font-size:22px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+   x="288.09924"
+   y="100.79055"
+   id="text9027"
+   sodipodi:linespacing="125%"><tspan
+     sodipodi:role="line"
+     id="tspan9029"
+     x="288.09924"
+     y="100.79055">?</tspan></text>
+<text
+   sodipodi:linespacing="125%"
+   id="text9031"
+   y="102.92032"
+   x="460.03055"
+   style="font-size:22px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+   xml:space="preserve"><tspan
+     y="102.92032"
+     x="460.03055"
+     id="tspan9033"
+     sodipodi:role="line">?</tspan></text>
+<g
+   id="g9041"
+   transform="matrix(1,0,0,-1,-1042.9859,482.43022)"
+   inkscape:export-filename="/Users/harish/Desktop/text19271.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+	<g
+   id="g9043">
+		<g
+   id="g9045">
+			<g
+   id="g9047">
+				<path
+   style="fill:none;stroke:#010101"
+   id="path9049"
+   d="M 1690.164,408.864 V 367.275"
+   inkscape:connector-curvature="0" />
+				<polygon
+   style="fill:#010101"
+   id="polygon9051"
+   points="1686.46,370.084 1690.164,361.306 1693.867,370.084 1690.164,368.511 " />
+			</g>
+		</g>
+	</g>
+	<g
+   id="g9053">
+		<g
+   id="g9055"
+   transform="translate(17.00007,-71.31057)">
+			
+				<radialGradient
+   gradientTransform="matrix(0,1,-1,0,2081.4609,-188.0741)"
+   gradientUnits="userSpaceOnUse"
+   id="radialGradient9057"
+   r="17.835199"
+   cy="426.13181"
+   cx="647.45398">
+				<stop
+   offset="0"
+   style="stop-color:#add252;stop-opacity:1"
+   id="stop9059" />
+				<stop
+   offset="0.25909999"
+   style="stop-color:#aad152;stop-opacity:1"
+   id="stop9061" />
+				<stop
+   offset="0.47130001"
+   style="stop-color:#a0cd52;stop-opacity:1"
+   id="stop9063" />
+				<stop
+   offset="0.667"
+   style="stop-color:#90c853;stop-opacity:1"
+   id="stop9065" />
+				<stop
+   offset="0.85159999"
+   style="stop-color:#77c153;stop-opacity:1"
+   id="stop9067" />
+				<stop
+   offset="1"
+   style="stop-color:#57ba53;stop-opacity:1"
+   id="stop9069" />
+			</radialGradient>
+			<path
+   style="fill:url(#radialGradient9089);stroke:#010101"
+   id="path9071"
+   d="m 1655.328,477.216 c -9.851,0 -17.834,-7.986 -17.834,-17.835 0,-9.851 7.983,-17.836 17.834,-17.836 9.851,0 17.836,7.985 17.836,17.836 0,9.848 -7.986,17.835 -17.836,17.835 z"
+   inkscape:connector-curvature="0" />
+		</g>
+		<g
+   id="g9073">
+			<g
+   id="g9075">
+				<g
+   id="g9077">
+					<path
+   style="fill:none;stroke:#010101"
+   id="path9079"
+   d="M 1654.494,408.864 V 367.275"
+   inkscape:connector-curvature="0" />
+					<polygon
+   style="fill:#010101"
+   id="polygon9081"
+   points="1650.79,370.084 1654.494,361.306 1658.197,370.084 1654.494,368.511 " />
+				</g>
+			</g>
+		</g>
+	</g>
+</g><text
+   id="text9083"
+   style="font-size:12px;fill:#010101;font-family:ArialMT"
+   x="585.42761"
+   y="63.152771"
+   inkscape:export-filename="/Users/harish/Desktop/text19271.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">ASIC Channel</text>
+<text
+   sodipodi:linespacing="125%"
+   id="text9085"
+   y="101.50047"
+   x="623.89313"
+   style="font-size:22px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+   xml:space="preserve"><tspan
+     y="101.50047"
+     x="623.89313"
+     id="tspan9087"
+     sodipodi:role="line">?</tspan></text>
+</svg>
