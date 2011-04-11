@@ -8,7 +8,7 @@
 
 % (c) 2011 -- Harish Narayanan
 
-\documentclass[ignorenonframetext]{beamer}
+\documentclass{beamer}
 
 \usepackage{graphicx}
 \usepackage{amsfonts}
@@ -114,7 +114,7 @@
       % Empty
     \end{column}
     \begin{column}{2cm}
-      \includegraphics[width=2.5cm]{../results/pdf/membrane_behaviour}
+      \includegraphics[width=2.5cm]{../results/pdf/potassium_currents}
     \end{column}
     \begin{column}{0cm}
       % Empty
@@ -259,14 +259,15 @@
 
 %  Talk about some important ones and what their roles might be.
 
-\begin{frame}{And so, we started on my whiteboard with a superset of
-    all the channels experimentalists were talking about \ldots}
+{
+\usebackgroundtemplate{\includegraphics[height=\paperheight, width=\paperwidth]{../images/pdf/model-on-whiteboard}}
 
-  \begin{center}
-    \fbox{\includegraphics[height=0.8\textheight]{../images/pdf/model-on-whiteboard}}
-  \end{center}
+\begin{frame}{\textcolor{black}{And so, we started on my whiteboard
+      with a superset of all the channels experimentalists were
+      talking about \ldots}}
 
 \end{frame}
+}
 
 %
 % And so, this is the model that is being researched and
@@ -331,6 +332,19 @@
   \end{center}
 
   \references{Clark et. al., 2011; Millward-Sadler et. al., 2000}
+
+\end{frame}
+
+\begin{frame}{Potassium channels seem to have a role in the frozen
+    shoulder syndrome}
+
+  \vspace{-0.4cm}
+
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{../results/pdf/potassium_currents}
+  \end{center}
+
+  \vspace{1.8em}
 
 \end{frame}
 
