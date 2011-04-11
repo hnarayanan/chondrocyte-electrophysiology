@@ -116,11 +116,11 @@
     \begin{column}{2cm}
       \includegraphics[width=2.5cm]{../results/pdf/membrane_behaviour}
     \end{column}
-    \begin{column}{0.5cm}
+    \begin{column}{0cm}
       % Empty
     \end{column}
-    \begin{column}{8cm}
-      How does our model help us answer these questions?
+    \begin{column}{7cm}
+      How does our cellular model help us answer these questions?
     \end{column}
   \end{columns}
 \end{frame}
@@ -133,7 +133,11 @@
   \begin{columns}
 
     \begin{column}{6cm}
+      \begin{center}
       \includegraphics[width=6cm]{../images/pdf/joint}
+      {\\[-0.1cm] \scriptsize Articular cartilage as part of a
+        synovial joint}
+      \end{center}
     \end{column}
 
     \begin{column}{6cm}
@@ -168,8 +172,7 @@
 
     \begin{column}{6cm}
       \begin{itemize}
-      \item<1-> Chondrocytes are isolated within a voluminous
-        ECM
+      \item<1-> Chondrocytes are isolated within a voluminous ECM
       \item<1-> Relies on diffusion from the articular surface for
         nutrient and metabolite exchange\\[0.5cm]
         \pause
@@ -189,8 +192,8 @@
 %
 % 2. The specific question(s) we want to answer
 
-\begin{frame}{We narrow our focus to a few specific questions to
-    motivate our initial modelling efforts}
+\begin{frame}{We narrow our focus to a specific question to motivate
+    our initial modelling effort}
 
   \begin{columns}
     \begin{column}{4.5cm}
@@ -206,25 +209,30 @@
   \end{columns}
 
   \vspace{0.5cm}
+  \pause
 
   \begin{itemize}
-    \pause
   \item<2-> How does the cell survive in an acidic environment and
     still continue to synthesise and maintain viable cartilage?
-  \item<2-> Hypothesis 3: Apoptosis and osteoarthritis?
-    \fixme
+  \item<2-> How does the chondrocyte ``sense'' and respond to loading?
   \end{itemize}
-  \references{Webb, 2009; Lewis et al., 2011; Hall et al., 1996}
+
+  \onslide<1->
+  \references{Webb, 2009; Hall et al., 1996}
 
 \end{frame}
 
 \begin{frame}{In order to answer such questions, we need a model that
     helps us understand some fundamental things}
+
   \begin{itemize}
-  \item The important important ion channels for the cell\\[0.5cm]
+  \item The important important ion channels of the cell\\[0.5cm]
   \item The basis of the resting membrane potential\\[0.5cm]
-  \item How this potential relates to cellular volume regulation\\[0.5cm]
+  \item The role of cellular volume regulation
   \end{itemize}
+
+  \references{Lewis et al., 2011}
+
 \end{frame}
 
 % There is a dearth of good biophysical models for this cell type and
@@ -295,6 +303,8 @@
   For more details on the model and how it is implemented, let us step
   into the code for a quick demo
 
+  \references{Hindmarsh, 2001}
+
 \end{frame}
 
 
@@ -320,30 +330,30 @@
     \includegraphics[width=0.9\textwidth]{../results/pdf/membrane_behaviour}
   \end{center}
 
-  \references{parameter estimation, benchmarking, hypothesis}
+  \references{Clark et. al., 2011; Millward-Sadler et. al., 2000}
 
 \end{frame}
 
 % 6. Discussion
 
-\begin{frame}{In conclusion, \ldots}
+\begin{frame}{So over the course of this talk, we \ldots}
 
   \begin{itemize}
-  \item Summarise what has been done
-    \begin{itemize}
-      \item Learnt a bit about the physiology of the chondrocyte
-      \item Some ideas of the channels involved
-      \item Arrived at some interesting questions
-      \item A basic model to answer these questions
-    \end{itemize}
-  \item For the future
-    \begin{itemize}
-    \item Ask for modelling advice
-    \item Implications of the calculations
-    \item Tissue level models and stress response
-    \end{itemize}
+  \item Learnt a bit about the physiology of the chondrocyte
+  \item Got introduced to some interesting questions
+  \item Arrived at a basic model to answer these questions\\[0.5cm]
   \end{itemize}
 
+  \pause
+
+  \begin{itemize}
+    \item<2->[] \hspace{-0.5cm} And in the future, we will:
+  \item<2-> Continue to tune and benchmark the model
+  \item<2-> Take a closer look at the implications of the calculations
+  \item<2-> Expand to tissue level models to study stress response
+  \end{itemize}
+
+  \onslide<1->
   \references{{\tt https://bitbucket.org/harish/chondrocyte-model/}}
 
 \end{frame}
