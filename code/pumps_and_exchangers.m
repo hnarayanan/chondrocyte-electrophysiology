@@ -45,12 +45,26 @@ function I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i)
   endif
 endfunction
 
-# FIXME: Implement the sodium-hydrogen antiport
+# Sodium-hydrogen exchanger from "A Model of Na+/H+ Exchanger and Its
+# Central Role in Regulation of pH and Na+ in Cardiac Myocytes," Chae
+# Young Cha, Chiaki Oka, Yung E. Earm, Shigeo Wakabayashi, and Akinori
+# Noma. Biophysical Journal 2009; 97; 2674-2683 (pp. 2675)
 
-function I_NaH = sodiumHydrogenAntiport()
+function I_NaH = sodiumHydrogenExchanger(Na_i, H_i)
   global enable_I_NaH;
   if (enable_I_NaH == true)
-    I_NaH = 0.0;
+    global n_H, global K_H_i_mod;
+    global k1_p, global k1_m, global k2_p, global k2_m;
+    global Na_o, global H_o, global N_NaH_channel;
+    global K_Na_o, global K_H_o, global K_Na_i, global K_H_i;
+
+    I_NaH_mod  = 1/(1 + (K_H_i_mod^n_H/H_i^n_H));
+    t1 = k1_p*Na_o/K_Na_o / (1 + Na_o/K_Na_o + H_o/K_H_o);
+    t2 = k2_p*H_i/K_H_i   / (1 + Na_i/K_Na_i + H_i/K_H_i);
+    t3 = k1_m*Na_i/K_Na_i / (1 + Na_i/K_Na_i + H_i/K_H_i);
+    t4 = k2_m*H_o/K_H_o   / (1 + Na_o/K_Na_o + H_o/K_H_o);
+    I_NaH_exch = (t1*t2 - t3*t4) / (t1 + t2 + t3 + t4);
+    I_NaH = N_NaH_channel*I_NaH_mod*I_NaH_exch;
   else
     I_NaH = 0.0;
   endif

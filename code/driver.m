@@ -37,8 +37,9 @@ function xdot = f(x, t)
   Na_i = x(2);
   K_i  = x(3);
   Ca_i = x(4);
-  a_ur = x(5);
-  i_ur = x(6);
+  H_i  = x(5);
+  a_ur = x(6);
+  i_ur = x(7);
 
   # Calculate background currents
   I_Na_b = backgroundSodium(V, Na_i);
@@ -47,7 +48,7 @@ function xdot = f(x, t)
   # Calculate pump and exchanger currents
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i);
   I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i);
-  I_NaH = sodiumHydrogenAntiport();
+  I_NaH = sodiumHydrogenExchanger(Na_i, H_i);
 
   # Calculate other potassium currents
   I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, i_ur);
@@ -72,16 +73,17 @@ function xdot = f(x, t)
   global C_m;
 
   # FIXME: Check signs on the following carefully
-  Na_i_dot = - (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_i*F);
+  Na_i_dot = - (I_Na_b + 3*I_NaK + 3*I_NaCa - I_NaH)/(vol_i*F);
   K_i_dot  = - (I_K_b  - 2*I_NaK + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP)/(vol_i*F);
   Ca_i_dot =   (I_NaCa)/(vol_i*F);
+  H_i_dot =  - (I_NaH)/(vol_i*F);
 
   [a_ur_inf, i_ur_inf, tau_a_ur, tau_i_ur] = ultraRapidlyRectifyingPotassiumHelper(V);
 
   a_ur_dot = (a_ur_inf - a_ur)/tau_a_ur;
   i_ur_dot = (i_ur_inf - i_ur)/tau_i_ur;
 
-  xdot = zeros(6, 1);
+  xdot = zeros(7, 1);
   global clamp_Vm;
   if (clamp_Vm == true)
     global VF, global V_0, global t_final;
@@ -92,14 +94,15 @@ function xdot = f(x, t)
   xdot(2) = Na_i_dot;
   xdot(3) = K_i_dot;
   xdot(4) = Ca_i_dot;
-  xdot(5) = a_ur_dot;
-  xdot(6) = i_ur_dot;
+  xdot(5) = H_i_dot;
+  xdot(6) = a_ur_dot;
+  xdot(7) = i_ur_dot;
 
 endfunction
 
 # Solve the ODE system for all time t
 t = linspace(0, t_final, t_final/dt);
-x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, a_ur_0, i_ur_0];
+x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, H_i_0, a_ur_0, i_ur_0];
 x = lsode("f", x0, t);
 
 # Extract and postprocess solutions

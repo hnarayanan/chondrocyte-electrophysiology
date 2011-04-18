@@ -23,10 +23,11 @@ global clamp_Vm = true;
 global VF = 100;
 
 # Initial conditions
-global V_0 = -130.0;         # Initial membrane potential (mV)
+global V_0 = -130.0;        # Initial membrane potential (mV)
 global Na_i_0 = 0.516766;   # Initial internal sodium concentration (mM/l)
 global K_i_0 = 129.485991;  # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 6.5e-5;     # Initial internal calcium concentration (mM/l)
+global H_i_0 = 0.05;        # Initial internal hydrogen concentration (mM/l)
 global a_ur_0 = 0.000367;
 global i_ur_0 = 0.967290;
 
@@ -37,13 +38,13 @@ global I_stim_bar = 0.0; # Stimulation current magnitude ()
 
 # Toggle individual currents
 global enable_I_Na_b = false;
-global enable_I_K_b = true;
+global enable_I_K_b = false;
 global enable_I_NaK = false;
 global enable_I_NaCa = false;
-global enable_I_NaH = false;
-global enable_I_K_ur = true;
-global enable_I_K_2pore = true;
-global enable_I_K_Ca_act = true;
+global enable_I_NaH = true;
+global enable_I_K_ur = false;
+global enable_I_K_2pore = false;
+global enable_I_K_Ca_act = false;
 global enable_I_K_ATP = false;
 global enable_I_ASIC = false;
 global enable_I_TRP1 = false;
@@ -62,6 +63,10 @@ global z_K = 1;             # Charge on the potassium ion
 global Ca_o = 1.815768;     # Clamped external calcium concentration (mM/l)
 global z_Ca = 2;            # Charge on the calcium ion
 
+# Constants related to hydrogen
+global H_o = 0.1;          # Clamped external hydrogen concentration (mM/l)
+global z_H = 1;            # Charge on the calcium ion
+
 # Background conductances
 global g_Na_b_bar = 20;    # Background sodium leakage conductance (pS)
 global g_K_b_bar = 0.2;    # Background potassium leakage conductance (pS)
@@ -75,6 +80,21 @@ global K_NaK_Na = 11.0;
 global K_NaCa = 0.0374842;
 global gamma_Na = 0.45;
 global d_NaCa = 0.0003;
+
+# Constants related to the sodium-hydrogen exchanger
+global n_H = 1;
+global m_H = 3;
+global K_H_i_mod = 3.07e-5;
+global K_H_o_mod = 4.8e-7;
+global k1_p = 10.5;
+global k1_m = 0.201;
+global k2_p = 15.8;
+global k2_m = 183;
+global K_Na_i = 16.2
+global K_Na_o = 195
+global K_H_i = 6.05e-4;
+global K_H_o = 1.62e-3;
+global N_NaH_channel = 489900;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
 global g_K_ur = 0.3;

@@ -22,6 +22,7 @@ figure(2, 'visible', 'off');
 subplot(2, 2, 1), plot(t, Na_i, 'linewidth', line_width), xlabel('$t (s)$'), legend('$[Na^{+}]_{i} (mM/l)$');
 subplot(2, 2, 2), plot(t, K_i, 'linewidth', line_width), xlabel('$t (s)$'), legend('$[K^{+}]_{i} (mM/l)$');
 subplot(2, 2, 3), plot(t, Ca_i, 'linewidth', line_width), xlabel('$t (s)$'), legend('$[Ca^{2+}]_{i} (mM/l)$');
+subplot(2, 2, 4), plot(t, H_i, 'linewidth', line_width), xlabel('$t (s)$'), legend('$[H^{+}]_{i} (mM/l)$');
 print -depslatexstandalone "../results/epslatex/concentrations.tex"
 
 # The different background currents

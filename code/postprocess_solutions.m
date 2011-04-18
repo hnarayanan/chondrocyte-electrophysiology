@@ -12,8 +12,9 @@ V    = x(:, 1);
 Na_i = x(:, 2);
 K_i  = x(:, 3);
 Ca_i = x(:, 4);
-a_ur = x(:, 5);
-I_ur = x(:, 6);
+H_i  = x(:, 5);
+a_ur = x(:, 6);
+I_ur = x(:, 7);
 
 # Compute currents at all times
 len_t = size(t, 2);
@@ -36,7 +37,7 @@ for ii = [1:len_t]
   I_K_b(ii)      = backgroundPotassium(V(ii), K_i(ii));
   I_NaK(ii)      = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii));
   I_NaCa(ii)     = sodiumCalciumExchanger(V(ii), Na_i(ii), Ca_i(ii));
-  I_NaH(ii)      = sodiumHydrogenAntiport();
+  I_NaH(ii)      = sodiumHydrogenExchanger(Na_i(ii), H_i(ii));
   I_K_ur(ii)     = ultrarapidlyRectifyingPotassium(V(ii), K_i(ii), a_ur(ii), I_ur(ii));
   I_K_2pore(ii)  = twoPorePotassium(V(ii), K_i(ii));
   I_K_Ca_act(ii) = calciumActivatedPotassium(V(ii), K_i(ii), Ca_i(ii));
