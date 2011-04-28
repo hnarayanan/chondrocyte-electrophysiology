@@ -13,7 +13,8 @@ the cell's membrane potential.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{../images/pdf/chondrocyte-model-cellml}
+  \includegraphics[width=\textwidth]
+  {../images/pdf/chondrocyte-model-cellml}
   \caption{An illustration of the model.}
   \label{fig:chondrocyte-model}
 \end{figure}
@@ -37,13 +38,13 @@ model the cell as the following set of ordinary differential equations
     \end{array}
   \right)  = \left(
     \begin{array}{c}
-      \frac{1}{C_{\rm m}} (-I_{i} + I_{\rm stim})\\
-      - (I_{Na_b} + 3 I_{NaK} + 3 I_{NaCa} - I_{NaH})/(vol_{i} F)\\
-      - (I_{K_b} - 2 I_{NaK} + I_{K_{ur}} + I_{K_{2pore}} + I_{K_{Ca-act}} + I_{K_{ATP}})/(vol_{i} F)\\
-        (I_{NaCa})/(vol_{i} F)\\
-      - (I_{NaH})/(vol_{i} F)\\
-      (a_{ur_{inf}} - a_{ur})/tau_{a_{ur}}\\
-      (i_{ur_{inf}} - i_{ur})/tau_{i_{ur}}\\
+        (-I_{i} + I_{\rm stim})/{C_{\rm m}}\\
+      - (I_{\rm Na_{b}} + 3\, I_{\rm NaK} + 3\, I_{\rm NaCa} - I_{\rm NaH})/(v_{i}\, F)\\
+      - (I_{\rm K_{b}} - 2\, I_{\rm NaK} + I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}})/(v_{i}\, F)\\
+        (I_{\rm NaCa})/(v_{i}\, F)\\
+      - (I_{\rm NaH})/(v_{i}\, F)\\
+      (a_{{\rm ur}_{\infty}} - a_{\rm ur})/\tau_{a_{\rm ur}}\\
+      (i_{{\rm ur}_{\infty}} - i_{\rm ur})/\tau_{i_{\rm ur}}\\
     \end{array}
   \right)
 \end{equation}
