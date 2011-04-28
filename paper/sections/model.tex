@@ -4,17 +4,12 @@
 In this discourse, we focus our attention on a single chondrocyte cell
 residing in deep regions of cartilage. This cartilage environment is
 modelled simply by (fixed) external concentrations \Nao, \Ko, \Cao,
-and \Ho.
-
-
- It is assumed that there are no
-spatial variations in quantities of interest, and the 
-
- and assume
-that there are no spatial variations in quantities of interest. The
-cell is exposed to a an environ
-
-The model looks like the following:
+and \Ho. Values for these concentrations are chosen within
+physiologically-relevant ranges (Hall et. al.). We are interested in
+studying the behaviour of cell under this environment, in particular
+looking at how the flux of these ions through membrane channels
+changes their internal concentrations over time and how this changes
+the cell's membrane potential.
 
 \begin{figure}
   \centering
@@ -23,27 +18,39 @@ The model looks like the following:
   \label{fig:chondrocyte-model}
 \end{figure}
 
-The detailed formulation is as follows. We solve a set of ODEs for the primary vector of unknowns:
+In order to simplify the treatment, we assume that there are no
+spatial variations in these quantities of interest, allowing us to
+model the cell as the following set of ordinary differential equations
+(ODEs) in time.
 
-$V_{\rm m}$, $Na_{\rm i}$, $K_{\rm i}$, $Ca_{\rm i}$, $H_{\rm i}$,
-$a_{\rm ur}$, $i_{\rm ur}$.
+\begin{equation}
+\frac{d}{dt} () = ()
+\end{equation}
 
+\noindent where,
 
 \begin{displaymath}
     \begin{split}
-      -C_{\rm m} \frac{dV_{\rm m}}{dt} = & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b}}_{\rm Background\, currents}\\
+      -C_{\rm m} \frac{dV_{\rm m}}{dt} =
+      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b}}_{\rm Background\, currents}\\
       & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaK}}_{\rm Pumps\, and\, exchangers}\\
       & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
       & +\, \underbrace{I_{\rm ASIC} + I_{\rm TRP1} + I_{\rm TRP2} + I_{\rm stim}}_{\rm Other\, currents}
     \end{split}
 \end{displaymath}
-\centering
-\includegraphics{../results/pdf/membrane_behaviour}
 
+This ODE system is solved for the primary vector of
+unknowns: $V_{\rm m}$, $Na_{\rm i}$, $K_{\rm i}$, $Ca_{\rm i}$,
+$H_{\rm i}$, $a_{\rm ur}$, $i_{\rm ur}$.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../results/pdf/membrane_behaviour}
+  \caption{The behaviour of the model.}
+  \label{fig:membrane-behaviour}
+\end{figure}
 
 \begin{sidewaystable}[ht]
-
-
 \begin{tabular}{r c l l}
 \hline\hline
 Current description & Notation & Functional form & Parameter values \\ [0.5ex]
