@@ -24,14 +24,35 @@ model the cell as the following set of ordinary differential equations
 (ODEs) in time.
 
 \begin{equation}
-\frac{d}{dt} () = ()
+  \frac{d}{dt}
+  \left(
+    \begin{array}{c}
+      V_{\rm m}\\
+      \left[Na^{+}\right]_{i}\\
+      \left[\rm K^{+}\right]_{i}\\
+      \left[\rm Ca^{2+}\right]_{i}\\
+      \left[\rm H^{+}\right]_{i}\\
+      a_{\rm ur}\\
+      i_{\rm ur}\\
+    \end{array}
+  \right)  = \left(
+    \begin{array}{c}
+      \frac{1}{C_{\rm m}} (-I_{i} + I_{\rm stim})\\
+      - (I_{Na_b} + 3 I_{NaK} + 3 I_{NaCa} - I_{NaH})/(vol_{i} F)\\
+      - (I_{K_b} - 2 I_{NaK} + I_{K_{ur}} + I_{K_{2pore}} + I_{K_{Ca-act}} + I_{K_{ATP}})/(vol_{i} F)\\
+        (I_{NaCa})/(vol_{i} F)\\
+      - (I_{NaH})/(vol_{i} F)\\
+      (a_{ur_{inf}} - a_{ur})/tau_{a_{ur}}\\
+      (i_{ur_{inf}} - i_{ur})/tau_{i_{ur}}\\
+    \end{array}
+  \right)
 \end{equation}
 
 \noindent where,
 
 \begin{displaymath}
     \begin{split}
-      -C_{\rm m} \frac{dV_{\rm m}}{dt} =
+      I_{i} =
       & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b}}_{\rm Background\, currents}\\
       & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaK}}_{\rm Pumps\, and\, exchangers}\\
       & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
