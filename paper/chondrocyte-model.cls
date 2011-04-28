@@ -29,7 +29,7 @@
  \def\@shortjnl{\relax}
  \def\@journal{Elsevier Science} \def\@company{Elsevier Science}
  \def\@issn{000-0000}
- \def\@shortjid{elsarticle}
+ \def\@shortjid{chondrocyte-model}
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{\@shortjid}[\RCSdate, \RCSversion: \@journal]
 \def\ABD{\AtBeginDocument}
