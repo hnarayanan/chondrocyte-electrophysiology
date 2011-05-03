@@ -5,11 +5,30 @@ In this discourse, we focus our attention on a single chondrocyte cell
 residing in deep regions of cartilage. This cartilage environment is
 modelled simply by (fixed) external concentrations \Nao, \Ko, \Cao,
 and \Ho. Values for these concentrations are chosen within
-physiologically-relevant ranges (Hall et. al.). We are interested in
+physiologically-relevant ranges (see
+Table~\ref{table:external-concentrations}). We are interested in
 studying the behaviour of cell under this environment, in particular
 looking at how the flux of these ions through membrane channels
 changes their internal concentrations over time and how this changes
-the cell's membrane potential.
+the cell's membrane potential. The channels under consideration are
+illustrated in Figure~\ref{fig:chondrocyte-model}.
+
+\begin{table}
+\begin{centering}
+\begin{tabular}{r c c c c}
+\hline\hline
+             & \Nao (mM) & \Ko (mM) & \Cao (mM) & pH\\
+\hline
+Surface zone & 240--270  & 7--9     & 6--9      & 7.1--7.3\\
+Deep zone    & 300--350  & 9--12    & 14--20    & $\sim$6.9\\
+\hline
+\hline
+\end{tabular}
+\caption{Experimental ranges of external concentrations
+  \citep{Halletal1996}.}
+\label{table:external-concentrations}
+\end{centering}
+\end{table}
 
 \begin{figure}
   \centering
