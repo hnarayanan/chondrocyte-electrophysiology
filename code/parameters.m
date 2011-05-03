@@ -15,12 +15,24 @@ global C_m = 15.0;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
-global t_final = 40.0;   # Final time (s)
-global dt = 0.5;         # Time increment (s)
+global t_final = 1000.0;   # Final time (s)
+global dt = 1.0;         # Time increment (s)
 
 # Toggle clamping of membrane voltage
-global clamp_Vm = true;
-global VF = 100;
+global clamp_Vm = false;
+global VF = -130.0;
+
+# External concentrations
+global Na_o = 130.022096;   # Clamped external sodium concentration (mM/l)
+global K_o = 20.0;          # Clamped external potassium concentration (mM/l)
+global Ca_o = 1.815768;     # Clamped external calcium concentration (mM/l)
+global H_o = 0.1;           # Clamped external hydrogen concentration (mM/l)
+
+# Charges on each of the ions
+global z_Na = 1;            # Charge on the sodium ion
+global z_K = 1;             # Charge on the potassium ion
+global z_Ca = 2;            # Charge on the calcium ion
+global z_H = 1;             # Charge on the calcium ion
 
 # Initial conditions
 global V_0 = -130.0;        # Initial membrane potential (mV)
@@ -37,35 +49,19 @@ global t_stim = 0.1;     # Stimulation time/cycle (s)
 global I_stim_bar = 0.0; # Stimulation current magnitude ()
 
 # Toggle individual currents
-global enable_I_Na_b = false;
-global enable_I_K_b = false;
-global enable_I_NaK = false;
-global enable_I_NaCa = false;
-global enable_I_NaH = true;
-global enable_I_K_ur = false;
-global enable_I_K_2pore = false;
-global enable_I_K_Ca_act = false;
-global enable_I_K_ATP = false;
-global enable_I_ASIC = false;
-global enable_I_TRP1 = false;
-global enable_I_TRP2 = false;
-global enable_I_stim = false;
-
-# Constants related to sodium
-global Na_o = 130.022096;   # Clamped external sodium concentration (mM/l)
-global z_Na = 1;            # Charge on the sodium ion
-
-# Constants related to potassium
-global K_o = 20.0;          # Clamped external potassium concentration (mM/l)
-global z_K = 1;             # Charge on the potassium ion
-
-# Constants related to calcium
-global Ca_o = 1.815768;     # Clamped external calcium concentration (mM/l)
-global z_Ca = 2;            # Charge on the calcium ion
-
-# Constants related to hydrogen
-global H_o = 0.1;          # Clamped external hydrogen concentration (mM/l)
-global z_H = 1;            # Charge on the calcium ion
+global enable_I_Na_b = true;
+global enable_I_K_b = true;
+global enable_I_NaK = true;
+global enable_I_NaCa = true;
+global enable_I_NaH = false;
+global enable_I_K_ur = true;
+global enable_I_K_2pore = true;
+global enable_I_K_Ca_act = true;
+global enable_I_K_ATP = true;
+global enable_I_ASIC = true;
+global enable_I_TRP1 = true;
+global enable_I_TRP2 = true;
+global enable_I_stim = true;
 
 # Background conductances
 global g_Na_b_bar = 20;    # Background sodium leakage conductance (pS)

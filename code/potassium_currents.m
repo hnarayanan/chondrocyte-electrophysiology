@@ -71,7 +71,6 @@ function I_K_Ca_act = calciumActivatedPotassium(V, K_i, Ca_i)
   endif
 endfunction
 
-
 # FIXME: Implement the ATP-powered potassium pump
 function I_K_ATP = potassiumPump()
   global enable_I_K_ATP;
