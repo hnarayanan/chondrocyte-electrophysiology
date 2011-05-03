@@ -7,8 +7,11 @@
 
 1;
 
-# Ultra-rapidly rectifying potassium
-# FIXME: Insert Maleckar 2009 citation here
+# Ultra-rapidly rectifying potassium channel from "Action potential rate
+# dependence in the human atrial myocyte," M. M. Maleckar, J. L.
+# Greenstein, W. R. Giles and N. A. Trayanova. Am. J. Physiol. Heart.
+# Circ. Physiol. 2009; 297; 1398-1410 (Appendix, pp. 1408)
+
 function [a_ur_inf, i_ur_inf, tau_a_ur, tau_i_ur] = ultraRapidlyRectifyingPotassiumHelper(V)
   a_ur_inf   = 1.0/(1.0 + exp(-(V + 6.0)/8.6));
   i_ur_inf   = 1.0/(1.0 + exp((V + 7.5)/10.0)) + 0.7;

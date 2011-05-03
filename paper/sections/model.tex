@@ -58,8 +58,11 @@ model the cell as the following set of ordinary differential equations
   \right)  = \left(
     \begin{array}{c}
         (-I_{i} + I_{\rm stim})/{C_{\rm m}}\\
-      - (I_{\rm Na_{b}} + 3\, I_{\rm NaK} + 3\, I_{\rm NaCa} - I_{\rm NaH})/(v_{i}\, F)\\
-      - (I_{\rm K_{b}} - 2\, I_{\rm NaK} + I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}})/(v_{i}\, F)\\
+      - (I_{\rm Na_{b}} + 3\, I_{\rm NaK} + 3\, I_{\rm NaCa} - I_{\rm
+        NaH})/(v_{i}\, F)\\
+      - (I_{\rm K_{b}} - 2\, I_{\rm NaK} + I_{\rm K_{ur}} + I_{\rm
+        K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}})/(v_{i}\,
+      F)\\
         (I_{\rm NaCa})/(v_{i}\, F)\\
       - (I_{\rm NaH})/(v_{i}\, F)\\
       (a_{{\rm ur}_{\infty}} - a_{\rm ur})/\tau_{a_{\rm ur}}\\
@@ -73,10 +76,14 @@ model the cell as the following set of ordinary differential equations
 \begin{displaymath}
     \begin{split}
       I_{i} =
-      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b}}_{\rm Background\, currents}\\
-      & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaK}}_{\rm Pumps\, and\, exchangers}\\
-      & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
-      & +\, \underbrace{I_{\rm ASIC} + I_{\rm TRP1} + I_{\rm TRP2} + I_{\rm stim}}_{\rm Other\, currents}
+      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b}}_{\rm
+        Background\, currents}\\
+      & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaH}}_{\rm
+        Pumps\, and\, exchangers}\\
+      & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm
+          K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
+      & +\, \underbrace{I_{\rm ASIC} + I_{\rm TRP1} + I_{\rm TRP2} +
+        I_{\rm stim}}_{\rm Other\, currents}
     \end{split}
 \end{displaymath}
 
@@ -152,6 +159,30 @@ Sodium Hydrogen Exchanger \citep[Eq. 2, pp. 2675]{Chaetal2009}
     I_{\rm NaH_{\rm exch}}
   \end{split}
 \end{equation}
+
+\subsection{Potassium channels}
+\label{sec:potassium-channels}
+
+Ultra-rapidly rectifying potassium channel \citep{Maleckaretal2009}:
+\begin{equation}
+  \begin{split}
+    I_{\rm K_{\rm ur}} & = g_{\rm K_{\rm ur}}\, a_{\rm ur}\, i_{\rm
+      ur}\, (V - E_{\rm K})\\
+    E_{\rm K} & =  \frac{R T}{z_{\rm K} F}
+    \ln\left(\frac{\left[K^{+}\right]_{o}}
+      {\left[K^{+}\right]_{i}}\right)\\
+    a_{{\rm ur}_{\infty}} & = \frac{1}{1 + \exp(-(V_{\rm m} +
+      6.0)/8.6)}\\
+    i_{{\rm ur}_{\infty}} & = \frac{1}{1 + \exp(-(V_{\rm m} +
+      7.5)/10.0)) + 0.7}\\
+    \tau_{a_{\rm ur}} & = \frac{0.009}{1 + \exp((V + 5.0)/12.0)} +
+    0.0005\\
+    \tau_{i_{\rm ur}} & = \frac{0.5}{1 + \exp((V +60.0)/20.0)} +
+    6\\
+  \end{split}
+\end{equation}
+
+
 
 
 \begin{sidewaystable}[ht]
