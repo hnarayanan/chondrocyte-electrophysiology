@@ -87,6 +87,7 @@ ur}$, $i_{\rm ur}$.
 \subsection{Background Currents}
 \label{sec:background-currents}
 
+Background Sodium Current (Hodgkin Huxley?):
 \begin{equation}
   \begin{split}
     I_{\rm Na_b} & = \bar{g}_{\rm Na_b} (V_{\rm m} - E_{\rm Na})\\
@@ -96,6 +97,7 @@ ur}$, $i_{\rm ur}$.
   \end{split}
 \end{equation}
 
+Background Potassium Current (Hodgkin Huxley?):
 \begin{equation}
   \begin{split}
     I_{\rm K_b} & = \bar{g}_{\rm K_b} (V_{\rm m} - E_{\rm K})\\
@@ -127,16 +129,27 @@ Sodium Calcium Exchanger \citep[Table 13, pp. 77]{Nygrenetal1998}:
     [\rm Na^{+}]^{3}_{i}[\rm Ca^{2+}]_{o})}
 \end{equation}
 
-Sodium Hydrogen Exchanger \citep[pp. 2675]{Chaetal2009}
+Sodium Hydrogen Exchanger \citep[Eq. 2, pp. 2675]{Chaetal2009}
 \begin{equation}
   \begin{split}
-%    I_NaH_mod & = 1/(1 + (K_H_i_mod^n_H/H_i^n_H))\\
-    t_1 & = \frac{k_1^{+} Na_o/K_{Na_o}}{(1 + Na_o/K_{Na_o} + H_o/K_{H_o})}\\
-    t_2 & = \frac{k_2^{+} H_i/K_{H_i}}{(1 + Na_i/K_{Na_i} + H_i/K_{H_i})}\\
-    t_3 & = \frac{k_1^{-} Na_i/K_{Na_i}}{(1 + Na_i/K_{Na_i} + H_i/K_{H_i})}\\
-    t_4 & = \frac{k_2^{-} H_o/K_{H_o}}{(1 + Na_o/K_{Na_o} + H_o/K_{H_o})}\\
-    I_{NaH_{exch}} & = \frac{(t_1 t_2 - t_3 t_4)}{(t_1 + t_2 + t_3 + t_4)}\\
-    I_NaH & = N_{NaH_{channel}} I_{NaH_{mod}} I_{NaH_{exch}}
+    I_{{\rm NaH}_{\rm mod}} & = \frac{1}{1 + (K_{\rm i}^{n_{\rm
+          H}}/[{\rm H}^{+}]_{\rm i}^{n_{\rm H}})}\\
+    t_{1} & = \frac{k_{1}^{+} [{\rm Na}^{+}]_{\rm o}/K_{\rm Na}^{\rm
+        o}} {(1 + [{\rm Na}^{+}]_{\rm o}/K_{\rm Na}^{\rm o} + [{\rm
+        H}^{+}]_{\rm o} /K_{\rm H}^{\rm o})}\\
+    t_{2} & = \frac{k_{2}^{+} [{\rm H}^{+}]_{\rm i}/K_{\rm H}^{\rm i}}
+    {(1 + [{\rm Na}^{+}]_{\rm i}/K_{\rm Na}^{\rm i} + [{\rm
+        H}^{+}]_{\rm i}/K_{\rm H}^{\rm i})}\\
+    t_{3} & = \frac{k_{1}^{-} [{\rm Na}^{+}]_{\rm i}/K_{\rm Na}^{\rm
+        i}} {(1 + [{\rm Na}^{+}]_{\rm i}/K_{\rm Na}^{\rm i} + [{\rm
+        H}^{+}]_{\rm i} /K_{\rm H}^{\rm i})}\\
+    t_{4} & = \frac{k_{2}^{-} [{\rm H}^{+}]_{\rm o}/K_{\rm H}^{\rm
+        o}} {(1 + [{\rm Na}^{+}]_{\rm o}/K_{\rm Na}^{\rm o} + [{\rm
+        H}^{+}]_{\rm o} /K_{\rm H}^{\rm o})}\\
+    I_{{\rm NaH}_{\rm exch}} & = \frac{(t_1 t_2 - t_3 t_4)}
+    {(t_1 + t_2 + t_3 + t_4)}\\
+    I_{\rm NaH} & = N_{\rm NaH} I_{\rm NaH_{\rm mod}}
+    I_{\rm NaH_{\rm exch}}
   \end{split}
 \end{equation}
 
