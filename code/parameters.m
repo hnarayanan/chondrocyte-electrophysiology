@@ -15,31 +15,31 @@ global C_m = 15.0;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
-global t_final = 1000.0;   # Final time (s)
-global dt = 1.0;         # Time increment (s)
+global t_final = 10.0;   # Final time (s)
+global dt = 0.01;         # Time increment (s)
 
 # Toggle clamping of membrane voltage
-global clamp_Vm = false;
-global VF = -130.0;
+global clamp_Vm = true;
+global VF = 100.0;
 
 # External concentrations
-global Na_o = 130.022096;   # Clamped external sodium concentration (mM/l)
-global K_o = 20.0;          # Clamped external potassium concentration (mM/l)
-global Ca_o = 1.815768;     # Clamped external calcium concentration (mM/l)
-global H_o = 0.1;           # Clamped external hydrogen concentration (mM/l)
+global Na_o = 320;       # Clamped external sodium concentration (mM/l)
+global K_o = 10;         # Clamped external potassium concentration (mM/l)
+global Ca_o = 16;        # Clamped external calcium concentration (mM/l)
+global H_o =  0.125893;  # Clamped external hydrogen concentration (mM/l)
 
 # Charges on each of the ions
-global z_Na = 1;            # Charge on the sodium ion
-global z_K = 1;             # Charge on the potassium ion
-global z_Ca = 2;            # Charge on the calcium ion
-global z_H = 1;             # Charge on the calcium ion
+global z_Na = 1;         # Charge on the sodium ion
+global z_K = 1;          # Charge on the potassium ion
+global z_Ca = 2;         # Charge on the calcium ion
+global z_H = 1;          # Charge on the calcium ion
 
 # Initial conditions
-global V_0 = -130.0;        # Initial membrane potential (mV)
-global Na_i_0 = 0.516766;   # Initial internal sodium concentration (mM/l)
-global K_i_0 = 129.485991;  # Initial internal potassium concentration (mM/l)
-global Ca_i_0 = 6.5e-5;     # Initial internal calcium concentration (mM/l)
-global H_i_0 = 0.05;        # Initial internal hydrogen concentration (mM/l)
+global V_0 = -130.0;       # Initial membrane potential (mV)
+global Na_i_0 = 0.516766;  # Initial internal sodium concentration (mM/l)
+global K_i_0 = 110.00;     # Initial internal potassium concentration (mM/l)
+global Ca_i_0 = 0.001;     # Initial internal calcium concentration (mM/l)
+global H_i_0 = 0.05;       # Initial internal hydrogen concentration (mM/l)
 global a_ur_0 = 0.000367;
 global i_ur_0 = 0.967290;
 
@@ -49,10 +49,10 @@ global t_stim = 0.1;     # Stimulation time/cycle (s)
 global I_stim_bar = 0.0; # Stimulation current magnitude ()
 
 # Toggle individual currents
-global enable_I_Na_b = true;
+global enable_I_Na_b = false;
 global enable_I_K_b = true;
 global enable_I_NaK = true;
-global enable_I_NaCa = true;
+global enable_I_NaCa = false;
 global enable_I_NaH = false;
 global enable_I_K_ur = true;
 global enable_I_K_2pore = true;
@@ -107,5 +107,5 @@ global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 1.5;
+global Gmax = 1.0;
 global N_channel = 1.0;
