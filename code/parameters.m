@@ -16,7 +16,7 @@ global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
 global t_final = 10.0;   # Final time (s)
-global dt = 0.01;         # Time increment (s)
+global dt = 0.01;        # Time increment (s)
 
 # Toggle clamping of membrane voltage
 global clamp_Vm = true;
@@ -24,22 +24,22 @@ global VF = 100.0;
 
 # External concentrations
 global Na_o = 320;       # Clamped external sodium concentration (mM/l)
-global K_o = 10;         # Clamped external potassium concentration (mM/l)
+global K_o  = 10;        # Clamped external potassium concentration (mM/l)
 global Ca_o = 16;        # Clamped external calcium concentration (mM/l)
-global H_o =  0.125893;  # Clamped external hydrogen concentration (mM/l)
+global H_o  = 0.125893;  # Clamped external hydrogen concentration (mM/l)
 
 # Charges on each of the ions
 global z_Na = 1;         # Charge on the sodium ion
-global z_K = 1;          # Charge on the potassium ion
+global z_K  = 1;         # Charge on the potassium ion
 global z_Ca = 2;         # Charge on the calcium ion
-global z_H = 1;          # Charge on the calcium ion
+global z_H  = 1;         # Charge on the calcium ion
 
 # Initial conditions
-global V_0 = -130.0;       # Initial membrane potential (mV)
+global V_0    = -130.0;    # Initial membrane potential (mV)
 global Na_i_0 = 0.516766;  # Initial internal sodium concentration (mM/l)
-global K_i_0 = 110.00;     # Initial internal potassium concentration (mM/l)
+global K_i_0  = 110.00;    # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 0.001;     # Initial internal calcium concentration (mM/l)
-global H_i_0 = 0.05;       # Initial internal hydrogen concentration (mM/l)
+global H_i_0  = 0.05;      # Initial internal hydrogen concentration (mM/l)
 global a_ur_0 = 0.000367;
 global i_ur_0 = 0.967290;
 
