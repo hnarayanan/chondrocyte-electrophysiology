@@ -5,6 +5,14 @@
 # Copyright (C) 2010--2011  Harish Narayanan
 # Licensed under the GNU GPL Version 3
 
+# Toggle clamping of the internal concentrations
+global clamp_conc = false;
+
+# Toggle clamping or ramping of membrane voltage
+global clamp_Vm = false;
+global ramp_Vm = true;
+global V_final = 100.0;
+
 # Universal constants
 global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
 global T = 310.15;   # Normal body temperature (K)
@@ -18,21 +26,17 @@ global vol_i = 0.005884; # Internal volume
 global t_final = 10.0;   # Final time (s)
 global dt = 0.01;        # Time increment (s)
 
-# Toggle clamping of membrane voltage
-global clamp_Vm = true;
-global VF = 100.0;
+# Charges on each of the ions
+global z_Na = 1;         # Charge on the sodium ion
+global z_K  = 1;         # Charge on the potassium ion
+global z_Ca = 2;         # Charge on the calcium ion
+global z_H  = 1;         # Charge on the calcium ion
 
 # External concentrations
 global Na_o = 320;       # Clamped external sodium concentration (mM/l)
 global K_o  = 10;        # Clamped external potassium concentration (mM/l)
 global Ca_o = 16;        # Clamped external calcium concentration (mM/l)
 global H_o  = 0.125893;  # Clamped external hydrogen concentration (mM/l)
-
-# Charges on each of the ions
-global z_Na = 1;         # Charge on the sodium ion
-global z_K  = 1;         # Charge on the potassium ion
-global z_Ca = 2;         # Charge on the calcium ion
-global z_H  = 1;         # Charge on the calcium ion
 
 # Initial conditions
 global V_0    = -130.0;    # Initial membrane potential (mV)
