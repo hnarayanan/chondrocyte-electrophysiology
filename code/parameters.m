@@ -11,7 +11,22 @@ global clamp_conc = false;
 # Toggle clamping or ramping of membrane voltage
 global clamp_Vm = false;
 global ramp_Vm = true;
-global V_final = 100.0;
+global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
+
+# Toggle individual currents
+global enable_I_Na_b = false;
+global enable_I_K_b = true;
+global enable_I_NaK = true;
+global enable_I_NaCa = false;
+global enable_I_NaH = false;
+global enable_I_K_ur = true;
+global enable_I_K_2pore = true;
+global enable_I_K_Ca_act = true;
+global enable_I_K_ATP = true;
+global enable_I_ASIC = true;
+global enable_I_TRP1 = true;
+global enable_I_TRP2 = true;
+global enable_I_stim = true;
 
 # Universal constants
 global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
@@ -23,8 +38,8 @@ global C_m = 15.0;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
-global t_final = 10.0;   # Final time (s)
-global dt = 0.01;        # Time increment (s)
+global t_final = 10000.0;   # Final time (s)
+global dt = t_final/1000;   # Time increment (s)
 
 # Charges on each of the ions
 global z_Na = 1;         # Charge on the sodium ion
@@ -51,21 +66,6 @@ global i_ur_0 = 0.967290;
 global t_cycle = 1.0;    # Total cycle time (s)
 global t_stim = 0.1;     # Stimulation time/cycle (s)
 global I_stim_bar = 0.0; # Stimulation current magnitude ()
-
-# Toggle individual currents
-global enable_I_Na_b = false;
-global enable_I_K_b = true;
-global enable_I_NaK = true;
-global enable_I_NaCa = false;
-global enable_I_NaH = false;
-global enable_I_K_ur = true;
-global enable_I_K_2pore = true;
-global enable_I_K_Ca_act = true;
-global enable_I_K_ATP = true;
-global enable_I_ASIC = true;
-global enable_I_TRP1 = true;
-global enable_I_TRP2 = true;
-global enable_I_stim = true;
 
 # Background conductances
 global g_Na_b_bar = 20;    # Background sodium leakage conductance (pS)
