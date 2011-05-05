@@ -202,7 +202,7 @@ Calcium-activated potassium channel \citep{Horriganetal2002}:
     E_{\rm K} & =  \frac{R T}{z_{\rm K} F}
     \ln\left(\frac{\left[K^{+}\right]_{o}}
       {\left[K^{+}\right]_{i}}\right)\\
-    I_{\rm K_{Ca-act}} & = N_{channel}\, P0\, G_{\rm max}\, (V -
+    I_{\rm K_{Ca-act}} & = N_{\rm K_{Ca-act}}\, P_0\, G_{\rm max}\, (V -
     E_{\rm K})
   \end{split}
 \end{equation}
@@ -223,12 +223,12 @@ Voltage-activated hydrogen channel \citep{UNKNOWN}:
 
 Stretch-activated trip channel \citep{UNKNOWN}:
 \begin{equation}
-  I_{\rm TRP1} =
+  I_{\rm TRP1} = \bar{g}_{\rm TRP1}\, (V_{\rm m} - E_{\rm ?})
 \end{equation}
 
 Osteo-arthritic trip channel \citep{UNKNOWN}:
 \begin{equation}
-  I_{\rm TRP2} =
+  I_{\rm TRP2} = \bar{g}_{\rm TRP2}\, (V_{\rm m} - E_{\rm ?})
 \end{equation}
 
 External stimulation (matching experiments, e.g. cyclic stimulation):
@@ -237,39 +237,39 @@ I_{\rm stim} = \overline{I_{\rm stim}}\, {\rm square}(\frac{2 \pi\,
   t}{t_{\rm cycle}}, \frac{t_{\rm stim}}{t_{\rm cycle}})
 \end{equation}
 
-\begin{sidewaystable}[ht]
-\begin{tabular}{r c l l}
-\hline\hline
-Current description & Notation & Functional form & Parameter values \\ [0.5ex]
-\hline
-Background sodium & $I_{\rm Na_b}$ & $\bar{g}_{\rm Na_b} (V_{\rm m} - E_{\rm Na})$ \cite{UNKNOWN}
-                          & $\bar{g}_{\rm Na_b} = $ \cite{UNKNOWN}, $E_{\rm Na} = $ \cite{UNKNOWN}\\
-Background potassium & $I_{\rm K_b}$ & $\bar{g}_{\rm K_b} (V_{\rm m} - E_{\rm K})$ \cite{UNKNOWN}
-                          & $\bar{g}_{\rm K_b} = $ \cite{UNKNOWN}, $E_{\rm K} = $ \cite{UNKNOWN}\\
-Sodium-potassium pump & $I_{\rm NaK}$ & $\bar{I}_{\rm NaK}
-\frac{[\rm K^{+}]_{\rm c}}{[\rm K^{+}]_{\rm c} + k_{\rm NaK_{K}}}
-\frac{[\rm Na^{+}]^{1.5}_{\rm i}}{[\rm Na^{+}]^{1.5}_{\rm i} + k^{1.5}_{\rm
-    NaK_{Na}}}
-\frac{V + 150}{V + 200}$\cite{Nygrenetal1998} & \cite{Nygrenetal1998}\\
-Sodium-calcium exchanger & $I_{\rm NaCa}$ & $k_{\rm NaCa}
-\frac{[\rm Na^{+}]^{3}_{i}[\rm Ca^{2+}]_{c} \exp(\frac{\gamma V F}{R T}) -
-[\rm Na^{+}]^{3}_{c}[\rm Ca^{2+}]_{i} \exp(\frac{(\gamma - 1.0) V F}{R T})}
-{1.0 + d_{\rm NaCa}([\rm Na^{+}]^{3}_{c}[\rm Ca^{2+}]_{i} + [\rm
-  Na^{+}]^{3}_{i}[\rm Ca^{2+}]_{c})}$
-\cite{Nygrenetal1998} & \cite{Nygrenetal1998}\\
-Sodium-hydrogen exchanger & $I_{\rm NaH}$ & \cite{UNKNOWN} & \cite{UNKNOWN}\\
-Ultra-rapidly rectifying potassium & $I_{\rm K_{ur}}$ & $g_{\rm
-  K_{ur}}\, a_{\rm ur}\, i_{\rm ur}\, (V_{\rm m} - E_{\rm K})$ \cite{Maleckaretal2009} & \cite{Maleckaretal2009}\\
-Two-pore potassium channel & $I_{\rm K_{2\, pore}}$ & \cite{UNKNOWN} & \cite{UNKNOWN}\\
-Calcium-activated potassium & $I_{\rm Ca_{act}K}$ & \cite{UNKNOWN} & \cite{UNKNOWN}\\
-Trip channel(s) & $I_{\rm TRP}$ & $\bar{g}_{\rm NaCa_{TRP}}\, (V_{\rm
-  m} - E_{\rm NaCa})$ \cite{UNKNOWN} & \cite{UNKNOWN}\\
-Applied stimulus & $ I_{\rm stim}$ & Mirroring experiments \cite{Clarketal2011} &  --- \\ [1ex]
-\hline
-\end{tabular}
-\caption{Details of the model}
-\label{table:chondrocyte-model-details}
-\end{sidewaystable}
+% \begin{sidewaystable}[ht]
+% \begin{tabular}{r c l l}
+% \hline\hline
+% Current description & Notation & Functional form & Parameter values \\ [0.5ex]
+% \hline
+% Background sodium & $I_{\rm Na_b}$ & $\bar{g}_{\rm Na_b} (V_{\rm m} - E_{\rm Na})$ \cite{UNKNOWN}
+%                           & $\bar{g}_{\rm Na_b} = $ \cite{UNKNOWN}, $E_{\rm Na} = $ \cite{UNKNOWN}\\
+% Background potassium & $I_{\rm K_b}$ & $\bar{g}_{\rm K_b} (V_{\rm m} - E_{\rm K})$ \cite{UNKNOWN}
+%                           & $\bar{g}_{\rm K_b} = $ \cite{UNKNOWN}, $E_{\rm K} = $ \cite{UNKNOWN}\\
+% Sodium-potassium pump & $I_{\rm NaK}$ & $\bar{I}_{\rm NaK}
+% \frac{[\rm K^{+}]_{\rm c}}{[\rm K^{+}]_{\rm c} + k_{\rm NaK_{K}}}
+% \frac{[\rm Na^{+}]^{1.5}_{\rm i}}{[\rm Na^{+}]^{1.5}_{\rm i} + k^{1.5}_{\rm
+%     NaK_{Na}}}
+% \frac{V + 150}{V + 200}$\cite{Nygrenetal1998} & \cite{Nygrenetal1998}\\
+% Sodium-calcium exchanger & $I_{\rm NaCa}$ & $k_{\rm NaCa}
+% \frac{[\rm Na^{+}]^{3}_{i}[\rm Ca^{2+}]_{c} \exp(\frac{\gamma V F}{R T}) -
+% [\rm Na^{+}]^{3}_{c}[\rm Ca^{2+}]_{i} \exp(\frac{(\gamma - 1.0) V F}{R T})}
+% {1.0 + d_{\rm NaCa}([\rm Na^{+}]^{3}_{c}[\rm Ca^{2+}]_{i} + [\rm
+%   Na^{+}]^{3}_{i}[\rm Ca^{2+}]_{c})}$
+% \cite{Nygrenetal1998} & \cite{Nygrenetal1998}\\
+% Sodium-hydrogen exchanger & $I_{\rm NaH}$ & \cite{UNKNOWN} & \cite{UNKNOWN}\\
+% Ultra-rapidly rectifying potassium & $I_{\rm K_{ur}}$ & $g_{\rm
+%   K_{ur}}\, a_{\rm ur}\, i_{\rm ur}\, (V_{\rm m} - E_{\rm K})$ \cite{Maleckaretal2009} & \cite{Maleckaretal2009}\\
+% Two-pore potassium channel & $I_{\rm K_{2\, pore}}$ & \cite{UNKNOWN} & \cite{UNKNOWN}\\
+% Calcium-activated potassium & $I_{\rm Ca_{act}K}$ & \cite{UNKNOWN} & \cite{UNKNOWN}\\
+% Trip channel(s) & $I_{\rm TRP}$ & $\bar{g}_{\rm NaCa_{TRP}}\, (V_{\rm
+%   m} - E_{\rm NaCa})$ \cite{UNKNOWN} & \cite{UNKNOWN}\\
+% Applied stimulus & $ I_{\rm stim}$ & Mirroring experiments \cite{Clarketal2011} &  --- \\ [1ex]
+% \hline
+% \end{tabular}
+% \caption{Details of the model}
+% \label{table:chondrocyte-model-details}
+% \end{sidewaystable}
 
 % Local Variables:
 % TeX-master: "chondrocyte-model"
