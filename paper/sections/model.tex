@@ -127,7 +127,6 @@ Sodium Potassium Pump \citep[Table 12, pp. 77]{Nygrenetal1998}:
 \end{equation}
 
 Sodium Calcium Exchanger \citep[Table 13, pp. 77]{Nygrenetal1998}:
-
 \begin{equation}
   I_{\rm NaCa} = k_{\rm NaCa} \frac{[\rm Na^{+}]^{3}_{i}[\rm
     Ca^{2+}]_{o} \exp(\frac{\gamma V F}{R T}) - [\rm
@@ -190,22 +189,49 @@ Two-pore potassium channel \citep{UNKNOWN}:
  T))}
 \end{equation}
 
-Calcium-activated potassium channel \citep{UNKNOWN}:
+Calcium-activated potassium channel \citep{Horriganetal2002}:
+\begin{equation}
+  \begin{split}
+    kTe & = 23.54\, (T/273)\\
+    L_v & = L0\, \exp((V\, Z_L)/kTe)\\
+    J_v & = \exp(((V - Vh_j)\, Z_j)/kTe)\\
+    K & = Ca_i/KDc\\
+    P_0 & = \frac{L_v\, (1+K\, C+J_v\, D+J_v\, K\, C\, D\, E)^4}
+    {L_v\, (1+K\, C+J_v\, D+J_v\, K\, C\, D\, E)^4 +
+      (1+J_v+K+J_v\, K\, E)^4}\\
+    E_{\rm K} & =  \frac{R T}{z_{\rm K} F}
+    \ln\left(\frac{\left[K^{+}\right]_{o}}
+      {\left[K^{+}\right]_{i}}\right)\\
+    I_{\rm K_{Ca-act}} & = N_{channel}\, P0\, G_{\rm max}\, (V -
+    E_{\rm K})
+  \end{split}
+\end{equation}
 
 Potassium pump \citep{UNKNOWN}:
+\begin{equation}
+  I_{\rm K_{ATP}} =
+\end{equation}
 
 \subsection{Other channels}
 \label{sec:other-channels}
 
 
 Voltage-activated hydrogen channel \citep{UNKNOWN}:
+\begin{equation}
+  I_{\rm ASIC} =
+\end{equation}
 
-Stretch-activated trip channel  \citep{UNKNOWN}:
+Stretch-activated trip channel \citep{UNKNOWN}:
+\begin{equation}
+  I_{\rm TRP1} =
+\end{equation}
 
 Osteo-arthritic trip channel \citep{UNKNOWN}:
+\begin{equation}
+  I_{\rm TRP2} =
+\end{equation}
 
-External stimulation:
-
+External stimulation (matching experiments, e.g. cyclic stimulation):
 \begin{equation}
 I_{\rm stim} = \overline{I_{\rm stim}}\, {\rm square}(\frac{2 \pi\,
   t}{t_{\rm cycle}}, \frac{t_{\rm stim}}{t_{\rm cycle}})
