@@ -6,11 +6,11 @@
 # Licensed under the GNU GPL Version 3
 
 # Toggle clamping of the internal concentrations
-global clamp_conc = true;
+global clamp_conc = false;
 
 # Toggle clamping or ramping of membrane voltage
 global clamp_Vm = false;
-global ramp_Vm = true;
+global ramp_Vm = false;
 global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
@@ -38,7 +38,7 @@ global C_m = 15.0;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
-global t_final = 10.0;   # Final time (s)
+global t_final = 250.0;    # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # Charges on each of the ions
@@ -58,7 +58,7 @@ global V_0    = -130.0;    # Initial membrane potential (mV)
 global Na_i_0 = 0.516766;  # Initial internal sodium concentration (mM/l)
 global K_i_0  = 110.00;    # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 0.001;     # Initial internal calcium concentration (mM/l)
-global H_i_0  = 0.05;      # Initial internal hydrogen concentration (mM/l)
+global H_i_0  = H_o;      # Initial internal hydrogen concentration (mM/l)
 global a_ur_0 = 0.000367;
 global i_ur_0 = 0.967290;
 
