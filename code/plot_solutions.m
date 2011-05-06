@@ -12,7 +12,7 @@ I_i_by_C_m_ref = csvread('../data/reference_values/Total_Current_Density_vs_Memb
 figure(1, 'visible', 'off');
 subplot(2, 2, 1), plot(t, V, 'linewidth', line_width), xlabel('$t (s)$'), legend('$V_{\mathrm{m}} (mV)$');
 subplot(2, 2, 2), plot(t, I_i, 'linewidth', line_width), xlabel('$t (s)$'), legend('$I_{\mathrm{i}} (pA)$');
-subplot(2, 2, 3), plot(V, I_i/C_m, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{i}}/C_{m} (pA/pF)$');
+subplot(2, 2, 3), plot(V, I_i/C_m, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{i}}/C_{\mathrm{m}} (pA/pF)$');
 hold on;
 plot(V_ref, I_i_by_C_m_ref, '1', 'linewidth', line_width);
 print -depslatexstandalone "../results/epslatex/membrane_behaviour.tex"
