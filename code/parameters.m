@@ -77,7 +77,7 @@ global K_NaK_K = 1.0;
 global K_NaK_Na = 11.0;
 
 # Constants related to the sodium-calcium exchanger
-global K_NaCa = 0.0374842;
+global K_NaCa = 0.001;
 global gamma_Na = 0.45;
 global d_NaCa = 0.0003;
 
