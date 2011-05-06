@@ -3,7 +3,7 @@
 #
 # Copyright (C) 2007--2011  Harish Narayanan
 
-BASENAME = chondrocyte-model-201104
+BASENAME = chondrocyte-model
 
 SOURCES = Makefile ${BASENAME}.tex \
 	  ../images/pdf/*.pdf ../results/pdf/*.pdf
