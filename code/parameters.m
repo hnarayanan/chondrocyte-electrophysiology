@@ -6,7 +6,7 @@
 # Licensed under the GNU GPL Version 3
 
 # Toggle clamping of the internal concentrations
-global clamp_conc = false;
+global clamp_conc = true;
 
 # Toggle clamping or ramping of membrane voltage
 global clamp_Vm = false;
@@ -14,11 +14,11 @@ global ramp_Vm = true;
 global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
-global enable_I_Na_b = false;
+global enable_I_Na_b = true;
 global enable_I_K_b = true;
 global enable_I_NaK = true;
-global enable_I_NaCa = false;
-global enable_I_NaH = false;
+global enable_I_NaCa = true;
+global enable_I_NaH = true;
 global enable_I_K_ur = true;
 global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
@@ -38,7 +38,7 @@ global C_m = 15.0;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Time-stepping information
-global t_final = 10000.0;   # Final time (s)
+global t_final = 10.0;   # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # Charges on each of the ions
@@ -68,7 +68,7 @@ global t_stim = 0.1;     # Stimulation time/cycle (s)
 global I_stim_bar = 0.0; # Stimulation current magnitude ()
 
 # Background conductances
-global g_Na_b_bar = 20;    # Background sodium leakage conductance (pS)
+global g_Na_b_bar = 0.2;   # Background sodium leakage conductance (pS)
 global g_K_b_bar = 0.2;    # Background potassium leakage conductance (pS)
 
 # Constants related to the sodium-potassium pump
@@ -94,7 +94,7 @@ global K_Na_i = 16.2
 global K_Na_o = 195
 global K_H_i = 6.05e-4;
 global K_H_o = 1.62e-3;
-global N_NaH_channel = 489900;
+global N_NaH_channel = 4899;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
 global g_K_ur = 0.3;
