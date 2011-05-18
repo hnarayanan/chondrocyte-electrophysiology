@@ -82,3 +82,8 @@ subplot(2, 2, 2), plot(V, I_ASIC, 'linewidth', line_width), xlabel('$V_{m} (mV)$
 subplot(2, 2, 3), plot(V, I_TRP1, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm TRP1} (pA)$');
 subplot(2, 2, 4), plot(V, I_TRP2, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm TRP2} (pA)$');
 print -depslatexstandalone "../results/epslatex/other_currents-vi.tex"
+
+# Some special plots of interest
+figure(11, 'visible', 'off');
+subplot(2, 2, 1), plot(K_i, V, 'linewidth', line_width), xlabel('$[K^{+}]_{\mathrm{i}} (mM/l)$'), legend('$V_{\mathrm{m}} (mV)$');
+print -depslatexstandalone "../results/epslatex/special_plots.tex"
