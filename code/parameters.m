@@ -13,8 +13,8 @@ global apply_Vm = true;
 
 # If apply_Vm is true, then one of clamp_Vm, ramp_Vm and step_Vm must be
 # true to define what voltage is to be applied
-global clamp_Vm = true;
-global step_Vm = false;
+global clamp_Vm = false;
+global step_Vm = true;
 global ramp_Vm = false;
 global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
 

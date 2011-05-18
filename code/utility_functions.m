@@ -30,7 +30,7 @@ function V = appliedVoltage(t)
     elseif (t > 20 & t <= 30)
       V = -20;
     elseif (t > 30 & t <= 40)
-      V = 0;
+      V = -1;
     else
       V = -60;
     endif

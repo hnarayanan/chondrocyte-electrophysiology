@@ -8,9 +8,13 @@
 1;
 
 # Extract solution components
+len_t = size(t, 2);
 global apply_Vm;
 if (apply_Vm == true)
-  V = appliedVoltage(t);
+  V = zeros(len_t, 1);
+  for ii = [1:len_t]
+    V(ii) = appliedVoltage(t(ii));
+  endfor
 else
   V = x(:, 1);
 endif
@@ -22,7 +26,6 @@ a_ur = x(:, 6);
 I_ur = x(:, 7);
 
 # Compute currents at all times
-len_t = size(t, 2);
 I_Na_b     = zeros(len_t, 1);
 I_K_b      = zeros(len_t, 1);
 I_NaK      = zeros(len_t, 1);
