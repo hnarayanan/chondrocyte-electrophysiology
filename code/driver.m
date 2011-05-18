@@ -32,8 +32,14 @@ other_currents;
 # Define the ODE system
 function xdot = f(x, t)
 
+  print t;
+
   # Initialize and populate vector of unknowns
-  V    = x(1);
+  if (apply_Vm == true)
+    V = appliedVoltage(t)
+  else
+    V = x(1);
+  endif
   Na_i = x(2);
   K_i  = x(3);
   Ca_i = x(4);
@@ -85,12 +91,9 @@ function xdot = f(x, t)
 
   xdot = zeros(7, 1);
 
-  global ramp_Vm, global clamp_Vm;
-  if (clamp_Vm == true)
+  global apply_Vm;
+  if (apply_Vm == true)
     xdot(1) = 0.0;
-  elseif (ramp_Vm == true)
-      global V_final, global V_0, global t_final;
-      xdot(1) = (V_final - V_0)/(t_final - 0.0);
   else
     xdot(1) = 1/C_m*(-I_i + I_stim);
   endif

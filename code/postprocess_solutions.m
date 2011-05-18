@@ -8,7 +8,12 @@
 1;
 
 # Extract solution components
-V    = x(:, 1);
+global apply_Vm;
+if (apply_Vm == true)
+  V = appliedVoltage(t);
+else
+  V = x(:, 1);
+endif
 Na_i = x(:, 2);
 K_i  = x(:, 3);
 Ca_i = x(:, 4);

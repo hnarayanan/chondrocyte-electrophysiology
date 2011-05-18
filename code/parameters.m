@@ -8,10 +8,16 @@
 # Toggle clamping of the internal concentrations
 global clamp_conc = true;
 
-# Toggle clamping or ramping of membrane voltage
+# Toggle setting of the membrane voltage
+global apply_Vm = true;
+
+# If apply_Vm is true, then one of clamp_Vm, ramp_Vm and step_Vm must be
+# true to define what voltage is to be applied
 global clamp_Vm = false;
+global step_Vm = false;
 global ramp_Vm = true;
-global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
+global V_final = 100.0;  # Final value of membrane voltage when ramped
+			 # (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = false;
@@ -28,24 +34,9 @@ global enable_I_TRP1 = true;
 global enable_I_TRP2 = true;
 global enable_I_stim = true;
 
-# Universal constants
-global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
-global T = 310.15;   # Normal body temperature (K)
-global F = 96485.34; # Faraday's constant (C mol^-1)
-
-# Cell parameters
-global C_m = 15.0;       # Membrane capacitance
-global vol_i = 0.005884; # Internal volume
-
 # Time-stepping information
 global t_final = 1000.0;    # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
-
-# Charges on each of the ions
-global z_Na = 1;         # Charge on the sodium ion
-global z_K  = 1;         # Charge on the potassium ion
-global z_Ca = 2;         # Charge on the calcium ion
-global z_H  = 1;         # Charge on the calcium ion
 
 # External concentrations
 global Na_o = 320;       # Clamped external sodium concentration (mM/l)
@@ -61,6 +52,21 @@ global Ca_i_0 = 0.001;     # Initial internal calcium concentration (mM/l)
 global H_i_0  = 0.5;       # Initial internal hydrogen concentration (mM/l)
 global a_ur_0 = 0.000367;
 global i_ur_0 = 0.967290;
+
+# Universal constants
+global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
+global T = 310.15;   # Normal body temperature (K)
+global F = 96485.34; # Faraday's constant (C mol^-1)
+
+# Charges on each of the ions
+global z_Na = 1;         # Charge on the sodium ion
+global z_K  = 1;         # Charge on the potassium ion
+global z_Ca = 2;         # Charge on the calcium ion
+global z_H  = 1;         # Charge on the calcium ion
+
+# Cell parameters
+global C_m = 15.0;       # Membrane capacitance
+global vol_i = 0.005884; # Internal volume
 
 # Constants related to external stimulation
 global t_cycle = 1.0;    # Total cycle time (s)
