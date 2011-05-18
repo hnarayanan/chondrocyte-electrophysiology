@@ -32,11 +32,10 @@ other_currents;
 # Define the ODE system
 function xdot = f(x, t)
 
-  print t;
-
   # Initialize and populate vector of unknowns
+  global apply_Vm;
   if (apply_Vm == true)
-    V = appliedVoltage(t)
+    V = appliedVoltage(t);
   else
     V = x(1);
   endif

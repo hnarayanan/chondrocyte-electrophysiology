@@ -13,8 +13,7 @@ function E_X = nernstPotential(z, X_i, X_o)
   E_X = (R*T)/(z*F)*log(X_o/X_i);
 endfunction
 
-# Applied voltage
-
+# Applied voltage (mV)
 function V = appliedVoltage(t)
   global clamp_Vm, global ramp_Vm, global step_Vm;
   if (clamp_Vm == true)
@@ -24,5 +23,15 @@ function V = appliedVoltage(t)
     global V_0, global V_final, global t_final;
     V = V_0 + (V_final - V_0)*t/t_final;
   elseif (step_Vm == true)
-    # FIXME: Insert appropriate stepped voltage here
+    if (t <= 10)
+      V = -60;
+    elseif (t > 10 & t <= 20)
+      V = -40;
+    elseif (t > 20 & t <= 30)
+      V = -20;
+    elseif (t > 30 & t <= 40)
+      V = 0;
+    else
+      V = -60;
+    endif
   endif

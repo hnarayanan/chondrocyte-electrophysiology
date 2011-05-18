@@ -6,18 +6,17 @@
 # Licensed under the GNU GPL Version 3
 
 # Toggle clamping of the internal concentrations
-global clamp_conc = true;
+global clamp_conc = false;
 
 # Toggle setting of the membrane voltage
 global apply_Vm = true;
 
 # If apply_Vm is true, then one of clamp_Vm, ramp_Vm and step_Vm must be
 # true to define what voltage is to be applied
-global clamp_Vm = false;
+global clamp_Vm = true;
 global step_Vm = false;
-global ramp_Vm = true;
-global V_final = 100.0;  # Final value of membrane voltage when ramped
-			 # (mV)
+global ramp_Vm = false;
+global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = false;
@@ -35,7 +34,7 @@ global enable_I_TRP2 = true;
 global enable_I_stim = true;
 
 # Time-stepping information
-global t_final = 1000.0;    # Final time (s)
+global t_final = 50;        # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # External concentrations
