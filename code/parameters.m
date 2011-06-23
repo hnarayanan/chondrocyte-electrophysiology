@@ -9,32 +9,32 @@
 global clamp_conc = false;
 
 # Toggle setting of the membrane voltage
-global apply_Vm = true;
+global apply_Vm = false;
 
 # If apply_Vm is true, then one of clamp_Vm, ramp_Vm and step_Vm must be
 # true to define what voltage is to be applied
 global clamp_Vm = false;
-global step_Vm = true;
+global step_Vm = false;
 global ramp_Vm = false;
 global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = false;
 global enable_I_K_b = true;
-global enable_I_NaK = true;
+global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
-global enable_I_K_ur = true;
-global enable_I_K_2pore = true;
-global enable_I_K_Ca_act = true;
-global enable_I_K_ATP = true;
-global enable_I_ASIC = true;
-global enable_I_TRP1 = true;
-global enable_I_TRP2 = true;
-global enable_I_stim = true;
+global enable_I_K_ur = false;
+global enable_I_K_2pore = false;
+global enable_I_K_Ca_act = false;
+global enable_I_K_ATP = false;
+global enable_I_ASIC = false;
+global enable_I_TRP1 = false;
+global enable_I_TRP2 = false;
+global enable_I_stim = false;
 
 # Time-stepping information
-global t_final = 50;        # Final time (s)
+global t_final = 800;       # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # External concentrations

@@ -14,8 +14,12 @@
 # Conductance: pS
 # Capacitance: pF
 
-# Clear memory
+# Clear memory and close all open plot windows
 clear all;
+close all;
+
+# Initialise the Sundials toolbox
+initialise_sundials;
 
 # Load model parameters
 parameters;
@@ -30,7 +34,7 @@ potassium_currents;
 other_currents;
 
 # Define the ODE system
-function xdot = f(x, t)
+function xdot = f(x, t, theta)
 
   # Initialize and populate vector of unknowns
   global apply_Vm;
@@ -39,16 +43,26 @@ function xdot = f(x, t)
   else
     V = x(1);
   endif
-  Na_i = x(2);
-  K_i  = x(3);
-  Ca_i = x(4);
-  H_i  = x(5);
-  a_ur = x(6);
-  i_ur = x(7);
+#  Na_i = x(2);
+#  K_i  = x(3);
+#  Ca_i = x(4);
+#  H_i  = x(5);
+#  a_ur = x(6);
+#  i_ur = x(7);
+
+  dummy = 0.1;
+  Na_i = dummy;
+  Ca_i = dummy;
+  H_i  = dummy;
+  a_ur = dummy;
+  i_ur = dummy;
+  K_i = x(2);
+
+  g_K_b_bar = theta(1);
 
   # Calculate background currents
   I_Na_b = backgroundSodium(V, Na_i);
-  I_K_b = backgroundPotassium(V, K_i);
+  I_K_b = backgroundPotassium(V, K_i, g_K_b_bar);
 
   # Calculate pump and exchanger currents
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i);
@@ -88,40 +102,84 @@ function xdot = f(x, t)
   a_ur_dot = (a_ur_inf - a_ur)/tau_a_ur;
   i_ur_dot = (i_ur_inf - i_ur)/tau_i_ur;
 
-  xdot = zeros(7, 1);
+# #  xdot = zeros(7, 1);
 
-  global apply_Vm;
-  if (apply_Vm == true)
-    xdot(1) = 0.0;
-  else
-    xdot(1) = 1/C_m*(-I_i + I_stim);
-  endif
+#   global apply_Vm;
+#   if (apply_Vm == true)
+#     xdot(1) = 0.0;
+#   else
+#     xdot(1) = 1/C_m*(-I_i + I_stim);
+#   endif
 
-  global clamp_conc;
-  if (clamp_conc == true)
-    xdot(2) = 0.0;
-    xdot(3) = 0.0;
-    xdot(4) = 0.0;
-    xdot(5) = 0.0;
-  else
-    xdot(2) = Na_i_dot;
-    xdot(3) = K_i_dot;
-    xdot(4) = Ca_i_dot;
-    xdot(5) = H_i_dot;
-  endif
+#   global clamp_conc;
+#   if (clamp_conc == true)
+#     xdot(2) = 0.0;
+#     xdot(3) = 0.0;
+#     xdot(4) = 0.0;
+#     xdot(5) = 0.0;
+#   else
+#     xdot(2) = Na_i_dot;
+#     xdot(3) = K_i_dot;
+#     xdot(4) = Ca_i_dot;
+#     xdot(5) = H_i_dot;
+#   endif
 
-  xdot(6) = a_ur_dot;
-  xdot(7) = i_ur_dot;
+#   xdot(6) = a_ur_dot;
+#   xdot(7) = i_ur_dot;
+
+  xdot = zeros(2, 1);
+
+  xdot(1) = 1/C_m*(-I_i + I_stim);
+  xdot(2) = K_i_dot;
 
 endfunction
 
 # Solve the ODE system for all time t
+
+# x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, H_i_0, a_ur_0, i_ur_0];
+x0 = [V_0; K_i_0];
 t = linspace(0, t_final, t_final/dt);
-x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, H_i_0, a_ur_0, i_ur_0];
-x = lsode("f", x0, t);
+
+global model;
+thetaac = [g_K_b_bar];
+
+# Define the model
+model.odefcn = @f;
+model.tplot = t';
+model.param = [0.1];
+model.ic = x0;
+
+# Load measurements from a file
+measure.states = [1];
+table = load ('../data/reference_values/generated_small.data');
+measure.time = table(:, 1);
+measure.data = table(:, 1 + measure.states);
+
+# Define the search space for the parameters
+objective.estflag = [1];
+objective.paric   = [0.1];
+objective.parlb   = [0];
+objective.parub   = [2];
+
+# Estimate the parameters
+estimates = parest(model, measure, objective);
+#x = lsode("f", x0, t);
+
+disp('Estimated Parameters and Bounding Box')
+[estimates.parest estimates.bbox]
+
+
+# Plot the model fit to the noisy measurements
+figure(1);
+plot(model.tplot, estimates.x, measure.time, measure.data, 'o');
+print -depslatexstandalone "../results/epslatex/potassium_quantities.tex"
+
+table = [model.tplot, estimates.x'];
+save ABC.dat table
+
 
 # Extract and postprocess solutions
-postprocess_solutions;
+# postprocess_solutions;
 
 # Plot the computed solutions
-plot_solutions;
+# plot_solutions;
