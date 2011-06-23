@@ -150,7 +150,7 @@ model.param = [0.1];
 model.ic = x0;
 
 # Load measurements from a file
-measure.states = [1];
+measure.states = [1, 2];
 table = load ('../data/reference_values/generated_small.data');
 measure.time = table(:, 1);
 measure.data = table(:, 1 + measure.states);
