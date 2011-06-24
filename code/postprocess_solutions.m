@@ -14,6 +14,8 @@ x(:, 1) = estimates.x(1, :);
 x(:, 2) = estimates.x(2, :);
 
 # Extract parameters
+disp('Estimated parameters and bounding box')
+[estimates.parest estimates.bbox]
 g_K_b_bar = estimates.parest(1);
 
 global apply_Vm;
