@@ -1,9 +1,0 @@
-function xdot = massbal_ode(x, t, theta)
-  ca  = x(1);
-  cb  = x(2);
-  cc  = x(3);
-  k1  = theta(1);
-  k2  = theta(2);
-  r1 = k1*ca;
-  r2 = k2*cb;
-  xdot = [-r1; r1-r2; r2];
