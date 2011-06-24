@@ -27,7 +27,7 @@ chondrocyte_model;
 solve_model;
 
 # Extract and postprocess solutions
-# postprocess_solutions;
+postprocess_solutions;
 
 # Plot the computed solutions
-# plot_solutions;
+plot_solutions;

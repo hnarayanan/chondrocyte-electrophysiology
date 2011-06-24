@@ -9,6 +9,13 @@
 
 # Extract solution components
 len_t = size(t, 2);
+x = ones(len_t, 7);
+x(:, 1) = estimates.x(1, :);
+x(:, 2) = estimates.x(2, :);
+
+# Extract parameters
+g_K_b_bar = estimates.parest(1);
+
 global apply_Vm;
 if (apply_Vm == true)
   V = zeros(len_t, 1);
@@ -42,7 +49,7 @@ I_stim     = zeros(len_t, 1);
 
 for ii = [1:len_t]
   I_Na_b(ii)     = backgroundSodium(V(ii), Na_i(ii));
-  I_K_b(ii)      = backgroundPotassium(V(ii), K_i(ii));
+  I_K_b(ii)      = backgroundPotassium(V(ii), K_i(ii), g_K_b_bar);
   I_NaK(ii)      = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii));
   I_NaCa(ii)     = sodiumCalciumExchanger(V(ii), Na_i(ii), Ca_i(ii));
   I_NaH(ii)      = sodiumHydrogenExchanger(Na_i(ii), H_i(ii));

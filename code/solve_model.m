@@ -16,18 +16,18 @@
 
 1;
 
+
+# Define the overall model
+global model;
 x0 = [V_0, K_i_0];
 t = linspace(0, t_final, t_final/dt);
 theta0 = [0.1];
-
-# Define the model
-global model;
 model.odefcn = @ode_rhs;
 model.tplot = t';
 model.param = theta0;
 model.ic = x0';
 
-# Load measurements from a file
+# Load experimental measurements from files
 measure.states = [1, 2];
 table = load ('../data/reference_values/generated_small.data');
 measure.time = table(:, 1);
@@ -39,15 +39,5 @@ objective.paric   = theta0;
 objective.parlb   = [0];
 objective.parub   = [2];
 
-# Estimate the parameters
+# Estimate the parameters and corresponding solutions
 estimates = parest(model, measure, objective);
-disp('Estimated Parameters and Bounding Box')
-[estimates.parest estimates.bbox]
-
-# Plot the model fit to the noisy measurements
-figure(1);
-plot(model.tplot, estimates.x, measure.time, measure.data, 'o');
-print -depslatexstandalone "../results/epslatex/potassium_quantities.tex"
-
-table = [model.tplot, estimates.x'];
-save ABC.dat table
