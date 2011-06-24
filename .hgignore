@@ -17,7 +17,6 @@ syntax: glob
 *.toc
 .DS_Store
 *.orig
-ABC.dat
 results/epslatex/*.eps
 results/epslatex/*.tex
 results/pdf/*.pdf
