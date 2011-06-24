@@ -12,7 +12,7 @@ all: plots
 
 calc: ${SOURCES}
 	@echo "Running calculation:"
-	octave driver.m
+	octave --quiet driver.m
 
 plots: calc
 	@echo "Creating pretty plots:"

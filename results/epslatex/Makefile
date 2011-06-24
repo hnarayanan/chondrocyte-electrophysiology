@@ -15,7 +15,7 @@ plots: prep $(PDF_PLOTS) post
 .SUFFIXES: .tex .pdf
 
 .tex.pdf:
-	pdflatex $<
+	pdflatex -interaction=batchmode $<
 
 prep:
 	perl -pi -e 's/..\/results\/epslatex\///g' *.tex
