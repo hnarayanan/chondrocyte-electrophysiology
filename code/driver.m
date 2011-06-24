@@ -8,7 +8,7 @@
 # Initialise the environment
 initialise;
 
-# Load model parameters
+# Load (initial) model parameters
 parameters;
 
 # Load utility functions

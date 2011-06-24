@@ -5,18 +5,6 @@
 # Copyright (C) 2010--2011  Harish Narayanan
 # Licensed under the GNU GPL Version 3
 
-# The solution fields and parameters have the following units:
-#
-# Voltage: mV
-# Current: pa
-# Time: s
-# Concentration: mM/l
-# Conductance: pS
-# Capacitance: pF
-
-1;
-
-
 # Define the overall model
 global model;
 x0 = [V_0, K_i_0];
