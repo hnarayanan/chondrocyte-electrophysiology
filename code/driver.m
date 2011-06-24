@@ -14,12 +14,8 @@
 # Conductance: pS
 # Capacitance: pF
 
-# Clear memory and close all open plot windows
-clear all;
-close all;
-
-# Initialise the Sundials toolbox
-initialise_sundials;
+# Initialise the environment
+initialise;
 
 # Load model parameters
 parameters;
