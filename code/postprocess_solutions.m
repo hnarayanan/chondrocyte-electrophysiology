@@ -11,7 +11,7 @@
 len_t = size(t, 2);
 x = ones(len_t, 7);
 x(:, 1) = estimates.x(1, :);
-x(:, 2) = estimates.x(2, :);
+x(:, 3) = estimates.x(2, :);
 
 # Extract parameters
 disp('Estimated parameters and bounding box')

@@ -36,6 +36,8 @@ print -depslatexstandalone "../results/epslatex/concentrations.tex"
 figure(3, 'visible', 'off');
 subplot(2, 2, 1), plot(t, I_Na_b, 'linewidth', line_width), xlabel('$t (s)$'), legend('$I_{\mathrm{Na_{b}}} (pA)$');
 subplot(2, 2, 2), plot(t, I_K_b,  'linewidth', line_width), xlabel('$t (s)$'), legend('$I_{\mathrm{K_{b}}} (pA)$');
+hold on;
+plot(measure.time, measure.data, 'o');
 print -depslatexstandalone "../results/epslatex/background_currents-ti.tex"
 
 # The different background currents (V-I)

@@ -16,10 +16,11 @@ model.param = theta0;
 model.ic = x0';
 
 # Load experimental measurements from files
-measure.states = [1, 2];
-table = load ('../data/reference_values/generated_small.data');
+table = load('../data/reference_values/generated_I_K_b_small.data');
 measure.time = table(:, 1);
-measure.data = table(:, 1 + measure.states);
+measure.data = table(:, 2);
+measure.statefcn = @measurefcn;
+measure.dstatedx = @measurederiv;
 
 # Define the search space for the parameters
 objective.estflag = [1];
