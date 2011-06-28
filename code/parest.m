@@ -445,7 +445,6 @@ function retval = parest(model, measure, objective)
   if(size(meas_.time,1) == size(mod_.ic,2) && size(meas_.time,2) ~= size(mod_.ic,2))
 	% if measurement time is provided as column vector -> transpose it
 	meas_.time = meas_.time(:);
-	warning('parest: measure.time seems to be transposed')
   end
 
   %% if transpose of measurement.data is given
