@@ -46,26 +46,20 @@ endfunction
 # Calcium-activated potassium current
 # FIXME: Clean up the following
 # FIXME: Check the following carefully
-function I_K_Ca_act = calciumActivatedPotassium(V, K_i, Ca_i)
+function I_K_Ca_act = calciumActivatedPotassium(V, K_i, Ca_i, Gmax)
   global enable_I_K_Ca_act;
   if (enable_I_K_Ca_act == true)
     global T;
     global Zj, global Vhj, global ZL, global L0, global KDc;
     global C, global D, global E;
-    global Gmax, global N_channel, global V_K_Ca_act;
-    global z_K, global g_K_b_bar, global K_o;
-    W = [Zj, Vhj, ZL, L0, KDc, C, D, E, Gmax];
+    global N_channel, global z_K, global K_o;
     kTe = 23.54*(T/273);
-    Lv = W(4)*exp((V*W(3))/kTe);
-    Jv = exp(((V - W(2))*W(1))/kTe);
-    K = Ca_i/W(5);
-    C = W(6);
-    D = W(7);
-    E = W(8);
-    G_max = W(9);
+    Lv = L0*exp((V*ZL)/kTe);
+    Jv = exp(((V - Vhj)*Zj)/kTe);
+    K = Ca_i/KDc;
     P0 = (Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)/((Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)+((1+Jv+K+Jv*K*E)^4));
     E_K = nernstPotential(z_K, K_i, K_o);
-    I_K_Ca_act = N_channel*P0*G_max*(V - E_K);
+    I_K_Ca_act = N_channel*P0*Gmax*(V - E_K);
   else
     I_K_Ca_act = 0.0;
   endif
