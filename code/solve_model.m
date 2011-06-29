@@ -5,11 +5,17 @@
 # Copyright (C) 2010--2011  Harish Narayanan
 # Licensed under the GNU GPL Version 3
 
+# Define initial conditions
+x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, H_i_0, a_ur_0, i_ur_0];
+
+# Define the initial values of parameters to be estimated
+theta0 = [0.2];
+
+# Define the problem time range
+t = linspace(0, t_final, t_final/dt);
+
 # Define the overall model
 global model;
-x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, H_i_0, a_ur_0, i_ur_0];
-t = linspace(0, t_final, t_final/dt);
-theta0 = [0.1];
 model.odefcn = @ode_rhs;
 model.tplot = t';
 model.param = theta0;
