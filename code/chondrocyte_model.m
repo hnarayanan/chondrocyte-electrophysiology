@@ -26,21 +26,14 @@ function xdot = ode_rhs(x, t, theta)
   else
     V = x(1);
   endif
-#  Na_i = x(2);
-#  K_i  = x(3);
-#  Ca_i = x(4);
-#  H_i  = x(5);
-#  a_ur = x(6);
-#  i_ur = x(7);
+ Na_i = x(2);
+ K_i  = x(3);
+ Ca_i = x(4);
+ H_i  = x(5);
+ a_ur = x(6);
+ i_ur = x(7);
 
-  dummy = 0.1;
-  Na_i = dummy;
-  Ca_i = dummy;
-  H_i  = dummy;
-  a_ur = dummy;
-  i_ur = dummy;
-  K_i = x(2);
-
+  # Extract parameters
   g_K_b_bar = theta(1);
 
   # Calculate background currents
@@ -85,34 +78,29 @@ function xdot = ode_rhs(x, t, theta)
   a_ur_dot = (a_ur_inf - a_ur)/tau_a_ur;
   i_ur_dot = (i_ur_inf - i_ur)/tau_i_ur;
 
-# #  xdot = zeros(7, 1);
+  xdot = zeros(7, 1);
 
-#   global apply_Vm;
-#   if (apply_Vm == true)
-#     xdot(1) = 0.0;
-#   else
-#     xdot(1) = 1/C_m*(-I_i + I_stim);
-#   endif
+  global apply_Vm;
+  if (apply_Vm == true)
+    xdot(1) = 0.0;
+  else
+    xdot(1) = 1/C_m*(-I_i + I_stim);
+  endif
 
-#   global clamp_conc;
-#   if (clamp_conc == true)
-#     xdot(2) = 0.0;
-#     xdot(3) = 0.0;
-#     xdot(4) = 0.0;
-#     xdot(5) = 0.0;
-#   else
-#     xdot(2) = Na_i_dot;
-#     xdot(3) = K_i_dot;
-#     xdot(4) = Ca_i_dot;
-#     xdot(5) = H_i_dot;
-#   endif
+  global clamp_conc;
+  if (clamp_conc == true)
+    xdot(2) = 0.0;
+    xdot(3) = 0.0;
+    xdot(4) = 0.0;
+    xdot(5) = 0.0;
+  else
+    xdot(2) = Na_i_dot;
+    xdot(3) = K_i_dot;
+    xdot(4) = Ca_i_dot;
+    xdot(5) = H_i_dot;
+  endif
 
-#   xdot(6) = a_ur_dot;
-#   xdot(7) = i_ur_dot;
-
-  xdot = zeros(2, 1);
-
-  xdot(1) = 1/C_m*(-I_i + I_stim);
-  xdot(2) = K_i_dot;
+  xdot(6) = a_ur_dot;
+  xdot(7) = i_ur_dot;
 
 endfunction

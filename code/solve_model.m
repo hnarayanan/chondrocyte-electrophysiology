@@ -7,7 +7,7 @@
 
 # Define the overall model
 global model;
-x0 = [V_0, K_i_0];
+x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, H_i_0, a_ur_0, i_ur_0];
 t = linspace(0, t_final, t_final/dt);
 theta0 = [0.1];
 model.odefcn = @ode_rhs;

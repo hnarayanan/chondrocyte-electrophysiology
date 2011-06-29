@@ -10,9 +10,14 @@
 function retval = measurederiv(x)
     global z_K, global K_o, global g_K_b_bar;
     global R, global T, global F, global z_K;
-    K_i = x(2);
+    K_i = x(3);
     dstatedx = zeros(size(x'));
     dstatedx(1) = g_K_b_bar;
-    dstatedx(2) = g_K_b_bar*R*T/(z_K*F)/K_i;
+    dstatedx(2) = 0.0;
+    dstatedx(3) = g_K_b_bar*R*T/(z_K*F)/K_i;
+    dstatedx(4) = 0.0;
+    dstatedx(5) = 0.0;
+    dstatedx(6) = 0.0;
+    dstatedx(7) = 0.0;
     retval = dstatedx;
 endfunction

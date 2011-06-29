@@ -9,9 +9,7 @@
 
 # Extract solution components
 len_t = size(t, 2);
-x = ones(len_t, 7);
-x(:, 1) = estimates.x(1, :);
-x(:, 3) = estimates.x(2, :);
+x = estimates.x';
 
 # Extract parameters
 disp('Estimated parameters and bounding box')
