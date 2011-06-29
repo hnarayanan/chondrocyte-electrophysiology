@@ -9,7 +9,7 @@
 x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, H_i_0, a_ur_0, i_ur_0];
 
 # Define the initial values of parameters to be estimated
-theta0 = [0.2];
+theta0 = [g_K_b_bar, P_K];
 
 # Define the problem time range
 t = linspace(0, t_final, t_final/dt);
@@ -29,10 +29,10 @@ measure.statefcn = @measurefcn;
 measure.dstatedx = @measurederiv;
 
 # Define the search space for the parameters
-objective.estflag = [1];
+objective.estflag = [1, 2];
 objective.paric   = theta0;
-objective.parlb   = [0];
-objective.parub   = [2];
+objective.parlb   = [0, 0];
+objective.parub   = [1, 1.e-5];
 
 # Estimate the parameters and corresponding solutions
 estimates = parest(model, measure, objective);

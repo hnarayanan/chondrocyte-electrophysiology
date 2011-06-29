@@ -32,11 +32,11 @@ function I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, i_ur)
 endfunction
 
 # Two-pore potassium current
-function I_K_2pore = twoPorePotassium(V, K_i)
+function I_K_2pore = twoPorePotassium(V, K_i, P_K)
   global enable_I_K_2pore;
   if (enable_I_K_2pore == true)
     global F, global R, global T;
-    global z_K, global P_K, global K_o;
+    global z_K, global K_o;
     I_K_2pore = P_K*z_K^2*V*F^2/(R*T)*(K_i - K_o*exp(-z_K*V*F/(R*T)))/(1 - exp(-z_K*V*F/(R*T)));
   else
     I_K_2pore = 0.0;

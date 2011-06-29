@@ -35,6 +35,7 @@ function xdot = ode_rhs(x, t, theta)
 
   # Extract parameters
   g_K_b_bar = theta(1);
+  P_K = theta(2);
 
   # Calculate background currents
   I_Na_b = backgroundSodium(V, Na_i);
@@ -47,7 +48,7 @@ function xdot = ode_rhs(x, t, theta)
 
   # Calculate other potassium currents
   I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, i_ur);
-  I_K_2pore = twoPorePotassium(V, K_i);
+  I_K_2pore = twoPorePotassium(V, K_i, P_K);
   I_K_Ca_act = calciumActivatedPotassium(V, K_i, Ca_i);
   I_K_ATP = potassiumPump();
 

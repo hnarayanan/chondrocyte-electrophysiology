@@ -8,8 +8,9 @@
 # Define the derivative of the measured function(s) with respect to the
 # different parameters
 function retval = measurederiv(x)
-    global z_K, global K_o, global g_K_b_bar;
+    global z_K, global K_o;
     global R, global T, global F, global z_K;
+    global g_K_b_bar, global P_K;
 
     V = x(1);
     Na_i = x(2);
@@ -25,6 +26,12 @@ function retval = measurederiv(x)
     if (enable_I_K_b == true)
       dstatedx(1) += g_K_b_bar;
       dstatedx(3) += g_K_b_bar*R*T/(z_K*F)/K_i;
+    endif
+
+    global enable_I_K_2pore;
+    if (enable_I_K_2pore == true)
+      dstatedx(1) += -exp(-F*V*T^(-1)*z_K*R^(-1))*P_K*F^3*V*T^(-2)*z_K^3*(-1+exp(-F*V*T^(-1)*z_K*R^(-1)))^(-1)*R^(-2)*K_o+exp(-F*V*T^(-1)*z_K*R^(-1))*P_K*F^3*V*T^(-2)*(exp(-F*V*T^(-1)*z_K*R^(-1))*K_o-K_i)*z_K^3*(-1+exp(-F*V*T^(-1)*z_K*R^(-1)))^(-2)*R^(-2)+P_K*F^2*T^(-1)*(exp(-F*V*T^(-1)*z_K*R^(-1))*K_o-K_i)*z_K^2*(-1+exp(-F*V*T^(-1)*z_K*R^(-1)))^(-1)*R^(-1);
+      dstatedx(3) += -P_K*F^2*V*T^(-1)*z_K^2*(-1+exp(-F*V*T^(-1)*z_K*R^(-1)))^(-1)*R^(-1);
     endif
 
     retval = dstatedx;

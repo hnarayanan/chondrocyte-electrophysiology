@@ -15,6 +15,7 @@ x = estimates.x';
 disp('Estimated parameters and bounding box')
 [estimates.parest estimates.bbox]
 g_K_b_bar = estimates.parest(1);
+P_K = estimates.parest(2);
 
 global apply_Vm;
 if (apply_Vm == true)
@@ -54,7 +55,7 @@ for ii = [1:len_t]
   I_NaCa(ii)     = sodiumCalciumExchanger(V(ii), Na_i(ii), Ca_i(ii));
   I_NaH(ii)      = sodiumHydrogenExchanger(Na_i(ii), H_i(ii));
   I_K_ur(ii)     = ultrarapidlyRectifyingPotassium(V(ii), K_i(ii), a_ur(ii), I_ur(ii));
-  I_K_2pore(ii)  = twoPorePotassium(V(ii), K_i(ii));
+  I_K_2pore(ii)  = twoPorePotassium(V(ii), K_i(ii), P_K);
   I_K_Ca_act(ii) = calciumActivatedPotassium(V(ii), K_i(ii), Ca_i(ii));
   I_K_ATP(ii)    = potassiumPump();
   I_ASIC(ii)     = voltageActivatedHydrogen();
