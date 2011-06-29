@@ -9,6 +9,11 @@
 function retval = measurefcn(x)
     global g_K_b_bar;
     V = x(1);
-    K_i = x(3);
+    Na_i = x(2);
+    K_i  = x(3);
+    Ca_i = x(4);
+    H_i  = x(5);
+    a_ur = x(6);
+    I_ur = x(7);
     retval = backgroundPotassium(V, K_i, g_K_b_bar);
 endfunction
