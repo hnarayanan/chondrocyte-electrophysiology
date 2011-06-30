@@ -21,13 +21,13 @@ global enable_parest = false;
 global clamp_conc = false;
 
 # Toggle setting of the membrane voltage
-global apply_Vm = false;
+global apply_Vm = true;
 
 # If apply_Vm is true, then one of clamp_Vm, ramp_Vm and step_Vm must be
 # true to define what voltage is to be applied
 global clamp_Vm = false;
 global step_Vm = false;
-global ramp_Vm = false;
+global ramp_Vm = true;
 global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
@@ -117,7 +117,7 @@ global N_NaH_channel = 4899;
 global g_K_ur = 0.3;
 
 # Constants related to the two-pore potassium channel
-global P_K = 1.e-6;
+global P_K = 3.e-6;
 
 # Constants related to the calcium-activated potassium channel
 global Zj = 0.58;
