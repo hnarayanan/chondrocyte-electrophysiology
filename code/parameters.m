@@ -32,12 +32,12 @@ global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = false;
-global enable_I_K_b = true;
+global enable_I_K_b = false;
 global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
 global enable_I_K_ur = false;
-global enable_I_K_2pore = true;
+global enable_I_K_2pore = false;
 global enable_I_K_Ca_act = true;
 global enable_I_K_ATP = false;
 global enable_I_ASIC = false;

@@ -11,9 +11,17 @@
 clf;
 line_width = 3;
 
-# Load reference solution
+# Load reference solutions
 V_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 1);
 I_i_by_C_m_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 2);
+
+V_ref_without_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_without_TEA.data')(:, 1);
+I_ref_without_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_without_TEA.data')(:, 2);
+V_ref_with_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_with_TEA.data')(:, 1);
+I_ref_with_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_with_TEA.data')(:, 2);
+
+I_ref_without_TEA_int = interp1(V_ref_without_TEA, I_ref_without_TEA, V);
+I_ref_with_TEA_int = interp1(V_ref_with_TEA, I_ref_with_TEA, V);
 
 # The membrane voltage and total currents
 figure(1, 'visible', 'off');
@@ -71,6 +79,8 @@ figure(8, 'visible', 'off');
 subplot(2, 2, 1), plot(V, I_K_ur,     'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{ur}}} (pA)$');
 subplot(2, 2, 2), plot(V, I_K_2pore,  'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{2pore}}} (pA)$');
 subplot(2, 2, 3), plot(V, I_K_Ca_act, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{Ca-act}}} (pA)$');
+hold on;
+plot(V, I_ref_without_TEA_int - I_ref_with_TEA_int, '1', 'linewidth', line_width);
 subplot(2, 2, 4), plot(V, I_K_ATP,    'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{ATP}}} (pA)$');
 print -depslatexstandalone "../results/epslatex/potassium_currents-vi.tex"
 
