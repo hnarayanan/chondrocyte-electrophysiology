@@ -32,12 +32,12 @@ global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = false;
-global enable_I_K_b = false;
+global enable_I_K_b = true;
 global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
 global enable_I_K_ur = false;
-global enable_I_K_2pore = false;
+global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
 global enable_I_K_ATP = false;
 global enable_I_ASIC = false;
@@ -120,13 +120,13 @@ global g_K_ur = 0.3;
 global P_K = 3.e-6;
 
 # Constants related to the calcium-activated potassium channel
-global Zj = 0.58;
-global Vhj = 150;
+global Zj = 1.10;
+global Vhj = 180;
 global ZL = 0.3;
-global L0 = 5e-6;
+global L0 = 9e-6;
 global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 1.0;
+global Gmax = 2.1;
 global N_channel = 1.0;
