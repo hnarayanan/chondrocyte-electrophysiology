@@ -19,9 +19,18 @@ V_ref_without_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_w
 I_ref_without_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_without_TEA.data')(:, 2);
 V_ref_with_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_with_TEA.data')(:, 1);
 I_ref_with_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_with_TEA.data')(:, 2);
-
 I_ref_without_TEA_int = interp1(V_ref_without_TEA, I_ref_without_TEA, V);
 I_ref_with_TEA_int = interp1(V_ref_with_TEA, I_ref_with_TEA, V);
+
+
+V_ref_without_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_without_DTX.data')(:, 1);
+I_ref_density_without_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_without_DTX.data')(:, 2);
+V_ref_with_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_with_DTX.data')(:, 1);
+I_ref_density_with_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_with_DTX.data')(:, 2);
+
+I_ref_without_DTX_int = interp1(V_ref_without_DTX, I_ref_density_without_DTX, V)*C_m;
+I_ref_with_DTX_int = interp1(V_ref_with_DTX, I_ref_density_with_DTX, V)*C_m;
+
 
 # The membrane voltage and total currents
 figure(1, 'visible', 'off');
@@ -77,6 +86,8 @@ print -depslatexstandalone "../results/epslatex/potassium_currents-ti.tex"
 # The other potassium currents (V-I)
 figure(8, 'visible', 'off');
 subplot(2, 2, 1), plot(V, I_K_ur,     'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{ur}}} (pA)$');
+hold on;
+plot(V, I_ref_without_DTX_int - I_ref_with_DTX_int, '1', 'linewidth', line_width);
 subplot(2, 2, 2), plot(V, I_K_2pore,  'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{2pore}}} (pA)$');
 subplot(2, 2, 3), plot(V, I_K_Ca_act, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{Ca-act}}} (pA)$');
 hold on;
