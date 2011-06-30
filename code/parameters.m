@@ -36,7 +36,7 @@ global enable_I_K_b = true;
 global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
-global enable_I_K_ur = false;
+global enable_I_K_ur = true;
 global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
 global enable_I_K_ATP = false;
@@ -46,7 +46,7 @@ global enable_I_TRP2 = false;
 global enable_I_stim = false;
 
 # Time-stepping information
-global t_final = 800;       # Final time (s)
+global t_final = 1.0;       # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # External concentrations
@@ -114,7 +114,7 @@ global K_H_o = 1.62e-3;
 global N_NaH_channel = 4899;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
-global g_K_ur = 0.3;
+global g_K_ur = 1.5;
 
 # Constants related to the two-pore potassium channel
 global P_K = 3.e-6;
