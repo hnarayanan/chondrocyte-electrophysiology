@@ -9,30 +9,48 @@
 x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, H_i_0, a_ur_0, i_ur_0];
 
 # Define the initial values of parameters to be estimated
-theta0 = [g_K_b_bar, P_K, Gmax];
+global theta0 = [g_K_b_bar, P_K, Gmax];
 
 # Define the problem time range
 t = linspace(0, t_final, t_final/dt);
 
-# Define the overall model
-global model;
-model.odefcn = @ode_rhs;
-model.tplot = t';
-model.param = theta0;
-model.ic = x0';
+# Solve the problem
+global enable_parest;
+if (enable_parest == false) # Without parameter estimation
+  x = lsode("ode_rhs", x0, t);
+else
+  # Define the overall model
+  global model;
+  model.odefcn = @ode_rhs_parametrized;
+  model.tplot = t';
+  model.param = theta0;
+  model.ic = x0';
 
-# Load experimental measurements from files
-table = load('../data/reference_values/generated_I_K_b_small.data');
-measure.time = table(:, 1);
-measure.data = table(:, 2);
-measure.statefcn = @measurefcn;
-measure.dstatedx = @measurederiv;
+  # Load experimental measurements from files
+  table = load('../data/reference_values/generated_I_K_b_small.data');
+  # table = load('../data/reference_values/Total_Current_Density_vs_Time.data');
+  measure.time = table(:, 1);
+  measure.data = table(:, 2);
+  measure.statefcn = @measurefcn;
+  measure.dstatedx = @measurederiv;
 
-# Define the search space for the parameters
-objective.estflag = [1, 2, 3];
-objective.paric   = theta0(objective.estflag);
-objective.parlb   = [0, 0, 0](objective.estflag);
-objective.parub   = [1, 1.e-5, 5](objective.estflag);
+  # Define the search space for the parameters
+  objective.estflag = [1, 2, 3];
+  objective.paric   = theta0(objective.estflag);
+  objective.parlb   = [0, 0, 0](objective.estflag);
+  objective.parub   = [10, 10, 10](objective.estflag);
 
-# Estimate the parameters and corresponding solutions
-estimates = parest(model, measure, objective);
+  # Estimate the parameters and corresponding solutions
+  estimates = parest(model, measure, objective);
+
+  # Extract solution and parameters
+  x = estimates.x';
+
+  # Extract parameters
+  disp('Estimated parameters and bounding box')
+  [estimates.parest estimates.bbox]
+
+  g_K_b_bar = estimates.parest(1);
+  P_K = estimates.parest(2);
+  Gmax = estimates.parest(3);
+endif

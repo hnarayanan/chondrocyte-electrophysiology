@@ -9,14 +9,6 @@
 
 # Extract solution components
 len_t = size(t, 2);
-x = estimates.x';
-
-# Extract parameters
-disp('Estimated parameters and bounding box')
-[estimates.parest estimates.bbox]
-g_K_b_bar = estimates.parest(1);
-P_K = estimates.parest(2);
-Gmax = estimates.parest(3);
 
 global apply_Vm;
 if (apply_Vm == true)

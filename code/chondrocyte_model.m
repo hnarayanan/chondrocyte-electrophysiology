@@ -17,7 +17,14 @@
 1;
 
 # Define the ODE model for the electrophysiology of the chondrocyte
-function xdot = ode_rhs(x, t, theta)
+function xdot = ode_rhs(x, t)
+
+  global theta0;
+  xdot = ode_rhs_parametrized(x, t, theta0);
+
+endfunction
+
+function xdot = ode_rhs_parametrized(x, t, theta)
 
   # Initialize and populate vector of unknowns
   global apply_Vm;

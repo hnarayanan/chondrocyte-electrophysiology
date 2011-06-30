@@ -14,6 +14,9 @@
 # Conductance: pS
 # Capacitance: pF
 
+# Toggle estimation of parameters
+global enable_parest = false;
+
 # Toggle clamping of the internal concentrations
 global clamp_conc = false;
 
@@ -34,7 +37,7 @@ global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
 global enable_I_K_ur = false;
-global enable_I_K_2pore = false;
+global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
 global enable_I_K_ATP = false;
 global enable_I_ASIC = false;
