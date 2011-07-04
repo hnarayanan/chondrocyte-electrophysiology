@@ -28,7 +28,7 @@ global apply_Vm = true;
 global clamp_Vm = false;
 global step_Vm = false;
 global ramp_Vm = true;
-global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
+global V_final = 90.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = false;
@@ -46,7 +46,7 @@ global enable_I_TRP2 = false;
 global enable_I_stim = false;
 
 # Time-stepping information
-global t_final = 1.0;       # Final time (s)
+global t_final = 0.4;       # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # External concentrations
@@ -114,10 +114,10 @@ global K_H_o = 1.62e-3;
 global N_NaH_channel = 4899;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
-global g_K_ur = 1.5;
+global g_K_ur = 1.0;
 
 # Constants related to the two-pore potassium channel
-global P_K = 3.e-6;
+global P_K = 3.2e-6;
 
 # Constants related to the calcium-activated potassium channel
 global Zj = 1.10;
