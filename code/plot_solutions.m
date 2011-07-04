@@ -22,6 +22,12 @@ I_ref_with_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_with
 I_ref_without_TEA_int = interp1(V_ref_without_TEA, I_ref_without_TEA, V);
 I_ref_with_TEA_int = interp1(V_ref_with_TEA, I_ref_with_TEA, V);
 
+V_ref_without_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_without_BUP.data')(:, 1);
+I_ref_without_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_without_BUP.data')(:, 2);
+V_ref_with_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_with_BUP.data')(:, 1);
+I_ref_with_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_with_BUP.data')(:, 2);
+I_ref_without_BUP_int = interp1(V_ref_without_BUP, I_ref_without_BUP, V);
+I_ref_with_BUP_int = interp1(V_ref_with_BUP, I_ref_with_BUP, V);
 
 V_ref_without_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_without_DTX.data')(:, 1);
 I_ref_density_without_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_without_DTX.data')(:, 2);
@@ -87,8 +93,10 @@ print -depslatexstandalone "../results/epslatex/potassium_currents-ti.tex"
 figure(8, 'visible', 'off');
 subplot(2, 2, 1), plot(V, I_K_ur,     'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{ur}}} (pA)$');
 hold on;
-plot(V, I_ref_without_DTX_int - I_ref_with_DTX_int, '1', 'linewidth', line_width);
+plot(V, I_ref_without_BUP_int - I_ref_with_BUP_int, '1', 'linewidth', line_width);
 subplot(2, 2, 2), plot(V, I_K_2pore,  'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{2pore}}} (pA)$');
+hold on
+plot(V, I_ref_without_TEA_int - I_ref_with_TEA_int, '1', 'linewidth', line_width);
 subplot(2, 2, 3), plot(V, I_K_Ca_act, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{Ca-act}}} (pA)$');
 hold on;
 plot(V, I_ref_without_TEA_int - I_ref_with_TEA_int, '1', 'linewidth', line_width);
