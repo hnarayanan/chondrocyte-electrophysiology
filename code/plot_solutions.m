@@ -93,10 +93,10 @@ print -depslatexstandalone "../results/epslatex/potassium_currents-ti.tex"
 figure(8, 'visible', 'off');
 subplot(2, 2, 1), plot(V, I_K_ur,     'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{ur}}} (pA)$');
 hold on;
-plot(V, I_ref_without_BUP_int - I_ref_with_BUP_int, '1', 'linewidth', line_width);
+plot(V, I_ref_without_DTX_int - I_ref_with_DTX_int, '1', 'linewidth', line_width);
 subplot(2, 2, 2), plot(V, I_K_2pore,  'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{2pore}}} (pA)$');
-hold on
-plot(V, I_ref_without_TEA_int - I_ref_with_TEA_int, '1', 'linewidth', line_width);
+hold on;
+plot(V, I_ref_without_BUP_int - I_ref_with_BUP_int, '1', 'linewidth', line_width);
 subplot(2, 2, 3), plot(V, I_K_Ca_act, 'linewidth', line_width), xlabel('$V_{m} (mV)$'), legend('$I_{\mathrm{K_{Ca-act}}} (pA)$');
 hold on;
 plot(V, I_ref_without_TEA_int - I_ref_with_TEA_int, '1', 'linewidth', line_width);
