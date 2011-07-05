@@ -23,15 +23,7 @@ function V = appliedVoltage(t)
     global V_0, global V_final, global t_final;
     V = V_0 + (V_final - V_0)*t/t_final;
   elseif (step_Vm == true)
-    if (t <= 10)
-      V = -60;
-    elseif (t > 10 & t <= 20)
-      V = -40;
-    elseif (t > 20 & t <= 30)
-      V = -20;
-    elseif (t > 30 & t <= 40)
-      V = -1;
-    else
-      V = -60;
-    endif
+    global t_cycle t_stim;
+    V = (ceil((t - 30)/t_cycle).*square((t - 30)*2*pi/t_cycle, t_stim/t_cycle) + ceil((t - 30)/t_cycle))/2*10 - 90;
+    if(V == 0) V = 0.01; endif
   endif
