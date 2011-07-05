@@ -26,8 +26,8 @@ global apply_Vm = true;
 # If apply_Vm is true, then one of clamp_Vm, ramp_Vm and step_Vm must be
 # true to define what voltage is to be applied
 global clamp_Vm = false;
-global step_Vm = false;
-global ramp_Vm = true;
+global step_Vm = true;
+global ramp_Vm = false;
 global V_final = 90.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
@@ -46,19 +46,19 @@ global enable_I_TRP2 = false;
 global enable_I_stim = false;
 
 # Time-stepping information
-global t_final = 0.4;       # Final time (s)
-global dt = t_final/1000;   # Time increment (s)
+global t_final = 120;       # Final time (s)
+global dt = t_final/10000;   # Time increment (s)
 
 # External concentrations
-global Na_o = 320;       # Clamped external sodium concentration (mM/l)
-global K_o  = 10;        # Clamped external potassium concentration (mM/l)
-global Ca_o = 16;        # Clamped external calcium concentration (mM/l)
-global H_o  = 0.125893;  # Clamped external hydrogen concentration (mM/l)
+global Na_o = 140;      # Clamped external sodium concentration (mM/l)
+global K_o  = 5;        # Clamped external potassium concentration (mM/l)
+global Ca_o = 0.01258   # Clamped external calcium concentration (mM/l)
+global H_o  = 0.0398;   # Clamped external hydrogen concentration (mM/l)
 
 # Initial conditions
 global V_0    = -130.0;    # Initial membrane potential (mV)
 global Na_i_0 = 0.516766;  # Initial internal sodium concentration (mM/l)
-global K_i_0  = 110.00;    # Initial internal potassium concentration (mM/l)
+global K_i_0  = 120.00;    # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 0.001;     # Initial internal calcium concentration (mM/l)
 global H_i_0  = 0.5;       # Initial internal hydrogen concentration (mM/l)
 global a_ur_0 = 0.000367;
@@ -76,7 +76,7 @@ global z_Ca = 2;         # Charge on the calcium ion
 global z_H  = 1;         # Charge on the calcium ion
 
 # Cell parameters
-global C_m = 15.0;       # Membrane capacitance
+global C_m = 15;#8.5;       # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Constants related to external stimulation
