@@ -58,7 +58,7 @@ global H_o  = 0.0398;   # Clamped external hydrogen concentration (mM/l)
 # Initial conditions
 global V_0    = -130.0;    # Initial membrane potential (mV)
 global Na_i_0 = 0.516766;  # Initial internal sodium concentration (mM/l)
-global K_i_0  = 120.00;    # Initial internal potassium concentration (mM/l)
+global K_i_0  = 110.00;    # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 0.001;     # Initial internal calcium concentration (mM/l)
 global H_i_0  = 0.5;       # Initial internal hydrogen concentration (mM/l)
 global a_ur_0 = 0.000367;
@@ -76,7 +76,7 @@ global z_Ca = 2;         # Charge on the calcium ion
 global z_H  = 1;         # Charge on the calcium ion
 
 # Cell parameters
-global C_m = 15;#8.5;       # Membrane capacitance
+global C_m = 8.5;        # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Constants related to external stimulation
