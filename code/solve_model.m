@@ -27,18 +27,18 @@ else
   model.ic = x0';
 
   # Load experimental measurements from files
-  table = load('../data/reference_values/generated_I_K_b_small.data');
-  # table = load('../data/reference_values/Total_Current_Density_vs_Time.data');
+  # table = load('../data/reference_values/generated_I_K_b_small.data');
+  table = load('../data/reference_values/Total_Current_Density_vs_Time.data');
   measure.time = table(:, 1);
-  measure.data = table(:, 2);
+  measure.data = table(:, 2)*C_m;
   measure.statefcn = @measurefcn;
   measure.dstatedx = @measurederiv;
 
   # Define the search space for the parameters
   objective.estflag = [1, 2, 3];
   objective.paric   = theta0(objective.estflag);
-  objective.parlb   = [0, 0, 0](objective.estflag);
-  objective.parub   = [10, 10, 10](objective.estflag);
+  objective.parlb   = [0.1, 2.5e-6, 1](objective.estflag);
+  objective.parub   = [0.3, 3.5e-6, 3](objective.estflag);
 
   # Estimate the parameters and corresponding solutions
   estimates = parest(model, measure, objective);
