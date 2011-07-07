@@ -13,7 +13,7 @@
 # Circ. Physiol. 2009; 297; 1398-1410 (Appendix, pp. 1408)
 
 function [a_ur_inf, i_ur_inf, tau_a_ur, tau_i_ur] = ultraRapidlyRectifyingPotassiumHelper(V)
-  a_ur_inf   = 1.0/(1.0 + exp(-(V + 6.0)/8.6));
+  a_ur_inf   = 1.0/(1.0 + exp(-(V + 30.0)/10.0));
   i_ur_inf   = 1.0/(1.0 + exp((V + 7.5)/10.0));
   tau_a_ur   = 0.005/(1.0 + exp((V + 5.0)/12.0));
   tau_i_ur   = 0.59/(1.0 + exp((V + 10.0)/24.0)) + 0.01;
@@ -36,8 +36,8 @@ function I_K_2pore = twoPorePotassium(V, K_i, P_K)
   global enable_I_K_2pore;
   if (enable_I_K_2pore == true)
     global F, global R, global T;
-    global z_K, global K_o;
-    I_K_2pore = P_K*z_K^2*V*F^2/(R*T)*(K_i - K_o*exp(-z_K*V*F/(R*T)))/(1 - exp(-z_K*V*F/(R*T)));
+    global z_K, global I_K_2pore_0, global K_o;
+    I_K_2pore = P_K*z_K^2*V*F^2/(R*T)*(K_i - K_o*exp(-z_K*V*F/(R*T)))/(1 - exp(-z_K*V*F/(R*T))) + I_K_2pore_0;
   else
     I_K_2pore = 0.0;
   endif
