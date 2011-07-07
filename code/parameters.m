@@ -28,7 +28,7 @@ global apply_Vm = true;
 global clamp_Vm = false;
 global step_Vm = false;
 global ramp_Vm = true;
-global V_final = 140.0;  # Final value of membrane voltage when ramped (mV)
+global V_final = 90.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = false;
@@ -76,7 +76,7 @@ global z_Ca = 2;         # Charge on the calcium ion
 global z_H  = 1;         # Charge on the calcium ion
 
 # Cell parameters
-global C_m = 15.0;       # Membrane capacitance
+global C_m = 8.1;        # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Constants related to external stimulation
@@ -114,11 +114,11 @@ global K_H_o = 1.62e-3;
 global N_NaH_channel = 4899;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
-global g_K_ur = 1.0;
+global g_K_ur = 0.5;
 
 # Constants related to the two-pore potassium channel
-global P_K = 8e-6;
-global I_K_2pore_0 = -75.0;
+global P_K = 7e-6;
+global I_K_2pore_0 = -80.0;
 
 # Constants related to the calcium-activated potassium channel
 global Zj = 1.10;
