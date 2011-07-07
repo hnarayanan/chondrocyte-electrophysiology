@@ -117,17 +117,17 @@ global N_NaH_channel = 4899;
 global g_K_ur = 1.0;
 
 # Constants related to the two-pore potassium channel
-global P_K = 3.2e-6;
-global I_K_2pore_0 = -70.0;
+global P_K = 8e-6;
+global I_K_2pore_0 = -75.0;
 
 # Constants related to the calcium-activated potassium channel
 global Zj = 1.10;
-global Vhj = 180;
+global Vhj = 225;
 global ZL = 0.3;
-global L0 = 9e-6;
+global L0 = 12e-6;
 global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 2.1;
+global Gmax = 4.8;
 global N_channel = 1.0;
