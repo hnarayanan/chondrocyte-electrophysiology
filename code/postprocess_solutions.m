@@ -27,6 +27,7 @@ a_ur = x(:, 6);
 I_ur = x(:, 7);
 
 # Compute currents at all times
+K_o        = zeros(len_t, 1);
 I_Na_b     = zeros(len_t, 1);
 I_K_b      = zeros(len_t, 1);
 I_NaK      = zeros(len_t, 1);
@@ -42,14 +43,15 @@ I_TRP2     = zeros(len_t, 1);
 I_stim     = zeros(len_t, 1);
 
 for ii = [1:len_t]
+  K_o(ii) = appliedPotassiumConcentration(t(ii));
   I_Na_b(ii)     = backgroundSodium(V(ii), Na_i(ii));
-  I_K_b(ii)      = backgroundPotassium(V(ii), K_i(ii), g_K_b_bar);
-  I_NaK(ii)      = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii));
+  I_K_b(ii)      = backgroundPotassium(V(ii), K_i(ii), K_o(ii), g_K_b_bar);
+  I_NaK(ii)      = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii), K_o(ii));
   I_NaCa(ii)     = sodiumCalciumExchanger(V(ii), Na_i(ii), Ca_i(ii));
   I_NaH(ii)      = sodiumHydrogenExchanger(Na_i(ii), H_i(ii));
-  I_K_ur(ii)     = ultrarapidlyRectifyingPotassium(V(ii), K_i(ii), a_ur(ii), I_ur(ii));
-  I_K_2pore(ii)  = twoPorePotassium(V(ii), K_i(ii), P_K);
-  I_K_Ca_act(ii) = calciumActivatedPotassium(V(ii), K_i(ii), Ca_i(ii), Gmax);
+  I_K_ur(ii)     = ultrarapidlyRectifyingPotassium(V(ii), K_i(ii), K_o(ii), a_ur(ii), I_ur(ii));
+  I_K_2pore(ii)  = twoPorePotassium(V(ii), K_i(ii), K_o(ii), P_K);
+  I_K_Ca_act(ii) = calciumActivatedPotassium(V(ii), K_i(ii), K_o(ii), Ca_i(ii), Gmax);
   I_K_ATP(ii)    = potassiumPump();
   I_ASIC(ii)     = voltageActivatedHydrogen();
   I_TRP1(ii)     = stretchActivatedTrip();

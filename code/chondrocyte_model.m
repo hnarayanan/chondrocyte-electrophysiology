@@ -40,6 +40,9 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   a_ur = x(6);
   i_ur = x(7);
 
+  # Define external concentrations
+  K_o = appliedPotassiumConcentration(t);
+
   # Extract parameters
   g_K_b_bar = theta(1);
   P_K = theta(2);
@@ -47,17 +50,17 @@ function xdot = ode_rhs_parametrized(x, t, theta)
 
   # Calculate background currents
   I_Na_b = backgroundSodium(V, Na_i);
-  I_K_b = backgroundPotassium(V, K_i, g_K_b_bar);
+  I_K_b = backgroundPotassium(V, K_i, K_o, g_K_b_bar);
 
   # Calculate pump and exchanger currents
-  I_NaK = sodiumPotassiumPump(V, Na_i, K_i);
+  I_NaK = sodiumPotassiumPump(V, Na_i, K_i, K_o);
   I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i);
   I_NaH = sodiumHydrogenExchanger(Na_i, H_i);
 
   # Calculate other potassium currents
-  I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, a_ur, i_ur);
-  I_K_2pore = twoPorePotassium(V, K_i, P_K);
-  I_K_Ca_act = calciumActivatedPotassium(V, K_i, Ca_i, Gmax);
+  I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, K_o, a_ur, i_ur);
+  I_K_2pore = twoPorePotassium(V, K_i, K_o, P_K);
+  I_K_Ca_act = calciumActivatedPotassium(V, K_i, K_o, Ca_i, Gmax);
   I_K_ATP = potassiumPump();
 
   # Calculate other currents

@@ -25,5 +25,25 @@ function V = appliedVoltage(t)
   elseif (step_Vm == true)
     global t_cycle t_stim;
     V = (ceil((t - 30)/t_cycle).*square((t - 30)*2*pi/t_cycle, t_stim/t_cycle) + ceil((t - 30)/t_cycle))/2*10 - 90;
-    if(V == 0) V = 0.01; endif
+    if (V == 0) V = 0.01; endif
   endif
+endfunction
+
+function K_o = appliedPotassiumConcentration(t)
+  global step_K_o K_o_0;
+  if (step_K_o == false)
+    K_o = K_o_0;
+  else
+    if (t <= 10)
+      K_o = 5;
+    elseif (t > 10 & t <= 20)
+      K_o = 30;
+    elseif (t > 20 & t <= 30)
+      K_o = 75;
+    elseif (t > 30 & t <= 40)
+      K_o = 140;
+    else
+      K_o = 5;
+    endif
+  endif
+endfunction

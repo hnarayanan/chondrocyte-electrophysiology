@@ -17,7 +17,7 @@
 # Toggle estimation of parameters
 global enable_parest = false;
 
-# Toggle clamping of the internal concentrations
+# Toggle clamping of the internal concentrations (for debugging)
 global clamp_conc = false;
 
 # Toggle setting of the membrane voltage
@@ -50,10 +50,12 @@ global t_final = 1;         # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # External concentrations
-global Na_o = 320;       # Clamped external sodium concentration (mM/l)
-global K_o  = 10;        # Clamped external potassium concentration (mM/l)
-global Ca_o = 16;        # Clamped external calcium concentration (mM/l)
-global H_o  = 0.125893;  # Clamped external hydrogen concentration (mM/l)
+global Na_o   = 320;       # Clamped external sodium concentration (mM/l)
+global K_o_0  = 10;        # Clamped external potassium concentration (mM/l)
+global Ca_o   = 16;        # Clamped external calcium concentration (mM/l)
+global H_o    = 0.125893;  # Clamped external hydrogen concentration (mM/l)
+
+global step_K_o = false;
 
 # Initial conditions
 global V_0    = -150.0;    # Initial membrane potential (mV)

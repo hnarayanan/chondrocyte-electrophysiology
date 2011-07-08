@@ -122,4 +122,5 @@ print -depslatexstandalone "../results/epslatex/other_currents-vi.tex"
 # Some special plots of interest
 figure(11, 'visible', 'off');
 subplot(2, 2, 1), plot(K_i, V, 'linewidth', line_width), xlabel('$[K^{+}]_{\mathrm{i}} (mM/l)$'), legend('$V_{\mathrm{m}} (mV)$');
+subplot(2, 2, 1), plot(t, K_o, 'linewidth', line_width), xlabel('$t (s)$'), legend('$[K^{+}]_{\mathrm{o}} (mM/l)$');
 print -depslatexstandalone "../results/epslatex/special_plots.tex"
