@@ -33,12 +33,12 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   else
     V = x(1);
   endif
- Na_i = x(2);
- K_i  = x(3);
- Ca_i = x(4);
- H_i  = x(5);
- a_ur = x(6);
- i_ur = x(7);
+  Na_i = x(2);
+  K_i  = x(3);
+  Ca_i = x(4);
+  H_i  = x(5);
+  a_ur = x(6);
+  i_ur = x(7);
 
   # Extract parameters
   g_K_b_bar = theta(1);
