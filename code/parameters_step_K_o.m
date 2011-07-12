@@ -21,13 +21,13 @@ global enable_parest = false;
 global clamp_conc = false;
 
 # Toggle setting of the membrane voltage
-global apply_Vm = true;
+global apply_Vm = false;
 
 # If apply_Vm is true, then one of clamp_Vm, ramp_Vm and step_Vm must be
 # true to define what voltage is to be applied
 global clamp_Vm = false;
 global step_Vm = false;
-global ramp_Vm = true;
+global ramp_Vm = false;
 global V_final = 90.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
@@ -55,7 +55,7 @@ global K_o_0  = 10;        # Clamped external potassium concentration (mM/l)
 global Ca_o   = 16;        # Clamped external calcium concentration (mM/l)
 global H_o    = 0.125893;  # Clamped external hydrogen concentration (mM/l)
 
-global step_K_o = false;
+global step_K_o = true;
 
 # Initial conditions
 global V_0    = -60.0;    # Initial membrane potential (mV)
