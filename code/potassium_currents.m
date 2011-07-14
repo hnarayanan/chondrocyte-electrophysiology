@@ -14,7 +14,7 @@
 
 function [a_ur_inf, i_ur_inf, tau_a_ur, tau_i_ur] = ultraRapidlyRectifyingPotassiumHelper(V)
   a_ur_inf   = 1.0/(1.0 + exp(-(V + 30.0)/10.0));
-  i_ur_inf   = 1.0/(1.0 + exp((V + 7.5)/10.0));
+  i_ur_inf   = 1.0/(1.0 + exp((V - 30.0)/10.0));
   tau_a_ur   = 0.005/(1.0 + exp((V + 5.0)/12.0));
   tau_i_ur   = 0.59/(1.0 + exp((V + 10.0)/24.0)) + 0.01;
 endfunction
