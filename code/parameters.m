@@ -28,7 +28,7 @@ global apply_Vm = true;
 global clamp_Vm = false;
 global step_Vm = false;
 global ramp_Vm = true;
-global V_final = 90.0;  # Final value of membrane voltage when ramped (mV)
+global V_final = 140.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = false;
@@ -46,12 +46,12 @@ global enable_I_TRP2 = false;
 global enable_I_stim = false;
 
 # Time-stepping information
-global t_final = 1;         # Final time (s)
+global t_final = 1.0;         # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # External concentrations
 global Na_o   = 320;       # Clamped external sodium concentration (mM/l)
-global K_o_0  = 10;        # Clamped external potassium concentration (mM/l)
+global K_o_0  = 5;         # Clamped external potassium concentration (mM/l)
 global Ca_o   = 16;        # Clamped external calcium concentration (mM/l)
 global H_o    = 0.125893;  # Clamped external hydrogen concentration (mM/l)
 
@@ -60,7 +60,7 @@ global step_K_o = false;
 # Initial conditions
 global V_0    = -150.0;    # Initial membrane potential (mV)
 global Na_i_0 = 0.516766;  # Initial internal sodium concentration (mM/l)
-global K_i_0  = 110.00;    # Initial internal potassium concentration (mM/l)
+global K_i_0  = 160.00;    # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 0.001;     # Initial internal calcium concentration (mM/l)
 global H_i_0  = 0.5;       # Initial internal hydrogen concentration (mM/l)
 global a_ur_0 = 0.000367;
@@ -116,11 +116,11 @@ global K_H_o = 1.62e-3;
 global N_NaH_channel = 4899;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
-global g_K_ur = 0.5;
+global g_K_ur = 0.30;
 
 # Constants related to the two-pore potassium channel
-global P_K = 7e-6;
-global I_K_2pore_0 = -80.0;
+global P_K = 6e-6;
+global I_K_2pore_0 = -90.0;
 
 # Constants related to the calcium-activated potassium channel
 global Zj = 1.10;
@@ -131,5 +131,5 @@ global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 4.8;
+global Gmax = 4.2;
 global N_channel = 1.0;
