@@ -28,5 +28,5 @@ pristine: clean
 
 ${BASENAME}.pdf: ${SOURCES}
 	@echo "Creating the PDF file:"
-	pdflatex ${BASENAME}
+	pdflatex -interaction=batchmode ${BASENAME}
 	egrep --color=auto -i '(warn|error|full)' ${BASENAME}.log
