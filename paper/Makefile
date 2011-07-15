@@ -36,5 +36,5 @@ ${BASENAME}.pdf: ${SOURCES}
 	bibtex -terse ${BASENAME} && \
 	pdflatex -interaction=batchmode ${BASENAME} && \
 	pdflatex -interaction=batchmode ${BASENAME} && \
-	pdflatex -interaction=batchmode ${BASENAME} && \
+	pdflatex -interaction=batchmode ${BASENAME}
 	egrep --color=auto -i '(warn|error|full)' ${BASENAME}.log
