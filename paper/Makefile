@@ -1,7 +1,7 @@
 # Modified from the simple build system I used for managing my
 # doctoral dissertation.
 #
-# Copyright (C) 2007--2011  Harish Narayanan
+# Copyright (C) 2007--2011 Harish Narayanan
 
 BASENAME = chondrocyte-model
 
@@ -32,7 +32,9 @@ pristine: clean
 
 ${BASENAME}.pdf: ${SOURCES}
 	@echo "Creating the PDF file:"
-	pdflatex ${BASENAME} && bibtex -terse ${BASENAME} && \
-	pdflatex ${BASENAME} && pdflatex ${BASENAME} && \
-	pdflatex ${BASENAME}
+	pdflatex -interaction=batchmode ${BASENAME} && \
+	bibtex -terse ${BASENAME} && \
+	pdflatex -interaction=batchmode ${BASENAME} && \
+	pdflatex -interaction=batchmode ${BASENAME} && \
+	pdflatex -interaction=batchmode ${BASENAME} && \
 	egrep --color=auto -i '(warn|error|full)' ${BASENAME}.log
