@@ -61,7 +61,13 @@ function I_K_Ca_act = calciumActivatedPotassium(V, K_i, K_o, Ca_i, Gmax)
   endif
 endfunction
 
-# FIXME: Implement the ATP-powered potassium pump
+# ATP-powered potassium pump from "Modeling Cardiac Action Potential
+# Shortening Driven by Oxidative Stress-Induced Mitochondrial
+# Oscillations in Guinea Pig Cardiomyocytes," L. Zhou, S. Cortassa, A-C.
+# Wei, M. A. Aon, R. L. Winslow, and B. O'Rourke. Biophys. J. 2009; 97;
+# 1843-1852 (p. 1845)
+# FIXME: Implement this
+
 function I_K_ATP = potassiumPump()
   global enable_I_K_ATP;
   if (enable_I_K_ATP == true)
