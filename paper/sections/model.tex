@@ -172,7 +172,63 @@ not consider.
 some rabbit chondrocytes and some osteo-arthritic cartilage. They are
 likely constantly inactivated due to the voltages the
 chondrocyte.  We instead model $I_{Na_{b}}$ as a sort of constant
-background Na+ leak. \textcolor{red}{Can we link this to $I_{Na_{b}}$?}
+background Na+ leak. \textcolor{red}{Can we link this to
+  $I_{Na_{b}}$?}
+
+[NO] {\bf Epithelial sodium channels (EnaC)}: Not clear what role this
+plays in chondrocytes, though it has been identified. People speculate
+it has something to do with mechanotransduction $\rightarrow$
+contributes to RMP. It is perhaps defective during osteoarthritis. We
+will point out we do not look at this as it pertains to mechanics.
+
+[MAYBE] {\bf Chloride channels (ClC)}: These have been found in human
+chondrocytes. Only one (CFTR) of a large family has been isolated. ClC
+can be important in regulating RMP and thus play a role in survival of
+the chondrocyte. They are probably needed for anion loss.
+\textcolor{red}{I will add this as a simple linear current because it
+  is easy to do and Bob's last e-mail said it {\em might} be there.}
+
+[NO] {\bf Aquaporin channels:} AQP or some other mechanism for
+transport of water seems super important to the functioning of the
+cell. Studies show loss of volume regulation with inhibition of
+AQP. But we will point out that we do not model it because it pertains
+to mechanics.
+
+[NO] {\bf NMDA channels:} This is an excitatory neuro-transmitter
+receptor. It is possibly linked to mechanotransduction.
+
+[YES] {\bf Some mechanism for sensing external pH}: ASIC channels
+(related to ENaC) are opened by extra-cellular protons (in the acidic
+environment of the chondrocytes ) and mediate an increase in
+Ca2+. There is also some other possible mechanism involving something
+called connexin-43. We use the Na+-H+ antiporter from
+\citet{Halletal1996,Wilkinsetal2000}. \textcolor{red}{Molly, could you
+  add a sentence or two here summarising why that will do?}
+
+[YES] {\bf Background (Na, K, Cl?) channels:} \textcolor{red}{Do I just use
+  background leakage as a motivation for this? Who do I cite?}
+
+[YES] {\bf Sodium-potassium pump:} Chondrocyte cell volume, as for
+other cell types, is determined by a pump-leak model---a double Donnan
+equilibrium existing between the intracellular compartment and the
+matrix \citep{Stockwell1991}. The effective exclusion of Na+ ions from
+the cell is achieved by the activity of the Na+-K+ ATPase, and volume
+is maintained by altered balance of leaks and pumps to hold cell water
+constant. Due to the high Na+ of their surroundings, chondrocytes are
+known to have a high Na+-K+ ATPase activity, with expression and
+functional activity upregulated to raised extracellular Na+
+\citep{Mobasherietal1997}.
+
+[YES] {\bf Sodium-Calcium exchanger:} \textcolor{red}{I found this in
+  a couple of places and apparently this is for calcium concentration
+  regulation. Could you write a sentence or two as to why this is
+  important?}
+
+\textcolor{red}{Also, could you go through Wilkins et al. 2000 and see
+if we are missing something useful? Both Hall et al. and these guys
+point out some HCO$^{-}_{3}$ activity in relation to H+ transport
+which might be interesting.}
+
 
 \subsection{Model Development}
 \label{sec:model-development}
