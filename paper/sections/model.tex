@@ -70,20 +70,10 @@ explore some of these channels.
     this along with our modelling.)
 \end{itemize}
 
-\subsection{Model Development}
-\label{sec:model-development}
-
-In this discourse, we focus our attention on a single chondrocyte cell
-residing in deep regions of cartilage. This cartilage environment is
-modelled simply by (fixed) external concentrations \Nao, \Ko, \Cao,
-and \Ho. Values for these concentrations are chosen within
-physiologically-relevant ranges (see
-Table~\ref{table:external-concentrations}). We are interested in
-studying the behaviour of cell under this environment, in particular
-looking at how the flux of these ions through membrane channels
-changes their internal concentrations over time and how this changes
-the cell's membrane potential. The channels under consideration are
-illustrated in Figure~\ref{fig:chondrocyte-model}.
+Some experimentally-reported values for the external concentrations of
+these different species from are reported in the following tables
+\ref{tab:external-concentrations-1} and
+\ref{tab:external-concentrations-2}.
 
 \begin{table}[ht]
 \begin{centering}
@@ -98,9 +88,48 @@ Deep zone    & 300--350  & 9--12    & 14--20    & $\sim$6.9\\
 \end{tabular}
 \caption{Experimental ranges of external concentrations
   \citep{Halletal1996}.}
-\label{table:external-concentrations}
+\label{tab:external-concentrations-1}
 \end{centering}
 \end{table}
+
+
+\begin{table}[ht]
+\begin{centering}
+\begin{tabular}{r c c c c}
+\hline\hline
+             & Cytoplasm & Matrix & Serum/Synovium\\
+\hline
+\Nao (mM) & 40       & 240--350 & 140\\
+\Ko (mM)  & 120--140 & 7--12    & 5\\
+\Cao (mM) & 8.e-5 & 6--15 & 1.5\\
+$[\mathrm{Cl}^{-}]_{\mathrm{o}} (mM)$ & 60--90 & 60--100 & 140\\
+$[\mathrm{HCO^{-}_{3}}]_{\mathrm{o}} (mM)$ & 20 & 15 & 23\\
+$[\mathrm{SO^{2-}_{4}}]_{\mathrm{o}} (mM)$ & 0.17 & 0.30 & 0.81\\
+pH (mM) & 7.1 & 6.6--6.9 & 7.4\\
+Osmolarity (mOsm) & --- & 350--450 & 300\\
+\hline
+\hline
+\end{tabular}
+\caption{Experimental ranges of external concentrations
+  \citep{Wilkinsetal2000}.}
+\label{tab:external-concentrations-2}
+\end{centering}
+\end{table}
+
+\subsection{Model Development}
+\label{sec:model-development}
+
+In this discourse, we focus our attention on a single chondrocyte cell
+residing in deep regions of cartilage. This cartilage environment is
+modelled simply by (fixed) external concentrations \Nao, \Ko, \Cao,
+and \Ho. Values for these concentrations are chosen within
+physiologically-relevant ranges (see
+Table~\ref{tab:external-concentrations}). We are interested in
+studying the behaviour of cell under this environment, in particular
+looking at how the flux of these ions through membrane channels
+changes their internal concentrations over time and how this changes
+the cell's membrane potential. The channels under consideration are
+illustrated in Figure~\ref{fig:chondrocyte-model}.
 
 \begin{figure}[ht]
   \centering
@@ -339,7 +368,7 @@ I_{\rm stim} = \overline{I_{\rm stim}}\, {\rm square}(\frac{2 \pi\,
 % \hline
 % \end{tabular}
 % \caption{Details of the model}
-% \label{table:chondrocyte-model-details}
+% \label{tab:chondrocyte-model-details}
 % \end{sidewaystable}
 
 % Local Variables:
