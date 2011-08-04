@@ -73,7 +73,8 @@ explore some of these channels.
 Some experimentally-reported values for the external concentrations of
 these different species from are reported in the following tables
 \ref{tab:external-concentrations-1} and
-\ref{tab:external-concentrations-2}.
+\ref{tab:external-concentrations-2}. (We will likely use one of these
+tables and values from \cite{Clarketal2011}.)
 
 \begin{table}[ht]
 \begin{centering}
@@ -115,6 +116,42 @@ Osmolarity (mOsm) & --- & 350--450 & 300\\
 \label{tab:external-concentrations-2}
 \end{centering}
 \end{table}
+
+\subsection{Known channels in the chondrocyte}
+\label{sec:known-channels}
+
+This will serve as a basis for the features the model can
+encompass. (YES: We model this in some fashion. NO: We ignore this for
+some valid reason. MAYBE: Not sure what to do about this)
+
+\subsubsection{Potassium channels}
+
+[YES] {\bf Delayed-rectifier $I_{K_{ur}}$}: One of the earliest channels
+found in the chondrocyte \citep{Walshetal1992, Sugimotoetal1996,
+  Mobasherietal2005a}. These usually repolarize active cells following
+action potentials but their role in chondrocytes are not known because
+chondrocytes are far more depolarised. Kv 1.4 and 1.6
+\citep{Clarketal2010b, Mobasherietal2005a} are known to exist. Others
+might as well. \textcolor{red}{Is it ok that we model Kv1.5?}
+
+[YES] {\bf Inwardly-rectifying $I_{K_{ATP}}$}: This channel is closed by
+intracellular ATP. It allows for physical coupling between metabolism
+and membrane excitability. It is observed to be open in the low-oxygen
+tension environment of chondrocytes \citep{DartStanden1994,
+  Mobasherietal2007}.
+
+[YES] {\bf Large calcium-activated Potassium $I_{BK}$}: 1. This could
+be important for RMP. 2. Could act as an ``osmolyte channel''
+$\rightarrow$ K+ ions leave $\rightarrow$ decrease intracellular
+osmotic potential $\rightarrow$ regulatory volume decrease. 3. Could
+be a stretch-activated channel. Stretch $\rightarrow$ increased
+calcium $\rightarrow$ increased BK current. (Many citations and
+speculations in \citet{BarrettJolleyetal2010}.)
+
+[NO] {\bf Small calcium-activated Potassium $I_{SK}$}: A few reports
+suggest this might exist \citep{Halletal1996,
+  BarrettJolleyetal2010}. Tiny magnitude, by definition and role
+unknown. So we ignore it.
 
 \subsection{Model Development}
 \label{sec:model-development}
