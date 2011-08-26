@@ -17,7 +17,7 @@
 # Toggle estimation of parameters
 global enable_parest = false;
 
-# Toggle clamping of the internal concentrations
+# Toggle clamping of the internal concentrations (for debugging)
 global clamp_conc = false;
 
 # Toggle setting of the membrane voltage
