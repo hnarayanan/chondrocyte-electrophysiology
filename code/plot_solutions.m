@@ -51,22 +51,25 @@ print -depslatexstandalone "../results/epslatex/membrane_behaviour.tex"
 
 # The different concentrations
 figure(2, 'visible', 'off');
-subplot(2, 2, 1), plot(t, Na_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[Na^{+}]_{\mathrm{i}}\,(mM/l)$');
-subplot(2, 2, 2), plot(t, K_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[K^{+}]_{\mathrm{i}}\,(mM/l)$');
-subplot(2, 2, 3), plot(t, Ca_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[Ca^{2+}]_{\mathrm{i}}\,(mM/l)$');
-subplot(2, 2, 4), plot(t, H_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[H^{+}]_{\mathrm{i}}\,(mM/l)$');
+subplot(2, 3, 1), plot(t, Na_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[Na^{+}]_{\mathrm{i}}\,(mM/l)$');
+subplot(2, 3, 2), plot(t, K_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[K^{+}]_{\mathrm{i}}\,(mM/l)$');
+subplot(2, 3, 3), plot(t, Ca_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[Ca^{2+}]_{\mathrm{i}}\,(mM/l)$');
+subplot(2, 3, 4), plot(t, H_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[H^{+}]_{\mathrm{i}}\,(mM/l)$');
+subplot(2, 3, 5), plot(t, Cl_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[Cl^{-}]_{\mathrm{i}}\,(mM/l)$');
 print -depslatexstandalone "../results/epslatex/concentrations.tex"
 
 # The different background currents (t-I)
 figure(3, 'visible', 'off');
 subplot(2, 2, 1), plot(t, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{Na_{b}}}\,(pA)$');
 subplot(2, 2, 2), plot(t, I_K_b,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{K_{b}}}\,(pA)$');
+subplot(2, 2, 3), plot(t, I_Cl_b, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{Cl_{b}}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/background_currents-ti.tex"
 
 # The different background currents (V-I)
 figure(4, 'visible', 'off');
 subplot(2, 2, 1), plot(V, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{Na_{b}}}\,(pA)$');
 subplot(2, 2, 2), plot(V, I_K_b,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{K_{b}}}\,(pA)$');
+subplot(2, 2, 3), plot(V, I_Cl_b, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{Cl_{b}}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/background_currents-vi.tex"
 
 # The different pump and exchanger currents (t-I)
