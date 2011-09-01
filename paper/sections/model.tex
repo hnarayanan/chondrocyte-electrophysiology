@@ -10,35 +10,81 @@
 % \item parameters and their estimation
 % \end{itemize}
 
-\subsection{Basic motivation for the model}
-\label{sec:model-motivation}
+\subsection{Model Development}
+\label{sec:model-development}
 
-Chondrocytes are the metabolically-active cells found in mature
-articular cartilage \citep{BarrettJolleyetal2010}. Articular cartilage
-is aneural, avascular, alymphatic connective tissue that covers the
-articulating ends of diarthroidal joints \citep{Poole1997,
-Mankin1982}. Articular cartilage is thus regularly exposed to
-mechanical stresses, and this exposure is essential for the health of
-the tissue \citep{Stockwell1991}. Chondrocytes occupy only 1--10\% of
-the total volume of articular cartilage in mammals
-\citep{CarneyMuir1988, Halletal1996} and play no direct mechanical
-role. Mechanical response is provided by the extra-cellular matrix
-(ECM) of articular cartilage. The ECM is composed of (a) collagen
-fibers, which gives the tissue the ability to resist tension (b)
-negatively-charged gel-like proteoglycans (PGs) trapped within the
-collagen mesh, allowing the tissue to bear compression
-\citep{Poole1997, BuckwalterMankin1998} and (c) synovial fluid within
-the articular capsule which acts as a lubricant, allowing for free
-movement of the bones \citep{Edwardsetal1994}. The chondrocyte thus
-resides in an atypical and dynamic environment and its primary role is
-to maintain of viable cartilage tissue by balancing macromolecular
-synthesis and breakdown (see e.g. \citet{Wilkinsetal2000,
-Stockwell1991, Fassbender1987}). Chondrocytes, like all other cells,
-must possess effective membrane transport systems to minimise changes
-of cellular composition (in particular, cell volume, pH and ionic
-content) in the face of fluctuating surroundings \citep{Halletal1996,
-  Mobasherietal1998, Stein1990}. The broad goal of our model is to
-explore some of these channels.
+In this discourse, we focus our attention on a single chondrocyte cell
+residing in deep regions of cartilage. This cartilage environment is
+modelled simply by (fixed) external concentrations \Nao, \Ko, \Cao,
+and \Ho. Values for these concentrations are chosen within
+physiologically-relevant ranges (see
+Table~\ref{tab:external-concentrations-2}). We are interested in
+studying the behaviour of cell under this environment, in particular
+looking at how the flux of these ions through membrane channels
+changes their internal concentrations over time and how this changes
+the cell's membrane potential. The channels under consideration are
+illustrated in Figure~\ref{fig:chondrocyte-model}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]
+  {../images/pdf/chondrocyte-model-cellml}
+  \caption{An illustration of the model.}
+  \label{fig:chondrocyte-model}
+\end{figure}
+
+In order to simplify the treatment, we assume that there are no
+spatial variations in these quantities of interest, allowing us to
+model the cell as the following set of ordinary differential equations
+(ODEs) in time.
+
+\begin{equation}
+  \frac{d}{dt}
+  \left(
+    \begin{array}{c}
+      V_{\rm m}\\
+      \left[Na^{+}\right]_{i}\\
+      \left[\rm K^{+}\right]_{i}\\
+      \left[\rm Ca^{2+}\right]_{i}\\
+      \left[\rm H^{+}\right]_{i}\\
+      a_{\rm ur}\\
+      i_{\rm ur}\\
+    \end{array}
+  \right)  = \left(
+    \begin{array}{c}
+        (-I_{i} + I_{\rm stim})/{C_{\rm m}}\\
+      - (I_{\rm Na_{b}} + 3\, I_{\rm NaK} + 3\, I_{\rm NaCa} - I_{\rm
+        NaH})/(v_{i}\, F)\\
+      - (I_{\rm K_{b}} - 2\, I_{\rm NaK} + I_{\rm K_{ur}} + I_{\rm
+        K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}})/(v_{i}\,
+      F)\\
+        (I_{\rm NaCa})/(v_{i}\, F)\\
+      - (I_{\rm NaH})/(v_{i}\, F)\\
+      (a_{{\rm ur}_{\infty}} - a_{\rm ur})/\tau_{a_{\rm ur}}\\
+      (i_{{\rm ur}_{\infty}} - i_{\rm ur})/\tau_{i_{\rm ur}}\\
+    \end{array}
+  \right)
+\end{equation}
+
+\noindent where,
+
+\begin{displaymath}
+    \begin{split}
+      I_{i} =
+      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b}}_{\rm
+        Background\, currents}\\
+      & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaH}}_{\rm
+        Pumps\, and\, exchangers}\\
+      & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm
+          K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
+      & +\, \underbrace{I_{\rm ASIC} + I_{\rm TRP1} + I_{\rm TRP2} +
+        I_{\rm stim}}_{\rm Other\, currents}
+    \end{split}
+\end{displaymath}
+
+This ODE system is solved for the primary vector of unknowns: $V_{\rm
+m}$, $Na_{\rm i}$, $K_{\rm i}$, $Ca_{\rm i}$, $H_{\rm i}$, $a_{\rm
+ur}$, $i_{\rm ur}$.
 
 \subsection{The atypical environment of the chondrocyte}
 \label{sec:chondrocyte-environment}
@@ -76,22 +122,22 @@ these different species from are reported in the following tables
 \ref{tab:external-concentrations-2}. (We will likely use one of these
 tables and values from \cite{Clarketal2011}.)
 
-\begin{table}[ht]
-\begin{centering}
-\begin{tabular}{r c c c c}
-\hline\hline
-             & \Nao (mM) & \Ko (mM) & \Cao (mM) & pH\\
-\hline
-Surface zone & 240--270  & 7--9     & 6--9      & 7.1--7.3\\
-Deep zone    & 300--350  & 9--12    & 14--20    & $\sim$6.9\\
-\hline
-\hline
-\end{tabular}
-\caption{Experimental ranges of external concentrations
-  \citep{Halletal1996}.}
-\label{tab:external-concentrations-1}
-\end{centering}
-\end{table}
+% \begin{table}[ht]
+% \begin{centering}
+% \begin{tabular}{r c c c c}
+% \hline\hline
+%              & \Nao (mM) & \Ko (mM) & \Cao (mM) & pH\\
+% \hline
+% Surface zone & 240--270  & 7--9     & 6--9      & 7.1--7.3\\
+% Deep zone    & 300--350  & 9--12    & 14--20    & $\sim$6.9\\
+% \hline
+% \hline
+% \end{tabular}
+% \caption{Experimental ranges of external concentrations
+%   \citep{Halletal1996}.}
+% \label{tab:external-concentrations-1}
+% \end{centering}
+% \end{table}
 
 
 \begin{table}[ht]
@@ -228,83 +274,6 @@ functional activity upregulated to raised extracellular Na+
 if we are missing something useful? Both Hall et al. and these guys
 point out some HCO$^{-}_{3}$ activity in relation to H+ transport
 which might be interesting.}
-
-
-\subsection{Model Development}
-\label{sec:model-development}
-
-In this discourse, we focus our attention on a single chondrocyte cell
-residing in deep regions of cartilage. This cartilage environment is
-modelled simply by (fixed) external concentrations \Nao, \Ko, \Cao,
-and \Ho. Values for these concentrations are chosen within
-physiologically-relevant ranges (see
-Table~\ref{tab:external-concentrations-2}). We are interested in
-studying the behaviour of cell under this environment, in particular
-looking at how the flux of these ions through membrane channels
-changes their internal concentrations over time and how this changes
-the cell's membrane potential. The channels under consideration are
-illustrated in Figure~\ref{fig:chondrocyte-model}.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {../images/pdf/chondrocyte-model-cellml}
-  \caption{An illustration of the model.}
-  \label{fig:chondrocyte-model}
-\end{figure}
-
-In order to simplify the treatment, we assume that there are no
-spatial variations in these quantities of interest, allowing us to
-model the cell as the following set of ordinary differential equations
-(ODEs) in time.
-
-\begin{equation}
-  \frac{d}{dt}
-  \left(
-    \begin{array}{c}
-      V_{\rm m}\\
-      \left[Na^{+}\right]_{i}\\
-      \left[\rm K^{+}\right]_{i}\\
-      \left[\rm Ca^{2+}\right]_{i}\\
-      \left[\rm H^{+}\right]_{i}\\
-      a_{\rm ur}\\
-      i_{\rm ur}\\
-    \end{array}
-  \right)  = \left(
-    \begin{array}{c}
-        (-I_{i} + I_{\rm stim})/{C_{\rm m}}\\
-      - (I_{\rm Na_{b}} + 3\, I_{\rm NaK} + 3\, I_{\rm NaCa} - I_{\rm
-        NaH})/(v_{i}\, F)\\
-      - (I_{\rm K_{b}} - 2\, I_{\rm NaK} + I_{\rm K_{ur}} + I_{\rm
-        K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}})/(v_{i}\,
-      F)\\
-        (I_{\rm NaCa})/(v_{i}\, F)\\
-      - (I_{\rm NaH})/(v_{i}\, F)\\
-      (a_{{\rm ur}_{\infty}} - a_{\rm ur})/\tau_{a_{\rm ur}}\\
-      (i_{{\rm ur}_{\infty}} - i_{\rm ur})/\tau_{i_{\rm ur}}\\
-    \end{array}
-  \right)
-\end{equation}
-
-\noindent where,
-
-\begin{displaymath}
-    \begin{split}
-      I_{i} =
-      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b}}_{\rm
-        Background\, currents}\\
-      & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaH}}_{\rm
-        Pumps\, and\, exchangers}\\
-      & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm
-          K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
-      & +\, \underbrace{I_{\rm ASIC} + I_{\rm TRP1} + I_{\rm TRP2} +
-        I_{\rm stim}}_{\rm Other\, currents}
-    \end{split}
-\end{displaymath}
-
-This ODE system is solved for the primary vector of unknowns: $V_{\rm
-m}$, $Na_{\rm i}$, $K_{\rm i}$, $Ca_{\rm i}$, $H_{\rm i}$, $a_{\rm
-ur}$, $i_{\rm ur}$.
 
 \subsection{Background Currents}
 \label{sec:background-currents}
