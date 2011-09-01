@@ -23,13 +23,15 @@ Na_i = x(:, 2);
 K_i  = x(:, 3);
 Ca_i = x(:, 4);
 H_i  = x(:, 5);
-a_ur = x(:, 6);
-I_ur = x(:, 7);
+Cl_i = x(:, 6);
+a_ur = x(:, 7);
+I_ur = x(:, 8);
 
 # Compute currents at all times
 K_o        = zeros(len_t, 1);
 I_Na_b     = zeros(len_t, 1);
 I_K_b      = zeros(len_t, 1);
+I_Cl_b     = zeros(len_t, 1);
 I_NaK      = zeros(len_t, 1);
 I_NaCa     = zeros(len_t, 1);
 I_NaH      = zeros(len_t, 1);
@@ -46,6 +48,7 @@ for ii = [1:len_t]
   K_o(ii) = appliedPotassiumConcentration(t(ii));
   I_Na_b(ii)     = backgroundSodium(V(ii), Na_i(ii));
   I_K_b(ii)      = backgroundPotassium(V(ii), K_i(ii), K_o(ii), g_K_b_bar);
+  I_Cl_b(ii)     = backgroundChloride(V(ii), Cl_i(ii));
   I_NaK(ii)      = sodiumPotassiumPump(V(ii), Na_i(ii), K_i(ii), K_o(ii));
   I_NaCa(ii)     = sodiumCalciumExchanger(V(ii), Na_i(ii), Ca_i(ii));
   I_NaH(ii)      = sodiumHydrogenExchanger(Na_i(ii), H_i(ii));
@@ -60,7 +63,7 @@ for ii = [1:len_t]
 endfor
 
 # Total ionic currents
-I_i =  I_Na_b + I_K_b \
+I_i =  I_Na_b + I_K_b + I_Cl_b \
       + I_NaK + I_NaCa + I_NaH \
       + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP \
       + I_ASIC + I_TRP1 + I_TRP2;

@@ -37,8 +37,9 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   K_i  = x(3);
   Ca_i = x(4);
   H_i  = x(5);
-  a_ur = x(6);
-  i_ur = x(7);
+  Cl_i = x(6);
+  a_ur = x(7);
+  i_ur = x(8);
 
   # Define external concentrations
   K_o = appliedPotassiumConcentration(t);
@@ -51,6 +52,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   # Calculate background currents
   I_Na_b = backgroundSodium(V, Na_i);
   I_K_b = backgroundPotassium(V, K_i, K_o, g_K_b_bar);
+  I_Cl_b = backgroundChloride(V, Cl_i);
 
   # Calculate pump and exchanger currents
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i, K_o);
@@ -70,7 +72,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   I_stim = externalStimulation(t);
 
   # Total ionic contribution
-  I_i = I_Na_b + I_K_b \
+  I_i = I_Na_b + I_K_b + I_Cl_b \
       + I_NaK + I_NaCa + I_NaH \
       + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP \
       + I_ASIC + I_TRP1 + I_TRP2;
@@ -84,13 +86,14 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   K_i_dot  = - (I_K_b  - 2*I_NaK + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP)/(vol_i*F);
   Ca_i_dot =   (I_NaCa)/(vol_i*F);
   H_i_dot =  - (I_NaH)/(vol_i*F);
+  Cl_i_dot = - (I_Cl_b)/(vol_i*F);
 
   [a_ur_inf, i_ur_inf, tau_a_ur, tau_i_ur] = ultraRapidlyRectifyingPotassiumHelper(V);
 
   a_ur_dot = (a_ur_inf - a_ur)/tau_a_ur;
   i_ur_dot = (i_ur_inf - i_ur)/tau_i_ur;
 
-  xdot = zeros(7, 1);
+  xdot = zeros(8, 1);
 
   global apply_Vm;
   if (apply_Vm == true)
@@ -105,14 +108,16 @@ function xdot = ode_rhs_parametrized(x, t, theta)
     xdot(3) = 0.0;
     xdot(4) = 0.0;
     xdot(5) = 0.0;
+    xdot(6) = 0.0;
   else
     xdot(2) = Na_i_dot;
     xdot(3) = K_i_dot;
     xdot(4) = Ca_i_dot;
     xdot(5) = H_i_dot;
+    xdot(6) = Cl_i_dot;
   endif
 
-  xdot(6) = a_ur_dot;
-  xdot(7) = i_ur_dot;
+  xdot(7) = a_ur_dot;
+  xdot(8) = i_ur_dot;
 
 endfunction

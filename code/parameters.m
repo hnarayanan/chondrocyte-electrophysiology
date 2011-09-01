@@ -33,6 +33,7 @@ global V_final = 140.0;  # Final value of membrane voltage when ramped (mV)
 # Toggle individual currents
 global enable_I_Na_b = false;
 global enable_I_K_b = true;
+global enable_I_Cl_b = true;
 global enable_I_NaK = false;
 global enable_I_NaCa = false;
 global enable_I_NaH = false;
@@ -54,6 +55,7 @@ global Na_o   = 320;       # Clamped external sodium concentration (mM/l)
 global K_o_0  = 5;         # Clamped external potassium concentration (mM/l)
 global Ca_o   = 16;        # Clamped external calcium concentration (mM/l)
 global H_o    = 0.125893;  # Clamped external hydrogen concentration (mM/l)
+global Cl_o   = 75;        # Clamped external chloride concentration (mM/l)
 
 global step_K_o = false;
 
@@ -63,6 +65,8 @@ global Na_i_0 = 0.516766;  # Initial internal sodium concentration (mM/l)
 global K_i_0  = 160.00;    # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 0.001;     # Initial internal calcium concentration (mM/l)
 global H_i_0  = 0.5;       # Initial internal hydrogen concentration (mM/l)
+global Cl_i_0  = 60;       # Initial internal chloride concentration (mM/l)
+
 global a_ur_0 = 0.000367;
 global i_ur_0 = 0.967290;
 
@@ -76,6 +80,7 @@ global z_Na = 1;         # Charge on the sodium ion
 global z_K  = 1;         # Charge on the potassium ion
 global z_Ca = 2;         # Charge on the calcium ion
 global z_H  = 1;         # Charge on the calcium ion
+global z_Cl  = 1;        # Charge on the chloride ion
 
 # Cell parameters
 global C_m = 8.1;        # Membrane capacitance
@@ -89,6 +94,7 @@ global I_stim_bar = 0.0; # Stimulation current magnitude (pA)
 # Background conductances
 global g_Na_b_bar = 0.2;   # Background sodium leakage conductance (pS)
 global g_K_b_bar = 0.2;    # Background potassium leakage conductance (pS)
+global g_Cl_b_bar = 0.2;   # Background chloride leakage conductance (pS)
 
 # Constants related to the sodium-potassium pump
 global I_NaK_bar = 68.55;

@@ -30,3 +30,15 @@ function I_K_b = backgroundPotassium(V, K_i, K_o, g_K_b_bar)
     I_K_b = 0.0;
   endif
 endfunction
+
+# Background chloride current
+function I_Cl_b = backgroundChloride(V, Cl_i)
+  global enable_I_Cl_b;
+  if (enable_I_Cl_b == true)
+    global z_Cl, global g_Cl_b_bar, global Cl_o;
+    E_Cl = nernstPotential(z_Cl, Cl_i, Cl_o);
+    I_Cl_b = - g_Cl_b_bar*(V - E_Cl);
+  else
+    I_Cl_b = 0.0;
+  endif
+endfunction
