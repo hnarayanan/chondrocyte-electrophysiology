@@ -51,7 +51,7 @@ plot(V, I_i/C_m, 'linewidth', line_width, 'color', blue), xlabel('\Huge $V_{m}\,
 hold on;
 plot(V_ref, I_i_by_C_m_ref, '1', 'linewidth', line_width, 'color', red);
 hold off;
-print -depslatexstandalone "../results/epslatex/t-I_i_by_Cm.tex"
+print -depslatexstandalone "../results/epslatex/V-I_i_by_Cm.tex"
 
 # Plot the different concentrations
 plot(t, Na_i, 'linewidth', line_width, 'color', blue), xlabel('\Huge $t\,(s)$'), grid(), ylabel('\Huge $[Na^{+}]_{\mathrm{i}}\,(mM/l)$');
