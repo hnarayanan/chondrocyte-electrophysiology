@@ -10,8 +10,8 @@
 # Clear the screen and define plotting parameters
 clf;
 line_width = 5;
-blue =  [0.00, 0.61, 0.99];
-red =   [1.00, 0.17, 0.00];
+blue = [0.00, 0.61, 0.99];
+red =  [1.00, 0.17, 0.00];
 
 # Plot directly to file
 figure(1, 'visible', 'off');
