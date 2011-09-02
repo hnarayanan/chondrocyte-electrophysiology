@@ -19,6 +19,16 @@ global enable_parest;
 if (enable_parest == false) # Without parameter estimation
   x = lsode("ode_rhs", x0, t);
 else
+
+  # Ensure that the Sundials toolbox is in the path
+  if (~ exist ('CVode'))
+    if (exist ('startup_STB'))
+      startup_STB;
+    else
+      error ('%s: requires the Sundials toolbox, please see the README file for installation instructions');
+    end
+  end
+
   # Define the overall model
   global model;
   model.odefcn = @ode_rhs_parametrized;

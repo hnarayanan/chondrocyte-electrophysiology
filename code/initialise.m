@@ -8,12 +8,3 @@
 # Clear memory and close all open plot windows
 clear all;
 close all;
-
-# Ensure that the Sundials toolbox is in the path
-if (~ exist ('CVode'))
-  if (exist ('startup_STB'))
-    startup_STB;
-  else
-    error ('%s: requires the Sundials toolbox, please see the README file for installation instructions');
-  end
-end
