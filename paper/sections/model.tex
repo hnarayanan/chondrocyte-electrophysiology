@@ -10,13 +10,13 @@
 % \item parameters and their estimation
 % \end{itemize}
 
-\subsection{Model Development}
+\subsection{Model development}
 \label{sec:model-development}
 
 In this discourse, we focus our attention on a single chondrocyte cell
 residing in deep regions of cartilage. This cartilage environment is
 modelled simply by (fixed) external concentrations \Nao, \Ko, \Cao,
-and \Ho. Values for these concentrations are chosen within
+\Ho and \Clo. Values for these concentrations are chosen within
 physiologically-relevant ranges (see
 Table~\ref{tab:external-concentrations-2}). We are interested in
 studying the behaviour of cell under this environment, in particular
@@ -25,7 +25,8 @@ changes their internal concentrations over time and how this changes
 the cell's membrane potential. The channels under consideration are
 illustrated in Figure~\ref{fig:chondrocyte-model}.
 
-\todo{Update the following figure and equations}
+\todo{Update the following figure with the final selection of
+  channels}
 
 \begin{figure}[ht]
   \centering
@@ -49,6 +50,7 @@ model the cell as the following set of ordinary differential equations
       \left[\rm K^{+}\right]_{i}\\
       \left[\rm Ca^{2+}\right]_{i}\\
       \left[\rm H^{+}\right]_{i}\\
+      \left[\rm Cl^{-}\right]_{i}\\
       a_{\rm ur}\\
       i_{\rm ur}\\
     \end{array}
@@ -62,6 +64,7 @@ model the cell as the following set of ordinary differential equations
       F)\\
         (I_{\rm NaCa})/(v_{i}\, F)\\
       - (I_{\rm NaH})/(v_{i}\, F)\\
+      + (I_{\rm Cl_{b}})/(v_{i}\, F)\\
       (a_{{\rm ur}_{\infty}} - a_{\rm ur})/\tau_{a_{\rm ur}}\\
       (i_{{\rm ur}_{\infty}} - i_{\rm ur})/\tau_{i_{\rm ur}}\\
     \end{array}
@@ -73,20 +76,22 @@ model the cell as the following set of ordinary differential equations
 \begin{displaymath}
     \begin{split}
       I_{i} =
-      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b}}_{\rm
+      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b} + I_{\rm Cl_b}}_{\rm
         Background\, currents}\\
       & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaH}}_{\rm
         Pumps\, and\, exchangers}\\
       & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm
           K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
-      & +\, \underbrace{I_{\rm ASIC} + I_{\rm TRP1} + I_{\rm TRP2} +
-        I_{\rm stim}}_{\rm Other\, currents}
+      & +\, \underbrace{I_{\rm VGSC} + I_{\rm TRP_{V4}} + I_{\rm
+          stim}}_{\rm Other\, currents}
     \end{split}
 \end{displaymath}
 
 This ODE system is solved for the primary vector of unknowns: $V_{\rm
-m}$, $Na_{\rm i}$, $K_{\rm i}$, $Ca_{\rm i}$, $H_{\rm i}$, $a_{\rm
-ur}$, $i_{\rm ur}$.
+m}$, \Nai, \Ki, \Cai, \Hi, \Cli, $a_{\rm ur}$, and $i_{\rm ur}$.
+
+\todo{Discuss details of how it is done here. Methods used, and the
+  paramterisation and the fact that the code is available for free.}
 
 \subsection{The atypical environment of the chondrocyte}
 \label{sec:chondrocyte-environment}
@@ -167,120 +172,11 @@ Osmolarity (mOsm) & --- & 350--450 & 300\\
 
 \todo{Merge the channel notes with the math}
 
-\subsection{Known channels in the chondrocyte}
-\label{sec:known-channels}
-
-This will serve as a basis for the features the model can
-encompass. (YES: We model this in some fashion. NO: We ignore this for
-some valid reason. MAYBE: Not sure what to do about this)
-
-[YES] {\bf Delayed-rectifier $I_{K_{ur}}$}: One of the earliest channels
-found in the chondrocyte \citep{Walshetal1992, Sugimotoetal1996,
-  Mobasherietal2005}. These usually repolarize active cells following
-action potentials but their role in chondrocytes are not known because
-chondrocytes are far more depolarised. Kv 1.4 and 1.6
-\citep{Clarketal2010, Mobasherietal2005} are known to exist. Others
-might as well. \textcolor{red}{Is it ok that we model Kv1.5?}
-
-[YES] {\bf Inwardly-rectifying $I_{K_{ATP}}$}: This channel is closed by
-intracellular ATP. It allows for physical coupling between metabolism
-and membrane excitability. It is observed to be open in the low-oxygen
-tension environment of chondrocytes \citep{DartStanden1994,
-  Mobasherietal2007}.
-
-[YES] {\bf Large calcium-activated Potassium $I_{BK}$}: 1. This could
-be important for RMP. 2. Could act as an ``osmolyte channel''
-$\rightarrow$ K+ ions leave $\rightarrow$ decrease intracellular
-osmotic potential $\rightarrow$ regulatory volume decrease. 3. Could
-be a stretch-activated channel. Stretch $\rightarrow$ increased
-calcium $\rightarrow$ increased BK current. (Many citations and
-speculations in \citet{BarrettJolleyetal2010}.)
-
-[YES] {\bf Two-pore potassium $I_{2 pore}$}: Plays an important role
-in RMP. \citep{Clarketal2011} point out its existence.
-
-[NO] {\bf Small calcium-activated Potassium $I_{SK}$}: A few reports
-suggest this might exist \citep{Halletal1996,
-  BarrettJolleyetal2010}. Tiny magnitude, by definition and role
-unknown. So we ignore it.
-
-[YES] {\bf TRP channels (TRPv4 in particular)}: These show little
-selectivity between cations Na+, Ca2+, Mg2+. Several have been
-identified in osteo-arthritic cartilage. Knocking out TRPv4
-$\rightarrow$ loss of Ca2+ response to hypo-osmotic challenge
-$\rightarrow$ osteoarthritic changes. (Will cite.) Thus, membrane
-stretch $\rightarrow$ calcium mobilisation via TRPv4 $\rightarrow$
-activation of Ca-act K, chondrogenesis and volume regulation.
-
-[NO] {\bf Voltage-gated calcium channels}: T, L-type VGCC found in
-some cartilage. Others refute. Supposedly, aggrecan and collagen
-synthesis induced by electrical stimulation relies on this channel. We
-will claim not important for RMP, just tissue growth, and thus we do
-not consider.
-
-[??] {\bf Voltage-gated sodium channels}: These have been found in
-some rabbit chondrocytes and some osteo-arthritic cartilage. They are
-likely constantly inactivated due to the voltages the
-chondrocyte.  We instead model $I_{Na_{b}}$ as a sort of constant
-background Na+ leak. \textcolor{red}{Can we link this to
-  $I_{Na_{b}}$?}
-
-[NO] {\bf Epithelial sodium channels (EnaC)}: Not clear what role this
-plays in chondrocytes, though it has been identified. People speculate
-it has something to do with mechanotransduction $\rightarrow$
-contributes to RMP. It is perhaps defective during osteoarthritis. We
-will point out we do not look at this as it pertains to mechanics.
-
-[MAYBE] {\bf Chloride channels (ClC)}: These have been found in human
-chondrocytes. Only one (CFTR) of a large family has been isolated. ClC
-can be important in regulating RMP and thus play a role in survival of
-the chondrocyte. They are probably needed for anion loss.
-\textcolor{red}{I will add this as a simple linear current because it
-  is easy to do and Bob's last e-mail said it {\em might} be there.}
-
-[NO] {\bf Aquaporin channels:} AQP or some other mechanism for
-transport of water seems super important to the functioning of the
-cell. Studies show loss of volume regulation with inhibition of
-AQP. But we will point out that we do not model it because it pertains
-to mechanics.
-
-[NO] {\bf NMDA channels:} This is an excitatory neuro-transmitter
-receptor. It is possibly linked to mechanotransduction.
-
-[YES] {\bf Some mechanism for sensing external pH}: ASIC channels
-(related to ENaC) are opened by extra-cellular protons (in the acidic
-environment of the chondrocytes ) and mediate an increase in
-Ca2+. There is also some other possible mechanism involving something
-called connexin-43. We use the Na+-H+ antiporter from
-\citet{Halletal1996,Wilkinsetal2000}. \textcolor{red}{Molly, could you
-  add a sentence or two here summarising why that will do?}
-
-[YES] {\bf Background (Na, K, Cl?) channels:} \textcolor{red}{Do I just use
-  background leakage as a motivation for this? Who do I cite?}
-
-[YES] {\bf Sodium-potassium pump:} Chondrocyte cell volume, as for
-other cell types, is determined by a pump-leak model---a double Donnan
-equilibrium existing between the intracellular compartment and the
-matrix \citep{Stockwell1991}. The effective exclusion of Na+ ions from
-the cell is achieved by the activity of the Na+-K+ ATPase, and volume
-is maintained by altered balance of leaks and pumps to hold cell water
-constant. Due to the high Na+ of their surroundings, chondrocytes are
-known to have a high Na+-K+ ATPase activity, with expression and
-functional activity upregulated to raised extracellular Na+
-\citep{Mobasherietal1997}.
-
-[YES] {\bf Sodium-Calcium exchanger:} \textcolor{red}{I found this in
-  a couple of places and apparently this is for calcium concentration
-  regulation. Could you write a sentence or two as to why this is
-  important?}
-
-\textcolor{red}{Also, could you go through Wilkins et al. 2000 and see
-if we are missing something useful? Both Hall et al. and these guys
-point out some HCO$^{-}_{3}$ activity in relation to H+ transport
-which might be interesting.}
-
 \subsection{Background Currents}
 \label{sec:background-currents}
+
+[YES] {\bf Background (Na, K, Cl) channels:} I am just going to use
+background leakage as motivation for these, citing Hodgkin-Huxley.
 
 Background Sodium Current (Hodgkin Huxley?):
 \begin{equation}
@@ -302,8 +198,34 @@ Background Potassium Current (Hodgkin Huxley?):
   \end{split}
 \end{equation}
 
+[YES] {\bf Chloride channels (ClC)}: These have been found in human
+chondrocytes. Only one (CFTR) of a large family has been isolated. ClC
+can be important in regulating RMP and thus play a role in survival of
+the chondrocyte. They are probably needed for anion loss.
+
+Background Chloride Current (Hodgkin Huxley?):
+\begin{equation}
+  \begin{split}
+    I_{\rm Cl_b} & = \bar{g}_{\rm Cl_b} (V_{\rm m} - E_{\rm Cl})\\
+    E_{\rm Cl} & =  \frac{R T}{z_{\rm Cl} F}
+    \ln\left(\frac{\left[Cl^{+}\right]_{o}}
+      {\left[Cl^{+}\right]_{i}}\right)
+  \end{split}
+\end{equation}
+
 \subsection{Pumps and exchangers}
 \label{sec:pumps-and-exchangers}
+
+[YES] {\bf Sodium-potassium pump:} Chondrocyte cell volume, as for
+other cell types, is determined by a pump-leak model---a double Donnan
+equilibrium existing between the intracellular compartment and the
+matrix \citep{Stockwell1991}. The effective exclusion of Na+ ions from
+the cell is achieved by the activity of the Na+-K+ ATPase, and volume
+is maintained by altered balance of leaks and pumps to hold cell water
+constant. Due to the high Na+ of their surroundings, chondrocytes are
+known to have a high Na+-K+ ATPase activity, with expression and
+functional activity upregulated to raised extracellular Na+
+\citep{Mobasherietal1997}.
 
 Sodium Potassium Pump \citep[Table 12, pp. 77]{Nygrenetal1998}:
 \begin{equation}
@@ -314,6 +236,11 @@ Sodium Potassium Pump \citep[Table 12, pp. 77]{Nygrenetal1998}:
     200} \right)
 \end{equation}
 
+[YES] {\bf Sodium-Calcium exchanger:} \textcolor{red}{I found this in
+  a couple of places and apparently this is for calcium concentration
+  regulation. Could you write a sentence or two as to why this is
+  important?}
+
 Sodium Calcium Exchanger \citep[Table 13, pp. 77]{Nygrenetal1998}:
 \begin{equation}
   I_{\rm NaCa} = k_{\rm NaCa} \frac{[\rm Na^{+}]^{3}_{i}[\rm
@@ -322,6 +249,14 @@ Sodium Calcium Exchanger \citep[Table 13, pp. 77]{Nygrenetal1998}:
       T})} {1.0 + d_{\rm NaCa}([\rm Na^{+}]^{3}_{o}[\rm Ca^{2+}]_{i} +
     [\rm Na^{+}]^{3}_{i}[\rm Ca^{2+}]_{o})}
 \end{equation}
+
+[YES] {\bf Some mechanism for sensing external pH}: ASIC channels
+(related to ENaC) are opened by extra-cellular protons (in the acidic
+environment of the chondrocytes ) and mediate an increase in
+Ca2+. There is also some other possible mechanism involving something
+called connexin-43. We use the Na+-H+ antiporter from
+\citet{Halletal1996,Wilkinsetal2000}. \textcolor{red}{Molly, could you
+  add a sentence or two here summarising why that will do?}
 
 Sodium Hydrogen Exchanger \citep[Eq. 2, pp. 2675]{Chaetal2009}
 \begin{equation}
@@ -350,6 +285,14 @@ Sodium Hydrogen Exchanger \citep[Eq. 2, pp. 2675]{Chaetal2009}
 \subsection{Potassium channels}
 \label{sec:potassium-channels}
 
+[YES] {\bf Delayed-rectifier $I_{K_{ur}}$}: One of the earliest channels
+found in the chondrocyte \citep{Walshetal1992, Sugimotoetal1996,
+  Mobasherietal2005}. These usually repolarize active cells following
+action potentials but their role in chondrocytes are not known because
+chondrocytes are far more depolarised. Kv 1.4 and 1.6
+\citep{Clarketal2010, Mobasherietal2005} are known to exist. Others
+might as well. \textcolor{red}{Is it ok that we model Kv1.5?}
+
 Ultra-rapidly rectifying potassium channel \citep{Maleckaretal2009}:
 \begin{equation}
   \begin{split}
@@ -369,6 +312,9 @@ Ultra-rapidly rectifying potassium channel \citep{Maleckaretal2009}:
   \end{split}
 \end{equation}
 
+[YES] {\bf Two-pore potassium $I_{2 pore}$}: Plays an important role
+in RMP. \citep{Clarketal2011} point out its existence.
+
 Two-pore potassium channel \citep{UNKNOWN}:
 \begin{equation}
  I_{\rm K_{2\, pore}} = P_{\rm K}\, \frac{z_{\rm K}^2\, V\, F^{2}}{R\,
@@ -376,6 +322,14 @@ Two-pore potassium channel \citep{UNKNOWN}:
  exp(\frac{-z_{\rm K}\, V\, F}{R\, T}))}{(1 - \exp(-z_K\, V\, F/(R\,
  T))} + I_{{\rm K_{2\, pore}}_0}
 \end{equation}
+
+[YES] {\bf Large calcium-activated Potassium $I_{BK}$}: 1. This could
+be important for RMP. 2. Could act as an ``osmolyte channel''
+$\rightarrow$ K+ ions leave $\rightarrow$ decrease intracellular
+osmotic potential $\rightarrow$ regulatory volume decrease. 3. Could
+be a stretch-activated channel. Stretch $\rightarrow$ increased
+calcium $\rightarrow$ increased BK current. (Many citations and
+speculations in \citet{BarrettJolleyetal2010}.)
 
 Calcium-activated potassium channel \citep{HorriganAldrich2002}:
 \begin{equation}
@@ -395,6 +349,12 @@ Calcium-activated potassium channel \citep{HorriganAldrich2002}:
   \end{split}
 \end{equation}
 
+[YES] {\bf Inwardly-rectifying $I_{K_{ATP}}$}: This channel is closed by
+intracellular ATP. It allows for physical coupling between metabolism
+and membrane excitability. It is observed to be open in the low-oxygen
+tension environment of chondrocytes \citep{DartStanden1994,
+  Mobasherietal2007}.
+
 Potassium pump \citep{UNKNOWN}:
 \begin{equation}
   I_{\rm K_{ATP}} =
@@ -403,19 +363,28 @@ Potassium pump \citep{UNKNOWN}:
 \subsection{Other channels}
 \label{sec:other-channels}
 
-Voltage-activated hydrogen channel \citep{UNKNOWN}:
-\begin{equation}
-  I_{\rm ASIC} =
-\end{equation}
-
-Stretch-activated trip channel \citep{UNKNOWN}:
-\begin{equation}
-  I_{\rm TRP1} = \bar{g}_{\rm TRP1}\, (V_{\rm m} - E_{\rm ?})
-\end{equation}
+[YES] {\bf TRP channels (TRPv4 in particular)}: These show little
+selectivity between cations Na+, Ca2+, Mg2+. Several have been
+identified in osteo-arthritic cartilage. Knocking out TRPv4
+$\rightarrow$ loss of Ca2+ response to hypo-osmotic challenge
+$\rightarrow$ osteoarthritic changes. (Will cite.) Thus, membrane
+stretch $\rightarrow$ calcium mobilisation via TRPv4 $\rightarrow$
+activation of Ca-act K, chondrogenesis and volume regulation.
 
 Osteo-arthritic trip channel \citep{UNKNOWN}:
 \begin{equation}
-  I_{\rm TRP2} = \bar{g}_{\rm TRP2}\, (V_{\rm m} - E_{\rm ?})
+  I_{\rm TRP_{V4}} = \bar{g}_{\rm TRP_{V4}}\, (V_{\rm m} - E_{\rm ?})
+\end{equation}
+
+[??] {\bf Voltage-gated sodium channels}: These have been found in
+some rabbit chondrocytes and some osteo-arthritic cartilage. They are
+likely constantly inactivated due to the voltages the
+chondrocyte.  We instead model $I_{Na_{b}}$ as a sort of constant
+background Na+ leak. \textcolor{red}{Can we link this to
+  $I_{Na_{b}}$?}
+
+\begin{equation}
+  I_{\rm VGSC} =
 \end{equation}
 
 External stimulation (matching experiments, e.g. cyclic stimulation):
