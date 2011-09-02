@@ -7,11 +7,14 @@
 
 1;
 
-# Clear the screen and plot solutions
+# Clear the screen and define plotting parameters
 clf;
 line_width = 5;
 blue =  [0.00, 0.61, 0.99];
 red =   [1.00, 0.17, 0.00];
+
+# Plot directly to file
+figure(1, 'visible', 'off');
 
 # Load reference solutions
 V_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 1);
@@ -39,93 +42,112 @@ I_ref_density_with_DTX = csvread('../data/reference_values/Total_Current_Density
 I_ref_without_DTX_int = interp1(V_ref_without_DTX, I_ref_density_without_DTX, V)*C_m;
 I_ref_with_DTX_int = interp1(V_ref_with_DTX, I_ref_density_with_DTX, V)*C_m;
 
-
-# The membrane voltage and total currents
-figure(1, 'visible', 'off');
-subplot(2, 2, 1), plot(t, V, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$V_{\mathrm{m}}\,(mV)$');
-subplot(2, 2, 2), plot(t, I_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{i}}\,(pA)$');
-subplot(2, 2, 3), plot(V, I_i/C_m, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{i}}/C_{\mathrm{m}}\,(pA/pF)$');
+# Plot the membrane voltage and total currents
+plot(t, V, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $V_{\mathrm{m}}\,(mV)$');
+print -depslatexstandalone "../results/epslatex/t-V.tex"
+plot(t, I_i, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{i}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_i.tex"
+plot(V, I_i/C_m, 'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{i}}/C_{\mathrm{m}}\,(pA/pF)$');
 hold on;
 plot(V_ref, I_i_by_C_m_ref, '1', 'linewidth', line_width, 'color', red);
-print -depslatexstandalone "../results/epslatex/membrane_behaviour.tex"
+hold off;
+print -depslatexstandalone "../results/epslatex/t-I_i_by_Cm.tex"
 
-# The different concentrations
-figure(2, 'visible', 'off');
-subplot(2, 3, 1), plot(t, Na_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[Na^{+}]_{\mathrm{i}}\,(mM/l)$');
-subplot(2, 3, 2), plot(t, K_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[K^{+}]_{\mathrm{i}}\,(mM/l)$');
-subplot(2, 3, 3), plot(t, Ca_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[Ca^{2+}]_{\mathrm{i}}\,(mM/l)$');
-subplot(2, 3, 4), plot(t, H_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[H^{+}]_{\mathrm{i}}\,(mM/l)$');
-subplot(2, 3, 5), plot(t, Cl_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[Cl^{-}]_{\mathrm{i}}\,(mM/l)$');
-print -depslatexstandalone "../results/epslatex/concentrations.tex"
+# Plot the different concentrations
+plot(t, Na_i, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $[Na^{+}]_{\mathrm{i}}\,(mM/l)$');
+print -depslatexstandalone "../results/epslatex/t-Na_i.tex"
+plot(t, K_i,  'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $[K^{+}]_{\mathrm{i}}\,(mM/l)$');
+print -depslatexstandalone "../results/epslatex/t-K_i.tex"
+plot(t, Ca_i, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $[Ca^{2+}]_{\mathrm{i}}\,(mM/l)$');
+print -depslatexstandalone "../results/epslatex/t-Ca_i.tex"
+plot(t, H_i,  'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $[H^{+}]_{\mathrm{i}}\,(mM/l)$');
+print -depslatexstandalone "../results/epslatex/t-H_i.tex"
+plot(t, Cl_i,  'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $[Cl^{-}]_{\mathrm{i}}\,(mM/l)$');
+print -depslatexstandalone "../results/epslatex/t-Cl_i.tex"
 
-# The different background currents (t-I)
-figure(3, 'visible', 'off');
-subplot(2, 2, 1), plot(t, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{Na_{b}}}\,(pA)$');
-subplot(2, 2, 2), plot(t, I_K_b,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{K_{b}}}\,(pA)$');
-subplot(2, 2, 3), plot(t, I_Cl_b, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{Cl_{b}}}\,(pA)$');
-print -depslatexstandalone "../results/epslatex/background_currents-ti.tex"
+# Plot the different background currents (t-I)
+plot(t, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{Na_{b}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_Na_b.tex"
+plot(t, I_K_b,  'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{K_{b}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_K_b.tex"
+plot(t, I_Cl_b, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{Cl_{b}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_Cl_b.tex"
 
-# The different background currents (V-I)
-figure(4, 'visible', 'off');
-subplot(2, 2, 1), plot(V, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{Na_{b}}}\,(pA)$');
-subplot(2, 2, 2), plot(V, I_K_b,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{K_{b}}}\,(pA)$');
-subplot(2, 2, 3), plot(V, I_Cl_b, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{Cl_{b}}}\,(pA)$');
-print -depslatexstandalone "../results/epslatex/background_currents-vi.tex"
+# Plot the different background currents (V-I)
+plot(V, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{Na_{b}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_Na_b.tex"
+plot(V, I_K_b,  'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{K_{b}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_K_b.tex"
+plot(V, I_Cl_b, 'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{Cl_{b}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_Cl_b.tex"
 
-# The different pump and exchanger currents (t-I)
-figure(5, 'visible', 'off');
-subplot(2, 2, 1), plot(t, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{NaK}}\,(pA)$');
-subplot(2, 2, 2), plot(t, I_NaCa, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{NaCa}}\,(pA)$');
-subplot(2, 2, 3), plot(t, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{NaH}}\,(pA)$');
-print -depslatexstandalone "../results/epslatex/pumps_and_exchangers-ti.tex"
+# Plot the different pump and exchanger currents (t-I)
+plot(t, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{NaK}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_NaK.tex"
+plot(t, I_NaCa, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{NaCa}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_NaCa.tex"
+plot(t, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{NaH}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_NaH.tex"
 
-# The different pump and exchanger currents (V-I)
-figure(6, 'visible', 'off');
-subplot(2, 2, 1), plot(V, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{NaK}}\,(pA)$');
-subplot(2, 2, 2), plot(V, I_NaCa, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{NaCa}}\,(pA)$');
-subplot(2, 2, 3), plot(V, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{NaH}}\,(pA)$');
-print -depslatexstandalone "../results/epslatex/pumps_and_exchangers-vi.tex"
+# Plot the different pump and exchanger currents (V-I)
+plot(V, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{NaK}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_NaK.tex"
+plot(V, I_NaCa, 'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{NaCa}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_NaCa.tex"
+plot(V, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{NaH}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_NaH.tex"
 
-# The other potassium currents (t-I)
-figure(7, 'visible', 'off');
-subplot(2, 2, 1), plot(t, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{K_{ur}}}\,(pA)$');
-subplot(2, 2, 2), plot(t, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{K_{2pore}}}\,(pA)$');
-subplot(2, 2, 3), plot(t, I_K_Ca_act, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{K_{Ca-act}}}\,(pA)$');
-subplot(2, 2, 4), plot(t, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm{K_{ATP}}}\,(pA)$');
-print -depslatexstandalone "../results/epslatex/potassium_currents-ti.tex"
+# Plot the other potassium currents (t-I)
+plot(t, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{K_{ur}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_K_ur.tex"
+plot(t, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{K_{2pore}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_K_2pore.tex"
+plot(t, I_K_Ca_act, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{K_{Ca-act}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_K_Ca_act.tex"
+plot(t, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm{K_{ATP}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_K_ATP.tex"
 
-# The other potassium currents (V-I)
-figure(8, 'visible', 'off');
-subplot(2, 2, 1), plot(V, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{K_{ur}}}\,(pA)$');
+# Plot the other potassium currents (V-I)
+plot(V, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{K_{ur}}}\,(pA)$');
 hold on;
 plot(V, I_ref_without_DTX_int - I_ref_with_DTX_int, '1', 'linewidth', line_width, 'color', red);
-subplot(2, 2, 2), plot(V, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{K_{2pore}}}\,(pA)$');
+hold off;
+print -depslatexstandalone "../results/epslatex/V-I_K_ur.tex"
+plot(V, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{K_{2pore}}}\,(pA)$');
 hold on;
 plot(V, I_ref_without_BUP_int - I_ref_with_BUP_int, '1', 'linewidth', line_width, 'color', red);
-subplot(2, 2, 3), plot(V, I_K_Ca_act, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{K_{Ca-act}}}\,(pA)$');
+hold off;
+print -depslatexstandalone "../results/epslatex/V-I_K_2pore.tex"
+plot(V, I_K_Ca_act, 'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{K_{Ca-act}}}\,(pA)$');
 hold on;
 plot(V, I_ref_without_TEA_int - I_ref_with_TEA_int, '1', 'linewidth', line_width, 'color', red);
-subplot(2, 2, 4), plot(V, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm{K_{ATP}}}\,(pA)$');
-print -depslatexstandalone "../results/epslatex/potassium_currents-vi.tex"
+hold off;
+print -depslatexstandalone "../results/epslatex/V-I_K_Ca_act.tex"
+plot(V, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm{K_{ATP}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_K_ATP.tex"
 
-# The other currents (t-I)
-figure(9, 'visible', 'off');
-subplot(2, 2, 1), plot(t, I_stim, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm stim}\,(pA)$');
-subplot(2, 2, 2), plot(t, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm ASIC}\,(pA)$');
-subplot(2, 2, 3), plot(t, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm TRP1}\,(pA)$');
-subplot(2, 2, 4), plot(t, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$I_{\mathrm TRP2}\,(pA)$');
-print -depslatexstandalone "../results/epslatex/other_currents-ti.tex"
+# Plot the other currents (t-I)
+plot(t, I_stim, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm stim}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_stim.tex"
+plot(t, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm ASIC}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_ASIC.tex"
+plot(t, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm TRP1}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_TRP1.tex"
+plot(t, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $I_{\mathrm TRP2}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_TRP2.tex"
 
-# The other currents (V-I)
-figure(10, 'visible', 'off');
-subplot(2, 2, 1), plot(V, I_stim, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm stim}\,(pA)$');
-subplot(2, 2, 2), plot(V, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm ASIC}\,(pA)$');
-subplot(2, 2, 3), plot(V, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm TRP1}\,(pA)$');
-subplot(2, 2, 4), plot(V, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), legend('$I_{\mathrm TRP2}\,(pA)$');
-print -depslatexstandalone "../results/epslatex/other_currents-vi.tex"
+# Plot the other currents (V-I)
+plot(V, I_stim, 'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm stim}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_stim.tex"
+plot(V, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm ASIC}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_ASIC.tex"
+plot(V, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm TRP1}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_TRP1.tex"
+plot(V, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('\Large $V_{m}\,(mV)$'), grid(), ylabel('\Large $I_{\mathrm TRP2}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_TRP2.tex"
 
 # Some special plots of interest
-figure(11, 'visible', 'off');
-subplot(2, 2, 1), plot(K_o, V, 'linewidth', line_width, 'color', blue), xlabel('$[K^{+}]_{\mathrm{o}}\,(mM/l)$'), grid(), legend('$V_{\mathrm{m}}\,(mV)$');
-subplot(2, 2, 2), plot(t, K_o, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), legend('$[K^{+}]_{\mathrm{o}}\,(mM/l)$');
-print -depslatexstandalone "../results/epslatex/special_plots.tex"
+plot(K_o, V, 'linewidth', line_width, 'color', blue), xlabel('\Large $[K^{+}]_{\mathrm{o}}\,(mM/l)$'), grid(), ylabel('\Large $V_{\mathrm{m}}\,(mV)$');
+print -depslatexstandalone "../results/epslatex/K_o-V.tex"
+plot(t, K_o, 'linewidth', line_width, 'color', blue), xlabel('\Large $t\,(s)$'), grid(), ylabel('\Large $[K^{+}]_{\mathrm{o}}\,(mM/l)$');
+print -depslatexstandalone "../results/epslatex/t-K_o.tex"
