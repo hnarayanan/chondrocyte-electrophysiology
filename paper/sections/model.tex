@@ -1,4 +1,4 @@
-\section{Methods and materials}
+\section*{Methods and materials}
 \label{sec:methods-and-materials}
 
 % Talk about:
@@ -10,7 +10,7 @@
 % \item parameters and their estimation
 % \end{itemize}
 
-\subsection{Model development}
+\subsection*{Model development}
 \label{sec:model-development}
 
 In this discourse, we focus our attention on a single chondrocyte cell
@@ -27,14 +27,6 @@ illustrated in Figure~\ref{fig:chondrocyte-model}.
 
 \todo{Make sure the following figure is updated to match the final
   selection of channels}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\textwidth]
-  {../images/pdf/chondrocyte-model-cellml}
-  \caption{An illustration of the model.}
-  \label{fig:chondrocyte-model}
-\end{figure}
 
 In order to simplify the treatment, we assume that there are no
 spatial variations in these quantities of interest, allowing us to
@@ -95,7 +87,7 @@ m}$, \Nai, \Ki, \Cai, \Hi, \Cli, $a_{\rm ur}$, and $i_{\rm ur}$.
   the model and the fact that the corresponding code is available for
   free for anyone to test and extend.}
 
-\subsection{The atypical environment of the chondrocyte}
+\subsection*{The atypical environment of the chondrocyte}
 \label{sec:chondrocyte-environment}
 
 \todo{Polish the notes below to motivate the choice of external
@@ -174,12 +166,12 @@ Osmolarity (mOsm) & --- & 350--450 & 300\\
 \end{centering}
 \end{table}
 
-\subsection{The different channels incorporated into the model}
+\subsection*{The different channels incorporated into the model}
 \label{sec:chondrocyte-channels}
 
 \todo{Clean up the following mishmash of notes and equations}
 
-\subsubsection{Background Currents}
+\subsubsection*{Background Currents}
 \label{sec:background-currents}
 
 [YES] {\bf Background (Na, K, Cl) channels:} I am just going to use
@@ -220,7 +212,7 @@ Background Chloride Current (Hodgkin Huxley?):
   \end{split}
 \end{equation}
 
-\subsubsection{Pumps and exchangers}
+\subsubsection*{Pumps and exchangers}
 \label{sec:pumps-and-exchangers}
 
 [YES] {\bf Sodium-potassium pump:} Chondrocyte cell volume, as for
@@ -290,7 +282,7 @@ Sodium Hydrogen Exchanger \citep[Eq. 2, pp. 2675]{Chaetal2009}
   \end{split}
 \end{equation}
 
-\subsubsection{Potassium channels}
+\subsubsection*{Potassium channels}
 \label{sec:potassium-channels}
 
 [YES] {\bf Delayed-rectifier $I_{K_{ur}}$}: One of the earliest channels
@@ -371,7 +363,7 @@ Potassium pump \citep{UNKNOWN}:
   I_{\rm K_{ATP}} =
 \end{equation}
 
-\subsubsection{Other channels}
+\subsubsection*{Other channels}
 \label{sec:other-channels}
 
 [YES] {\bf TRP channels (TRPv4 in particular)}: These show little
