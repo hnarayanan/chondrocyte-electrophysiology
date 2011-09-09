@@ -6,7 +6,7 @@
 BASENAME = chondrocyte-model
 
 SOURCES = Makefile ${BASENAME}.tex \
-	  ${BASENAME}.bib ${BASENAME}.bst ${BASENAME}.cls \
+	  ${BASENAME}.bib ${BASENAME}.bst \
 	  auxiliary/*.tex sections/*.tex \
           ../images/pdf/*.pdf ../results/pdf/*.pdf
 
