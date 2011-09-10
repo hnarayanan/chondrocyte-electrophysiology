@@ -16,18 +16,28 @@ all: pristine ${BASENAME}.pdf
 clean:
 	@echo "Cleaning cruft:"
 	rm -f *~
+	rm -f ${BASENAME}.4ct
+	rm -f ${BASENAME}.4tc
 	rm -f ${BASENAME}.aux
 	rm -f ${BASENAME}.bbl
 	rm -f ${BASENAME}.blg
 	rm -f ${BASENAME}.brf
+	rm -f ${BASENAME}.dvi
+	rm -f ${BASENAME}.idv
+	rm -f ${BASENAME}.lg
 	rm -f ${BASENAME}.log
+	rm -f ${BASENAME}*.png
 	rm -f ${BASENAME}.out
 	rm -f ${BASENAME}.spl
+	rm -f ${BASENAME}.tmp
+	rm -f ${BASENAME}.xref
 	(cd auxiliary; make clean)
 	(cd sections; make clean)
 
 pristine: clean
 	@echo "Removing older output files:"
+	rm -f *.css
+	rm -f *.html
 	rm -f *.pdf
 
 ${BASENAME}.pdf: ${SOURCES}

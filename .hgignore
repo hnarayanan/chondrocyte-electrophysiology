@@ -1,10 +1,14 @@
 syntax: glob
 *~
+*.4ct
+*.4tc
 *.aux
 *.bbl
 *.blg
 *.brf
 *.dvi
+*.idv
+*.lg
 *.loa
 *.lof
 *.log
@@ -15,12 +19,17 @@ syntax: glob
 *.synctex.gz
 *.tmp
 *.toc
+*.xref
 .DS_Store
 *.orig
 results/epslatex/*.eps
 results/epslatex/*.tex
 results/pdf/*.pdf
+paper/*.css
+paper/*.doc*
+paper/*.html
 paper/*.pdf
+paper/*.png
 talk/*.pdf
 
 syntax: regexp
