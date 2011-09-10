@@ -26,7 +26,6 @@ clean:
 	rm -f ${BASENAME}.idv
 	rm -f ${BASENAME}.lg
 	rm -f ${BASENAME}.log
-	rm -f ${BASENAME}*.png
 	rm -f ${BASENAME}.out
 	rm -f ${BASENAME}.spl
 	rm -f ${BASENAME}.tmp
@@ -39,6 +38,7 @@ pristine: clean
 	rm -f *.css
 	rm -f *.html
 	rm -f *.pdf
+	rm -f *.png
 
 ${BASENAME}.pdf: ${SOURCES}
 	@echo "Creating the PDF file:"
