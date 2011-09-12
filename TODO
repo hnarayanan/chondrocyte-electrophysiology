@@ -1,1 +1,5 @@
+* paper
+** Move to HTML proper (add this to the makefile)
+for i in `ls *.pdf`; do convert -density 100 "$i" `basename $i pdf`png; done
+sed -e 's/results\/pdf\(.*\)}}/results\/png\1.png}}/g' figures.tex
 * code
