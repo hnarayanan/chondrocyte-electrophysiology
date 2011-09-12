@@ -22,14 +22,17 @@ syntax: glob
 *.xref
 .DS_Store
 *.orig
+images/png
 results/epslatex/*.eps
 results/epslatex/*.tex
-results/pdf/*.pdf
+results/pdf
+results/png
 paper/*.css
 paper/*.doc*
 paper/*.html
 paper/*.pdf
 paper/*.png
+paper/export
 talk/*.pdf
 
 syntax: regexp
