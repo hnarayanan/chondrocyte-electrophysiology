@@ -36,8 +36,8 @@ function I_Cl_b = backgroundChloride(V, Cl_i)
   global enable_I_Cl_b;
   if (enable_I_Cl_b == true)
     global z_Cl, global g_Cl_b_bar, global Cl_o;
-    E_Cl = nernstPotential(z_Cl, Cl_i, Cl_o);
-    I_Cl_b = - g_Cl_b_bar*(V - E_Cl);
+    E_Cl = nernstPotential(z_Cl, Cl_o, Cl_i);
+    I_Cl_b = g_Cl_b_bar*(V - E_Cl);
   else
     I_Cl_b = 0.0;
   endif
