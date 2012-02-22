@@ -73,7 +73,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
 
   # Total ionic contribution
   I_i = I_Na_b + I_K_b + I_Cl_b \
-      + I_NaK + I_NaCa + I_NaH \
+      + I_NaK + I_NaCa \
       + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP \
       + I_ASIC + I_TRP1 + I_TRP2;
 
