@@ -7,7 +7,8 @@
 
 1;
 
-# Background sodium current
+# Background sodium current from "Ionic channels of excitable
+# membranes," B. Hille.
 function I_Na_b = backgroundSodium(V, Na_i)
   global enable_I_Na_b;
   if (enable_I_Na_b == true)
@@ -19,7 +20,8 @@ function I_Na_b = backgroundSodium(V, Na_i)
   endif
 endfunction
 
-# Background potassium current
+# Background potassium current from "Ionic channels of excitable
+# membranes," B. Hille.
 function I_K_b = backgroundPotassium(V, K_i, K_o, g_K_b_bar)
   global enable_I_K_b;
   if (enable_I_K_b == true)
@@ -31,7 +33,8 @@ function I_K_b = backgroundPotassium(V, K_i, K_o, g_K_b_bar)
   endif
 endfunction
 
-# Background chloride current
+# Background chloride current from "Ionic channels of excitable
+# membranes," B. Hille.
 function I_Cl_b = backgroundChloride(V, Cl_i)
   global enable_I_Cl_b;
   if (enable_I_Cl_b == true)
