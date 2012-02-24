@@ -63,7 +63,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, K_o, a_ur, i_ur);
   I_K_2pore = twoPorePotassium(V, K_i, K_o, P_K);
   I_K_Ca_act = calciumActivatedPotassium(V, K_i, K_o, Ca_i, Gmax);
-  I_K_ATP = potassiumPump();
+  I_K_ATP = potassiumPump(V);
 
   # Calculate other currents
   I_ASIC = voltageActivatedHydrogen();

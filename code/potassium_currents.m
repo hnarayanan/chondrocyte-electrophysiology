@@ -66,12 +66,24 @@ endfunction
 # Oscillations in Guinea Pig Cardiomyocytes," L. Zhou, S. Cortassa, A-C.
 # Wei, M. A. Aon, R. L. Winslow, and B. O'Rourke. Biophys. J. 2009; 97;
 # 1843-1852 (p. 1845)
-# FIXME: Implement this
+# FIXME: Clean up the following
+# FIXME: Check the following carefully
 
-function I_K_ATP = potassiumPump()
+function I_K_ATP = potassiumPump(V)
   global enable_I_K_ATP;
   if (enable_I_K_ATP == true)
-    I_K_ATP = 0.0;
+    sigma = 0.6;
+    g_0 = 30.95;
+    p_0 = 0.91;
+    E_K_ATP = -94.02;
+    ATP_i = 100; # constant, for now
+    ADP_i = 100; # constant, for now
+    K_m_ATP = 0.56;
+    H_K_ATP = -0.001;
+    K_m = 35.8 + 17.9*ADP_i^K_m_ATP;
+    H = 1.3 + 0.74*exp(-H_K_ATP*ADP_i);
+    f_ATP = 1.0/(1.0 + (ATP_i/K_m)^H);
+    I_K_ATP = sigma*g_0*p_0*f_ATP*(V - E_K_ATP);
   else
     I_K_ATP = 0.0;
   endif
