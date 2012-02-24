@@ -31,23 +31,23 @@ global ramp_Vm = true;
 global V_final = 140.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
-global enable_I_Na_b = false;
+global enable_I_Na_b = true;
 global enable_I_K_b = true;
 global enable_I_Cl_b = true;
-global enable_I_NaK = false;
+global enable_I_NaK = true;
 global enable_I_NaCa = false;
-global enable_I_NaH = false;
+global enable_I_NaH = true;
 global enable_I_K_ur = true;
 global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
-global enable_I_K_ATP = false;
-global enable_I_ASIC = false;
-global enable_I_TRP1 = false;
-global enable_I_TRP2 = false;
-global enable_I_stim = false;
+global enable_I_K_ATP = true;
+global enable_I_ASIC = true;
+global enable_I_TRP1 = true;
+global enable_I_TRP2 = true;
+global enable_I_stim = true;
 
 # Time-stepping information
-global t_final = 1.0;         # Final time (s)
+global t_final = 1.0;    # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # External concentrations
@@ -61,7 +61,7 @@ global step_K_o = false;
 
 # Initial conditions
 global V_0    = -150.0;    # Initial membrane potential (mV)
-global Na_i_0 = 0.516766;  # Initial internal sodium concentration (mM/l)
+global Na_i_0 = 8.0;       # Initial internal sodium concentration (mM/l)
 global K_i_0  = 160.00;    # Initial internal potassium concentration (mM/l)
 global Ca_i_0 = 0.001;     # Initial internal calcium concentration (mM/l)
 global H_i_0  = 0.5;       # Initial internal hydrogen concentration (mM/l)
@@ -102,7 +102,7 @@ global K_NaK_K = 1.0;
 global K_NaK_Na = 11.0;
 
 # Constants related to the sodium-calcium exchanger
-global K_NaCa = 0.001;
+global K_NaCa = 0.02;
 global gamma_Na = 0.45;
 global d_NaCa = 0.0003;
 
@@ -126,7 +126,7 @@ global g_K_ur = 0.30;
 
 # Constants related to the two-pore potassium channel
 global P_K = 6e-6;
-global I_K_2pore_0 = -90.0;
+global I_K_2pore_0 = 0.0;
 
 # Constants related to the calcium-activated potassium channel
 global Zj = 1.10;
