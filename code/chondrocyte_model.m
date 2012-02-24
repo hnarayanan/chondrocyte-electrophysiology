@@ -82,10 +82,10 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   global C_m;
 
   # Evolve the concentrations
-  Na_i_dot = - (I_Na_b + 3*I_NaK + 3*I_NaCa + I_NaH)/(vol_i*F);
+  Na_i_dot = - (I_Na_b + 3*I_NaK + 3*I_NaCa - I_NaH)/(vol_i*F);
   K_i_dot  = - (I_K_b  - 2*I_NaK + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP)/(vol_i*F);
   Ca_i_dot =   (I_NaCa)/(vol_i*F);
-  H_i_dot =    (I_NaH)/(vol_i*F);
+  H_i_dot =  - (I_NaH)/(vol_i*F);
   Cl_i_dot =   (I_Cl_b)/(vol_i*F);
 
   [a_ur_inf, i_ur_inf, tau_a_ur, tau_i_ur] = ultraRapidlyRectifyingPotassiumHelper(V);
