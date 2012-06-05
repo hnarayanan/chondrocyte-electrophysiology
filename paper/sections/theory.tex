@@ -1,5 +1,7 @@
-\section*{Methods and materials}
-\label{sec:methods-and-materials}
+\section*{Model}
+\label{sec:model}
+
+\todo{{\bf Harish:} Rearranged text. Will address issues and polish.}
 
 % Talk about:
 % \begin{itemize}
@@ -9,9 +11,6 @@
 %   will only focus on some channels
 % \item parameters and their estimation
 % \end{itemize}
-
-\subsection*{Model development}
-\label{sec:model-development}
 
 In this discourse, we focus our attention on a single chondrocyte cell
 residing in deep regions of cartilage. This cartilage environment is
@@ -25,151 +24,13 @@ changes their internal concentrations over time and how this changes
 the cell's membrane potential. The channels under consideration are
 illustrated in Figure~\ref{fig:chondrocyte-model}.
 
-\todo{Make sure the following figure is updated to match the final
-  selection of channels}
+\todo{{\bf Harish:} Make sure the following figure is updated to match
+  the final selection of channels}
 
-In order to simplify the treatment, we assume that there are no
-spatial variations in these quantities of interest, allowing us to
-model the cell as the following set of ordinary differential equations
-(ODEs) in time.
+\subsection*{Formulations ionic currents}
+\label{sec:formulation-ionic-current}
 
-\begin{equation}
-  \frac{d}{dt}
-  \left(
-    \begin{array}{c}
-      V_{\rm m}\\
-      \left[Na^{+}\right]_{i}\\
-      \left[\rm K^{+}\right]_{i}\\
-      \left[\rm Ca^{2+}\right]_{i}\\
-      \left[\rm H^{+}\right]_{i}\\
-      \left[\rm Cl^{-}\right]_{i}\\
-      a_{\rm ur}\\
-      i_{\rm ur}\\
-    \end{array}
-  \right)  = \left(
-    \begin{array}{c}
-        (-I_{i} + I_{\rm stim})/{C_{\rm m}}\\
-      - (I_{\rm Na_{b}} + 3\, I_{\rm NaK} + 3\, I_{\rm NaCa} - I_{\rm
-        NaH})/(v_{i}\, F)\\
-      - (I_{\rm K_{b}} - 2\, I_{\rm NaK} + I_{\rm K_{ur}} + I_{\rm
-        K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}})/(v_{i}\,
-      F)\\
-        (I_{\rm NaCa})/(v_{i}\, F)\\
-      - (I_{\rm NaH})/(v_{i}\, F)\\
-      + (I_{\rm Cl_{b}})/(v_{i}\, F)\\
-      (a_{{\rm ur}_{\infty}} - a_{\rm ur})/\tau_{a_{\rm ur}}\\
-      (i_{{\rm ur}_{\infty}} - i_{\rm ur})/\tau_{i_{\rm ur}}\\
-    \end{array}
-  \right)
-\end{equation}
-
-\noindent where,
-
-\begin{equation*}
-    \begin{split}
-      I_{i} =
-      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b} + I_{\rm Cl_b}}_{\rm
-        Background\, currents}\\
-      & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaH}}_{\rm
-        Pumps\, and\, exchangers}\\
-      & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm
-          K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
-      & +\, \underbrace{I_{\rm VGSC} + I_{\rm TRP_{V4}} + I_{\rm
-          stim}}_{\rm Other\, currents}
-    \end{split}
-\end{equation*}
-
-This ODE system is solved for the primary vector of unknowns: $V_{\rm
-m}$, \Nai, \Ki, \Cai, \Hi, \Cli, $a_{\rm ur}$, and $i_{\rm ur}$.
-
-\todo{Discuss details of the solution process here. Talk about the
-  methods used \citep{RadhakrishnanHindmarsh1993}, parametrisation of
-  the model and the fact that the corresponding code is available for
-  free for anyone to test and extend.}
-
-\subsection*{The atypical environment of the chondrocyte}
-\label{sec:chondrocyte-environment}
-
-\todo{Polish the notes below to motivate the choice of external
-  concentrations of species.}
-
-\begin{itemize}
-  \item The high number of fixed negative charges on the proteoglycan
-    (GAGs) attract free cations (e.g. Na+) and exclude free anions from
-    the matrix. With cation accumulation, water is osmotically imbibed,
-    resulting in lowered pH in comparison with other extracellular
-    environments \citep{Wilkinsetal2000, LeeUrban1997}.
-  \item Extracellular pH affects the chondrocyte metabolism and its
-    ability to synthesise the matrix
-    \citep{BarrettJolleyetal2010}. However, rate of collagen
-    synthesis seems to be independent of pH \citep{Wuetal2007}.
-  \item Due to lack of vascularisation, chondrocytes should scavenge
-    precursor molecules for matrix macromolecular synthesis
-    \citep{Holmetal1998, Stockwell1991}. Synovial fluid supplies adult
-    articular cartilage with (small amounts of) nutrients and oxygen
-    (and removes byproducts) by diffusion \citep{LeeUrban1997,
-      Otte1991}.
-  \item Chondrocytes generate ATP by substrate-level phosphorylation
-    during anaerobic respiration which generates H+ ions and further
-    lowers surrounding pH \citep{LeeUrban1997}.
-  \item Mechanical loading during activity exposes chondrocytes to
-    profound fluctuations in their physiochemical environment
-    \citep{Mowetal1999, Urban1994}.
-    Intracellular concentrations too fluctuate with load. The actual
-    biophysics of this is relatively uknown. (We will speculate about
-    this along with our modelling.)
-\end{itemize}
-
-Some experimentally-reported values for the external concentrations of
-these different species from are reported in the following table
-\ref{tab:external-concentrations-2}. (We use these in concert with
-values from \cite{Clarketal2011}.)
-
-% \begin{table}[ht]
-% \begin{centering}
-% \begin{tabular}{r c c c c}
-% \hline\hline
-%              & \Nao (mM) & \Ko (mM) & \Cao (mM) & pH\\
-% \hline
-% Surface zone & 240--270  & 7--9     & 6--9      & 7.1--7.3\\
-% Deep zone    & 300--350  & 9--12    & 14--20    & $\sim$6.9\\
-% \hline
-% \hline
-% \end{tabular}
-% \caption{Experimental ranges of external concentrations
-%   \citep{Halletal1996}.}
-% \label{tab:external-concentrations-1}
-% \end{centering}
-% \end{table}
-
-
-\begin{table}[ht]
-\begin{centering}
-\begin{tabular}{r c c c c}
-\hline\hline
-             & Cytoplasm & Matrix & Serum/Synovium\\
-\hline
-\Nao (mM) & 40       & 240--350 & 140\\
-\Ko (mM)  & 120--140 & 7--12    & 5\\
-\Cao (mM) & 8.e-5 & 6--15 & 1.5\\
-$[\mathrm{Cl}^{-}]_{\mathrm{o}} (mM)$ & 60--90 & 60--100 & 140\\
-$[\mathrm{HCO^{-}_{3}}]_{\mathrm{o}} (mM)$ & 20 & 15 & 23\\
-$[\mathrm{SO^{2-}_{4}}]_{\mathrm{o}} (mM)$ & 0.17 & 0.30 & 0.81\\
-pH (mM) & 7.1 & 6.6--6.9 & 7.4\\
-Osmolarity (mOsm) & --- & 350--450 & 300\\
-\hline
-\hline
-\end{tabular}
-\caption{Experimental ranges of external concentrations
-  \citep{Wilkinsetal2000}.}
-\label{tab:external-concentrations-2}
-\end{centering}
-\end{table}
-
-\subsection*{The different channels incorporated into the model}
-\label{sec:chondrocyte-channels}
-
-\todo{Clean up the following mishmash of notes and equations}
+\todo{{\bf Harish:} Clean up the following mishmash of notes and equations}
 
 \subsubsection*{Background Currents}
 \label{sec:background-currents}
@@ -396,6 +257,147 @@ External stimulation (matching experiments, e.g. cyclic stimulation):
 I_{\rm stim} = \overline{I_{\rm stim}}\, {\rm square}(\frac{2 \pi\,
   t}{t_{\rm cycle}}, \frac{t_{\rm stim}}{t_{\rm cycle}})
 \end{equation}
+
+In order to simplify the treatment, we assume that there are no
+spatial variations in these quantities of interest, allowing us to
+model the cell as the following set of ordinary differential equations
+(ODEs) in time.
+
+\begin{equation}
+  \frac{d}{dt}
+  \left(
+    \begin{array}{c}
+      V_{\rm m}\\
+      \left[Na^{+}\right]_{i}\\
+      \left[\rm K^{+}\right]_{i}\\
+      \left[\rm Ca^{2+}\right]_{i}\\
+      \left[\rm H^{+}\right]_{i}\\
+      \left[\rm Cl^{-}\right]_{i}\\
+      a_{\rm ur}\\
+      i_{\rm ur}\\
+    \end{array}
+  \right)  = \left(
+    \begin{array}{c}
+        (-I_{i} + I_{\rm stim})/{C_{\rm m}}\\
+      - (I_{\rm Na_{b}} + 3\, I_{\rm NaK} + 3\, I_{\rm NaCa} - I_{\rm
+        NaH})/(v_{i}\, F)\\
+      - (I_{\rm K_{b}} - 2\, I_{\rm NaK} + I_{\rm K_{ur}} + I_{\rm
+        K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}})/(v_{i}\,
+      F)\\
+        (I_{\rm NaCa})/(v_{i}\, F)\\
+      - (I_{\rm NaH})/(v_{i}\, F)\\
+      + (I_{\rm Cl_{b}})/(v_{i}\, F)\\
+      (a_{{\rm ur}_{\infty}} - a_{\rm ur})/\tau_{a_{\rm ur}}\\
+      (i_{{\rm ur}_{\infty}} - i_{\rm ur})/\tau_{i_{\rm ur}}\\
+    \end{array}
+  \right)
+\end{equation}
+
+\noindent where,
+
+\begin{equation*}
+    \begin{split}
+      I_{i} =
+      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b} + I_{\rm Cl_b}}_{\rm
+        Background\, currents}\\
+      & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaH}}_{\rm
+        Pumps\, and\, exchangers}\\
+      & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm
+          K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
+      & +\, \underbrace{I_{\rm VGSC} + I_{\rm TRP_{V4}} + I_{\rm
+          stim}}_{\rm Other\, currents}
+    \end{split}
+\end{equation*}
+
+This ODE system is solved for the primary vector of unknowns: $V_{\rm
+m}$, \Nai, \Ki, \Cai, \Hi, \Cli, $a_{\rm ur}$, and $i_{\rm ur}$.
+
+\todo{Discuss details of the solution process here. Talk about the
+  methods used \citep{RadhakrishnanHindmarsh1993}, parametrisation of
+  the model and the fact that the corresponding code is available for
+  free for anyone to test and extend.}
+
+\subsection*{The atypical environment of the chondrocyte (how
+  parameters are chosen)}
+\label{sec:chondrocyte-environment}
+
+\todo{Polish the notes below to motivate the choice of external
+  concentrations of species.}
+
+\begin{itemize}
+  \item The high number of fixed negative charges on the proteoglycan
+    (GAGs) attract free cations (e.g. Na+) and exclude free anions from
+    the matrix. With cation accumulation, water is osmotically imbibed,
+    resulting in lowered pH in comparison with other extracellular
+    environments \citep{Wilkinsetal2000, LeeUrban1997}.
+  \item Extracellular pH affects the chondrocyte metabolism and its
+    ability to synthesise the matrix
+    \citep{BarrettJolleyetal2010}. However, rate of collagen
+    synthesis seems to be independent of pH \citep{Wuetal2007}.
+  \item Due to lack of vascularisation, chondrocytes should scavenge
+    precursor molecules for matrix macromolecular synthesis
+    \citep{Holmetal1998, Stockwell1991}. Synovial fluid supplies adult
+    articular cartilage with (small amounts of) nutrients and oxygen
+    (and removes byproducts) by diffusion \citep{LeeUrban1997,
+      Otte1991}.
+  \item Chondrocytes generate ATP by substrate-level phosphorylation
+    during anaerobic respiration which generates H+ ions and further
+    lowers surrounding pH \citep{LeeUrban1997}.
+  \item Mechanical loading during activity exposes chondrocytes to
+    profound fluctuations in their physiochemical environment
+    \citep{Mowetal1999, Urban1994}.
+    Intracellular concentrations too fluctuate with load. The actual
+    biophysics of this is relatively uknown. (We will speculate about
+    this along with our modelling.)
+\end{itemize}
+
+Some experimentally-reported values for the external concentrations of
+these different species from are reported in the following table
+\ref{tab:external-concentrations-2}. (We use these in concert with
+values from \cite{Clarketal2011}.)
+
+% \begin{table}[ht]
+% \begin{centering}
+% \begin{tabular}{r c c c c}
+% \hline\hline
+%              & \Nao (mM) & \Ko (mM) & \Cao (mM) & pH\\
+% \hline
+% Surface zone & 240--270  & 7--9     & 6--9      & 7.1--7.3\\
+% Deep zone    & 300--350  & 9--12    & 14--20    & $\sim$6.9\\
+% \hline
+% \hline
+% \end{tabular}
+% \caption{Experimental ranges of external concentrations
+%   \citep{Halletal1996}.}
+% \label{tab:external-concentrations-1}
+% \end{centering}
+% \end{table}
+
+
+\begin{table}[ht]
+\begin{centering}
+\begin{tabular}{r c c c c}
+\hline\hline
+             & Cytoplasm & Matrix & Serum/Synovium\\
+\hline
+\Nao (mM) & 40       & 240--350 & 140\\
+\Ko (mM)  & 120--140 & 7--12    & 5\\
+\Cao (mM) & 8.e-5 & 6--15 & 1.5\\
+$[\mathrm{Cl}^{-}]_{\mathrm{o}} (mM)$ & 60--90 & 60--100 & 140\\
+$[\mathrm{HCO^{-}_{3}}]_{\mathrm{o}} (mM)$ & 20 & 15 & 23\\
+$[\mathrm{SO^{2-}_{4}}]_{\mathrm{o}} (mM)$ & 0.17 & 0.30 & 0.81\\
+pH (mM) & 7.1 & 6.6--6.9 & 7.4\\
+Osmolarity (mOsm) & --- & 350--450 & 300\\
+\hline
+\hline
+\end{tabular}
+\caption{Experimental ranges of external concentrations
+  \citep{Wilkinsetal2000}.}
+\label{tab:external-concentrations-2}
+\end{centering}
+\end{table}
+
+
 
 % \begin{sidewaystable}[ht]
 % \begin{tabular}{r c l l}
