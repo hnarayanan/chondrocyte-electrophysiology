@@ -12,10 +12,10 @@
 % \item parameters and their estimation
 % \end{itemize}
 
-In this discourse, we focus our attention on a single chondrocyte cell
-residing in deep regions of cartilage. This cartilage environment is
-modelled simply by (fixed) external concentrations \Nao, \Ko, \Cao,
-\Ho and \Clo. Values for these concentrations are chosen within
+We focus our attention on a single chondrocyte cell residing in deep
+regions of cartilage. This cartilage environment can be modelled
+simply by (fixed) external concentrations \Nao, \Ko, \Cao, \Ho and
+\Clo. Values for these concentrations are chosen within
 physiologically-relevant ranges (see
 Table~\ref{tab:external-concentrations-2}). We are interested in
 studying the behaviour of cell under this environment, in particular
@@ -97,8 +97,8 @@ Sodium Potassium Pump \citep[Table 12, pp. 77]{Nygrenetal1998}:
 \end{equation}
 
 [YES] {\bf Sodium-Calcium exchanger:}
-\todo{This channel is a primary calcium concentration regulation
-  mechanism. Need to explain the importance of this.}
+\todo{{\bf Molly:} This channel is a primary calcium concentration
+  regulation mechanism. Need to explain the importance of this.}
 
 Sodium Calcium Exchanger \citep[Table 13, pp. 77]{Nygrenetal1998}:
 \begin{equation}
@@ -116,8 +116,8 @@ Ca2+. There is also some other possible mechanism involving something
 called connexin-43. We use the Na+-H+ antiporter from
 \citet{Halletal1996,Wilkinsetal2000}.
 
-\todo{Need to explain why we choose the Na-H exchanger over a
-  possible ASIC channel}
+\todo{{\bf Molly:} Need to explain why we choose the Na-H exchanger
+  over a possible ASIC channel}
 
 Sodium Hydrogen Exchanger \citep[Eq. 2, pp. 2675]{Chaetal2009}
 \begin{equation}
@@ -154,8 +154,8 @@ chondrocytes are far more depolarised. Kv 1.4 and 1.6
 \citep{Clarketal2010, Mobasherietal2005} are known to exist. Others
 might as well.
 
-\todo{We currently model Kv1.5. Need to replace this with Kv1.4 from,
-  e.g., Nygren et al.}
+\todo{{\bf Question:} We currently model Kv1.5. Do we need to replace
+this with Kv1.4 from, e.g., Nygren et al.?}
 
 Ultra-rapidly rectifying potassium channel \citep{Maleckaretal2009}:
 \begin{equation}
@@ -246,7 +246,8 @@ likely constantly inactivated due to the voltages the
 chondrocyte.  We instead model $I_{Na_{b}}$ as a sort of constant
 background Na+ leak.
 
-\todo{Do we need to model this. Can this be linked to $I_{Na_{b}}$?}
+\todo{{\bf Question:} Do we need to model this. Can this be linked to
+  $I_{Na_{b}}$?}
 
 \begin{equation}
   I_{\rm VGSC} =
@@ -257,65 +258,6 @@ External stimulation (matching experiments, e.g. cyclic stimulation):
 I_{\rm stim} = \overline{I_{\rm stim}}\, {\rm square}(\frac{2 \pi\,
   t}{t_{\rm cycle}}, \frac{t_{\rm stim}}{t_{\rm cycle}})
 \end{equation}
-
-In order to simplify the treatment, we assume that there are no
-spatial variations in these quantities of interest, allowing us to
-model the cell as the following set of ordinary differential equations
-(ODEs) in time.
-
-\begin{equation}
-  \frac{d}{dt}
-  \left(
-    \begin{array}{c}
-      V_{\rm m}\\
-      \left[Na^{+}\right]_{i}\\
-      \left[\rm K^{+}\right]_{i}\\
-      \left[\rm Ca^{2+}\right]_{i}\\
-      \left[\rm H^{+}\right]_{i}\\
-      \left[\rm Cl^{-}\right]_{i}\\
-      a_{\rm ur}\\
-      i_{\rm ur}\\
-    \end{array}
-  \right)  = \left(
-    \begin{array}{c}
-        (-I_{i} + I_{\rm stim})/{C_{\rm m}}\\
-      - (I_{\rm Na_{b}} + 3\, I_{\rm NaK} + 3\, I_{\rm NaCa} - I_{\rm
-        NaH})/(v_{i}\, F)\\
-      - (I_{\rm K_{b}} - 2\, I_{\rm NaK} + I_{\rm K_{ur}} + I_{\rm
-        K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}})/(v_{i}\,
-      F)\\
-        (I_{\rm NaCa})/(v_{i}\, F)\\
-      - (I_{\rm NaH})/(v_{i}\, F)\\
-      + (I_{\rm Cl_{b}})/(v_{i}\, F)\\
-      (a_{{\rm ur}_{\infty}} - a_{\rm ur})/\tau_{a_{\rm ur}}\\
-      (i_{{\rm ur}_{\infty}} - i_{\rm ur})/\tau_{i_{\rm ur}}\\
-    \end{array}
-  \right)
-\end{equation}
-
-\noindent where,
-
-\begin{equation*}
-    \begin{split}
-      I_{i} =
-      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b} + I_{\rm Cl_b}}_{\rm
-        Background\, currents}\\
-      & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaH}}_{\rm
-        Pumps\, and\, exchangers}\\
-      & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm
-          K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
-      & +\, \underbrace{I_{\rm VGSC} + I_{\rm TRP_{V4}} + I_{\rm
-          stim}}_{\rm Other\, currents}
-    \end{split}
-\end{equation*}
-
-This ODE system is solved for the primary vector of unknowns: $V_{\rm
-m}$, \Nai, \Ki, \Cai, \Hi, \Cli, $a_{\rm ur}$, and $i_{\rm ur}$.
-
-\todo{{\bf Harish:} Discuss details of the solution process here. Talk
-  about the methods used \citep{RadhakrishnanHindmarsh1993},
-  parametrisation of the model and the fact that the corresponding
-  code is available for free for anyone to test and extend.}
 
 \subsection*{The atypical environment of the chondrocyte (how
   parameters are chosen)}
@@ -396,6 +338,68 @@ Osmolarity (mOsm) & --- & 350--450 & 300\\
 \label{tab:external-concentrations-2}
 \end{centering}
 \end{table}
+
+\subsection*{Theoretical model}
+\label{sec:theoretical-model}
+
+In order to simplify the treatment, we assume that there are no
+spatial variations in these quantities of interest, allowing us to
+model the cell as the following set of ordinary differential equations
+(ODEs) in time.
+
+\begin{equation}
+  \frac{d}{dt}
+  \left(
+    \begin{array}{c}
+      V_{\rm m}\\
+      \left[Na^{+}\right]_{i}\\
+      \left[\rm K^{+}\right]_{i}\\
+      \left[\rm Ca^{2+}\right]_{i}\\
+      \left[\rm H^{+}\right]_{i}\\
+      \left[\rm Cl^{-}\right]_{i}\\
+      a_{\rm ur}\\
+      i_{\rm ur}\\
+    \end{array}
+  \right)  = \left(
+    \begin{array}{c}
+        (-I_{i} + I_{\rm stim})/{C_{\rm m}}\\
+      - (I_{\rm Na_{b}} + 3\, I_{\rm NaK} + 3\, I_{\rm NaCa} - I_{\rm
+        NaH})/(v_{i}\, F)\\
+      - (I_{\rm K_{b}} - 2\, I_{\rm NaK} + I_{\rm K_{ur}} + I_{\rm
+        K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}})/(v_{i}\,
+      F)\\
+        (I_{\rm NaCa})/(v_{i}\, F)\\
+      - (I_{\rm NaH})/(v_{i}\, F)\\
+      + (I_{\rm Cl_{b}})/(v_{i}\, F)\\
+      (a_{{\rm ur}_{\infty}} - a_{\rm ur})/\tau_{a_{\rm ur}}\\
+      (i_{{\rm ur}_{\infty}} - i_{\rm ur})/\tau_{i_{\rm ur}}\\
+    \end{array}
+  \right)
+\end{equation}
+
+\noindent where,
+
+\begin{equation*}
+    \begin{split}
+      I_{i} =
+      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b} + I_{\rm Cl_b}}_{\rm
+        Background\, currents}\\
+      & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaH}}_{\rm
+        Pumps\, and\, exchangers}\\
+      & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm
+          K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
+      & +\, \underbrace{I_{\rm VGSC} + I_{\rm TRP_{V4}} + I_{\rm
+          stim}}_{\rm Other\, currents}
+    \end{split}
+\end{equation*}
+
+This ODE system is solved for the primary vector of unknowns: $V_{\rm
+m}$, \Nai, \Ki, \Cai, \Hi, \Cli, $a_{\rm ur}$, and $i_{\rm ur}$.
+
+\todo{{\bf Harish:} Discuss details of the solution process here. Talk
+  about the methods used \citep{RadhakrishnanHindmarsh1993},
+  parametrisation of the model and the fact that the corresponding
+  code is available for free for anyone to test and extend.}
 
 
 
