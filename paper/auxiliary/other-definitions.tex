@@ -3,7 +3,14 @@
   \framebox{\begin{minipage}[c]{0.95 \textwidth}
       \tt #1 \end{minipage}}\vspace{5 mm}\par}
 
+\newcommand{\todoM}[1]{\vspace{5 mm}\par \noindent
+  \marginpar{\textsc{MollySays}}
+  \framebox{\begin{minipage}[c]{0.95 \textwidth}
+      \tt #1 \end{minipage}}\vspace{5 mm}\par}
+
 \definecolor{missing}{rgb}{1,0,0}
+\definecolor{mollygreen}{rgb}{0.0,0.5,0.0} 
+\newcommand{\M}[1]{{\bf \textcolor{mollygreen}{#1}}}
 
 \newcommand{\Nao}{$[\rm Na^{+}]_{o}$}
 \newcommand{\Ko}{$[\rm K^{+}]_{o}$}
