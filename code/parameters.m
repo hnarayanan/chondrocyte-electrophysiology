@@ -21,54 +21,54 @@ global enable_parest = false;
 global clamp_conc = false;
 
 # Toggle setting of the membrane voltage
-global apply_Vm = true;
+global apply_Vm = false;
 
 # If apply_Vm is true, then one of clamp_Vm, ramp_Vm and step_Vm must be
 # true to define what voltage is to be applied
 global clamp_Vm = false;
 global step_Vm = false;
-global ramp_Vm = true;
-global V_final = 140.0;  # Final value of membrane voltage when ramped (mV)
+global ramp_Vm = false;
+global V_final = 90.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = true;
 global enable_I_K_b = true;
 global enable_I_Cl_b = true;
 global enable_I_NaK = true;
-global enable_I_NaCa = false;
+global enable_I_NaCa = true;
 global enable_I_NaH = true;
 global enable_I_K_ur = true;
 global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
-global enable_I_K_ATP = false;
+global enable_I_K_ATP = true;
 global enable_I_ASIC = true;
 global enable_I_TRP1 = true;
 global enable_I_TRP2 = true;
 global enable_I_stim = true;
 
 # Time-stepping information
-global t_final = 1.0;    # Final time (s)
+global t_final = 18000.0;    # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # External concentrations
-global Na_o   = 320;       # Clamped external sodium concentration (mM/l)
+global Na_o   = 140;       # Clamped external sodium concentration (mM/l)
 global K_o_0  = 5;         # Clamped external potassium concentration (mM/l)
-global Ca_o   = 16;        # Clamped external calcium concentration (mM/l)
-global H_o    = 0.125893;  # Clamped external hydrogen concentration (mM/l)
-global Cl_o   = 75;        # Clamped external chloride concentration (mM/l)
+global Ca_o   = 2;         # Clamped external calcium concentration (mM/l)
+global H_o    = 10^(-7.4); # Clamped external hydrogen concentration (mM/l)
+global Cl_o   = 89;        # Clamped external chloride concentration (mM/l)
 
 global step_K_o = false;
 
 # Initial conditions
-global V_0    = -150.0;    # Initial membrane potential (mV)
-global Na_i_0 = 8.0;       # Initial internal sodium concentration (mM/l)
-global K_i_0  = 160.00;    # Initial internal potassium concentration (mM/l)
-global Ca_i_0 = 0.001;     # Initial internal calcium concentration (mM/l)
-global H_i_0  = 0.5;       # Initial internal hydrogen concentration (mM/l)
-global Cl_i_0  = 60;       # Initial internal chloride concentration (mM/l)
-
-global a_ur_0 = 0.000367;
-global i_ur_0 = 0.967290;
+# global V_0 = -130;
+global V_0     =    -9.22431697740749e+01  # Initial membrane potential (mV)
+global Na_i_0  =     7.70526707261618e+00  # Initial internal sodium concentration (mM/l)
+global K_i_0   =     1.05791363873716e+02  # Initial internal potassium concentration (mM/l)
+global Ca_i_0  =     1.05707650597792e-05  # Initial internal calcium concentration (mM/l)
+global H_i_0   =     2.18383779940222e-09  # Initial internal hydrogen concentration (mM/l)
+global Cl_i_0  =     2.82154804185281e+00  # Initial internal chloride concentration (mM/l)
+global a_ur_0  =     1.97676087681717e-03
+global i_ur_0  =     9.99995090418662e-01
 
 # Universal constants
 global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
@@ -83,7 +83,7 @@ global z_H  = 1;         # Charge on the calcium ion
 global z_Cl  = 1;        # Charge on the chloride ion
 
 # Cell parameters
-global C_m = 8.1;        # Membrane capacitance
+global C_m = 8.5;        # Membrane capacitance
 global vol_i = 0.005884; # Internal volume
 
 # Constants related to external stimulation
@@ -125,7 +125,7 @@ global N_NaH_channel = 4899;
 global g_K_ur = 0.30;
 
 # Constants related to the two-pore potassium channel
-global P_K = 6e-6;
+global P_K = 3.0e-6;
 global I_K_2pore_0 = 0.0;
 
 # Constants related to the calcium-activated potassium channel
