@@ -123,7 +123,6 @@ hold off;
 print -depslatexstandalone "../results/epslatex/V-I_K_2pore.tex"
 plot(V, I_K_Ca_act, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{Ca-act}}}\,(pA)$');
 hold on;
-I_ref_Ca_act_int
 plot(V, I_ref_Ca_act_int, '1', 'linewidth', line_width, 'color', red);
 hold off;
 print -depslatexstandalone "../results/epslatex/V-I_K_Ca_act.tex"
