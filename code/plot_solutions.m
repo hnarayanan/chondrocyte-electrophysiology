@@ -26,12 +26,9 @@ set (0,'defaultaxesfontsize', 20)
 V_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 1);
 I_i_by_C_m_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 2);
 
-V_ref_without_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_without_TEA.data')(:, 1);
-I_ref_without_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_without_TEA.data')(:, 2);
-V_ref_with_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_with_TEA.data')(:, 1);
-I_ref_with_TEA = csvread('../data/reference_values/Total_Current_vs_Voltage_with_TEA.data')(:, 2);
-I_ref_without_TEA_int = interp1(V_ref_without_TEA, I_ref_without_TEA, V);
-I_ref_with_TEA_int = interp1(V_ref_with_TEA, I_ref_with_TEA, V);
+V_ref_Ca_act = csvread('../data/reference_values/I_K_Ca_act_vs_Voltage.data')(:, 1);
+I_ref_Ca_act = csvread('../data/reference_values/I_K_Ca_act_vs_Voltage.data')(:, 2);
+I_ref_Ca_act_int = interp1(V_ref_Ca_act, I_ref_Ca_act, V, 'extrap');
 
 V_ref_without_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_without_BUP.data')(:, 1);
 I_ref_without_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_without_BUP.data')(:, 2);
@@ -126,7 +123,8 @@ hold off;
 print -depslatexstandalone "../results/epslatex/V-I_K_2pore.tex"
 plot(V, I_K_Ca_act, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{Ca-act}}}\,(pA)$');
 hold on;
-plot(V, I_ref_without_TEA_int - I_ref_with_TEA_int, '1', 'linewidth', line_width, 'color', red);
+I_ref_Ca_act_int
+plot(V, I_ref_Ca_act_int, '1', 'linewidth', line_width, 'color', red);
 hold off;
 print -depslatexstandalone "../results/epslatex/V-I_K_Ca_act.tex"
 plot(V, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{ATP}}}\,(pA)$');
