@@ -32,7 +32,7 @@ global V_final = 90.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = true;
-global enable_I_K_b = true;
+global enable_I_K_b = false;
 global enable_I_Cl_b = true;
 global enable_I_NaK = true;
 global enable_I_NaCa = true;
@@ -40,11 +40,13 @@ global enable_I_NaH = true;
 global enable_I_K_ur = true;
 global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
+
+# Definitely not used
 global enable_I_K_ATP = false;
-global enable_I_ASIC = true;
-global enable_I_TRP1 = true;
-global enable_I_TRP2 = true;
-global enable_I_stim = true;
+global enable_I_ASIC = false;
+global enable_I_TRP1 = false;
+global enable_I_TRP2 = false;
+global enable_I_stim = false;
 
 # Time-stepping information
 global t_final = 18000.0;    # Final time (s)
@@ -92,7 +94,7 @@ global t_stim = 1.0;     # Stimulation time/cycle (s)
 global I_stim_bar = 0.0; # Stimulation current magnitude (pA)
 
 # Background conductances
-global g_Na_b_bar = 0.2;   # Background sodium leakage conductance (pS)
+global g_Na_b_bar = 0.1;   # Background sodium leakage conductance (pS)
 global g_K_b_bar = 0.2;    # Background potassium leakage conductance (pS)
 global g_Cl_b_bar = 0.2;   # Background chloride leakage conductance (pS)
 
@@ -122,10 +124,10 @@ global K_H_o = 1.62e-3;
 global N_NaH_channel = 4899;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
-global g_K_ur = 0.30;
+global g_K_ur = 0.35;
 
 # Constants related to the two-pore potassium channel
-global P_K = 3.0e-6;
+global P_K = 3e-6;
 global I_K_2pore_0 = 0.0;
 
 # Constants related to the calcium-activated potassium channel
@@ -137,5 +139,5 @@ global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 4.2;
+global Gmax = 3.5;
 global N_channel = 1.0;
