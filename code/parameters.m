@@ -21,19 +21,19 @@ global enable_parest = false;
 global clamp_conc = false;
 
 # Toggle setting of the membrane voltage
-global apply_Vm = false;
+global apply_Vm = true;
 
 # If apply_Vm is true, then one of clamp_Vm, ramp_Vm and step_Vm must be
 # true to define what voltage is to be applied
 global clamp_Vm = false;
 global step_Vm = false;
-global ramp_Vm = false;
-global V_final = 90.0;  # Final value of membrane voltage when ramped (mV)
+global ramp_Vm = true;
+global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = true;
 global enable_I_K_b = false;
-global enable_I_Cl_b = true;
+global enable_I_Cl_b = false;
 global enable_I_NaK = true;
 global enable_I_NaCa = true;
 global enable_I_NaH = true;
@@ -49,7 +49,7 @@ global enable_I_TRP2 = false;
 global enable_I_stim = false;
 
 # Time-stepping information
-global t_final = 18000.0;    # Final time (s)
+global t_final = 1.0;    # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # External concentrations
@@ -62,8 +62,8 @@ global Cl_o   = 89;        # Clamped external chloride concentration (mM/l)
 global step_K_o = false;
 
 # Initial conditions
-# global V_0 = -130;
-global V_0     =   -5.09881068925449e+01   # Initial membrane potential (mV)
+global V_0 = -130;
+# global V_0     =   -5.09881068925449e+01   # Initial membrane potential (mV)
 global Na_i_0  =    3.16528528437202e+00   # Initial internal sodium concentration (mM/l)
 global K_i_0   =    1.21336197622046e+02   # Initial internal potassium concentration (mM/l)
 global Ca_i_0  =    3.43047916524882e-06   # Initial internal calcium concentration (mM/l)
@@ -94,7 +94,7 @@ global t_stim = 1.0;     # Stimulation time/cycle (s)
 global I_stim_bar = 0.0; # Stimulation current magnitude (pA)
 
 # Background conductances
-global g_Na_b_bar = 0.1;   # Background sodium leakage conductance (pS)
+global g_Na_b_bar = 0.05;   # Background sodium leakage conductance (pS)
 global g_K_b_bar = 0.2;    # Background potassium leakage conductance (pS)
 global g_Cl_b_bar = 0.2;   # Background chloride leakage conductance (pS)
 
@@ -131,13 +131,13 @@ global P_K = 3e-6;
 global I_K_2pore_0 = 0.0;
 
 # Constants related to the calcium-activated potassium channel
-global Zj = 1.10;
-global Vhj = 225;
-global ZL = 0.3;
+global Zj = 0.70;
+global Vhj = 250;
+global ZL = 0.1;
 global L0 = 12e-6;
 global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 3.5;
+global Gmax = 1.2;
 global N_channel = 1.0;
