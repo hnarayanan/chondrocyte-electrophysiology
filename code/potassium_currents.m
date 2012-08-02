@@ -48,14 +48,19 @@ endfunction
 function I_K_Ca_act = calciumActivatedPotassium(V, K_i, K_o, Ca_i, Gmax)
   global enable_I_K_Ca_act;
   if (enable_I_K_Ca_act == true)
-    global T Zj Vhj ZL L0 KDc C D E N_channel z_K;
+    global T Zj Vhj ZL L0 KDc C D E N_channel z_K E_K_Ca_act;
     kTe = 23.54*(T/273);
     Lv = L0*exp((V*ZL)/kTe);
     Jv = exp(((V - Vhj)*Zj)/kTe);
     K = Ca_i/KDc;
     P0 = (Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)/((Lv*(1+K*C+Jv*D+Jv*K*C*D*E)^4)+((1+Jv+K+Jv*K*E)^4));
-    E_K = nernstPotential(z_K, K_i, K_o);
-    I_K_Ca_act = N_channel*P0*Gmax*(V - E_K);
+    # E_K = nernstPotential(z_K, K_i, K_o)
+    I_K_Ca_act_temp = N_channel*P0*Gmax*(V - E_K_Ca_act);
+    if(I_K_Ca_act_temp < 0.0)
+      I_K_Ca_act = 0.0;
+    else
+      I_K_Ca_act = I_K_Ca_act_temp;
+    endif
   else
     I_K_Ca_act = 0.0;
   endif

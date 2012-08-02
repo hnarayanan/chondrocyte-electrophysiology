@@ -32,7 +32,7 @@ global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 global enable_I_Na_b = true;
-global enable_I_K_b = false;
+global enable_I_K_b = true;
 global enable_I_Cl_b = false;
 global enable_I_NaK = true;
 global enable_I_NaCa = true;
@@ -95,7 +95,7 @@ global I_stim_bar = 0.0; # Stimulation current magnitude (pA)
 
 # Background conductances
 global g_Na_b_bar = 0.05;   # Background sodium leakage conductance (pS)
-global g_K_b_bar = 0.2;    # Background potassium leakage conductance (pS)
+global g_K_b_bar = 0.03;    # Background potassium leakage conductance (pS)
 global g_Cl_b_bar = 0.2;   # Background chloride leakage conductance (pS)
 
 # Constants related to the sodium-potassium pump
@@ -139,5 +139,6 @@ global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 1.2;
+global Gmax = 3.8;
 global N_channel = 1.0;
+global E_K_Ca_act = 42;
