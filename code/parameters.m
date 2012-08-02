@@ -63,14 +63,14 @@ global step_K_o = false;
 
 # Initial conditions
 global V_0 = -130;
-# global V_0     =   -5.09881068925449e+01   # Initial membrane potential (mV)
-global Na_i_0  =    3.16528528437202e+00   # Initial internal sodium concentration (mM/l)
-global K_i_0   =    1.21336197622046e+02   # Initial internal potassium concentration (mM/l)
-global Ca_i_0  =    3.43047916524882e-06   # Initial internal calcium concentration (mM/l)
-global H_i_0   =    8.97109676375724e-10   # Initial internal hydrogen concentration (mM/l)
+# global V_0     =   -6.45037592851210e+01   # Initial membrane potential (mV)
+global Na_i_0  =    2.18334244893334e+00   # Initial internal sodium concentration (mM/l)
+global K_i_0   =    1.22115787231385e+02   # Initial internal potassium concentration (mM/l)
+global Ca_i_0  =    6.78984103269219e-07   # Initial internal calcium concentration (mM/l)
+global H_i_0   =    6.18806035415087e-10   # Initial internal hydrogen concentration (mM/l)
 global Cl_i_0  =    1.32087076485956e+01   # Initial internal chloride concentration (mM/l)
-global a_ur_0  =    1.09212469654395e-01
-global i_ur_0  =    9.99696191972173e-01
+global a_ur_0  =    3.07576503430618e-02
+global i_ur_0  =    9.99921346197727e-01
 
 # Universal constants
 global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
@@ -127,7 +127,7 @@ global N_NaH_channel = 4899;
 global g_K_ur = 0.35;
 
 # Constants related to the two-pore potassium channel
-global P_K = 3e-6;
+global P_K = 3.3e-6;
 global I_K_2pore_0 = 0.0;
 
 # Constants related to the calcium-activated potassium channel
