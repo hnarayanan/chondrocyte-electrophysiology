@@ -4,40 +4,28 @@
 \subsubsection*{Figure~\ref{fig:chondrocyte-model}.}
 An illustration of the model.
 
-\subsubsection*{Figure~\ref{fig:background-currents-vi}.}
-The background currents (ramped voltage (over 1~s) vs. current).
 
-\subsubsection*{Figure~\ref{fig:pumps-and-exchangers-vi}.}
-The different pumps and exchanger currents (ramped voltage (over 1~s) vs. current).
+\subsubsection*{Figure~\ref{fig:potassium-currents}.}
+Potassium currents which are fit to experimental values (in red) from
+\cite{Clarketal2011}. \Ko = 5~mM, \Nao = 140~mM, \Cao = 2~mM, pH = 7.4,
+except for $I_{K_{\mathrm{2\; pore}}}$, where \Ko = 145~mM, pH = 8.5.
 
-\subsubsection*{Figure~\ref{fig:potassium-currents-vi}.}
-The other potassium currents (ramped voltage (over 1~s)
-vs. current). Experimental values (in red) from \cite{Clarketal2011}.
 
-%% \subsubsection*{Figure~\ref{fig:other-currents-vi}.}
-%% All other currents (V-I). Disabled until we determine exact
-%% channels/functional forms.
-
-\subsubsection*{Figure~\ref{fig:concentrations}.}
-Evolution of the concentrations over 2000~s.
-
-\subsubsection*{Figure~\ref{fig:background-currents-ti}.}
-Evolution of the background currents over 2000~s.
-
-\subsubsection*{Figure~\ref{fig:pumps-and-exchangers-ti}.}
-Evolution of the different pump and exchanger currents over 2000~s.
-
-\subsubsection*{Figure~\ref{fig:potassium-currents-ti}.}
-Evolution of the other potassium currents over 2000~s.
-
-%% \subsubsection*{Figure~\ref{fig:other-currents-ti}.}
-%% Evolution of all the other currents over 2000~s. (Currently disabled.)
+\subsubsection*{Figure~\ref{fig:other-currents}.}
+V-I relations for the other used currents. These are not fit to
+experimental data, but used to tune simulation results.
 
 \subsubsection*{Figure~\ref{fig:overall-behaviour}.}
-Overall behaviour of the model.
+Overall behaviour of the model when voltage is ramped from -130~mV to
++90~mV in 1~s. It validates well with respect to the experimental data.
+
+\subsubsection*{Figure~\ref{fig:concentrations}.}
+(Non)Evolution of the concentrations over 1800~s to show that the
+initial conditions we have chosen for the model were at steady state.
 
 \subsubsection*{Figure~\ref{fig:varying-Ko}.}
-Evolution of membrane potential with varying external potassium concentration.
+Evolution of membrane potential with varying external potassium
+concentration.
 
 \clearpage
 \begin{figure}
@@ -52,148 +40,61 @@ Evolution of membrane potential with varying external potassium concentration.
 \begin{figure}
   \centering
   \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_Na_b}}
+    {../results/pdf/20120803/V-I_K_2pore}}
   \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_K_b}}\\
+    {../results/pdf/20120803/V-I_K_Ca_act}}\\
   \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_Cl_b}}
+    {../results/pdf/20120803/V-I_K_ur}}
+  \subfloat{\includegraphics[width=0.5\textwidth]
+    {../results/pdf/20120803/t-I_K_ur}}
+  \caption{}
+  \label{fig:potassium-currents}
+\end{figure}
+
+\clearpage
+\begin{figure}
+  \centering
+  \subfloat{\includegraphics[width=0.5\textwidth]
+    {../results/pdf/20120803/V-I_Na_b}}
+  \subfloat{\includegraphics[width=0.5\textwidth]
+    {../results/pdf/20120803/V-I_NaCa}}\\
+  \subfloat{\includegraphics[width=0.5\textwidth]
+    {../results/pdf/20120803/V-I_NaK}}
   \subfloat{\hspace{0.5\textwidth}}
   \caption{}
-  \label{fig:background-currents-vi}
+  \label{fig:other-currents}
 \end{figure}
 
 \clearpage
 \begin{figure}
   \centering
   \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_NaK}}
+    {../results/pdf/20120803/t-v}}
   \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_NaCa}}\\
+    {../results/pdf/20120803/V-I_i_by_Cm}}\\
   \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_NaH}}
-  \subfloat{\hspace{0.5\textwidth}}
-  \caption{}
-  \label{fig:pumps-and-exchangers-vi}
-\end{figure}
-
-\clearpage
-\begin{figure}
-  \centering
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_K_ur}}
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_K_2pore}}\\
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_K_Ca_act}}
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_K_ATP}}
-  \caption{}
-  \label{fig:potassium-currents-vi}
-\end{figure}
-
-%% \clearpage
-%% \begin{figure}
-%%   \centering
-%%   \subfloat{\includegraphics[width=0.5\textwidth]
-%%     {../results/pdf/20110902/V-I_stim}}
-%%   \subfloat{\includegraphics[width=0.5\textwidth]
-%%     {../results/pdf/20110902/V-I_ASIC}}\\
-%%   \subfloat{\includegraphics[width=0.5\textwidth]
-%%     {../results/pdf/20110902/V-I_TRP1}}
-%%   \subfloat{\includegraphics[width=0.5\textwidth]
-%%     {../results/pdf/20110902/V-I_TRP2}}
-%%   \caption{}
-%%   \label{fig:other-currents-vi}
-%% \end{figure}
-
-\clearpage
-\begin{figure}
-  \centering
-  \subfloat{\includegraphics[width=0.50\textwidth]
-    {../results/pdf/20110902/t-Na_i}}
-  \subfloat{\includegraphics[width=0.50\textwidth]
-    {../results/pdf/20110902/t-K_i}}\\
-  \subfloat{\includegraphics[width=0.50\textwidth]
-    {../results/pdf/20110902/t-Ca_i}}
-  \subfloat{\includegraphics[width=0.50\textwidth]
-    {../results/pdf/20110902/t-H_i}}\\
-\subfloat{\includegraphics[width=0.50\textwidth]
-  {../results/pdf/20110902/t-Cl_i}}
-  \subfloat{\hspace{0.50\textwidth}}\\
-  \caption{}
-  \label{fig:concentrations}
-\end{figure}
-
-\clearpage
-\begin{figure}
-  \centering
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_Na_b}}
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_K_b}}\\
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_Cl_b}}
-  \subfloat{\hspace{0.5\textwidth}}
-  \caption{}
-  \label{fig:background-currents-ti}
-\end{figure}
-
-\clearpage
-\begin{figure}
-  \centering
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_NaK}}
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_NaCa}}\\
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_NaH}}
-  \subfloat{\hspace{0.5\textwidth}}
-  \caption{}
-  \label{fig:pumps-and-exchangers-ti}
-\end{figure}
-
-\clearpage
-\begin{figure}
-  \centering
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_K_ur}}
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_K_2pore}}\\
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_K_Ca_act}}
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_K_ATP}}
-  \caption{}
-  \label{fig:potassium-currents-ti}
-\end{figure}
-
-%% \clearpage
-%% \begin{figure}
-%%   \centering
-%%   \subfloat{\includegraphics[width=0.5\textwidth]
-%%     {../results/pdf/20110902/t-I_stim}}
-%%   \subfloat{\includegraphics[width=0.5\textwidth]
-%%     {../results/pdf/20110902/t-I_ASIC}}\\
-%%   \subfloat{\includegraphics[width=0.5\textwidth]
-%%     {../results/pdf/20110902/t-I_TRP1}}
-%%   \subfloat{\includegraphics[width=0.5\textwidth]
-%%     {../results/pdf/20110902/t-I_TRP2}}
-%%   \caption{}
-%%   \label{fig:other-currents-ti}
-%% \end{figure}
-
-\clearpage
-\begin{figure}
-  \centering
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-V}}
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-I_i}}\\
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/V-I_i_by_Cm}}
+    {../results/pdf/20120803/t-I_i}}
   \subfloat{\hspace{0.5\textwidth}}
   \caption{}
   \label{fig:overall-behaviour}
+\end{figure}
+
+\clearpage
+\begin{figure}
+  \centering
+  \subfloat{\includegraphics[width=0.50\textwidth]
+    {../results/pdf/20120803/t-Na_i}}
+  \subfloat{\includegraphics[width=0.50\textwidth]
+    {../results/pdf/20120803/t-K_i}}\\
+  \subfloat{\includegraphics[width=0.50\textwidth]
+    {../results/pdf/20120803/t-Ca_i}}
+  \subfloat{\includegraphics[width=0.50\textwidth]
+    {../results/pdf/20120803/t-H_i}}\\
+\subfloat{\includegraphics[width=0.50\textwidth]
+  {../results/pdf/20120803/t-Cl_i}}
+  \subfloat{\hspace{0.50\textwidth}}\\
+  \caption{}
+  \label{fig:concentrations}
 \end{figure}
 
 \clearpage
