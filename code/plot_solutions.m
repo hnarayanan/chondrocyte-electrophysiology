@@ -50,7 +50,7 @@ plot(t, V, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), 
 print -depslatexstandalone "../results/epslatex/t-V.tex"
 plot(t, I_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{i}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/t-I_i.tex"
-plot(V, I_i/C_m, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{i}}/C_{\mathrm{m}}\,(pA/pF)$');
+plot(V(5:end), I_i(5:end)/C_m, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{i}}/C_{\mathrm{m}}\,(pA/pF)$');
 hold on;
 plot(V_ref, I_i_by_C_m_ref, '1', 'linewidth', line_width, 'color', red);
 hold off;
@@ -95,7 +95,7 @@ print -depslatexstandalone "../results/epslatex/t-I_NaH.tex"
 # Plot the different pump and exchanger currents (V-I)
 plot(V, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaK}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/V-I_NaK.tex"
-plot(V, I_NaCa, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaCa}}\,(pA)$');
+plot(V(5:end), I_NaCa(5:end), 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaCa}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/V-I_NaCa.tex"
 plot(V, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaH}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/V-I_NaH.tex"
@@ -111,9 +111,9 @@ plot(t, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'),
 print -depslatexstandalone "../results/epslatex/t-I_K_ATP.tex"
 
 # Plot the other potassium currents (V-I)
-plot(V, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{ur}}}\,(pA)$');
+plot(V(10:end), I_K_ur(10:end),     'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{ur}}}\,(pA)$');
 hold on;
-plot(V, I_ref_without_DTX_int - I_ref_with_DTX_int, '1', 'linewidth', line_width, 'color', red);
+plot(V(5:end-137), I_ref_without_DTX_int(5:end-137) - I_ref_with_DTX_int(5:end-137), '1', 'linewidth', line_width, 'color', red);
 hold off;
 print -depslatexstandalone "../results/epslatex/V-I_K_ur.tex"
 plot(V, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{2pore}}}\,(pA)$');
