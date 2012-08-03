@@ -10,7 +10,6 @@ Potassium currents which are fit to experimental values (in red) from
 \cite{Clarketal2011}. \Ko = 5~mM, \Nao = 140~mM, \Cao = 2~mM, pH = 7.4,
 except for $I_{K_{\mathrm{2\; pore}}}$, where \Ko = 145~mM, pH = 8.5.
 
-
 \subsubsection*{Figure~\ref{fig:other-currents}.}
 V-I relations for the other used currents. These are not fit to
 experimental data, but used to tune simulation results.
@@ -22,6 +21,11 @@ Overall behaviour of the model when voltage is ramped from -130~mV to
 \subsubsection*{Figure~\ref{fig:concentrations}.}
 (Non)Evolution of the concentrations over 1800~s to show that the
 initial conditions we have chosen for the model were at steady state.
+
+\subsection*{Figure~\ref{fig:I-K-2pore-rmp}}
+When the amount of $I_{K_{\mathrm{2\; pore}}}$ is varied from 100\% to
+0\% (by blocking with increasing amounts of BUP), the RMP
+changes. This matches with experiments. (Fig 8B)
 
 \subsubsection*{Figure~\ref{fig:varying-Ko}.}
 Evolution of membrane potential with varying external potassium
@@ -100,15 +104,10 @@ concentration.
 \clearpage
 \begin{figure}
   \centering
-  \subfloat[Without BUP]{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-V-withoutBUP}}
-  \subfloat[With BUP]{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-V-withBUP}}\\
-  \subfloat{\includegraphics[width=0.5\textwidth]
-    {../results/pdf/20110902/t-K_o}}
-  \subfloat{\hspace{0.5\textwidth}}
+  \includegraphics[width=1.0\textwidth]
+    {../results/pdf/20120803/I_K_2pore_vs_RMP}
   \caption{}
-  \label{fig:varying-Ko}
+  \label{fig:I-K-2pore-rmp}
 \end{figure}
 
 % Local Variables:
