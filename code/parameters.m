@@ -36,12 +36,12 @@ global enable_I_K_b = true;
 global enable_I_Cl_b = false;
 global enable_I_NaK = true;
 global enable_I_NaCa = true;
-global enable_I_NaH = true;
 global enable_I_K_ur = true;
 global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
 
 # Definitely not used
+global enable_I_NaH = false;
 global enable_I_K_ATP = false;
 global enable_I_ASIC = false;
 global enable_I_TRP1 = false;
