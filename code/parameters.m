@@ -63,14 +63,14 @@ global step_K_o = false;
 
 # Initial conditions
 global V_0 = -130;
-# global V_0     =   -6.45037592851210e+01   # Initial membrane potential (mV)
-global Na_i_0  =    2.18334244893334e+00   # Initial internal sodium concentration (mM/l)
-global K_i_0   =    1.22115787231385e+02   # Initial internal potassium concentration (mM/l)
-global Ca_i_0  =    6.78984103269219e-07   # Initial internal calcium concentration (mM/l)
-global H_i_0   =    6.18806035415087e-10   # Initial internal hydrogen concentration (mM/l)
-global Cl_i_0  =    1.32087076485956e+01   # Initial internal chloride concentration (mM/l)
-global a_ur_0  =    3.07576503430618e-02
-global i_ur_0  =    9.99921346197727e-01
+# global V_0     =  -5.14496233498763e+01    # Initial membrane potential (mV)
+global Na_i_0  =   2.81475796771128e+00    # Initial internal sodium concentration (mM/l)
+global K_i_0   =   1.21679817152123e+02    # Initial internal potassium concentration (mM/l)
+global Ca_i_0  =   2.37104602297392e-06    # Initial internal calcium concentration (mM/l)
+global H_i_0   =   6.18806035415087e-10    # Initial internal hydrogen concentration (mM/l)
+global Cl_i_0  =   1.32087076485956e+01    # Initial internal chloride concentration (mM/l)
+global a_ur_0  =   1.04802913063907e-01
+global i_ur_0  =   9.99709890606304e-01
 
 # Universal constants
 global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
@@ -94,12 +94,12 @@ global t_stim = 1.0;     # Stimulation time/cycle (s)
 global I_stim_bar = 0.0; # Stimulation current magnitude (pA)
 
 # Background conductances
-global g_Na_b_bar = 0.05;   # Background sodium leakage conductance (pS)
-global g_K_b_bar = 0.03;    # Background potassium leakage conductance (pS)
+global g_Na_b_bar = 0.10;   # Background sodium leakage conductance (pS)
+global g_K_b_bar = 0.00;    # Background potassium leakage conductance (pS)
 global g_Cl_b_bar = 0.2;   # Background chloride leakage conductance (pS)
 
 # Constants related to the sodium-potassium pump
-global I_NaK_bar = 68.55;
+global I_NaK_bar = 82;
 global K_NaK_K = 1.0;
 global K_NaK_Na = 11.0;
 
