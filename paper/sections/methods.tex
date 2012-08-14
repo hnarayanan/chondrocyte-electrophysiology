@@ -134,7 +134,7 @@ functional activity upregulated to raised extracellular \Na{}
 \citep{Mobasherietal1997}.
 
 In the current model, we employ the following {\bf sodium-potassium
-  pump} formulation from \citet{Nygrenetal1998}:
+  pump} formulation from \citet{Nygrenetal1998} to model this channel.
 \begin{equation}
   I_{\rm NaK} =
   \bar{I}_{\rm NaK} \left( \frac{[\rm K^{+}]_{\rm o}}{[\rm K^{+}]_{\rm o} +
@@ -143,14 +143,13 @@ In the current model, we employ the following {\bf sodium-potassium
     200} \right)
 \end{equation}
 
-Figure~\ref{foobar} shows a representative voltage-current curve for
+Figure~\ref{UNKNOWN} shows a representative voltage-current curve for
 this channel.
 
-[YES] {\bf Sodium-Calcium exchanger:}
-\todo{{\bf Molly:} This channel is a primary calcium concentration
-  regulation mechanism. Need to explain the importance of this.}
-
-Sodium Calcium Exchanger \citep[Table 13, pp. 77]{Nygrenetal1998}:
+As in many other cell types, the {\bf sodium-calcium exchanger} plays
+a key role in \Ca homeostasis in articular chondrocytes
+\citep{Sanchezetal2006}. In this work, we model this channel using the
+following mathematical expression \citep{Nygrenetal1998}:
 \begin{equation}
   I_{\rm NaCa} = k_{\rm NaCa} \frac{[\rm Na^{+}]^{3}_{i}[\rm
     Ca^{2+}]_{o} \exp(\frac{\gamma V F}{R T}) - [\rm
@@ -159,21 +158,20 @@ Sodium Calcium Exchanger \citep[Table 13, pp. 77]{Nygrenetal1998}:
     [\rm Na^{+}]^{3}_{i}[\rm Ca^{2+}]_{o})}
 \end{equation}
 
-[YES] {\bf Some mechanism for sensing external pH}: ASIC channels
-(related to ENaC) are opened by extra-cellular protons (in the acidic
-environment of the chondrocytes ) and mediate an increase in
-Ca2+. There is also some other possible mechanism involving something
-called connexin-43. We use the Na+-H+ antiporter from
-\citet{Halletal1996,Wilkinsetal2000}.
 
-\todo{{\bf Molly:} Need to explain why we choose the Na-H exchanger
-  over a possible ASIC channel}
-
-Sodium Hydrogen Exchanger \citep[Eq. 2, pp. 2675]{Chaetal2009}
+Literature suggests that chondrocytes possess a {\bf sodium-hydrogen
+  antiporter} \citep{Halletal1996,Wilkinsetal2000} which allows the
+cell to sense extra-cellular pH. In order to model this channel, we
+use the following functional form described in \citet{Chaetal2009}:
+\begin{equation}
+    I_{\rm NaH} = N_{\rm NaH} I_{\rm NaH_{\rm mod}}
+    I_{\rm NaH_{\rm exch}}
+\end{equation}
+where,
 \begin{equation}
   \begin{split}
     I_{{\rm NaH}_{\rm mod}} & = \frac{1}{1 + (K_{\rm i}^{n_{\rm
-          H}}/[{\rm H}^{+}]_{\rm i}^{n_{\rm H}})}\\
+          H}}/[{\rm H}^{+}]_{\rm i}^{n_{\rm H}})},\\
     t_{1} & = \frac{k_{1}^{+} [{\rm Na}^{+}]_{\rm o}/K_{\rm Na}^{\rm
         o}} {(1 + [{\rm Na}^{+}]_{\rm o}/K_{\rm Na}^{\rm o} + [{\rm
         H}^{+}]_{\rm o} /K_{\rm H}^{\rm o})}\\
@@ -185,11 +183,9 @@ Sodium Hydrogen Exchanger \citep[Eq. 2, pp. 2675]{Chaetal2009}
         H}^{+}]_{\rm i} /K_{\rm H}^{\rm i})}\\
     t_{4} & = \frac{k_{2}^{-} [{\rm H}^{+}]_{\rm o}/K_{\rm H}^{\rm
         o}} {(1 + [{\rm Na}^{+}]_{\rm o}/K_{\rm Na}^{\rm o} + [{\rm
-        H}^{+}]_{\rm o} /K_{\rm H}^{\rm o})}\\
+        H}^{+}]_{\rm o} /K_{\rm H}^{\rm o})},\\
     I_{{\rm NaH}_{\rm exch}} & = \frac{(t_1 t_2 - t_3 t_4)}
-    {(t_1 + t_2 + t_3 + t_4)}\\
-    I_{\rm NaH} & = N_{\rm NaH} I_{\rm NaH_{\rm mod}}
-    I_{\rm NaH_{\rm exch}}
+    {(t_1 + t_2 + t_3 + t_4)}.\\
   \end{split}
 \end{equation}
 
@@ -377,10 +373,10 @@ model the cell as the following set of ordinary differential equations
 
 The individual currents above are defined by
 Equations~\ref{I_K_Ca_act}--\ref{I_Cl_b}, and the ODE
-system~\ref{ode-system} is solved for the primary vector of unknowns:
-$V_{\rm m}$, \Nai, \Ki, \Cai, \Hi, \Cli, $a_{\rm ur}$, and $i_{\rm
-  ur}$ in the time period of the numerical experiment. The initial
-conditions are chosen from previous calculations run to steady
+system~(\ref{ode-system}) is solved for the primary vector of
+unknowns: $V_{\rm m}$, \Nai, \Ki, \Cai, \Hi, \Cli, $a_{\rm ur}$, and
+$i_{\rm ur}$ in the time period of the numerical experiment. The
+initial conditions are chosen from previous calculations run to steady
 state. The equation system is solved using LSODE
 \citep{RadhakrishnanHindmarsh1993}, and the corresponding GNU Octave
 code is available free and open source for anyone to use and extend
