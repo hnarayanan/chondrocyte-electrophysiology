@@ -8,6 +8,50 @@
 \subsection*{Limitations}
 \label{sec:limitations}
 
+[NO] {\bf TRP channels (TRPv4 in particular)}: These show little
+selectivity between cations Na+, Ca2+, Mg2+. Several have been
+identified in osteo-arthritic cartilage. Knocking out TRPv4
+$\rightarrow$ loss of Ca2+ response to hypo-osmotic challenge
+$\rightarrow$ osteoarthritic changes. (Will cite.) Thus, membrane
+stretch $\rightarrow$ calcium mobilisation via TRPv4 $\rightarrow$
+activation of Ca-act K, chondrogenesis and volume regulation.
+
+Osteo-arthritic trip channel \citep{UNKNOWN}:
+\begin{equation}
+  I_{\rm TRP_{V4}} = \bar{g}_{\rm TRP_{V4}}\, (V_{\rm m} - E_{\rm ?})
+\end{equation}
+
+[NO] {\bf Voltage-gated sodium channels}: These have been found in
+some rabbit chondrocytes and some osteo-arthritic cartilage. They are
+likely constantly inactivated due to the voltages the
+chondrocyte.  We instead model $I_{Na_{b}}$ as a sort of constant
+background Na+ leak.
+
+\todo{{\bf Question:} Do we need to model this. Can this be linked to
+  $I_{Na_{b}}$?}
+
+\begin{equation}
+  I_{\rm VGSC} =
+\end{equation}
+
+External stimulation (matching experiments, e.g. cyclic stimulation):
+\begin{equation}
+I_{\rm stim} = \overline{I_{\rm stim}}\, {\rm square}(\frac{2 \pi\,
+  t}{t_{\rm cycle}}, \frac{t_{\rm stim}}{t_{\rm cycle}})
+\end{equation}
+
+
+[NO] {\bf Inwardly-rectifying $I_{K_{ATP}}$}: This channel is closed by
+intracellular ATP. It allows for physical coupling between metabolism
+and membrane excitability. It is observed to be open in the low-oxygen
+tension environment of chondrocytes \citep{DartStanden1994,
+  Mobasherietal2007}.
+
+Potassium pump \citep{UNKNOWN}:
+\begin{equation}
+  I_{\rm K_{ATP}} =
+\end{equation}
+
 [NO] {\bf Small calcium-activated Potassium $I_{SK}$}: A few reports
 suggest this might exist \citep{Halletal1996,
   BarrettJolleyetal2010}. Tiny magnitude, by definition and role

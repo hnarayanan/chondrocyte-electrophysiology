@@ -22,36 +22,6 @@ section.
 \subsubsection*{Potassium channels}
 \label{sec:potassium-channels}
 
-[YES] {\bf Delayed-rectifier $I_{K_{ur}}$}: One of the earliest channels
-found in the chondrocyte \citep{Walshetal1992, Sugimotoetal1996,
-  Mobasherietal2005}. These usually repolarize active cells following
-action potentials but their role in chondrocytes are not known because
-chondrocytes are far more depolarised. Kv 1.4 and 1.6
-\citep{Clarketal2010, Mobasherietal2005} are known to exist. Others
-might as well.
-
-\todo{{\bf Question:} We currently model Kv1.5. Do we need to replace
-this with Kv1.4 from, e.g., Nygren et al.?}
-
-Ultra-rapidly rectifying potassium channel \citep{Maleckaretal2009}:
-\begin{equation}
-  \begin{split}
-    I_{\rm K_{\rm ur}} & = g_{\rm K_{\rm ur}}\, a_{\rm ur}\, i_{\rm
-      ur}\, (V - E_{\rm K})\\
-    E_{\rm K} & =  \frac{R T}{z_{\rm K} F}
-    \ln\left(\frac{\left[K^{+}\right]_{o}}
-      {\left[K^{+}\right]_{i}}\right)\\
-    a_{{\rm ur}_{\infty}} & = \frac{1}{1 + \exp(-(V_{\rm m} +
-      6.0)/8.6)}\\
-    i_{{\rm ur}_{\infty}} & = \frac{1}{1 + \exp(-(V_{\rm m} +
-      7.5)/10.0)) + 0.7}\\
-    \tau_{a_{\rm ur}} & = \frac{0.009}{1 + \exp((V + 5.0)/12.0)} +
-    0.0005\\
-    \tau_{i_{\rm ur}} & = \frac{0.5}{1 + \exp((V +60.0)/20.0)} +
-    6\\
-  \end{split}
-\end{equation}
-
 [YES] {\bf Two-pore potassium $I_{2 pore}$}: Plays an important role
 in RMP. \citep{Clarketal2011} point out its existence.
 
@@ -89,15 +59,34 @@ Calcium-activated potassium channel \citep{HorriganAldrich2002}:
   \end{split}
 \end{equation}
 
-[YES] {\bf Inwardly-rectifying $I_{K_{ATP}}$}: This channel is closed by
-intracellular ATP. It allows for physical coupling between metabolism
-and membrane excitability. It is observed to be open in the low-oxygen
-tension environment of chondrocytes \citep{DartStanden1994,
-  Mobasherietal2007}.
+[YES] {\bf Delayed-rectifier $I_{K_{ur}}$}: One of the earliest channels
+found in the chondrocyte \citep{Walshetal1992, Sugimotoetal1996,
+  Mobasherietal2005}. These usually repolarize active cells following
+action potentials but their role in chondrocytes are not known because
+chondrocytes are far more depolarised. Kv 1.4 and 1.6
+\citep{Clarketal2010, Mobasherietal2005} are known to exist. Others
+might as well.
 
-Potassium pump \citep{UNKNOWN}:
+\todo{{\bf Question:} We currently model Kv1.5. Do we need to replace
+this with Kv1.4 from, e.g., Nygren et al.?}
+
+Ultra-rapidly rectifying potassium channel \citep{Maleckaretal2009}:
 \begin{equation}
-  I_{\rm K_{ATP}} =
+  \begin{split}
+    I_{\rm K_{\rm ur}} & = g_{\rm K_{\rm ur}}\, a_{\rm ur}\, i_{\rm
+      ur}\, (V - E_{\rm K})\\
+    E_{\rm K} & =  \frac{R T}{z_{\rm K} F}
+    \ln\left(\frac{\left[K^{+}\right]_{o}}
+      {\left[K^{+}\right]_{i}}\right)\\
+    a_{{\rm ur}_{\infty}} & = \frac{1}{1 + \exp(-(V_{\rm m} +
+      6.0)/8.6)}\\
+    i_{{\rm ur}_{\infty}} & = \frac{1}{1 + \exp(-(V_{\rm m} +
+      7.5)/10.0)) + 0.7}\\
+    \tau_{a_{\rm ur}} & = \frac{0.009}{1 + \exp((V + 5.0)/12.0)} +
+    0.0005\\
+    \tau_{i_{\rm ur}} & = \frac{0.5}{1 + \exp((V +60.0)/20.0)} +
+    6\\
+  \end{split}
 \end{equation}
 
 \subsubsection*{Pumps and exchangers}
@@ -218,41 +207,6 @@ have managed to isolate one specific chloride leakage channel in human
 articular chondrocytes: CFTR (citation). Such channels are likely
 necessary for anion loss and may thus be important in regulating the
 RMP of the cell.
-
-\subsubsection*{Other channels}
-\label{sec:other-channels}
-
-[YES] {\bf TRP channels (TRPv4 in particular)}: These show little
-selectivity between cations Na+, Ca2+, Mg2+. Several have been
-identified in osteo-arthritic cartilage. Knocking out TRPv4
-$\rightarrow$ loss of Ca2+ response to hypo-osmotic challenge
-$\rightarrow$ osteoarthritic changes. (Will cite.) Thus, membrane
-stretch $\rightarrow$ calcium mobilisation via TRPv4 $\rightarrow$
-activation of Ca-act K, chondrogenesis and volume regulation.
-
-Osteo-arthritic trip channel \citep{UNKNOWN}:
-\begin{equation}
-  I_{\rm TRP_{V4}} = \bar{g}_{\rm TRP_{V4}}\, (V_{\rm m} - E_{\rm ?})
-\end{equation}
-
-[??] {\bf Voltage-gated sodium channels}: These have been found in
-some rabbit chondrocytes and some osteo-arthritic cartilage. They are
-likely constantly inactivated due to the voltages the
-chondrocyte.  We instead model $I_{Na_{b}}$ as a sort of constant
-background Na+ leak.
-
-\todo{{\bf Question:} Do we need to model this. Can this be linked to
-  $I_{Na_{b}}$?}
-
-\begin{equation}
-  I_{\rm VGSC} =
-\end{equation}
-
-External stimulation (matching experiments, e.g. cyclic stimulation):
-\begin{equation}
-I_{\rm stim} = \overline{I_{\rm stim}}\, {\rm square}(\frac{2 \pi\,
-  t}{t_{\rm cycle}}, \frac{t_{\rm stim}}{t_{\rm cycle}})
-\end{equation}
 
 \subsection*{The atypical environment of the chondrocyte (how
   parameters are chosen)}
