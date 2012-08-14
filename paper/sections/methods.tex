@@ -59,9 +59,10 @@ form defined by \citet{HorriganAldrich2002}:
 \begin{equation}
     I_{\rm K_{Ca-act}} = N_{\rm K_{Ca-act}}\, P_0\, G_{\rm max}\, (V -
     E_{\rm K}),
+    \label{I_K_Ca_act}
 \end{equation}
 where,
-\begin{equation}
+\begin{equation*}
   \begin{split}
     kTe & = 23.54\, (T/273),\\
     L_v & = L0\, \exp((V\, Z_L)/kTe),\\
@@ -74,7 +75,7 @@ where,
     \ln\left(\frac{\left[K^{+}\right]_{o}}
       {\left[K^{+}\right]_{i}}\right).
   \end{split}
-\end{equation}
+\end{equation*}
 Figure~\ref{fig:potassium-currents}b shows the voltage-current
 curve for this channel fit to experimental data
 \citep{Clarketal2011}.
@@ -97,7 +98,7 @@ where $i_{\rm ur}$ and $a_{\rm ur}$ are computed as part of the
 solution of the ODE system defined by Equation~\ref{ode-system}, and
 the following expressions define quantities related to this
 time-dependent channel:
-\begin{equation}
+\begin{equation*}
   \begin{split}
     E_{\rm K} & =  \frac{R T}{z_{\rm K} F}
     \ln\left(\frac{\left[K^{+}\right]_{o}}
@@ -111,7 +112,12 @@ time-dependent channel:
     \tau_{i_{\rm ur}} & = \frac{0.5}{1 + \exp((V +60.0)/20.0)} +
     6.\\
   \end{split}
-\end{equation}
+\end{equation*}
+
+Figure~\ref{fig:potassium-currents}c shows the voltage-current
+curve for this channel fit to experimental data
+\citep{Clarketal2011} and Figure~\ref{fig:potassium-currents}d shows
+the time-current curve over the same period.
 
 \subsubsection*{Pumps and exchangers}
 \label{sec:pumps-and-exchangers}
@@ -198,7 +204,7 @@ are motivated by Hodgkin and Huxley:
 \end{equation}
 where the Nernst potentials for the two species are computed in terms
 of their respective interior and exterior concentrations:
-\begin{equation}
+\begin{equation*}
   \begin{split}
     E_{\rm Na} & =  \frac{R T}{z_{\rm Na} F}
     \ln\left(\frac{\left[Na^{+}\right]_{o}}
@@ -207,20 +213,19 @@ of their respective interior and exterior concentrations:
     \ln\left(\frac{\left[K^{+}\right]_{o}}
       {\left[K^{+}\right]_{i}}\right).
   \end{split}
-\end{equation}
+\end{equation*}
 
 Analogously, the model accounts for chloride leakage through a similar
 mathematical expression,
-
 \begin{equation}
   I_{\rm Cl_b} = \bar{g}_{\rm Cl_b} (V_{\rm m} - E_{\rm Cl}),
 \end{equation}
 where
-\begin{equation}
+\begin{equation*}
   E_{\rm Cl} =  \frac{R T}{z_{\rm Cl} F}
   \ln\left(\frac{\left[Cl^{-}\right]_{o}}
           {\left[Cl^{-}\right]_{i}}\right)
-\end{equation}
+\end{equation*}
 is the Nernst potential set up by the difference in \Cl{}
 concentration inside and outside the cell.
 
