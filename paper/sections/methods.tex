@@ -7,7 +7,7 @@ simply by fixing external concentrations \Nao, \Ko, \Cao, \Ho{} and
 \Clo{} within physiologically-relevant ranges (see
 Table~\ref{tab:external-concentrations-2}). The chondrocyte cell
 membrane boasts a host of voltage- and ligand-gated ion channels as
-well as pumps and exchangers (cite); the channels under under
+well as pumps and exchangers \citep{UNKNOWN}; the channels under under
 consideration in this model are illustrated in
 Figure~\ref{fig:chondrocyte-model} and described in the following
 section.
@@ -16,76 +16,100 @@ section.
 \label{sec:formulation-ionic-current}
 
 \todo{Needs some introductory text here. Point to the fact that the
-  discussion contains other known channels not explicitly modelled in
-  this work.}
+  discussion contains other identified channels not explicitly
+  modelled in this work.}
 
 \subsubsection*{Potassium channels}
 \label{sec:potassium-channels}
 
-[YES] {\bf Two-pore potassium $I_{2 pore}$}: Plays an important role
-in RMP. \citep{Clarketal2011} point out its existence.
+Experimental results reported by \citet{Clarketal2011} suggest that
+potassium channels play a dominant role in controlling the RMP of the
+human tibial joint articular chondrocyte. Motivated by these
+observations, our mathematical model incorporates the following three
+primary channels for potassium ion transport.
 
-Two-pore potassium channel \citep{UNKNOWN}:
+{\bf Two-pore potassium} channels are a set of widely-expressed
+K$^{+}$-selective channels whose activation is largely independent of
+membrane potential. They appear to play a vital role in determining
+the RMP of the cell. Following \citet{UNKNOWN}, the mathematical
+expression used to compute this current is:
 \begin{equation}
  I_{\rm K_{2\, pore}} = P_{\rm K}\, \frac{z_{\rm K}^2\, V\, F^{2}}{R\,
    T}\, \frac{({\left[K^{+}\right]_{i}} - {\left[K^{+}\right]_{o}}\,
  exp(\frac{-z_{\rm K}\, V\, F}{R\, T}))}{(1 - \exp(-z_K\, V\, F/(R\,
- T))} + I_{{\rm K_{2\, pore}}_0}
+ T))},
 \end{equation}
+and Figure~\ref{fig:potassium-currents}a shows the voltage-current
+curve for this channel fit to experimental data.
 
-[YES] {\bf Large calcium-activated Potassium $I_{BK}$}: 1. This could
-be important for RMP. 2. Could act as an ``osmolyte channel''
-$\rightarrow$ K+ ions leave $\rightarrow$ decrease intracellular
-osmotic potential $\rightarrow$ regulatory volume decrease. 3. Could
-be a stretch-activated channel. Stretch $\rightarrow$ increased
-calcium $\rightarrow$ increased BK current. (Many citations and
-speculations in \citet{BarrettJolleyetal2010}.)
+Several experimental studies point to the existence of (large) {\bf
+  calcium-activated potassium} channels
+\citep{BarrettJolleyetal2010}. Such channels are hypothesised to act
+as ``osmolytic channels,'' responsible for decreasing intracellular
+osmotic potential by fostering efflux of potassium ions. This affects
+the ability of the chondrocyte to regulate its volume under rapid
+changes in physiochemical environment \citep{Lewisetal2011}. In
+addition, studies suggest \citep{UNKNOWN} that this channel can be
+stretch-activated (stretch causes an increase in calcium influx, which
+results in markedly increased potassium current).
 
-Calcium-activated potassium channel \citep{HorriganAldrich2002}:
+In the present formulation, we ignore the stretch dependence and model
+the (large) calcium-activated potassium channel using a functional
+form defined by \citet{HorriganAldrich2002}:
+\begin{equation}
+    I_{\rm K_{Ca-act}} = N_{\rm K_{Ca-act}}\, P_0\, G_{\rm max}\, (V -
+    E_{\rm K}),
+\end{equation}
+where,
 \begin{equation}
   \begin{split}
-    kTe & = 23.54\, (T/273)\\
-    L_v & = L0\, \exp((V\, Z_L)/kTe)\\
-    J_v & = \exp(((V - Vh_j)\, Z_j)/kTe)\\
-    K & = Ca_i/KDc\\
+    kTe & = 23.54\, (T/273),\\
+    L_v & = L0\, \exp((V\, Z_L)/kTe),\\
+    J_v & = \exp(((V - Vh_j)\, Z_j)/Kate),\\
+    K & = Ca_i/KDc,\\
     P_0 & = \frac{L_v\, (1+K\, C+J_v\, D+J_v\, K\, C\, D\, E)^4}
     {L_v\, (1+K\, C+J_v\, D+J_v\, K\, C\, D\, E)^4 +
-      (1+J_v+K+J_v\, K\, E)^4}\\
+      (1+J_v+K+J_v\, K\, E)^4},\\
     E_{\rm K} & =  \frac{R T}{z_{\rm K} F}
     \ln\left(\frac{\left[K^{+}\right]_{o}}
-      {\left[K^{+}\right]_{i}}\right)\\
-    I_{\rm K_{Ca-act}} & = N_{\rm K_{Ca-act}}\, P_0\, G_{\rm max}\, (V -
-    E_{\rm K})
+      {\left[K^{+}\right]_{i}}\right).
   \end{split}
 \end{equation}
+Figure~\ref{fig:potassium-currents}b shows the voltage-current
+curve for this channel fit to experimental data
+\citep{Clarketal2011}.
 
-[YES] {\bf Delayed-rectifier $I_{K_{ur}}$}: One of the earliest channels
-found in the chondrocyte \citep{Walshetal1992, Sugimotoetal1996,
+The {\bf delayed-rectifier} was one of the channels found in the
+chondrocyte \citep{Walshetal1992, Sugimotoetal1996,
   Mobasherietal2005}. These usually repolarize active cells following
 action potentials but their role in chondrocytes are not known because
 chondrocytes are far more depolarised. Kv 1.4 and 1.6
 \citep{Clarketal2010, Mobasherietal2005} are known to exist. Others
-might as well.
+might as well. In this work, the mathematical expression for the
+delayed rectifier is motivated by the ultra-rapidly rectifying
+potassium channel \citep{Maleckaretal2009}:
 
-\todo{{\bf Question:} We currently model Kv1.5. Do we need to replace
-this with Kv1.4 from, e.g., Nygren et al.?}
-
-Ultra-rapidly rectifying potassium channel \citep{Maleckaretal2009}:
+\begin{equation}
+    I_{\rm K_{\rm ur}} = g_{\rm K_{\rm ur}}\, a_{\rm ur}\, i_{\rm
+      ur}\, (V - E_{\rm K}),
+\end{equation}
+where $i_{\rm ur}$ and $a_{\rm ur}$ are computed as part of the
+solution of the ODE system defined by Equation~\ref{ode-system}, and
+the following expressions define quantities related to this
+time-dependent channel:
 \begin{equation}
   \begin{split}
-    I_{\rm K_{\rm ur}} & = g_{\rm K_{\rm ur}}\, a_{\rm ur}\, i_{\rm
-      ur}\, (V - E_{\rm K})\\
     E_{\rm K} & =  \frac{R T}{z_{\rm K} F}
     \ln\left(\frac{\left[K^{+}\right]_{o}}
-      {\left[K^{+}\right]_{i}}\right)\\
+      {\left[K^{+}\right]_{i}}\right),\\
     a_{{\rm ur}_{\infty}} & = \frac{1}{1 + \exp(-(V_{\rm m} +
-      6.0)/8.6)}\\
+      6.0)/8.6)},\\
     i_{{\rm ur}_{\infty}} & = \frac{1}{1 + \exp(-(V_{\rm m} +
-      7.5)/10.0)) + 0.7}\\
+      7.5)/10.0)) + 0.7},\\
     \tau_{a_{\rm ur}} & = \frac{0.009}{1 + \exp((V + 5.0)/12.0)} +
-    0.0005\\
+    0.0005,\\
     \tau_{i_{\rm ur}} & = \frac{0.5}{1 + \exp((V +60.0)/20.0)} +
-    6\\
+    6.\\
   \end{split}
 \end{equation}
 
@@ -204,7 +228,7 @@ While the above background leakage currents are mostly incorporated in
 the model as a means of accounting for ion transport not explicitly
 modelled by the previously-introduced channels, experimental studies
 have managed to isolate one specific chloride leakage channel in human
-articular chondrocytes: CFTR (citation). Such channels are likely
+articular chondrocytes: CFTR \citep{UNKNOWN}. Such channels are likely
 necessary for anion loss and may thus be important in regulating the
 RMP of the cell.
 
@@ -324,6 +348,7 @@ model the cell as the following set of ordinary differential equations
       (i_{{\rm ur}_{\infty}} - i_{\rm ur})/\tau_{i_{\rm ur}}\\
     \end{array}
   \right)
+  \label{ode-system}
 \end{equation}
 
 \noindent where,
