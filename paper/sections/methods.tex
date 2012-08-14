@@ -15,9 +15,9 @@ section.
 \subsection*{Ionic current formulations}
 \label{sec:formulation-ionic-current}
 
-\todo{Needs some introductory text here. Point to the fact that the
-  discussion contains other identified channels not explicitly
-  modelled in this work.}
+\todo{{\bf Harish:} Needs some introductory text here. Point to the
+  fact that the discussion contains other identified channels not
+  explicitly modelled in this work.}
 
 \subsubsection*{Potassium channels}
 \label{sec:potassium-channels}
@@ -122,18 +122,19 @@ the time-current curve over the same period.
 \subsubsection*{Pumps and exchangers}
 \label{sec:pumps-and-exchangers}
 
-[YES] {\bf Sodium-potassium pump:} Chondrocyte cell volume, as for
-other cell types, is determined by a pump-leak model---a double Donnan
-equilibrium existing between the intracellular compartment and the
-matrix \citep{Stockwell1991}. The effective exclusion of Na+ ions from
-the cell is achieved by the activity of the Na+-K+ ATPase, and volume
-is maintained by altered balance of leaks and pumps to hold cell water
-constant. Due to the high Na+ of their surroundings, chondrocytes are
-known to have a high Na+-K+ ATPase activity, with expression and
-functional activity upregulated to raised extracellular Na+
+As for other cell types, chondrocyte cell volume can be modelled by a
+pump-leak model---a double Donnan equilibrium existing between the
+intracellular compartment and the extra-cellular environment
+\citep{Stockwell1991}. The effective expulsion of \Na{} ions from the
+cell is achieved by the activity of the \Na-\K{} ATPase, and volume is
+maintained by altered balance of leaks and pumps to hold cell water
+constant. Due to the high \Nao{} of their surroundings, chondrocytes are
+known to have a high \Na-\K{} ATPase activity, with expression and
+functional activity upregulated to raised extracellular \Na{}
 \citep{Mobasherietal1997}.
 
-Sodium Potassium Pump \citep[Table 12, pp. 77]{Nygrenetal1998}:
+In the current model, we employ the following {\bf sodium-potassium
+  pump} formulation from \citet{Nygrenetal1998}:
 \begin{equation}
   I_{\rm NaK} =
   \bar{I}_{\rm NaK} \left( \frac{[\rm K^{+}]_{\rm o}}{[\rm K^{+}]_{\rm o} +
@@ -141,6 +142,9 @@ Sodium Potassium Pump \citep[Table 12, pp. 77]{Nygrenetal1998}:
     Na^{+}]^{1.5}_{\rm i} + k^{1.5}_{\rm NaK_{Na}}}\right) \left( \frac{V + 150}{V +
     200} \right)
 \end{equation}
+
+Figure~\ref{foobar} shows a representative voltage-current curve for
+this channel.
 
 [YES] {\bf Sodium-Calcium exchanger:}
 \todo{{\bf Molly:} This channel is a primary calcium concentration
@@ -219,6 +223,7 @@ Analogously, the model accounts for chloride leakage through a similar
 mathematical expression,
 \begin{equation}
   I_{\rm Cl_b} = \bar{g}_{\rm Cl_b} (V_{\rm m} - E_{\rm Cl}),
+  \label{I_Cl_b}
 \end{equation}
 where
 \begin{equation*}
@@ -237,12 +242,12 @@ articular chondrocytes: CFTR \citep{UNKNOWN}. Such channels are likely
 necessary for anion loss and may thus be important in regulating the
 RMP of the cell.
 
-\subsection*{The atypical environment of the chondrocyte (how
-  parameters are chosen)}
+\subsection*{The atypical environment of the chondrocyte}
 \label{sec:chondrocyte-environment}
 
-\todo{{\bf Molly:} Polish the notes below to motivate the choice of
-  external concentrations of species.}
+\todo{{\bf Molly:} Notes below need to used to motivate the choice of
+  external concentrations of species along with Clark et al.'s
+  experimental conditions.}
 
 \begin{itemize}
   \item The high number of fixed negative charges on the proteoglycan
@@ -340,15 +345,15 @@ model the cell as the following set of ordinary differential equations
     \end{array}
   \right)  = \left(
     \begin{array}{c}
-        (-I_{i} + I_{\rm stim})/{C_{\rm m}}\\
+      -I_{i}/{C_{\rm m}}\\
       - (I_{\rm Na_{b}} + 3\, I_{\rm NaK} + 3\, I_{\rm NaCa} - I_{\rm
         NaH})/(v_{i}\, F)\\
       - (I_{\rm K_{b}} - 2\, I_{\rm NaK} + I_{\rm K_{ur}} + I_{\rm
-        K_{2\, pore}} + I_{\rm K_{Ca-act}} + I_{\rm K_{ATP}})/(v_{i}\,
+        K_{2\, pore}} + I_{\rm K_{Ca-act}})/(v_{i}\,
       F)\\
-        (I_{\rm NaCa})/(v_{i}\, F)\\
-      - (I_{\rm NaH})/(v_{i}\, F)\\
-      + (I_{\rm Cl_{b}})/(v_{i}\, F)\\
+        I_{\rm NaCa}/(v_{i}\, F)\\
+      - I_{\rm NaH}/(v_{i}\, F)\\
+        I_{\rm Cl_{b}}/(v_{i}\, F)\\
       (a_{{\rm ur}_{\infty}} - a_{\rm ur})/\tau_{a_{\rm ur}}\\
       (i_{{\rm ur}_{\infty}} - i_{\rm ur})/\tau_{i_{\rm ur}}\\
     \end{array}
@@ -361,30 +366,25 @@ model the cell as the following set of ordinary differential equations
 \begin{equation*}
     \begin{split}
       I_{i} =
-      & \phantom{+\,} \underbrace{I_{\rm Na_b} + I_{\rm K_b} + I_{\rm Cl_b}}_{\rm
-        Background\, currents}\\
+      & \phantom{+\,} \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm
+          K_{Ca-act}}}_{\rm Potassium\, currents}\\
       & +\, \underbrace{I_{\rm NaK} + I_{\rm NaCa} + I_{\rm NaH}}_{\rm
         Pumps\, and\, exchangers}\\
-      & +\, \underbrace{I_{\rm K_{ur}} + I_{\rm K_{2\, pore}} + I_{\rm
-          K_{Ca-act}} + I_{\rm K_{ATP}}}_{\rm Potassium\, channels}\\
-      & +\, \underbrace{I_{\rm VGSC} + I_{\rm TRP_{V4}} + I_{\rm
-          stim}}_{\rm Other\, currents}
+      & +\, \underbrace{I_{\rm Na_b} + I_{\rm K_b} + I_{\rm Cl_b}}_{\rm
+        Background\, currents}
     \end{split}
 \end{equation*}
 
-This ODE system is solved for the primary vector of unknowns: $V_{\rm
-m}$, \Nai, \Ki, \Cai, \Hi, \Cli, $a_{\rm ur}$, and $i_{\rm ur}$.
-
-\todo{{\bf Harish:} Discuss details of the solution process here. Talk
-  about the methods used \citep{RadhakrishnanHindmarsh1993},
-  parametrisation of the model and the fact that the corresponding
-  code is available for free for anyone to test and extend.}
-
-\todo{{\bf Harish:} List of figures for the methods section}
-
-\begin{itemize}
-\item Overall cell behaviour
-\end{itemize}
+The individual currents above are defined by
+Equations~\ref{I_K_Ca_act}--\ref{I_Cl_b}, and the ODE
+system~\ref{ode-system} is solved for the primary vector of unknowns:
+$V_{\rm m}$, \Nai, \Ki, \Cai, \Hi, \Cli, $a_{\rm ur}$, and $i_{\rm
+  ur}$ in the time period of the numerical experiment. The initial
+conditions are chosen from previous calculations run to steady
+state. The equation system is solved using LSODE
+\citep{RadhakrishnanHindmarsh1993}, and the corresponding GNU Octave
+code is available free and open source for anyone to use and extend
+\citep{UNKNOWN}.
 
 % Talk about:
 % \begin{itemize}
