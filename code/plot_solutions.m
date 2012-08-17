@@ -61,9 +61,9 @@ plot(t, Na_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(
 print -depslatexstandalone "../results/epslatex/t-Na_i.tex"
 plot(t, K_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[K^{+}]_{\mathrm{i}}\,(mM/l)$');
 print -depslatexstandalone "../results/epslatex/t-K_i.tex"
-plot(t, Ca_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[Ca^{2+}]_{\mathrm{i}}\,(mM/l)$');
+plot(t, Ca_i*1.e6, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[Ca^{2+}]_{\mathrm{i}}\,(10^{-6}~mM/l)$');
 print -depslatexstandalone "../results/epslatex/t-Ca_i.tex"
-plot(t, H_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[H^{+}]_{\mathrm{i}}\,(mM/l)$');
+plot(t, H_i*1.e10,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[H^{+}]_{\mathrm{i}}\,(10^{-10}~mM/l)$');
 print -depslatexstandalone "../results/epslatex/t-H_i.tex"
 plot(t, Cl_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[Cl^{-}]_{\mathrm{i}}\,(mM/l)$');
 print -depslatexstandalone "../results/epslatex/t-Cl_i.tex"
