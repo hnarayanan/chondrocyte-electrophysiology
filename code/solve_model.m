@@ -2,7 +2,7 @@
 # Research Laboratory, Norway. Refer to the files README and COPYING for
 # more information about the project as well as terms of distribution.
 #
-# Copyright (C) 2010--2011  Harish Narayanan
+# Copyright (C) 2010--2012  Harish Narayanan
 # Licensed under the GNU GPL Version 3
 
 # Define initial conditions
