@@ -99,8 +99,8 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   global H_o;
   global Cl_o;
 
-  osm_i = Na_i + K_i + Ca_i + H_i + Cl_i
-  osm_o = Na_o + K_o + Ca_o + H_o + Cl_o
+  osm_i = Na_i + K_i + Ca_i + H_i + Cl_i;
+  osm_o = Na_o + K_o + Ca_o + H_o + Cl_o;
 
   P_f = 1.e-10;
   SA = 6.0^(2.0/3.0)*pi^(1.0/3.0)*vol_i^(2.0/3.0);
