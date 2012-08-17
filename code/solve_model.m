@@ -6,7 +6,7 @@
 # Licensed under the GNU GPL Version 3
 
 # Define initial conditions
-x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, H_i_0, Cl_i_0, a_ur_0, i_ur_0];
+x0 = [V_0, Na_i_0, K_i_0, Ca_i_0, H_i_0, Cl_i_0, a_ur_0, i_ur_0, vol_i_0];
 
 # Define the initial values of parameters to be estimated
 global theta0 = [g_K_b_bar, P_K, Gmax];

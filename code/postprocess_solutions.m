@@ -26,6 +26,10 @@ H_i  = x(:, 5);
 Cl_i = x(:, 6);
 a_ur = x(:, 7);
 I_ur = x(:, 8);
+vol_i = x(:, 9);
+
+format long;
+[V(end) Na_i(end) K_i(end) Ca_i(end) H_i(end) Cl_i(end) a_ur(end) I_ur(end)]'
 
 # Compute currents at all times
 K_o        = zeros(len_t, 1);
@@ -45,7 +49,7 @@ I_TRP2     = zeros(len_t, 1);
 I_stim     = zeros(len_t, 1);
 
 for ii = [1:len_t]
-  K_o(ii) = appliedPotassiumConcentration(t(ii));
+  K_o(ii)        = appliedPotassiumConcentration(t(ii));
   I_Na_b(ii)     = backgroundSodium(V(ii), Na_i(ii));
   I_K_b(ii)      = backgroundPotassium(V(ii), K_i(ii), K_o(ii), g_K_b_bar);
   I_Cl_b(ii)     = backgroundChloride(V(ii), Cl_i(ii));

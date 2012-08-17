@@ -154,3 +154,5 @@ plot(K_o, V, 'linewidth', line_width, 'color', blue), xlabel('$[K^{+}]_{\mathrm{
 print -depslatexstandalone "../results/epslatex/K_o-V.tex"
 plot(t, K_o, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[K^{+}]_{\mathrm{o}}\,(mM/l)$');
 print -depslatexstandalone "../results/epslatex/t-K_o.tex"
+plot(t, vol_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$vol_{i}\,(cm^3)$');
+print -depslatexstandalone "../results/epslatex/t-vol_i.tex"

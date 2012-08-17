@@ -40,6 +40,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   Cl_i = x(6);
   a_ur = x(7);
   i_ur = x(8);
+  vol_i = x(9);
 
   # Define external concentrations
   K_o = appliedPotassiumConcentration(t);
@@ -78,7 +79,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
       + I_ASIC + I_TRP1 + I_TRP2;
 
   # Determine incremental changes in evolving quantities
-  global F, global vol_i;
+  global F;
   global C_m;
 
   # Evolve the concentrations
@@ -93,7 +94,20 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   a_ur_dot = (a_ur_inf - a_ur)/tau_a_ur;
   i_ur_dot = (i_ur_inf - i_ur)/tau_i_ur;
 
-  xdot = zeros(8, 1);
+  global Na_o;
+  global Ca_o;
+  global H_o;
+  global Cl_o;
+
+  osm_i = Na_i + K_i + Ca_i + H_i + Cl_i
+  osm_o = Na_o + K_o + Ca_o + H_o + Cl_o
+
+  P_f = 1.e-10;
+  SA = 6.0^(2.0/3.0)*pi^(1.0/3.0)*vol_i^(2.0/3.0);
+  V_W = 18.0;
+  vol_i_dot = P_f*SA*V_W*(osm_i - osm_o);
+
+  xdot = zeros(9, 1);
 
   global apply_Vm;
   if (apply_Vm == true)
@@ -119,5 +133,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
 
   xdot(7) = a_ur_dot;
   xdot(8) = i_ur_dot;
+
+  xdot(9) = vol_i_dot;
 
 endfunction
