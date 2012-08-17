@@ -1,0 +1,1 @@
+plot varying-rmp-ko-5 using (1.0 - $1):($2) with linespoints title K_o = 5 mM, varying-rmp-ko-25 using (1.0 - $1):($2) with linespoints title K_o = 25 mM
