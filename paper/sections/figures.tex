@@ -3,12 +3,12 @@
 
 \subsubsection*{Figure~\ref{fig:chondrocyte-model}.}
 An illustration summarising the various channels considered in the
-model.
+current electrophysiological model of the chondrocyte.
 
 \subsubsection*{Figure~\ref{fig:potassium-currents}.}
 Potassium currents which are fit to experimental values (in red) from
-\cite{Clarketal2011}. The external concentrations correspond to the
-experimental conditions. \Ko = 5~mM, \Nao = 140~mM, \Cao = 2~mM, pH =
+\citet{Clarketal2011}. The external concentrations correspond to the
+experimental conditions: \Ko = 5~mM, \Nao = 140~mM, \Cao = 2~mM, pH =
 7.4, except for $I_{K_{\mathrm{2\; pore}}}$, where \Ko = 145~mM, pH = 8.5.
 
 \subsubsection*{Figure~\ref{fig:other-currents}.}
@@ -17,30 +17,35 @@ experimental data, but used to tune simulation results.
 
 \subsubsection*{Figure~\ref{fig:overall-behaviour}.}
 Overall behaviour of the model when voltage is ramped from -130~mV to
-+90~mV in 1~s. It validates well with respect to the experimental data.
++90~mV in 1~s. It validates well with respect to experimental data
+(red) from \citet{Clarketal2011}.
 
 \subsubsection*{Figure~\ref{fig:concentrations}.}
 Time-evolution of the concentrations over 1800~s to show that the
 initial conditions we have chosen for the model were at steady
-state. The initial conditions for the concentrations are \Nai =
-2.814~mM, \Ki = 121.59~mM, \Cai = 2.371e-06~mM, \Hi = 6.188e-10~mM,
-\Cli = 13.209~mM.
+state. The initial conditions for the concentrations used in the
+computations were \Nai = 2.814~mM, \Ki = 121.59~mM, \Cai =
+2.371e-06~mM, \Hi = 6.188e-10~mM, \Cli = 13.209~mM.
 
-\subsection*{Figure~\ref{fig:I-K-2pore-rmp}}
+\subsection*{Figure~\ref{fig:I_K_2pore-rmp}}
 When the amount of $I_{K_{\mathrm{2\; pore}}}$ is varied from 100\% to
 0\% (by blocking with increasing amounts of BUP), the RMP
-changes. This matches with experiments. (Fig 8B)
+increases. These simulations were carried out at two different values
+of external concentrations \Ko = 5~mM and \Ko = 25~mM and validates
+well with respect to experimental data
+\citep[Fig. 8B]{Clarketal2011}.
 
-\subsubsection*{Figure~\ref{fig:Ko-rmp}.}
+\subsubsection*{Figure~\ref{fig:K_o-rmp}}
 Evolution of the resting membrane potential with varying external
 potassium concentration. Note that while it is slightly more positive
-than experiments, it matches the qualitative behaviour quite nicely.
+than experiments, it matches the qualitative behaviour quite
+closely \citep{Clarketal2011}.
 
+\clearpage
 \setlength{\textwidth}{18cm}
 \setlength{\oddsidemargin}{0in}
 \setlength{\evensidemargin}{0in}
 
-\clearpage
 \begin{landscape}
 \begin{figure}
   \centering
@@ -125,7 +130,7 @@ than experiments, it matches the qualitative behaviour quite nicely.
   \includegraphics[width=1.0\textwidth]
     {../results/pdf/20120803/I_K_2pore_vs_RMP}
   \caption{}
-  \label{fig:I-K-2pore-rmp}
+  \label{fig:I_K_2pore-rmp}
 \end{figure}
 \end{landscape}
 
