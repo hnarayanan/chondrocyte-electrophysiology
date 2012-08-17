@@ -1,14 +1,15 @@
 \section*{Discussion}
 \label{sec:discussion}
 
-\todo{{\bf Harish:} Reiterate what was done; that this was just a start}
-
-\todo{{\bf All:} Discuss results from the calculation and the implication}
+\todo{Discuss results from the calculation and their implications}
 
 \subsection*{Limitations}
 \label{sec:limitations}
 
-[NO] {\bf TRP channels (TRPv4 in particular)}: These show little
+\todo{Use these missing channels to motivate subsequent modelling
+  steps}
+
+{\bf TRP channels (TRPv4 in particular)}: These show little
 selectivity between cations Na+, Ca2+, Mg2+. Several have been
 identified in osteo-arthritic cartilage. Knocking out TRPv4
 $\rightarrow$ loss of Ca2+ response to hypo-osmotic challenge
@@ -21,18 +22,11 @@ Osteo-arthritic trip channel \citep{UNKNOWN}:
   I_{\rm TRP_{V4}} = \bar{g}_{\rm TRP_{V4}}\, (V_{\rm m} - E_{\rm ?})
 \end{equation}
 
-[NO] {\bf Voltage-gated sodium channels}: These have been found in
+{\bf Voltage-gated sodium channels}: These have been found in
 some rabbit chondrocytes and some osteo-arthritic cartilage. They are
 likely constantly inactivated due to the voltages the
 chondrocyte.  We instead model $I_{Na_{b}}$ as a sort of constant
 background Na+ leak.
-
-\todo{{\bf Question:} Do we need to model this. Can this be linked to
-  $I_{Na_{b}}$?}
-
-\begin{equation}
-  I_{\rm VGSC} =
-\end{equation}
 
 External stimulation (matching experiments, e.g. cyclic stimulation):
 \begin{equation}
@@ -40,62 +34,53 @@ I_{\rm stim} = \overline{I_{\rm stim}}\, {\rm square}(\frac{2 \pi\,
   t}{t_{\rm cycle}}, \frac{t_{\rm stim}}{t_{\rm cycle}})
 \end{equation}
 
-
-[NO] {\bf Inwardly-rectifying $I_{K_{ATP}}$}: This channel is closed by
+{\bf Inwardly-rectifying $I_{K_{ATP}}$}: This channel is closed by
 intracellular ATP. It allows for physical coupling between metabolism
 and membrane excitability. It is observed to be open in the low-oxygen
 tension environment of chondrocytes \citep{DartStanden1994,
   Mobasherietal2007}.
 
-Potassium pump \citep{UNKNOWN}:
-\begin{equation}
-  I_{\rm K_{ATP}} =
-\end{equation}
-
-[NO] {\bf Some mechanism for sensing external pH}: ASIC channels
+{\bf Some mechanism for sensing external pH}: ASIC channels
 (related to ENaC) are opened by extra-cellular protons (in the acidic
 environment of the chondrocytes ) and mediate an increase in
 Ca2+. There is also some other possible mechanism involving something
 called connexin-43.
 
-[NO] {\bf Small calcium-activated Potassium $I_{SK}$}: A few reports
+{\bf Small calcium-activated Potassium $I_{SK}$}: A few reports
 suggest this might exist \citep{Halletal1996,
   BarrettJolleyetal2010}. Tiny magnitude, by definition and role
 unknown. So we ignore it.
 
-[NO] {\bf Voltage-gated calcium channels}: T, L-type VGCC found in
+{\bf Voltage-gated calcium channels}: T, L-type VGCC found in
 some cartilage. Others refute. Supposedly, aggrecan and collagen
 synthesis induced by electrical stimulation relies on this channel. We
 will claim not important for RMP, just tissue growth, and thus we do
 not consider.
 
-[NO] {\bf Epithelial sodium channels (EnaC)}: Not clear what role this
+{\bf Epithelial sodium channels (EnaC)}: Not clear what role this
 plays in chondrocytes, though it has been identified. People speculate
 it has something to do with mechanotransduction $\rightarrow$
 contributes to RMP. It is perhaps defective during osteoarthritis. We
 will point out we do not look at this as it pertains to mechanics.
 
-[NO] {\bf Aquaporin channels:} AQP or some other mechanism for
+{\bf Aquaporin channels:} AQP or some other mechanism for
 transport of water seems super important to the functioning of the
 cell. Studies show loss of volume regulation with inhibition of
 AQP. But we will point out that we do not model it because it pertains
 to mechanics.
 
-[NO] {\bf NMDA channels:} This is an excitatory neuro-transmitter
+{\bf NMDA channels:} This is an excitatory neuro-transmitter
 receptor. It is possibly linked to mechanotransduction.
 
-\todo{Use these missing channels to motivate subsequent modelling
-  steps}
-
-Uncited references:
-\cite{ArcherWest2003},
-\cite{Grishkoetal2010},
-\cite{Hille2001},
-\cite{LesageLazdunski2000},
-\cite{MillwardSadleretal2000},
-\cite{Nygrenetal1998},
-\cite{Scholz2002},
-\cite{Tsugaetal2001}.
+%% Uncited references:
+%% \cite{ArcherWest2003},
+%% \cite{Grishkoetal2010},
+%% \cite{Hille2001},
+%% \cite{LesageLazdunski2000},
+%% \cite{MillwardSadleretal2000},
+%% \cite{Nygrenetal1998},
+%% \cite{Scholz2002},
+%% \cite{Tsugaetal2001}.
 
 % Local Variables:
 % TeX-master: "chondrocyte-model"
