@@ -115,7 +115,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   P_f = 10.2e-4;
   SA = 6.0^(2.0/3.0)*pi^(1.0/3.0)*vol_i^(2.0/3.0);
   V_W = 18.0;
-  vol_i_dot = P_f*SA*V_W*(osm_i - osm_o - dosm)
+  vol_i_dot = P_f*SA*V_W*(osm_i - osm_o - dosm);
 
   xdot = zeros(9, 1);
 
