@@ -1,13 +1,6 @@
 \section*{Results}
 \label{results}
 
-%% \item The characteristics of the model
-%% \item The results of testing our hypothesis, namely that cupivacaine
-%%   blocks $I_2poreK$, leading to changes in the RMP, leading to changes
-%%   in the volume regulation (which concomitantly leads to changes in
-%%   signaling and potentially apoptosis, or changes therein)
-%% \end{itemize}
-
 \subsection*{Model characteristics}
 
 Experimental conditions described in \citet{Clarketal2011} were first
@@ -48,6 +41,28 @@ perturbed from these conditions, it returns to steady state values in
 a similar time frame.
 
 \subsection*{Bupivicane as a volume regulator in the chondrocyte}
+
+With the basic model behaviour tuned and validated with respect to
+experimental data, we turn to study the effects of blocking $I_{\rm
+  K_{2\, pore}}$ with bupivicane. We hypothesise that the blockage of
+this current results in an increase in resting membrane potential
+(RMP) of the cell, which limits its ability to regulate its
+volume. Several computations were carried out with different
+fractions of $I_{\rm K_{2\, pore}}$ blocked, from 0\% to 100\%, and
+the model was allowed to freely evolve until it reached steady state
+(usually in the order of 15--30~min). The voltage at this point was
+recorded as the RMP of the cell. Figure~\ref{fig:I_K_2pore-rmp} shows
+the results of such calculations under two different external
+concentrations \Ko = 5~mM and \Ko = 25~mM. With increasing blockage of
+$I_{\rm K_{2\, pore}}$, the RMP increases. The quantitative values for
+this increase match the few experimental data points in
+\citet{Clarketal2011}, including the fact that the RMP is higher for
+the case where \Ko = 25~mM. Furthermore, the numerical simulations
+reveal that this increase with increasing $I_{\rm K_{2\, pore}}$
+blockage is relatively linear at the lower \Ko{} value, and starts to
+become more nonlinear as \Ko{} is increased.
+
+Finally, the 
 
 % Local Variables:
 % TeX-master: "chondrocyte-model"
