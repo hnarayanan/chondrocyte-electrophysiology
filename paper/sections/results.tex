@@ -1,65 +1,53 @@
 \section*{Results}
 \label{results}
 
-\todo{{\bf Harish:} Describe the results better}
-
-Our aim in the results is to show:
-\begin{itemize}
-\item That we have (a) parameterised and (b) validated the model based
-  on available experimental data 
-\item The characteristics of the model
-\item The results of testing our hypothesis, namely that cupivacaine
-  blocks $I_2poreK$, leading to changes in the RMP, leading to changes
-  in the volume regulation (which concomitantly leads to changes in
-  signaling and potentially apoptosis, or changes therein)
-\end{itemize}
-
-These two portions of the results can be presented as two main
-categories: ``model-revealing figures'' and ``Hypothesis Figures''.
+%% \item The characteristics of the model
+%% \item The results of testing our hypothesis, namely that cupivacaine
+%%   blocks $I_2poreK$, leading to changes in the RMP, leading to changes
+%%   in the volume regulation (which concomitantly leads to changes in
+%%   signaling and potentially apoptosis, or changes therein)
+%% \end{itemize}
 
 \subsection*{Model characteristics}
-In this case, we will present a story which allows us to explain
-results of the model and the physiological rationale/relevance of each
-component. Simulations for this portion will include both
-steady-state, voltage-clamped experiments to show time-independent
-behavior, as well as time-dependent currents traces where
-applicable. A reasonable voltage range is that used by R. Clark in his
-experiments, -130 to +100 mV. An approximate figure list follows.
 
-\begin{itemize}
-\item Overall cell behavior: Model schematic. IV curves.
-\item Background currents: Input resistance, IV curves, the membrane itself.
-\item Pumps and exchanger currents and evolving concentrations: IV
-  curves, current traces, concentrations over time, pH versus volume
-  (Lewis, et al) -- this shows us how the chondrocyte accounts for
-  osmolarity, how we keep track of it.
-\item Potassium currents: show all aspects of time-dependent current,
-  $I_{kur}$, show main conductances, i.e. $I_{Ca-act K}$ (BK), explain
-  basis for RMP
-\end{itemize}
+Experimental conditions described in \citet{Clarketal2011} were first
+replicated in the simulations to fit significant potassium currents
+used in the model. For this, the exterior concentrations of the
+various species in the model were set to experimental values (\Ko =
+5~mM, \Nao = 140~mM, \Cao = 2~mM, pH = 7.4 for $I_{\rm K_{Ca-act}}$
+and $I_{\rm K_{ur}}$) and (\Ko = 5~mM, \Nao = 145~mM, \Cao = 2~mM, pH
+= 8.5 for $I_{\rm K_{2\, pore}}$), and the potential was linearly ramped
+over 1~s from -130~mV to +100~mV. The evolution of the concentrations
+and currents were tracked in this period, and multiple simulations
+of this nature were used to fit parameters for $I_{\rm K_{2\, pore}}$,
+$I_{\rm K_{Ca-act}}$ and $I_{\rm
+  K_{ur}}$). Figure~\ref{fig:potassium-currents} shows these
+individual currents and their fit to experimental values from
+\citet{Clarketal2011}. The other currents used in the model are
+significantly smaller in magnitude, and have not been specifically fit
+due to lack of experimental data. (Figure~\ref{fig:other-currents})
 
-\todo{{\bf Harish:} Debug the hypothesis plots and talk about their
-  implications}
+After this primary parameteristion, the overall model behaviour was
+studied under a linear voltage ramp from -130~mV to +90~mV under
+conditions matching experiments (\Ko = 5~mM, \Nao = 140~mM, \Cao =
+2~mM, pH = 7.4) to reveal that the overall voltage-current behaviour
+of the chondrocyte model reproduces the experimental data quite
+closely \citep{Clarketal2011}. This comparison is shown in
+Figure~\ref{fig:overall-behaviour} along with corresponding time
+evolution of the total current in the model.
+
+The initial conditions used in the simulations were steady
+state values of the solution under same conditions used for the
+different numerical experiments. Figure~\ref{fig:concentrations} shows
+that, when starting from a steady state solution, the concentrations
+in the model do not evolve over a relatively long simulation period of
+30~min. The initial conditions for the concentrations used in the
+computations were \Nai = 2.814~mM, \Ki = 121.59~mM, \Cai =
+2.371e-06~mM, \Hi = 6.188e-10~mM, \Cli = 13.209~mM. When the model is
+perturbed from these conditions, it returns to steady state values in
+a similar time frame.
 
 \subsection*{Bupivicane as a volume regulator in the chondrocyte}
-\begin{itemize}
-\item Bup. block as initially based on Bob's experiments.
-\item 10 percent, 25 percent, 50 percent, 75 percent, 100 percent, and
-  perhaps more levels of blockage of $I_{K-2pore}$ conductance
-\item Investigate effects on RMP.
-\item What adjusts itself in response? Currents? Present these
-    currents/concentrations with respect to control.
-\item Look specifically at changes in $pH_i$, and link this to volume
-  regulation, based on simple formalism from Lewis et al. Creates some
-  speculation re: mechanisms that will be interesting and useful for
-  Discussion.
-\end{itemize}
-
-\todo{{\bf Harish:} List of figures for the results section}
-
-\begin{itemize}
-\item IV-curve for the entire cell
-\end{itemize}
 
 % Local Variables:
 % TeX-master: "chondrocyte-model"
