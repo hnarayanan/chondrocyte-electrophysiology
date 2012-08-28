@@ -1,0 +1,21 @@
+BEGIN:VCARD
+VERSION:2.1
+X-MS-SIGNATURE:YES
+N;LANGUAGE=en-us:Giles;Wayne;R.
+FN:Wayne R. Giles
+ORG:Faculty of Kinesiology
+TITLE:Professor
+TEL;WORK;VOICE:(403) 220-5607
+ADR;WORK;PREF;ENCODING=QUOTED-PRINTABLE:;;KNB 2228, Faculty of Kinesiology=0D=0A=
+University of Calgary=0D=0A=
+2500 University Drive N.W.;Calgary;Alberta;T2N 1N4;Canada
+LABEL;WORK;PREF;ENCODING=QUOTED-PRINTABLE:KNB 2228, Faculty of Kinesiology=0D=0A=
+University of Calgary=0D=0A=
+2500 University Drive N.W.=0D=0A=
+Calgary  Alberta  T2N 1N4=0D=0A=
+Canada
+X-MS-OL-DEFAULT-POSTAL-ADDRESS:2
+EMAIL;PREF;INTERNET:wgiles@ucalgary.ca
+X-MS-OL-DESIGN;CHARSET=utf-8:<card xmlns="http://schemas.microsoft.com/office/outlook/12/electronicbusinesscards" ver="1.0" layout="left" bgcolor="ffffff"><img xmlns="" align="fit" area="16" use="cardpicture"/><fld xmlns="" prop="name" align="left" dir="ltr" style="b" color="000000" size="10"/><fld xmlns="" prop="org" align="left" dir="ltr" color="000000" size="8"/><fld xmlns="" prop="title" align="left" dir="ltr" color="000000" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="telwork" align="left" dir="ltr" color="000000" size="8"><label align="right" color="626262">Work</label></fld><fld xmlns="" prop="email" align="left" dir="ltr" color="000000" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="addrwork" align="left" dir="ltr" color="000000" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/><fld xmlns="" prop="blank" size="8"/></card>
+REV:20120809T152931Z
+END:VCARD
