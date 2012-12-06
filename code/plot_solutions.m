@@ -45,6 +45,13 @@ I_ref_density_with_DTX = csvread('../data/reference_values/Total_Current_Density
 I_ref_without_DTX_int = interp1(V_ref_without_DTX, I_ref_density_without_DTX, V)*C_m;
 I_ref_with_DTX_int = interp1(V_ref_with_DTX, I_ref_density_with_DTX, V)*C_m;
 
+V_ref_with_SB488 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488.data')(:, 1)
+I_ref_with_SB488 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488.data')(:, 2)
+V_ref_with_SB488_and_SB779 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488_and_SB779.data')(:, 1);
+I_ref_with_SB488_and_SB779 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488_and_SB779.data')(:, 2);
+I_ref_with_SB488_int = interp1(V_ref_with_SB488, I_ref_with_SB488, V);
+I_ref_with_SB488_and_SB779_int = interp1(V_ref_with_SB488_and_SB779, I_ref_with_SB488_and_SB779, V);
+
 # Plot the membrane voltage and total currents
 plot(t, V, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$V_{\mathrm{m}}\,(mV)$');
 print -depslatexstandalone "../results/epslatex/t-V.tex"
@@ -146,6 +153,9 @@ print -depslatexstandalone "../results/epslatex/V-I_stim.tex"
 plot(V, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm ASIC}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/V-I_ASIC.tex"
 plot(V, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm TRP1}\,(pA)$');
+hold on;
+plot(V, I_ref_with_SB488_int - I_ref_with_SB488_and_SB779_int, '1', 'linewidth', line_width, 'color', red);
+hold off;
 print -depslatexstandalone "../results/epslatex/V-I_TRP1.tex"
 plot(V, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm TRP2}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/V-I_TRP2.tex"
