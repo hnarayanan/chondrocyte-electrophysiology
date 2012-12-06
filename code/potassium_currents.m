@@ -13,7 +13,7 @@
 # Circ. Physiol. 2009; 297; 1398-1410 (Appendix, pp. 1408)
 
 function [a_ur_inf, i_ur_inf, tau_a_ur, tau_i_ur] = ultraRapidlyRectifyingPotassiumHelper(V)
-  a_ur_inf   = 1.0/(1.0 + exp(-(V + 30.0)/10.0));
+  a_ur_inf   = 1.0/(1.0 + exp(-(V + 26.7)/4.1));
   i_ur_inf   = 1.0/(1.0 + exp((V - 30.0)/10.0));
   tau_a_ur   = 0.005/(1.0 + exp((V + 5.0)/12.0));
   tau_i_ur   = 0.59/(1.0 + exp((V + 10.0)/24.0)) + 0.01;
@@ -25,10 +25,20 @@ function I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, K_o, a_ur, i_ur)
     global z_K g_K_ur;
     [a_ur_inf, i_ur_inf, tau_a_ur, tau_i_ur] = ultraRapidlyRectifyingPotassiumHelper(V);
     E_K        = nernstPotential(z_K, K_i, K_o);
-    I_K_ur     = g_K_ur*a_ur*i_ur*(V - E_K);
+    I_K_ur     = g_K_ur*a_ur*(V - E_K);
   else
     I_K_ur = 0.0;
   endif
+endfunction
+
+# From Bob Clark et al., J. Physiol. 2011, Figure 4
+function I_K_ur_ref = ultrarapidlyRectifyingPotassium_ref(V, K_i, K_o)
+    G_K = 28.9;  # pS/pF
+    V_h = -26.7; # mV
+    S_h = 4.1;   # mV
+    global C_m z_K;
+    E_K        = nernstPotential(z_K, K_i, K_o);
+    I_K_ur_ref = G_K*(V - E_K)/(1 + exp(-(V - V_h)/S_h)) * C_m/1000.0;
 endfunction
 
 # Two-pore potassium current

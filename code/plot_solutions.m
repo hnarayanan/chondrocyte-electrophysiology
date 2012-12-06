@@ -113,7 +113,8 @@ print -depslatexstandalone "../results/epslatex/t-I_K_ATP.tex"
 # Plot the other potassium currents (V-I)
 plot(V(10:end), I_K_ur(10:end),     'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{ur}}}\,(pA)$');
 hold on;
-plot(V(5:end-137), I_ref_without_DTX_int(5:end-137) - I_ref_with_DTX_int(5:end-137), '1', 'linewidth', line_width, 'color', red);
+# plot(V(5:end-137), I_ref_without_DTX_int(5:end-137) - I_ref_with_DTX_int(5:end-137), '1', 'linewidth', line_width, 'color', red);
+plot(V, I_K_ur_ref, '1', 'linewidth', line_width, 'color', red);
 hold off;
 print -depslatexstandalone "../results/epslatex/V-I_K_ur.tex"
 plot(V, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{2pore}}}\,(pA)$');

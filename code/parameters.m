@@ -124,7 +124,7 @@ global K_H_o = 1.62e-3;
 global N_NaH_channel = 4899;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
-global g_K_ur = 0.35;
+global g_K_ur = 0.245;
 
 # Constants related to the two-pore potassium channel
 global P_K = 3.3e-6;
