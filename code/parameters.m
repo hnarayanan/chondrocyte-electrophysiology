@@ -137,7 +137,7 @@ global k_Ca_ATP = 0.0002;
 global g_K_ur = 0.245;
 
 # Constants related to the two-pore potassium channel
-global P_K = 3.3e-6;
+global P_K = 3.3e-6; #*sqrt(5/140);
 global I_K_2pore_0 = 0.0;
 
 # Constants related to the calcium-activated potassium channel
