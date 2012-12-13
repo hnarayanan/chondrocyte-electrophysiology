@@ -27,9 +27,10 @@ Cl_i = x(:, 6);
 a_ur = x(:, 7);
 I_ur = x(:, 8);
 vol_i = x(:, 9);
+cal  = x(:, 10);
 
 format long;
-[V(end) Na_i(end) K_i(end) Ca_i(end) H_i(end) Cl_i(end) a_ur(end) I_ur(end)]'
+[V(end) Na_i(end) K_i(end) Ca_i(end) H_i(end) Cl_i(end) a_ur(end) I_ur(end) cal(end)]'
 
 # Compute currents at all times
 K_o        = zeros(len_t, 1);

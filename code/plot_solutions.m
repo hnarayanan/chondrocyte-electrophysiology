@@ -74,6 +74,8 @@ plot(t, H_i*1.e10,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'),
 print -depslatexstandalone "../results/epslatex/t-H_i.tex"
 plot(t, Cl_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[Cl^{-}]_{\mathrm{i}}\,(mM/l)$');
 print -depslatexstandalone "../results/epslatex/t-Cl_i.tex"
+plot(t, cal,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$cal$');
+print -depslatexstandalone "../results/epslatex/t-cal.tex"
 
 # Plot the different background currents (t-I)
 plot(t, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{Na_{b}}}\,(pA)$');

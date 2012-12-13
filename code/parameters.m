@@ -72,6 +72,7 @@ global H_i_0   =   6.18806035415087e-10    # Initial internal hydrogen concentra
 global Cl_i_0  =   1.32087076485956e+01    # Initial internal chloride concentration (mM/l)
 global a_ur_0  =   1.04802913063907e-01
 global i_ur_0  =   9.99709890606304e-01
+global cal_0   =   0.0275
 
 # Universal constants
 global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
