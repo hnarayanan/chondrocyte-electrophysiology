@@ -54,7 +54,7 @@ global enable_I_TRP2 = false;
 global enable_I_stim = false;
 
 # Time-stepping information
-global t_final = 1.0;    # Final time (s)
+global t_final = 1.0;       # Final time (s)
 global dt = t_final/1000;   # Time increment (s)
 
 # External concentrations
@@ -67,16 +67,16 @@ global Cl_o   = 89;        # Clamped external chloride concentration (mM/l)
 global step_K_o = false;
 
 # Initial conditions
-global V_0 = -130;
-# global V_0     =   -5.10271110708637e+01  # Initial membrane potential (mV)
-global Na_i_0  =    2.81700071849128e+00  # Initial internal sodium concentration (mM/l)
-global K_i_0   =    1.21685903742708e+02  # Initial internal potassium concentration (mM/l)
-global Ca_i_0  =    2.13995605675376e-06  # Initial internal calcium concentration (mM/l)
-global H_i_0   =    7.98420962201129e-10  # Initial internal hydrogen concentration (mM/l)
-global Cl_i_0  =    1.32086623564276e+01  # Initial internal chloride concentration (mM/l)
-global a_ur_0  =    2.64200439266815e-03
-global i_ur_0  =    9.99699099822067e-01
-global cal_0   =    8.98326970688586e-04
+# global V_0 = -130;
+global V_0     =   -4.75863743097170e+01  # Initial membrane potential (mV)
+global Na_i_0  =    2.73055502654269e+00  # Initial internal sodium concentration (mM/l)
+global K_i_0   =    1.21860007731790e+02  # Initial internal potassium concentration (mM/l)
+global Ca_i_0  =    2.19925796160033e-06  # Initial internal calcium concentration (mM/l)
+global H_i_0   =    7.73898887237425e-10  # Initial internal hydrogen concentration (mM/l)
+global Cl_i_0  =    1.32793659907740e+01  # Initial internal chloride concentration (mM/l)
+global a_ur_0  =    6.09460764069149e-03
+global i_ur_0  =    9.99573144230384e-01
+global cal_0   =    9.23204872241540e-04
 
 # Universal constants
 global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
@@ -137,7 +137,7 @@ global k_Ca_ATP = 0.0002;
 global g_K_ur = 0.245;
 
 # Constants related to the two-pore potassium channel
-global P_K = 3.3e-6; #*sqrt(5/140);
+global P_K = 3.1e-6; #*sqrt(5/140);
 global I_K_2pore_0 = 0.0;
 
 # Constants related to the calcium-activated potassium channel
