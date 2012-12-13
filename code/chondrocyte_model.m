@@ -59,6 +59,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i, K_o);
   I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i);
   I_NaH = sodiumHydrogenExchanger(Na_i, H_i);
+  I_Ca_ATP = calciumPump(Ca_i);
 
   # Calculate other potassium currents
   I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, K_o, a_ur, i_ur);
@@ -74,7 +75,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
 
   # Total ionic contribution
   I_i = I_Na_b + I_K_b + I_Cl_b \
-      + I_NaK + I_NaCa \
+      + I_NaK + I_NaCa + I_Ca_ATP\
       + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP \
       + I_ASIC + I_TRP1 + I_TRP2;
 
@@ -85,7 +86,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   # Evolve the concentrations
   Na_i_dot = - (I_Na_b + 3*I_NaK + 3*I_NaCa - I_NaH)/(vol_i*F);
   K_i_dot  = - (I_K_b  - 2*I_NaK + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP)/(vol_i*F);
-  Ca_i_dot =   (I_NaCa)/(vol_i*F);
+  Ca_i_dot =   (I_NaCa  - I_Ca_ATP)/(vol_i*F);
   H_i_dot =  - (I_NaH)/(vol_i*F);
   Cl_i_dot =   (I_Cl_b)/(vol_i*F);
 

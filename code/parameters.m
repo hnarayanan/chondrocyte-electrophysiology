@@ -37,6 +37,7 @@ global enable_I_Cl_b = true;
 global enable_I_NaK = true;
 global enable_I_NaCa = true;
 global enable_I_NaH = false;
+global enable_I_Ca_ATP = true;
 global enable_I_K_ur = true;
 global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
@@ -122,6 +123,10 @@ global K_Na_o = 195
 global K_H_i = 6.05e-4;
 global K_H_o = 1.62e-3;
 global N_NaH_channel = 4899;
+
+# Constants related to the calcium pump
+global I_Ca_ATP_bar = 4.0;
+global k_Ca_ATP = 0.0002;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
 global g_K_ur = 0.245;

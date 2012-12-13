@@ -98,6 +98,8 @@ plot(t, I_NaCa, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), gri
 print -depslatexstandalone "../results/epslatex/t-I_NaCa.tex"
 plot(t, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{NaH}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/t-I_NaH.tex"
+plot(t, I_Ca_ATP,    'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{Ca_{ATP}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_Ca_ATP.tex"
 
 # Plot the different pump and exchanger currents (V-I)
 plot(V, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaK}}\,(pA)$');
@@ -106,6 +108,8 @@ plot(V(5:end), I_NaCa(5:end), 'linewidth', line_width, 'color', blue), xlabel('$
 print -depslatexstandalone "../results/epslatex/V-I_NaCa.tex"
 plot(V, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaH}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/V-I_NaH.tex"
+plot(V, I_Ca_ATP,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{Ca_{ATP}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_Ca_ATP.tex"
 
 # Plot the other potassium currents (t-I)
 plot(t, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{K_{ur}}}\,(pA)$');
