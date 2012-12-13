@@ -68,15 +68,15 @@ global step_K_o = false;
 
 # Initial conditions
 global V_0 = -130;
-# global V_0     =  -5.14496233498763e+01    # Initial membrane potential (mV)
-global Na_i_0  =   2.81475796771128e+00    # Initial internal sodium concentration (mM/l)
-global K_i_0   =   1.21679817152123e+02    # Initial internal potassium concentration (mM/l)
-global Ca_i_0  =   2.37104602297392e-06    # Initial internal calcium concentration (mM/l)
-global H_i_0   =   6.18806035415087e-10    # Initial internal hydrogen concentration (mM/l)
-global Cl_i_0  =   1.32087076485956e+01    # Initial internal chloride concentration (mM/l)
-global a_ur_0  =   1.04802913063907e-01
-global i_ur_0  =   9.99709890606304e-01
-global cal_0   =   0.0275
+# global V_0     =   -5.10271110708637e+01  # Initial membrane potential (mV)
+global Na_i_0  =    2.81700071849128e+00  # Initial internal sodium concentration (mM/l)
+global K_i_0   =    1.21685903742708e+02  # Initial internal potassium concentration (mM/l)
+global Ca_i_0  =    2.13995605675376e-06  # Initial internal calcium concentration (mM/l)
+global H_i_0   =    7.98420962201129e-10  # Initial internal hydrogen concentration (mM/l)
+global Cl_i_0  =    1.32086623564276e+01  # Initial internal chloride concentration (mM/l)
+global a_ur_0  =    2.64200439266815e-03
+global i_ur_0  =    9.99699099822067e-01
+global cal_0   =    8.98326970688586e-04
 
 # Universal constants
 global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
