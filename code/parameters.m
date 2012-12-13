@@ -41,11 +41,11 @@ global enable_I_Ca_ATP = true;
 global enable_I_K_ur = true;
 global enable_I_K_2pore = true;
 global enable_I_K_Ca_act = true;
+global enable_I_TRP1 = true;
 
 # Definitely not used
 global enable_I_K_ATP = false;
 global enable_I_ASIC = false;
-global enable_I_TRP1 = false;
 global enable_I_TRP2 = false;
 global enable_I_stim = false;
 
@@ -148,3 +148,8 @@ global E = 2.4;
 global Gmax = 3.8;
 global N_channel = 1.0;
 global E_K_Ca_act = 42;
+
+# Constants related to the TRPv4 channel
+global g_TRP1 = 1.e-4;
+global a_TRP1 = 200;
+global b_TRP1 = -1000;

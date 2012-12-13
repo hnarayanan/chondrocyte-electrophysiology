@@ -158,9 +158,9 @@ plot(V, I_stim, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$')
 print -depslatexstandalone "../results/epslatex/V-I_stim.tex"
 plot(V, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm ASIC}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/V-I_ASIC.tex"
-plot(V, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm TRP1}\,(pA)$');
+plot(V, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm TRPv4}\,(pA)$');
 hold on;
-plot(V, I_ref_with_SB488_int - I_ref_with_SB488_and_SB779_int, '1', 'linewidth', line_width, 'color', red);
+plot(V, (I_ref_with_SB488_int - I_ref_with_SB488_and_SB779_int)*C_m/14.5, '1', 'linewidth', line_width, 'color', red);
 hold off;
 print -depslatexstandalone "../results/epslatex/V-I_TRP1.tex"
 plot(V, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm TRP2}\,(pA)$');

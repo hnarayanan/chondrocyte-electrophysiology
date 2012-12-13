@@ -70,7 +70,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
 
   # Calculate other currents
   I_ASIC = voltageActivatedHydrogen();
-  I_TRP1 = stretchActivatedTrip();
+  I_TRP1 = stretchActivatedTrip(V);
   I_TRP2 = osteoArthriticTrip();
   I_stim = externalStimulation(t);
 

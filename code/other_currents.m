@@ -29,10 +29,15 @@ function I_ASIC = voltageActivatedHydrogen()
 endfunction
 
 # FIXME: Implement the stretch-activated trip channel
-function I_TRP1 = stretchActivatedTrip()
+function I_TRP1 = stretchActivatedTrip(V)
   global enable_I_TRP1;
   if (enable_I_TRP1 == true)
-    I_TRP1 = 0.0;
+    global g_TRP1, global a_TRP1, global b_TRP1;
+    if(V < 0)
+      I_TRP1 = g_TRP1*(b_TRP1*V + (1 - b_TRP1)*a_TRP1*(1 - (1 - (V/a_TRP1))*(1 - (V/a_TRP1))*(1-(V/a_TRP1))));
+    else
+      I_TRP1 = 2*g_TRP1*V**3;
+    endif
   else
     I_TRP1 = 0.0;
   endif

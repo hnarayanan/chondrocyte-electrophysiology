@@ -66,7 +66,7 @@ for ii = [1:len_t]
   I_K_Ca_act(ii) = calciumActivatedPotassium(V(ii), K_i(ii), K_o(ii), Ca_i(ii), Gmax);
   I_K_ATP(ii)    = potassiumPump(V(ii));
   I_ASIC(ii)     = voltageActivatedHydrogen();
-  I_TRP1(ii)     = stretchActivatedTrip();
+  I_TRP1(ii)     = stretchActivatedTrip(V(ii));
   I_TRP2(ii)     = osteoArthriticTrip();
   I_stim(ii)     = externalStimulation(t(ii));
 endfor
