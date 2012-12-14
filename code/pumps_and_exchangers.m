@@ -68,3 +68,15 @@ function I_NaH = sodiumHydrogenExchanger(Na_i, H_i)
     I_NaH = 0.0;
   endif
 endfunction
+
+# From Nygren et al.
+
+function I_Ca_ATP = calciumPump(Ca_i)
+  global enable_I_Ca_ATP;
+  if (enable_I_Ca_ATP == true)
+     global I_Ca_ATP_bar, global k_Ca_ATP;
+     I_Ca_ATP = I_Ca_ATP_bar*(Ca_i/(Ca_i + k_Ca_ATP));
+  else
+    I_Ca_ATP = 0.0;
+  endif
+endfunction

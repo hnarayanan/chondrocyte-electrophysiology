@@ -45,6 +45,13 @@ I_ref_density_with_DTX = csvread('../data/reference_values/Total_Current_Density
 I_ref_without_DTX_int = interp1(V_ref_without_DTX, I_ref_density_without_DTX, V)*C_m;
 I_ref_with_DTX_int = interp1(V_ref_with_DTX, I_ref_density_with_DTX, V)*C_m;
 
+V_ref_with_SB488 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488.data')(:, 1);
+I_ref_with_SB488 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488.data')(:, 2);
+V_ref_with_SB488_and_SB779 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488_and_SB779.data')(:, 1);
+I_ref_with_SB488_and_SB779 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488_and_SB779.data')(:, 2);
+I_ref_with_SB488_int = interp1(V_ref_with_SB488, I_ref_with_SB488, V);
+I_ref_with_SB488_and_SB779_int = interp1(V_ref_with_SB488_and_SB779, I_ref_with_SB488_and_SB779, V);
+
 # Plot the membrane voltage and total currents
 plot(t, V, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$V_{\mathrm{m}}\,(mV)$');
 print -depslatexstandalone "../results/epslatex/t-V.tex"
@@ -67,6 +74,8 @@ plot(t, H_i*1.e10,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'),
 print -depslatexstandalone "../results/epslatex/t-H_i.tex"
 plot(t, Cl_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[Cl^{-}]_{\mathrm{i}}\,(mM/l)$');
 print -depslatexstandalone "../results/epslatex/t-Cl_i.tex"
+plot(t, cal,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$cal$');
+print -depslatexstandalone "../results/epslatex/t-cal.tex"
 
 # Plot the different background currents (t-I)
 plot(t, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{Na_{b}}}\,(pA)$');
@@ -91,6 +100,8 @@ plot(t, I_NaCa, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), gri
 print -depslatexstandalone "../results/epslatex/t-I_NaCa.tex"
 plot(t, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{NaH}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/t-I_NaH.tex"
+plot(t, I_Ca_ATP,    'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{Ca_{ATP}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/t-I_Ca_ATP.tex"
 
 # Plot the different pump and exchanger currents (V-I)
 plot(V, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaK}}\,(pA)$');
@@ -99,6 +110,8 @@ plot(V(5:end), I_NaCa(5:end), 'linewidth', line_width, 'color', blue), xlabel('$
 print -depslatexstandalone "../results/epslatex/V-I_NaCa.tex"
 plot(V, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaH}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/V-I_NaH.tex"
+plot(V, I_Ca_ATP,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{Ca_{ATP}}}\,(pA)$');
+print -depslatexstandalone "../results/epslatex/V-I_Ca_ATP.tex"
 
 # Plot the other potassium currents (t-I)
 plot(t, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{K_{ur}}}\,(pA)$');
@@ -113,7 +126,8 @@ print -depslatexstandalone "../results/epslatex/t-I_K_ATP.tex"
 # Plot the other potassium currents (V-I)
 plot(V(10:end), I_K_ur(10:end),     'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{ur}}}\,(pA)$');
 hold on;
-plot(V(5:end-137), I_ref_without_DTX_int(5:end-137) - I_ref_with_DTX_int(5:end-137), '1', 'linewidth', line_width, 'color', red);
+# plot(V(5:end-137), I_ref_without_DTX_int(5:end-137) - I_ref_with_DTX_int(5:end-137), '1', 'linewidth', line_width, 'color', red);
+plot(V, I_K_ur_ref, '1', 'linewidth', line_width, 'color', red);
 hold off;
 print -depslatexstandalone "../results/epslatex/V-I_K_ur.tex"
 plot(V, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{2pore}}}\,(pA)$');
@@ -144,7 +158,10 @@ plot(V, I_stim, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$')
 print -depslatexstandalone "../results/epslatex/V-I_stim.tex"
 plot(V, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm ASIC}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/V-I_ASIC.tex"
-plot(V, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm TRP1}\,(pA)$');
+plot(V, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm TRPv4}\,(pA)$');
+hold on;
+plot(V, (I_ref_with_SB488_int - I_ref_with_SB488_and_SB779_int)*C_m/14.5, '1', 'linewidth', line_width, 'color', red);
+hold off;
 print -depslatexstandalone "../results/epslatex/V-I_TRP1.tex"
 plot(V, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm TRP2}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/V-I_TRP2.tex"

@@ -41,6 +41,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   a_ur = x(7);
   i_ur = x(8);
   vol_i = x(9);
+  cal   = x(10);
 
   # Define external concentrations
   K_o = appliedPotassiumConcentration(t);
@@ -59,6 +60,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   I_NaK = sodiumPotassiumPump(V, Na_i, K_i, K_o);
   I_NaCa = sodiumCalciumExchanger(V, Na_i, Ca_i);
   I_NaH = sodiumHydrogenExchanger(Na_i, H_i);
+  I_Ca_ATP = calciumPump(Ca_i);
 
   # Calculate other potassium currents
   I_K_ur = ultrarapidlyRectifyingPotassium(V, K_i, K_o, a_ur, i_ur);
@@ -68,13 +70,13 @@ function xdot = ode_rhs_parametrized(x, t, theta)
 
   # Calculate other currents
   I_ASIC = voltageActivatedHydrogen();
-  I_TRP1 = stretchActivatedTrip();
+  I_TRP1 = stretchActivatedTrip(V);
   I_TRP2 = osteoArthriticTrip();
   I_stim = externalStimulation(t);
 
   # Total ionic contribution
   I_i = I_Na_b + I_K_b + I_Cl_b \
-      + I_NaK + I_NaCa \
+      + I_NaK + I_NaCa + I_Ca_ATP \
       + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP \
       + I_ASIC + I_TRP1 + I_TRP2;
 
@@ -82,10 +84,13 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   global F;
   global C_m;
 
+  # Evolve calmodulin
+  cal_dot = 200000*Ca_i*(1.0 - cal) - 476.0*cal;
+
   # Evolve the concentrations
   Na_i_dot = - (I_Na_b + 3*I_NaK + 3*I_NaCa - I_NaH)/(vol_i*F);
   K_i_dot  = - (I_K_b  - 2*I_NaK + I_K_ur + I_K_2pore + I_K_Ca_act + I_K_ATP)/(vol_i*F);
-  Ca_i_dot =   (I_NaCa)/(vol_i*F);
+  Ca_i_dot =   (I_NaCa  - I_Ca_ATP)/(vol_i*F) - 0.045*cal_dot;
   H_i_dot =  - (I_NaH)/(vol_i*F);
   Cl_i_dot =   (I_Cl_b)/(vol_i*F);
 
@@ -117,7 +122,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   V_W = 18.0;
   vol_i_dot = P_f*SA*V_W*(osm_i - osm_o - dosm);
 
-  xdot = zeros(9, 1);
+  xdot = zeros(10, 1);
 
   global apply_Vm;
   if (apply_Vm == true)
@@ -145,5 +150,7 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   xdot(8) = i_ur_dot;
 
   xdot(9) = vol_i_dot;
+
+  xdot(10) = cal_dot;
 
 endfunction
