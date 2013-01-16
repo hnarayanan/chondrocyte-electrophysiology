@@ -84,21 +84,28 @@ endfunction
 # FIXME: Clean up the following
 # FIXME: Check the following carefully
 
-function I_K_ATP = potassiumPump(V)
+function I_K_ATP = potassiumPump(V, K_i, K_o)
   global enable_I_K_ATP;
   if (enable_I_K_ATP == true)
-    sigma = 0.6;
-    g_0 = 30.95;
-    p_0 = 0.91;
+    sigma   = 0.6;
+    g_0     = 4;
+    p_0     = 0.91;
     E_K_ATP = -94.02;
-    ATP_i = 100; # constant, for now
-    ADP_i = 100; # constant, for now
-    K_m_ATP = 0.56;
     H_K_ATP = -0.001;
-    K_m = 35.8 + 17.9*ADP_i^K_m_ATP;
+    K_m_ATP = 0.56;
+    surf    = 1;
+
+    global V_0;
+    ATP_i = V - V_0 + 1.0 # FIXME: Completely arbitrary
+    ADP_i = 10;
+
     H = 1.3 + 0.74*exp(-H_K_ATP*ADP_i);
+    K_m = 35.8 + 17.9*ADP_i^K_m_ATP;
     f_ATP = 1.0/(1.0 + (ATP_i/K_m)^H);
-    I_K_ATP = sigma*g_0*p_0*f_ATP*(V - E_K_ATP);
+
+    global z_K;
+    E_K = nernstPotential(z_K, K_i, K_o);
+    I_K_ATP = sigma*g_0*p_0*f_ATP*(V - E_K);
   else
     I_K_ATP = 0.0;
   endif
