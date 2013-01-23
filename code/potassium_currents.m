@@ -88,16 +88,15 @@ function I_K_ATP = potassiumPump(V, K_i, K_o)
   global enable_I_K_ATP;
   if (enable_I_K_ATP == true)
     sigma   = 0.6;
-    g_0     = 4;
+    g_0     = 30.95/400; # FIXME: Somewhat arbitrary. Scaled this down to match Zhou/Ferrero.
     p_0     = 0.91;
-    E_K_ATP = -94.02;
     H_K_ATP = -0.001;
     K_m_ATP = 0.56;
     surf    = 1;
 
     global V_0;
-    ATP_i = V - V_0 + 1.0 # FIXME: Completely arbitrary
     ADP_i = 10;
+    ATP_i = V - V_0 + ADP_i; # FIXME: Completely arbitrary
 
     H = 1.3 + 0.74*exp(-H_K_ATP*ADP_i);
     K_m = 35.8 + 17.9*ADP_i^K_m_ATP;
