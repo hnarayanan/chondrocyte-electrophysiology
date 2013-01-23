@@ -114,7 +114,7 @@ plot(V, I_Ca_ATP,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)
 print -depslatexstandalone "../results/epslatex/V-I_Ca_ATP.tex"
 
 # Plot the other potassium currents (t-I)
-plot(t, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{K_{ur}}}\,(pA)$');
+plot(t, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{K_{dr}}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/t-I_K_ur.tex"
 plot(t, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{K_{2pore}}}\,(pA)$');
 print -depslatexstandalone "../results/epslatex/t-I_K_2pore.tex"
@@ -124,7 +124,7 @@ plot(t, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'),
 print -depslatexstandalone "../results/epslatex/t-I_K_ATP.tex"
 
 # Plot the other potassium currents (V-I)
-plot(V(10:end), I_K_ur(10:end),     'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{ur}}}\,(pA)$');
+plot(V(10:end), I_K_ur(10:end),     'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{dr}}}\,(pA)$');
 hold on;
 # plot(V(5:end-137), I_ref_without_DTX_int(5:end-137) - I_ref_with_DTX_int(5:end-137), '1', 'linewidth', line_width, 'color', red);
 plot(V, I_K_ur_ref, '1', 'linewidth', line_width, 'color', red);
@@ -173,3 +173,7 @@ plot(t, K_o, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid()
 print -depslatexstandalone "../results/epslatex/t-K_o.tex"
 plot(t, vol_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$vol_{i}\,(cm^3)$');
 print -depslatexstandalone "../results/epslatex/t-vol_i.tex"
+plot(V, a_ur, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$a_{dr}$');
+print -depslatexstandalone "../results/epslatex/V-a_dr.tex"
+plot(V, 1/tau_a_ur, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$1/\tau_{a_{dr}}$');
+print -depslatexstandalone "../results/epslatex/V-tau_a_dr.tex"
