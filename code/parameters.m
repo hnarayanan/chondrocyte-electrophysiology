@@ -28,7 +28,7 @@ global apply_Vm = true;
 global clamp_Vm = false;
 global step_Vm = false;
 global ramp_Vm = true;
-global V_final = 100.0;  # Final value of membrane voltage when ramped (mV)
+global V_final = 90.0;  # Final value of membrane voltage when ramped (mV)
 
 # Toggle individual currents
 # Background
@@ -68,15 +68,15 @@ global step_K_o = false;
 
 # Initial conditions
 global V_0 = -130;
-# global V_0     =   -4.01315559950104e+01  # Initial membrane potential (mV)
-global Na_i_0  =    1.67452478768469e+00  # Initial internal sodium concentration (mM/l)
-global K_i_0   =    1.24242768688998e+02  # Initial internal potassium concentration (mM/l)
-global Ca_i_0  =    7.58655550348483e-07  # Initial internal calcium concentration (mM/l)
-global H_i_0   =    4.74596210414119e-10  # Initial internal hydrogen concentration (mM/l)
-global Cl_i_0  =    1.97985003926245e+01  # Initial internal chloride concentration (mM/l)
-global a_ur_0  =    3.64041469625946e-02
-global i_ur_0  =    9.99100845189512e-01
-global cal_0   =    3.18661258864229e-04
+global V_0     =   -6.17150137799178e+01 # Initial membrane potential (mV)
+global Na_i_0  =    1.22582880260390e+00 # Initial internal sodium concentration (mM/l)
+global K_i_0   =    1.16805063818441e+02 # Initial internal potassium concentration (mM/l)
+global Ca_i_0  =    1.20992489429946e-07 # Initial internal calcium concentration (mM/l)
+global H_i_0   =    3.47426156721507e-10 # Initial internal hydrogen concentration (mM/l)
+global Cl_i_0  =    8.86730503324653e+00 # Initial internal chloride concentration (mM/l)
+global a_ur_0  =    1.95403736678201e-04
+global i_ur_0  =    9.99896050539933e-01
+global cal_0   =    5.08345961310772e-05
 
 # Universal constants
 global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
@@ -149,7 +149,7 @@ global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 3.8;
+global Gmax = 3.8*1.5;
 global N_channel = 1.0;
 global E_K_Ca_act = 42;
 
