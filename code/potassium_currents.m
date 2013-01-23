@@ -88,7 +88,7 @@ function I_K_ATP = potassiumPump(V, K_i, K_o)
   global enable_I_K_ATP;
   if (enable_I_K_ATP == true)
     sigma   = 0.6;
-    g_0     = 30.95/400; # FIXME: Somewhat arbitrary. Scaled this down to match Zhou/Ferrero.
+    g_0     = 30.95/40; # FIXME: Somewhat arbitrary. Scaled this down to match Zhou/Ferrero.
     p_0     = 0.91;
     H_K_ATP = -0.001;
     K_m_ATP = 0.56;

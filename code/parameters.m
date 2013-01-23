@@ -38,7 +38,7 @@ global enable_I_Cl_b = true;
 # Pumps and exchangers
 global enable_I_NaK = true;
 global enable_I_NaCa = true;
-global enable_I_NaH = false;
+global enable_I_NaH = true;
 global enable_I_Ca_ATP = true;
 # Potassium currents
 global enable_I_K_ur = true;
@@ -68,15 +68,15 @@ global step_K_o = false;
 
 # Initial conditions
 global V_0 = -130;
-# global V_0     =   -4.75863743097170e+01  # Initial membrane potential (mV)
-global Na_i_0  =    2.73055502654269e+00  # Initial internal sodium concentration (mM/l)
-global K_i_0   =    1.21860007731790e+02  # Initial internal potassium concentration (mM/l)
-global Ca_i_0  =    10^(-7.9);  # Initial internal calcium concentration (mM/l)
-global H_i_0   =    7.73898887237425e-10  # Initial internal hydrogen concentration (mM/l)
-global Cl_i_0  =    1.32793659907740e+01  # Initial internal chloride concentration (mM/l)
-global a_ur_0  =    6.09460764069149e-03
-global i_ur_0  =    9.99573144230384e-01
-global cal_0   =    9.23204872241540e-04
+# global V_0     =   -4.01315559950104e+01  # Initial membrane potential (mV)
+global Na_i_0  =    1.67452478768469e+00  # Initial internal sodium concentration (mM/l)
+global K_i_0   =    1.24242768688998e+02  # Initial internal potassium concentration (mM/l)
+global Ca_i_0  =    7.58655550348483e-07  # Initial internal calcium concentration (mM/l)
+global H_i_0   =    4.74596210414119e-10  # Initial internal hydrogen concentration (mM/l)
+global Cl_i_0  =    1.97985003926245e+01  # Initial internal chloride concentration (mM/l)
+global a_ur_0  =    3.64041469625946e-02
+global i_ur_0  =    9.99100845189512e-01
+global cal_0   =    3.18661258864229e-04
 
 # Universal constants
 global R = 8314.472; # Universal gas constant (mJ K^-1 mol^-1)
@@ -101,7 +101,7 @@ global I_stim_bar = 0.0; # Stimulation current magnitude (pA)
 
 # Background conductances
 global g_Na_b_bar = 0.10;   # Background sodium leakage conductance (pS)
-global g_K_b_bar = 0.00;    # Background potassium leakage conductance (pS)
+global g_K_b_bar = 0.25;    # Background potassium leakage conductance (pS)
 global g_Cl_b_bar = 0.04;   # Background chloride leakage conductance (pS)
 
 # Constants related to the sodium-potassium pump
@@ -110,7 +110,7 @@ global K_NaK_K = 1.0;
 global K_NaK_Na = 11.0;
 
 # Constants related to the sodium-calcium exchanger
-global K_NaCa = 0.02*32;
+global K_NaCa = 0.02*8;
 global gamma_Na = 0.45;
 global d_NaCa = 0.0003;
 
@@ -130,7 +130,7 @@ global K_H_o = 1.62e-3;
 global N_NaH_channel = 4899;
 
 # Constants related to the calcium pump
-global I_Ca_ATP_bar = 4.0;
+global I_Ca_ATP_bar = 4.0*8;
 global k_Ca_ATP = 0.0002;
 
 # Constants related to the ultra-rapidly rectifying potassium channel
