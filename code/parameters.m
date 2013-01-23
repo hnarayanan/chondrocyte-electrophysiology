@@ -149,7 +149,7 @@ global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 3.8*1.5;
+global Gmax = 3.8*1.6;
 global N_channel = 1.0;
 global E_K_Ca_act = 42;
 
