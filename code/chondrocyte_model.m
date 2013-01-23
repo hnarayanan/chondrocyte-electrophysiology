@@ -40,7 +40,8 @@ function xdot = ode_rhs_parametrized(x, t, theta)
   Cl_i = x(6);
   a_ur = x(7);
   i_ur = x(8);
-  vol_i = x(9);
+  global vol_i_0;
+  vol_i = vol_i_0; #x(9); #FIXME: Fixing the volume while debugging
   cal   = x(10);
 
   # Define external concentrations
