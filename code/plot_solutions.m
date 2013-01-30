@@ -175,5 +175,5 @@ plot(t, vol_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid
 print -depslatexstandalone "../results/epslatex/t-vol_i.tex"
 plot(V, a_ur, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$a_{dr}$');
 print -depslatexstandalone "../results/epslatex/V-a_dr.tex"
-plot(V, 1/tau_a_ur, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$1/\tau_{a_{dr}}$');
+plot(V, tau_a_ur, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$\tau_{a_{dr}}$');
 print -depslatexstandalone "../results/epslatex/V-tau_a_dr.tex"
