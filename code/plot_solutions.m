@@ -31,12 +31,14 @@ V_ref_Ca_act = csvread('../data/reference_values/I_K_Ca_act_vs_Voltage.data')(:,
 I_ref_Ca_act = csvread('../data/reference_values/I_K_Ca_act_vs_Voltage.data')(:, 2);
 I_ref_Ca_act_int = interp1(V_ref_Ca_act, I_ref_Ca_act, V, 'extrap');
 
-V_ref_without_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_without_BUP.data')(:, 1);
-I_ref_without_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_without_BUP.data')(:, 2);
-V_ref_with_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_with_BUP.data')(:, 1);
-I_ref_with_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_with_BUP.data')(:, 2);
-I_ref_without_BUP_int = interp1(V_ref_without_BUP, I_ref_without_BUP, V);
-I_ref_with_BUP_int = interp1(V_ref_with_BUP, I_ref_with_BUP, V);
+# V_ref_without_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_without_BUP.data')(:, 1);
+# I_ref_without_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_without_BUP.data')(:, 2);
+# V_ref_with_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_with_BUP.data')(:, 1);
+# I_ref_with_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_with_BUP.data')(:, 2);
+# I_ref_without_BUP_int = interp1(V_ref_without_BUP, I_ref_without_BUP, V);
+# I_ref_with_BUP_int = interp1(V_ref_with_BUP, I_ref_with_BUP, V);
+
+I_K_2pore_ref = csvread('../data/reference_values/I_K_2pore.data');
 
 V_ref_without_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_without_DTX.data')(:, 1);
 I_ref_density_without_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_without_DTX.data')(:, 2);
@@ -215,9 +217,9 @@ set (gca, "xaxislocation", "zero");
 set (gca, "yaxislocation", "zero");
 box off;
 print -depslatexstandalone "../results/epslatex/V-I_K_ur.tex"
-plot(V, I_K_2pore,  'linewidth', line_width, 'color', blue);
+plot(I_K_2pore_ref(:, 1), I_K_2pore_ref(:, 2), '.', 'linewidth', line_width, 'color', red);
 hold on;
-plot(V, I_ref_without_BUP_int - I_ref_with_BUP_int, '1', 'linewidth', line_width, 'color', red);
+plot(V, I_K_2pore,  'linewidth', line_width, 'color', blue);
 hold off;
 set (gca, "xaxislocation", "zero");
 set (gca, "yaxislocation", "zero");
