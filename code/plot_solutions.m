@@ -141,7 +141,7 @@ print -depslatexstandalone "../results/epslatex/V-I_Cl_b.tex"
 
 # Plot the different pump and exchanger currents (t-I)
 plot(t, I_NaK,  'linewidth', line_width, 'color', blue);
-set (gca, "xaxislocation", "zero");
+set (gca, "xaxislocation", "bottom");
 set (gca, "yaxislocation", "zero");
 box off;
 print -depslatexstandalone "../results/epslatex/t-I_NaK.tex"
@@ -163,7 +163,7 @@ print -depslatexstandalone "../results/epslatex/t-I_Ca_ATP.tex"
 
 # Plot the different pump and exchanger currents (V-I)
 plot(V, I_NaK,  'linewidth', line_width, 'color', blue);
-set (gca, "xaxislocation", "zero");
+set (gca, "xaxislocation", "bottom");
 set (gca, "yaxislocation", "zero");
 box off;
 print -depslatexstandalone "../results/epslatex/V-I_NaK.tex"
@@ -301,6 +301,7 @@ set (gca, "yaxislocation", "zero");
 box off;
 print -depslatexstandalone "../results/epslatex/t-vol_i.tex"
 plot(V, a_ur, 'linewidth', line_width, 'color', blue);
+# axis ([-150 100 0 1])
 set (gca, "xaxislocation", "zero");
 set (gca, "yaxislocation", "zero");
 box off;
