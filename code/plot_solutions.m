@@ -17,10 +17,10 @@ red =  [1.00, 0.17, 0.00];
 h = figure(1, 'visible', 'off');
 set (h,'papertype', '<custom>')
 set (h,'paperunits', 'inches');
-set (h,'papersize', [3.25 2.5])
-set (h,'paperposition', [0, 0, [3.25 2.5]])
+set (h,'papersize', [3.25 3.25])
+set (h,'paperposition', [0, 0, [3.25 3.25]])
 set (h,'defaultaxesposition', [0.23, 0.20, 0.71, 0.71])
-set (0,'defaultaxesfontsize', 20)
+set (h,'defaultaxesfontsize', 12)
 
 # Load reference solutions
 V_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 1);
@@ -53,127 +53,259 @@ I_ref_with_SB488_int = interp1(V_ref_with_SB488, I_ref_with_SB488, V);
 I_ref_with_SB488_and_SB779_int = interp1(V_ref_with_SB488_and_SB779, I_ref_with_SB488_and_SB779, V);
 
 # Plot the membrane voltage and total currents
-plot(t, V, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$V_{\mathrm{m}}\,(mV)$');
+plot(t, V, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$V_{\mathrm{m}}\,(mV)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-V.tex"
-plot(t, I_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{i}}\,(pA)$');
+plot(t, I_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{i}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_i.tex"
-plot(V(5:end), I_i(5:end)/C_m, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{i}}/C_{\mathrm{m}}\,(pA/pF)$');
+plot(V(5:end), I_i(5:end)/C_m, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{i}}/C_{\mathrm{m}}\,(pA/pF)$');
 hold on;
 plot(V_ref, I_i_by_C_m_ref, '1', 'linewidth', line_width, 'color', red);
 hold off;
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_i_by_Cm.tex"
 
 # Plot the different concentrations
-plot(t, Na_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[Na^{+}]_{\mathrm{i}}\,(mM/l)$');
+plot(t, Na_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$[Na^{+}]_{\mathrm{i}}\,(mM/l)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-Na_i.tex"
-plot(t, K_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[K^{+}]_{\mathrm{i}}\,(mM/l)$');
+plot(t, K_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$[K^{+}]_{\mathrm{i}}\,(mM/l)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-K_i.tex"
-plot(t, Ca_i*1.e6, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[Ca^{2+}]_{\mathrm{i}}\,(10^{-6}~mM/l)$');
+plot(t, Ca_i*1.e6, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$[Ca^{2+}]_{\mathrm{i}}\,(10^{-6}~mM/l)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-Ca_i.tex"
-plot(t, H_i*1.e10,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[H^{+}]_{\mathrm{i}}\,(10^{-10}~mM/l)$');
+plot(t, H_i*1.e10,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$[H^{+}]_{\mathrm{i}}\,(10^{-10}~mM/l)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-H_i.tex"
-plot(t, Cl_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[Cl^{-}]_{\mathrm{i}}\,(mM/l)$');
+plot(t, Cl_i,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$[Cl^{-}]_{\mathrm{i}}\,(mM/l)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-Cl_i.tex"
-plot(t, cal,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$cal$');
+plot(t, cal,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$cal$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-cal.tex"
 
 # Plot the different background currents (t-I)
-plot(t, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{Na_{b}}}\,(pA)$');
+plot(t, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{Na_{b}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_Na_b.tex"
-plot(t, I_K_b,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{K_{b}}}\,(pA)$');
+plot(t, I_K_b,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{K_{b}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_K_b.tex"
-plot(t, I_Cl_b, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{Cl_{b}}}\,(pA)$');
+plot(t, I_Cl_b, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{Cl_{b}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_Cl_b.tex"
 
 # Plot the different background currents (V-I)
-plot(V, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{Na_{b}}}\,(pA)$');
+plot(V, I_Na_b, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{Na_{b}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_Na_b.tex"
-plot(V, I_K_b,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{b}}}\,(pA)$');
+plot(V, I_K_b,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{K_{b}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_K_b.tex"
-plot(V, I_Cl_b, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{Cl_{b}}}\,(pA)$');
+plot(V, I_Cl_b, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{Cl_{b}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_Cl_b.tex"
 
 # Plot the different pump and exchanger currents (t-I)
-plot(t, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{NaK}}\,(pA)$');
+plot(t, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{NaK}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_NaK.tex"
-plot(t, I_NaCa, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{NaCa}}\,(pA)$');
+plot(t, I_NaCa, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{NaCa}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_NaCa.tex"
-plot(t, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{NaH}}\,(pA)$');
+plot(t, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{NaH}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_NaH.tex"
-plot(t, I_Ca_ATP,    'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{Ca_{ATP}}}\,(pA)$');
+plot(t, I_Ca_ATP,    'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{Ca_{ATP}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_Ca_ATP.tex"
 
 # Plot the different pump and exchanger currents (V-I)
-plot(V, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaK}}\,(pA)$');
+plot(V, I_NaK,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{NaK}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_NaK.tex"
-plot(V(5:end), I_NaCa(5:end), 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaCa}}\,(pA)$');
+plot(V(5:end), I_NaCa(5:end), 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{NaCa}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_NaCa.tex"
-plot(V, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{NaH}}\,(pA)$');
+plot(V, I_NaH,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{NaH}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_NaH.tex"
-plot(V, I_Ca_ATP,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{Ca_{ATP}}}\,(pA)$');
+plot(V, I_Ca_ATP,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{Ca_{ATP}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_Ca_ATP.tex"
 
 # Plot the other potassium currents (t-I)
-plot(t, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{K_{dr}}}\,(pA)$');
+plot(t, I_K_ur,     'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{K_{dr}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_K_ur.tex"
-plot(t, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{K_{2pore}}}\,(pA)$');
+plot(t, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{K_{2pore}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_K_2pore.tex"
-plot(t, I_K_Ca_act, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{K_{Ca-act}}}\,(pA)$');
+plot(t, I_K_Ca_act, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{K_{Ca-act}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_K_Ca_act.tex"
-plot(t, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm{K_{ATP}}}\,(pA)$');
+plot(t, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm{K_{ATP}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_K_ATP.tex"
 
 # Plot the other potassium currents (V-I)
-plot(V(10:end), I_K_ur(10:end),     'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{dr}}}\,(pA)$');
+plot(V(10:end), I_K_ur(10:end),     'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{K_{dr}}}\,(pA)$');
 hold on;
 # plot(V(5:end-137), I_ref_without_DTX_int(5:end-137) - I_ref_with_DTX_int(5:end-137), '1', 'linewidth', line_width, 'color', red);
 plot(V, I_K_ur_ref, '1', 'linewidth', line_width, 'color', red);
 hold off;
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_K_ur.tex"
-plot(V, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{2pore}}}\,(pA)$');
+plot(V, I_K_2pore,  'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{K_{2pore}}}\,(pA)$');
 hold on;
 plot(V, I_ref_without_BUP_int - I_ref_with_BUP_int, '1', 'linewidth', line_width, 'color', red);
 hold off;
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_K_2pore.tex"
-plot(V, I_K_Ca_act, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{Ca-act}}}\,(pA)$');
+plot(V, I_K_Ca_act, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{K_{Ca-act}}}\,(pA)$');
 hold on;
 plot(V, I_ref_Ca_act_int, '1', 'linewidth', line_width, 'color', red);
 hold off;
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_K_Ca_act.tex"
-plot(V, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm{K_{ATP}}}\,(pA)$');
+plot(V, I_K_ATP,    'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm{K_{ATP}}}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_K_ATP.tex"
 
 # Plot the other currents (t-I)
-plot(t, I_stim, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm stim}\,(pA)$');
+plot(t, I_stim, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm stim}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_stim.tex"
-plot(t, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm ASIC}\,(pA)$');
+plot(t, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm ASIC}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_ASIC.tex"
-plot(t, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm TRP1}\,(pA)$');
+plot(t, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm TRP1}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_TRP1.tex"
-plot(t, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$I_{\mathrm TRP2}\,(pA)$');
+plot(t, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$I_{\mathrm TRP2}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-I_TRP2.tex"
 
 # Plot the other currents (V-I)
-plot(V, I_stim, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm stim}\,(pA)$');
+plot(V, I_stim, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm stim}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_stim.tex"
-plot(V, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm ASIC}\,(pA)$');
+plot(V, I_ASIC, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm ASIC}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_ASIC.tex"
-plot(V, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm TRPv4}\,(pA)$');
+plot(V, I_TRP1, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm TRPv4}\,(pA)$');
 hold on;
 plot(V, (I_ref_with_SB488_int - I_ref_with_SB488_and_SB779_int)*C_m/14.5, '1', 'linewidth', line_width, 'color', red);
 hold off;
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_TRP1.tex"
-plot(V, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$I_{\mathrm TRP2}\,(pA)$');
+plot(V, I_TRP2, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$I_{\mathrm TRP2}\,(pA)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-I_TRP2.tex"
 
 # Some special plots of interest
-plot(K_o, V, 'linewidth', line_width, 'color', blue), xlabel('$[K^{+}]_{\mathrm{o}}\,(mM/l)$'), grid(), ylabel('$V_{\mathrm{m}}\,(mV)$');
+plot(K_o, V, 'linewidth', line_width, 'color', blue), xlabel('$[K^{+}]_{\mathrm{o}}\,(mM/l)$'), ylabel('$V_{\mathrm{m}}\,(mV)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/K_o-V.tex"
-plot(t, K_o, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$[K^{+}]_{\mathrm{o}}\,(mM/l)$');
+plot(t, K_o, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$[K^{+}]_{\mathrm{o}}\,(mM/l)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-K_o.tex"
-plot(t, vol_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), grid(), ylabel('$vol_{i}\,(cm^3)$');
+plot(t, vol_i, 'linewidth', line_width, 'color', blue), xlabel('$t\,(s)$'), ylabel('$vol_{i}\,(cm^3)$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/t-vol_i.tex"
-plot(V, a_ur, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$a_{dr}$');
+plot(V, a_ur, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$a_{dr}$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-a_dr.tex"
-plot(V, tau_a_ur, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), grid(), ylabel('$\tau_{a_{dr}}$');
+plot(V, tau_a_ur, 'linewidth', line_width, 'color', blue), xlabel('$V_{m}\,(mV)$'), ylabel('$\tau_{a_{dr}}$');
+set (gca, "xaxislocation", "zero");
+set (gca, "yaxislocation", "zero");
+box off;
 print -depslatexstandalone "../results/epslatex/V-tau_a_dr.tex"
