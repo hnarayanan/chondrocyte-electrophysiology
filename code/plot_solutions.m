@@ -27,26 +27,8 @@ set (0,'defaultaxesfontsize', 14);
 V_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 1);
 I_i_by_C_m_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 2);
 
-V_ref_Ca_act = csvread('../data/reference_values/I_K_Ca_act_vs_Voltage.data')(:, 1);
-I_ref_Ca_act = csvread('../data/reference_values/I_K_Ca_act_vs_Voltage.data')(:, 2);
-I_ref_Ca_act_int = interp1(V_ref_Ca_act, I_ref_Ca_act, V, 'extrap');
-
-# V_ref_without_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_without_BUP.data')(:, 1);
-# I_ref_without_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_without_BUP.data')(:, 2);
-# V_ref_with_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_with_BUP.data')(:, 1);
-# I_ref_with_BUP = csvread('../data/reference_values/Total_Current_vs_Voltage_with_BUP.data')(:, 2);
-# I_ref_without_BUP_int = interp1(V_ref_without_BUP, I_ref_without_BUP, V);
-# I_ref_with_BUP_int = interp1(V_ref_with_BUP, I_ref_with_BUP, V);
-
 I_K_2pore_ref = csvread('../data/reference_values/I_K_2pore.data');
-
-V_ref_without_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_without_DTX.data')(:, 1);
-I_ref_density_without_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_without_DTX.data')(:, 2);
-V_ref_with_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_with_DTX.data')(:, 1);
-I_ref_density_with_DTX = csvread('../data/reference_values/Total_Current_Density_vs_Voltage_with_DTX.data')(:, 2);
-
-I_ref_without_DTX_int = interp1(V_ref_without_DTX, I_ref_density_without_DTX, V)*C_m;
-I_ref_with_DTX_int = interp1(V_ref_with_DTX, I_ref_density_with_DTX, V)*C_m;
+I_K_Ca_act_ref = csvread('../data/reference_values/I_K_Ca_act.data');
 
 V_ref_with_SB488 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488.data')(:, 1);
 I_ref_with_SB488 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488.data')(:, 2);
@@ -210,7 +192,6 @@ print -depslatexstandalone "../results/epslatex/t-I_K_ATP.tex"
 # Plot the other potassium currents (V-I)
 plot(V(10:end), I_K_ur(10:end),     'linewidth', line_width, 'color', blue);
 hold on;
-# plot(V(5:end-137), I_ref_without_DTX_int(5:end-137) - I_ref_with_DTX_int(5:end-137), '1', 'linewidth', line_width, 'color', red);
 plot(V, I_K_ur_ref, '1', 'linewidth', line_width, 'color', red);
 hold off;
 set (gca, "xaxislocation", "zero");
@@ -225,9 +206,9 @@ set (gca, "xaxislocation", "zero");
 set (gca, "yaxislocation", "zero");
 box off;
 print -depslatexstandalone "../results/epslatex/V-I_K_2pore.tex"
-plot(V, I_K_Ca_act, 'linewidth', line_width, 'color', blue);
+plot(I_K_Ca_act_ref(:, 1), I_K_Ca_act_ref(:, 2), '.', 'linewidth', line_width, 'color', red);
 hold on;
-plot(V, I_ref_Ca_act_int, '1', 'linewidth', line_width, 'color', red);
+plot(V, I_K_Ca_act, 'linewidth', line_width, 'color', blue);
 hold off;
 set (gca, "xaxislocation", "zero");
 set (gca, "yaxislocation", "zero");
