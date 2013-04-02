@@ -39,7 +39,6 @@ set (gca, "xaxislocation", "zero");
 set (gca, "yaxislocation", "zero");
 box off;
 print -depslatexstandalone "../results/epslatex/t-I_i.tex"
-# plot(V_ref, I_i_by_C_m_ref, '1', 'linewidth', line_width, 'color', red);
 h1 = errorbar(I_i_by_Cm_ref(:, 1), I_i_by_Cm_ref(:, 2), I_i_by_Cm_ref(:, 3));
 set(h1(1), "color", red)
 set(h1(1), "linewidth", line_width)
