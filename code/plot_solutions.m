@@ -23,10 +23,7 @@ set (h, "papersize", papersize);
 set (h, "paperposition", [0.25 0.25, papersize - 0.5]);
 set (0,'defaultaxesfontsize', 14);
 
-# Load reference solutions
-V_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 1);
-I_i_by_C_m_ref = csvread('../data/reference_values/Total_Current_Density_vs_Membrane_Voltage.data')(:, 2);
-
+I_i_by_Cm_ref = csvread('../data/reference_values/I_i.data');
 I_K_2pore_ref = csvread('../data/reference_values/I_K_2pore.data');
 I_K_Ca_act_ref = csvread('../data/reference_values/I_K_Ca_act.data');
 I_TRPv4_ref = csvread('../data/reference_values/I_TRPv4.data');
@@ -42,15 +39,24 @@ set (gca, "xaxislocation", "zero");
 set (gca, "yaxislocation", "zero");
 box off;
 print -depslatexstandalone "../results/epslatex/t-I_i.tex"
-plot(V(5:end), I_i(5:end)/C_m, 'linewidth', line_width, 'color', blue);
+# plot(V_ref, I_i_by_C_m_ref, '1', 'linewidth', line_width, 'color', red);
+h1 = errorbar(I_i_by_Cm_ref(:, 1), I_i_by_Cm_ref(:, 2), I_i_by_Cm_ref(:, 3));
+set(h1(1), "color", red)
+set(h1(1), "linewidth", line_width)
 hold on;
-plot(V_ref, I_i_by_C_m_ref, '1', 'linewidth', line_width, 'color', red);
+plot(V(5:end), I_i(5:end)/C_m, 'linewidth', line_width, 'color', blue);
 hold off;
 set (gca, "xaxislocation", "zero");
 set (gca, "yaxislocation", "zero");
 box off;
 print -depslatexstandalone "../results/epslatex/V-I_i_by_Cm.tex"
-
+V_comp = V(5:end);
+I_i_by_C_m = I_i(5:end)/C_m;
+if (enable_I_TRP1 == false)
+  save computation_no_TRP V_comp I_i_by_C_m;
+else
+  save computation_TRP V_comp I_i_by_C_m;
+endif
 # Plot the different concentrations
 plot(t, Na_i, 'linewidth', line_width, 'color', blue);
 set (gca, "xaxislocation", "zero");
