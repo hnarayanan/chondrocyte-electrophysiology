@@ -101,7 +101,7 @@ global I_stim_bar = 0.0; # Stimulation current magnitude (pA)
 
 # Background conductances
 global g_Na_b_bar = 0.10;   # Background sodium leakage conductance (pS)
-global g_K_b_bar = 0.10;    # Background potassium leakage conductance (pS)
+global g_K_b_bar = 0.25;    # Background potassium leakage conductance (pS)
 global g_Cl_b_bar = 0.04;   # Background chloride leakage conductance (pS)
 
 # Constants related to the sodium-potassium pump
@@ -149,7 +149,7 @@ global KDc = 3e-6;
 global C = 8;
 global D = 25;
 global E = 2.4;
-global Gmax = 3.8*2.0;
+global Gmax = 3.8*2.4;
 global N_channel = 1.0;
 global E_K_Ca_act = 42;
 
