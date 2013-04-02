@@ -29,13 +29,7 @@ I_i_by_C_m_ref = csvread('../data/reference_values/Total_Current_Density_vs_Memb
 
 I_K_2pore_ref = csvread('../data/reference_values/I_K_2pore.data');
 I_K_Ca_act_ref = csvread('../data/reference_values/I_K_Ca_act.data');
-
-V_ref_with_SB488 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488.data')(:, 1);
-I_ref_with_SB488 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488.data')(:, 2);
-V_ref_with_SB488_and_SB779 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488_and_SB779.data')(:, 1);
-I_ref_with_SB488_and_SB779 = csvread('../data/reference_values/Total_Current_vs_Voltage_with_SB488_and_SB779.data')(:, 2);
-I_ref_with_SB488_int = interp1(V_ref_with_SB488, I_ref_with_SB488, V);
-I_ref_with_SB488_and_SB779_int = interp1(V_ref_with_SB488_and_SB779, I_ref_with_SB488_and_SB779, V);
+I_TRPv4_ref = csvread('../data/reference_values/I_TRPv4.data');
 
 # Plot the membrane voltage and total currents
 plot(t, V, 'linewidth', line_width, 'color', blue);
@@ -253,9 +247,9 @@ set (gca, "xaxislocation", "zero");
 set (gca, "yaxislocation", "zero");
 box off;
 print -depslatexstandalone "../results/epslatex/V-I_ASIC.tex"
-plot(V, I_TRP1, 'linewidth', line_width, 'color', blue);
+plot(I_TRPv4_ref(:, 1), I_TRPv4_ref(:, 2), '.', 'linewidth', line_width, 'color', red);
 hold on;
-plot(V, (I_ref_with_SB488_int - I_ref_with_SB488_and_SB779_int)*C_m/14.5, '1', 'linewidth', line_width, 'color', red);
+plot(V, I_TRP1, 'linewidth', line_width, 'color', blue);
 hold off;
 set (gca, "xaxislocation", "zero");
 set (gca, "yaxislocation", "zero");
